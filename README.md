@@ -7,7 +7,7 @@ Then from the data it has calculated, DRP provides alternative dinner recipes to
 
 ## 📝 Project Documentation
   
-Documentation release at <https://docs.google.com/document/d/19eme33Eqof6gKPaSoKwPhVjzJhsyVXQID_I7lZX6Hfs)>.
+Documentation release at <https://docs.google.com/document/d/19eme33Eqof6gKPaSoKwPhVjzJhsyVXQID_I7lZX6Hfs/edit>.
 
 ## ⭐️ Current project team members 
 
