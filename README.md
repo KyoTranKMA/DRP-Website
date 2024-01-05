@@ -5,17 +5,16 @@ Daily Recipes Provider (DRP) is a web-application, which daily provides users nu
 
 Then from the data it has calculated, DRP provides alternative dinner recipes to users for their meals. In this way, people have no more worries about what they have to eat to balance their body nutrition and reduce many kinds of diseases related to uncontrolled-eating.
 
+## 📝 Project Documentation
+  
+Documentation release at <https://docs.google.com/document/d/19eme33Eqof6gKPaSoKwPhVjzJhsyVXQID_I7lZX6Hfs)>.
 
-#### Project documentation
-
-Documentation for the latest Current release is at <[https://nodejs.org/api/](https://docs.google.com/document/d/19eme33Eqof6gKPaSoKwPhVjzJhsyVXQID_I7lZX6Hfs)>.
-
-* [Current project team members](#current-project-team-members)
+## ⭐️ Current project team members 
 
   * [John](https://github.com/JohnNaeder) -
-    **Mạch Tiến Duy** <<duhamelantoine1995@gmail.com>> (he/him)
+    **Mạch Tiến Duy**  <<duhamelantoine1995@gmail.com>> (he/him)
   * [Kyo](https://github.com/kyoTran1009) -
-    **Trần Quang Diệu <<quangdieu1009@gmail.com>> (he/him)
+    **Trần Quang Diệu** <<quangdieu1009@gmail.com>> (he/him)
   * [Maris](https://github.com/maris-git) -
     **Võ Thị Bích Tuyền** <<vtbtuyen2222004@gmail.com>> (she/her)
   * [Yên](https://github.com/lethanhyen-work) -
