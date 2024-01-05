@@ -12,7 +12,7 @@ Documentation release at <https://docs.google.com/document/d/19eme33Eqof6gKPaSoK
 ## ⭐️ Current project team members 
 
   * [John](https://github.com/JohnNaeder) -
-    **Mạch Tiến Duy**  <<duhamelantoine1995@gmail.com>> (he/him)
+    **Mạch Tiến Duy**  <<johnnaeder6537@gmail.com>> (he/him)
   * [Kyo](https://github.com/kyoTran1009) -
     **Trần Quang Diệu** <<quangdieu1009@gmail.com>> (he/him)
   * [Maris](https://github.com/maris-git) -
