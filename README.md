@@ -1,2 +1,3 @@
 # DRP
-Web
+Daily Recipe Provider
+
