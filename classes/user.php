@@ -12,20 +12,21 @@
             $sql = "select * from user where username=:username";
 
             $stmt = $connection->prepare($sql);
-            $stmt->bindValue('::username',$username, PDO::PARAM_STR);
+            $stmt->bindValue(':username',$username, PDO::PARAM_STR);
             $stmt->setFetchMode(PDO::FETCH_CLASS, 'User');
-            $stmt->excute();
+            $stmt->execute();
             $user = $stmt->fetch();
 
             if($user)
             {
-                $hash = $user->$password;
+                $hash = $user->password;
                 // Check password input with password Hash
                 return password_verify($password, $hash);
 
             }
 
-
+            // Return false if the user not found 
+            return false;
 
         }
     }
