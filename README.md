@@ -12,4 +12,4 @@ Second, Make sure that $DB_USER has the necessary privileges to connect to the d
 
 Final, $DB_NAME, $DB_USER, $DB_PASSWORD in DataBase which privileged must be the same with in utils/config.php/
 
-DB_SOCKET can other PATH in your PC
+ !!!DB_SOCKET can other PATH in your PC!!!
