@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2024-01-07T06:38:28.852Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36 OPR/105.0.0.0" etag="-sVIJBMbfVNZXlXGcnA7" version="22.1.17" type="github">
+<mxfile host="app.diagrams.net" modified="2024-01-07T06:39:22.994Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36 OPR/105.0.0.0" etag="V_6aKEK6CgiWJen8LZYt" version="22.1.17" type="github">
   <diagram name="Page-1" id="9f46799a-70d6-7492-0946-bef42562c5a5">
     <mxGraphModel dx="696" dy="1106" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1000" pageHeight="700" background="none" math="0" shadow="0">
       <root>
@@ -280,7 +280,7 @@
         <mxCell id="PtKEEvkuK-J1Ukp3apgT-3" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="78961159f06e98e8-34" target="78961159f06e98e8-27">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="PtKEEvkuK-J1Ukp3apgT-7" value="&lt;b&gt;Note&lt;/b&gt;:&amp;nbsp;&lt;br&gt;&amp;nbsp; - If an attribute is defined with &lt;b&gt;_ID_&amp;nbsp;&lt;/b&gt;or &lt;b&gt;_KEY_ &lt;/b&gt;then that is unique in all class instances and can not be matched.&amp;nbsp;&lt;br&gt;&amp;nbsp; - If an attribute is defined with &lt;b&gt;_CONSTANT_ &lt;/b&gt;then that can not be changed in any case" style="rounded=1;html=1;fillColor=#E0FFC2;align=left;labelBackgroundColor=none;whiteSpace=wrap;spacing=3;spacingLeft=5;glass=0;shadow=1;" vertex="1" parent="1">
+        <mxCell id="PtKEEvkuK-J1Ukp3apgT-7" value="&lt;b&gt;Note&lt;/b&gt;:&amp;nbsp;&lt;br&gt;&amp;nbsp; - Every first letter of class name will be an Uppercase and lowercase for primitive&amp;nbsp;&lt;br&gt;&amp;nbsp; - If an attribute is defined with &lt;b&gt;_ID_&amp;nbsp;&lt;/b&gt;or &lt;b&gt;_KEY_ &lt;/b&gt;then that is unique in all class instances and can not be matched.&amp;nbsp;&lt;br&gt;&amp;nbsp; - If an attribute is defined with &lt;b&gt;_CONSTANT_ &lt;/b&gt;then that can not be changed in any case" style="rounded=1;html=1;fillColor=#E0FFC2;align=left;labelBackgroundColor=none;whiteSpace=wrap;spacing=3;spacingLeft=5;glass=0;shadow=1;" vertex="1" parent="1">
           <mxGeometry x="390" y="-210" width="270" height="130" as="geometry" />
         </mxCell>
       </root>
