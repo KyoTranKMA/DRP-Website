@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2024-01-07T06:35:28.918Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36 OPR/105.0.0.0" etag="sFsa64DhlCErKyI_eWLp" version="22.1.17" type="github">
+<mxfile host="app.diagrams.net" modified="2024-01-07T06:38:28.852Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36 OPR/105.0.0.0" etag="-sVIJBMbfVNZXlXGcnA7" version="22.1.17" type="github">
   <diagram name="Page-1" id="9f46799a-70d6-7492-0946-bef42562c5a5">
-    <mxGraphModel dx="917" dy="1235" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1000" pageHeight="700" background="none" math="0" shadow="0">
+    <mxGraphModel dx="696" dy="1106" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1000" pageHeight="700" background="none" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -15,10 +15,10 @@
         <mxCell id="78961159f06e98e8-17" value="User" style="swimlane;html=1;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;swimlaneFillColor=#ffffff;rounded=1;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fillColor=none;fontFamily=Verdana;fontSize=12;" parent="1" vertex="1">
           <mxGeometry x="100" y="83" width="150" height="147" as="geometry" />
         </mxCell>
-        <mxCell id="78961159f06e98e8-21" value="username _CHAR(255)&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;whiteSpace=wrap;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;labelBackgroundColor=none;rounded=1;" parent="78961159f06e98e8-17" vertex="1">
+        <mxCell id="78961159f06e98e8-21" value="username char[255]&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;whiteSpace=wrap;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;labelBackgroundColor=none;rounded=1;" parent="78961159f06e98e8-17" vertex="1">
           <mxGeometry y="26" width="150" height="26" as="geometry" />
         </mxCell>
-        <mxCell id="78961159f06e98e8-23" value="password _CHAR(255)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;whiteSpace=wrap;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;labelBackgroundColor=none;rounded=1;" parent="78961159f06e98e8-17" vertex="1">
+        <mxCell id="78961159f06e98e8-23" value="password char[255]" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;whiteSpace=wrap;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;labelBackgroundColor=none;rounded=1;" parent="78961159f06e98e8-17" vertex="1">
           <mxGeometry y="52" width="150" height="26" as="geometry" />
         </mxCell>
         <mxCell id="78961159f06e98e8-19" value="" style="line;html=1;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;labelBackgroundColor=none;rounded=1;" parent="78961159f06e98e8-17" vertex="1">
@@ -36,10 +36,10 @@
         <mxCell id="78961159f06e98e8-30" value="ForSingle" style="swimlane;html=1;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;swimlaneFillColor=#ffffff;rounded=1;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fillColor=none;fontFamily=Verdana;fontSize=12;" parent="1" vertex="1">
           <mxGeometry x="430" y="83" width="160" height="277" as="geometry" />
         </mxCell>
-        <mxCell id="78961159f06e98e8-31" value="- profileName _CHAR(" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;whiteSpace=wrap;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;labelBackgroundColor=none;rounded=1;" parent="78961159f06e98e8-30" vertex="1">
+        <mxCell id="78961159f06e98e8-31" value="+ profileName&amp;nbsp; char[255]" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;whiteSpace=wrap;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;labelBackgroundColor=none;rounded=1;" parent="78961159f06e98e8-30" vertex="1">
           <mxGeometry y="26" width="160" height="26" as="geometry" />
         </mxCell>
-        <mxCell id="78961159f06e98e8-32" value="+ field: type" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;whiteSpace=wrap;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;labelBackgroundColor=none;rounded=1;" parent="78961159f06e98e8-30" vertex="1">
+        <mxCell id="78961159f06e98e8-32" value="+ personalInfo _I" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;whiteSpace=wrap;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;labelBackgroundColor=none;rounded=1;" parent="78961159f06e98e8-30" vertex="1">
           <mxGeometry y="52" width="160" height="26" as="geometry" />
         </mxCell>
         <mxCell id="78961159f06e98e8-33" value="+ field: type" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;whiteSpace=wrap;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;labelBackgroundColor=none;rounded=1;" parent="78961159f06e98e8-30" vertex="1">
@@ -280,8 +280,8 @@
         <mxCell id="PtKEEvkuK-J1Ukp3apgT-3" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="78961159f06e98e8-34" target="78961159f06e98e8-27">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="PtKEEvkuK-J1Ukp3apgT-7" value="&lt;b&gt;Note&lt;/b&gt;:&amp;nbsp;&lt;br&gt;&amp;nbsp; -&amp;nbsp;&lt;br&gt;&amp;nbsp; - If an attribute is defined with &lt;b&gt;_ID_&amp;nbsp;&lt;/b&gt;or &lt;b&gt;_KEY_ &lt;/b&gt;then that is unique in all class instances and can not be matched.&amp;nbsp;&lt;br&gt;&amp;nbsp; - If an attribute is defined with &lt;b&gt;_CONSTANT_ &lt;/b&gt;then that can not be changed in any case" style="rounded=1;html=1;fillColor=#E0FFC2;align=left;labelBackgroundColor=none;whiteSpace=wrap;spacing=3;spacingLeft=5;glass=0;shadow=1;" vertex="1" parent="1">
-          <mxGeometry x="400" y="-210" width="270" height="130" as="geometry" />
+        <mxCell id="PtKEEvkuK-J1Ukp3apgT-7" value="&lt;b&gt;Note&lt;/b&gt;:&amp;nbsp;&lt;br&gt;&amp;nbsp; - If an attribute is defined with &lt;b&gt;_ID_&amp;nbsp;&lt;/b&gt;or &lt;b&gt;_KEY_ &lt;/b&gt;then that is unique in all class instances and can not be matched.&amp;nbsp;&lt;br&gt;&amp;nbsp; - If an attribute is defined with &lt;b&gt;_CONSTANT_ &lt;/b&gt;then that can not be changed in any case" style="rounded=1;html=1;fillColor=#E0FFC2;align=left;labelBackgroundColor=none;whiteSpace=wrap;spacing=3;spacingLeft=5;glass=0;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="390" y="-210" width="270" height="130" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
