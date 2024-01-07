@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2024-01-07T06:39:37.208Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36 OPR/105.0.0.0" etag="3gtQktijNGOKyhwpRFUV" version="22.1.17" type="github">
+<mxfile host="app.diagrams.net" modified="2024-01-07T06:44:49.106Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36 OPR/105.0.0.0" etag="p9qbYSJOU38qB552oO_H" version="22.1.17" type="github">
   <diagram name="Page-1" id="9f46799a-70d6-7492-0946-bef42562c5a5">
     <mxGraphModel dx="696" dy="1106" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1000" pageHeight="700" background="none" math="0" shadow="0">
       <root>
@@ -34,37 +34,25 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="78961159f06e98e8-30" value="ForSingle" style="swimlane;html=1;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;swimlaneFillColor=#ffffff;rounded=1;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fillColor=none;fontFamily=Verdana;fontSize=12;" parent="1" vertex="1">
-          <mxGeometry x="430" y="83" width="160" height="277" as="geometry" />
+          <mxGeometry x="430" y="73" width="160" height="277" as="geometry" />
         </mxCell>
         <mxCell id="78961159f06e98e8-31" value="+ profileName&amp;nbsp; char[255]" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;whiteSpace=wrap;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;labelBackgroundColor=none;rounded=1;" parent="78961159f06e98e8-30" vertex="1">
           <mxGeometry y="26" width="160" height="26" as="geometry" />
         </mxCell>
-        <mxCell id="78961159f06e98e8-32" value="+ personalInfo _I" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;whiteSpace=wrap;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;labelBackgroundColor=none;rounded=1;" parent="78961159f06e98e8-30" vertex="1">
+        <mxCell id="78961159f06e98e8-32" value="+ personalInfo Info" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;whiteSpace=wrap;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;labelBackgroundColor=none;rounded=1;" parent="78961159f06e98e8-30" vertex="1">
           <mxGeometry y="52" width="160" height="26" as="geometry" />
         </mxCell>
-        <mxCell id="78961159f06e98e8-33" value="+ field: type" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;whiteSpace=wrap;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;labelBackgroundColor=none;rounded=1;" parent="78961159f06e98e8-30" vertex="1">
-          <mxGeometry y="78" width="160" height="26" as="geometry" />
-        </mxCell>
-        <mxCell id="78961159f06e98e8-34" value="+ field: type" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;whiteSpace=wrap;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;labelBackgroundColor=none;rounded=1;" parent="78961159f06e98e8-30" vertex="1">
-          <mxGeometry y="104" width="160" height="26" as="geometry" />
-        </mxCell>
-        <mxCell id="78961159f06e98e8-36" value="+ field: type" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;whiteSpace=wrap;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;labelBackgroundColor=none;rounded=1;" parent="78961159f06e98e8-30" vertex="1">
-          <mxGeometry y="130" width="160" height="26" as="geometry" />
-        </mxCell>
-        <mxCell id="78961159f06e98e8-37" value="+ field: type" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;whiteSpace=wrap;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;labelBackgroundColor=none;rounded=1;" parent="78961159f06e98e8-30" vertex="1">
-          <mxGeometry y="156" width="160" height="26" as="geometry" />
-        </mxCell>
         <mxCell id="78961159f06e98e8-38" value="" style="line;html=1;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;labelBackgroundColor=none;rounded=1;" parent="78961159f06e98e8-30" vertex="1">
-          <mxGeometry y="182" width="160" height="8" as="geometry" />
+          <mxGeometry y="78" width="160" height="8" as="geometry" />
         </mxCell>
         <mxCell id="78961159f06e98e8-39" value="+ method(type): type" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;whiteSpace=wrap;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;labelBackgroundColor=none;rounded=1;" parent="78961159f06e98e8-30" vertex="1">
-          <mxGeometry y="190" width="160" height="26" as="geometry" />
+          <mxGeometry y="86" width="160" height="26" as="geometry" />
         </mxCell>
         <mxCell id="78961159f06e98e8-40" value="+ method(type): type" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;whiteSpace=wrap;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;labelBackgroundColor=none;rounded=1;" parent="78961159f06e98e8-30" vertex="1">
-          <mxGeometry y="216" width="160" height="26" as="geometry" />
+          <mxGeometry y="112" width="160" height="26" as="geometry" />
         </mxCell>
         <mxCell id="78961159f06e98e8-42" value="+ method(type): type" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;whiteSpace=wrap;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;labelBackgroundColor=none;rounded=1;" parent="78961159f06e98e8-30" vertex="1">
-          <mxGeometry y="242" width="160" height="26" as="geometry" />
+          <mxGeometry y="138" width="160" height="26" as="geometry" />
         </mxCell>
         <mxCell id="78961159f06e98e8-43" value="Classname" style="swimlane;html=1;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;swimlaneFillColor=#ffffff;rounded=1;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fillColor=none;fontFamily=Verdana;fontSize=12;" parent="1" vertex="1">
           <mxGeometry x="740" y="83" width="160" height="197" as="geometry" />
@@ -259,13 +247,8 @@
         <mxCell id="78961159f06e98e8-120" value="+ method(type): type" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;whiteSpace=wrap;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;labelBackgroundColor=none;rounded=1;" parent="78961159f06e98e8-108" vertex="1">
           <mxGeometry y="112" width="160" height="26" as="geometry" />
         </mxCell>
-        <mxCell id="78961159f06e98e8-121" style="edgeStyle=elbowEdgeStyle;html=1;labelBackgroundColor=none;startFill=0;startSize=8;endArrow=diamondThin;endFill=0;endSize=16;fontFamily=Verdana;fontSize=12;elbow=vertical;fontColor=default;" parent="1" source="78961159f06e98e8-17" target="78961159f06e98e8-30" edge="1">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="250" y="259.88235294117635" as="sourcePoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="PtKEEvkuK-J1Ukp3apgT-2" value="&lt;b&gt;Note&lt;/b&gt;:&amp;nbsp;&lt;br&gt;&amp;nbsp; - &lt;b&gt;Continuous lines&lt;/b&gt; specify the relationships between the classes.&lt;div&gt;&amp;nbsp; - &lt;b&gt;Dashed lines&lt;/b&gt; specify the relationships between the classes and interfaces.&lt;/div&gt;&lt;div&gt;&amp;nbsp; - &lt;b&gt;Diamond blocks&lt;/b&gt; show the methods that one object uses to interact with other objects &lt;i&gt;without making any change&lt;/i&gt;.&lt;/div&gt;&lt;div&gt;&amp;nbsp; - &lt;b&gt;Arrow &lt;/b&gt;show methods that one object us uses to interact with other objects by reference &lt;i&gt;(means making change)&lt;/i&gt;&lt;/div&gt;" style="rounded=1;html=1;fillColor=#B8EAFF;align=left;labelBackgroundColor=none;whiteSpace=wrap;spacing=3;spacingLeft=5;glass=0;shadow=1;" vertex="1" parent="1">
-          <mxGeometry x="90" y="-210" width="260" height="200" as="geometry" />
+        <mxCell id="PtKEEvkuK-J1Ukp3apgT-2" value="&lt;b&gt;Note&lt;/b&gt;:&amp;nbsp;&lt;br&gt;&amp;nbsp; - &lt;b&gt;Continuous lines&lt;/b&gt; specify the relationships between the classes.&lt;div&gt;&amp;nbsp; - &lt;b&gt;Dashed lines&lt;/b&gt; specify the relationships between the classes and interfaces.&lt;br&gt;&amp;nbsp; - &lt;b&gt;Normal arrow &lt;/b&gt;mean the class is point is subclass of pointing class&amp;nbsp;&lt;/div&gt;&lt;div&gt;&amp;nbsp; - &lt;b&gt;Diamond blocks&lt;/b&gt; show the methods that one object uses to interact with other objects &lt;i&gt;without making any change&lt;/i&gt;.&lt;/div&gt;&lt;div&gt;&amp;nbsp; - &lt;b&gt;Point or circle arrow&amp;nbsp;&lt;/b&gt;show methods that one object us uses to interact with other objects by reference &lt;i&gt;(means making change)&lt;/i&gt;&lt;/div&gt;" style="rounded=1;html=1;fillColor=#B8EAFF;align=left;labelBackgroundColor=none;whiteSpace=wrap;spacing=3;spacingLeft=5;glass=0;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="-220" width="280" height="230" as="geometry" />
         </mxCell>
         <mxCell id="78961159f06e98e8-124" style="edgeStyle=orthogonalEdgeStyle;html=1;labelBackgroundColor=none;startFill=0;startSize=8;endArrow=diamondThin;endFill=0;endSize=16;fontFamily=Verdana;fontSize=12;fontColor=default;" parent="1" edge="1">
           <mxGeometry relative="1" as="geometry">
@@ -277,11 +260,11 @@
             <mxPoint x="399.99703703703693" y="482" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="PtKEEvkuK-J1Ukp3apgT-3" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="78961159f06e98e8-34" target="78961159f06e98e8-27">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="PtKEEvkuK-J1Ukp3apgT-7" value="&lt;b&gt;Note&lt;/b&gt;:&amp;nbsp;&lt;br&gt;&amp;nbsp; - Every first letter of class name type will be an Uppercase and lowercase for primitive type&lt;br&gt;&amp;nbsp; - If an attribute is defined with &lt;b&gt;_ID_&amp;nbsp;&lt;/b&gt;or &lt;b&gt;_KEY_ &lt;/b&gt;then that is unique in all class instances and can not be matched.&amp;nbsp;&lt;br&gt;&amp;nbsp; - If an attribute is defined with &lt;b&gt;_CONSTANT_ &lt;/b&gt;then that can not be changed in any case" style="rounded=1;html=1;fillColor=#E0FFC2;align=left;labelBackgroundColor=none;whiteSpace=wrap;spacing=3;spacingLeft=5;glass=0;shadow=1;" vertex="1" parent="1">
+        <mxCell id="PtKEEvkuK-J1Ukp3apgT-7" value="&lt;b&gt;Note&lt;/b&gt;:&amp;nbsp;&lt;br&gt;&amp;nbsp; - Every first letter of class name type will be an Uppercase and lowercase for primitive type.&lt;br&gt;&amp;nbsp; - If an attribute is defined with &lt;b&gt;_ID_&amp;nbsp;&lt;/b&gt;or &lt;b&gt;_KEY_ &lt;/b&gt;then that is unique in all class instances and can not be matched.&amp;nbsp;&lt;br&gt;&amp;nbsp; - If an attribute is defined with &lt;b&gt;_CONSTANT_ &lt;/b&gt;then that can not be changed in any case." style="rounded=1;html=1;fillColor=#E0FFC2;align=left;labelBackgroundColor=none;whiteSpace=wrap;spacing=3;spacingLeft=5;glass=0;shadow=1;" vertex="1" parent="1">
           <mxGeometry x="390" y="-210" width="270" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="PtKEEvkuK-J1Ukp3apgT-11" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.003;entryY=0.048;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="78961159f06e98e8-21" target="78961159f06e98e8-30">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
