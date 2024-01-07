@@ -1,4 +1,4 @@
-<?
+<?php
     class User{
         // Delcare Propertys of DB
         public $id;
