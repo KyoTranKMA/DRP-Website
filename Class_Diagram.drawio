@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2024-01-09T14:48:36.820Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:121.0) Gecko/20100101 Firefox/121.0" etag="qzq1F04kSVl-Ln5YypS9" version="22.1.17" type="github">
+<mxfile host="app.diagrams.net" modified="2024-01-09T14:52:53.715Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:121.0) Gecko/20100101 Firefox/121.0" etag="TKHLoRCYMZ8xu3tmPgDw" version="22.1.17" type="github">
   <diagram name="Page-1" id="9f46799a-70d6-7492-0946-bef42562c5a5">
     <mxGraphModel dx="899" dy="1877" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1000" pageHeight="700" background="none" math="0" shadow="0">
       <root>
@@ -64,9 +64,6 @@
         </mxCell>
         <mxCell id="W8Eo2KiSVNG3GYRRurKq-4" value="+ EditPost(GeneralPost):void" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;whiteSpace=wrap;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;labelBackgroundColor=none;rounded=1;" vertex="1" parent="78961159f06e98e8-30">
           <mxGeometry y="330" width="230" height="26" as="geometry" />
-        </mxCell>
-        <mxCell id="W8Eo2KiSVNG3GYRRurKq-10" value="+ Sort(GeneralPost):void" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;whiteSpace=wrap;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;labelBackgroundColor=none;rounded=1;" vertex="1" parent="78961159f06e98e8-30">
-          <mxGeometry y="356" width="230" height="26" as="geometry" />
         </mxCell>
         <mxCell id="78961159f06e98e8-43" value="GeneralPost" style="swimlane;html=1;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;swimlaneFillColor=#ffffff;rounded=1;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;fillColor=#f8cecc;fontFamily=Verdana;fontSize=12;strokeColor=#b85450;" parent="1" vertex="1">
           <mxGeometry x="630" y="10" width="150" height="420" as="geometry" />
