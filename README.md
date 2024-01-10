@@ -13,8 +13,8 @@ Documentation release at <https://docs.google.com/document/d/19eme33Eqof6gKPaSoK
 
 -- 
 
-## Project Graphics Relationship
-
+## 📌 Project Graphics Relationship
+Diagram release at <https://app.diagrams.net/#HJohnNaeder%2FDRP%2Fmain%2FClass_Diagram.drawio>.
 
 -- 
 
