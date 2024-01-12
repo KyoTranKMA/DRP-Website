@@ -9,7 +9,7 @@
         // Authentication User
         public static function authenticate($connection, $username, $password)
         {
-            $sql = "select * from user where username=:username";
+            $sql = "select * from users where username=:username";
 
             $stmt = $connection->prepare($sql);
             $stmt->bindValue(':username',$username, PDO::PARAM_STR);
