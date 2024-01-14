@@ -9,7 +9,6 @@ class User
     // Authentication User
     public static function authenticate($connection, $username, $password)
     {
-        echo $username ."".$password."";
         $sql = "SELECT * FROM users WHERE username=:username";
 
         $stmt = $connection->prepare($sql);
@@ -21,9 +20,11 @@ class User
         if ($user) {
             $hash = $user->password;
             // Check password input with password Hash
-            return password_verify($password, $hash);
+            if (password_verify($password, $hash)) {
+                // Return user to get id
+                return $user;
+            }
         }
-
         // Return false if the user is not found 
         return false;
     }

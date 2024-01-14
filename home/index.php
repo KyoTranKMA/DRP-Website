@@ -12,9 +12,10 @@
     ?>
 
     <div>
-        <a href= "<?php echo $basePath; ?>/sign-in/index.html"> Đăng nhập hệ thống  </a> &nbsp;
+        <a href= "<?php echo $basePath; ?>/sign-in/log-in/index.html"> Đăng nhập hệ thống  </a> &nbsp;
         <a href="<?php echo $basePath; ?>/sign-up/index.html"> Đăng ký tài khoản  </a> &nbsp;
-        <a href="<?php echo $basePath; ?>/homepage/index.html"> Trang chủ </a> &nbsp;
+        <a href="<?php echo $basePath; ?>/homepage/homepage.php"> Trang chủ </a> &nbsp;
+        <a href= "<?php echo $basePath; ?>/sign-in/log-out/index.php"> Đăng xuất  </a> &nbsp;
     </div>    
 </body>
 </html>
