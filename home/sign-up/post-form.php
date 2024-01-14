@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Đăng nhập</title>
+    <title>Đăng Ký</title>
 </head>
 
 <body>
@@ -21,18 +21,28 @@
         $hashPassword = password_hash($password, PASSWORD_DEFAULT);
 
         require_once(__DIR__ . "/../../index.php");
+
         // Check the connection
         if (!$conn) {
             echo "Connect to DB Fail <br>";
+            exit();
         }
 
-        // Insert data into the 'users' tabsle
-        $sql = "INSERT INTO users (username, password) VALUES ('$hoten', '$hashPassword')";
+        // Insert data into the 'users' table 
+        $sql = "INSERT INTO users (username, password) VALUES (:username, :password)";
 
-        if ($conn->query($sql) === TRUE) {
-            echo "Đã thêm tài khoản và mật khẩu";
+        // Prepare the statement
+        $stmt = $conn->prepare($sql);
+
+        // Bind parameters
+        $stmt->bindParam(':username', $hoten);
+        $stmt->bindParam(':password', $hashPassword);
+
+        // Execute the statement
+        if ($stmt->execute()) {
+            echo '<p style="color:green"> Đăng ký tài khoản thành công</p>';;
         } else {
-            echo "Error: " . $sql . "<br>" ;
+            echo "Error: " . $stmt->errorInfo()[2];
         }
     }
     ?>
