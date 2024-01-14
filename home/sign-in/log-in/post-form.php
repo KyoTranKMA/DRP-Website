@@ -16,15 +16,19 @@
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $username = $_POST['username'];
         $password = $_POST['password'];
-        require_once(__DIR__  . "/../../index.php");
+        // import classes/user.php
+        require_once(__DIR__  . "/../../../index.php");
 
         $rs = User::authenticate($conn, $username, $password);
- 
+  
         if ($rs) {
             $cookie_name = "user";
             $cookie_value = $username;
             setcookie($cookie_name, $cookie_value, time() + 86400 * 3, "/"); // Set cookie for 3 days
-            header("Location: ../homepage/index.html"); 
+            $user_id = $rs->id;
+            $_SESSION['id'] = $user_id;
+            $_SESSION['name'] = $username;
+            header("Location: ../../homepage/homepage.php"); 
             exit(); 
         } else {
             $errorMessage = "Vui lòng nhập lại tài khoản hoặc mật khẩu <br>";
@@ -36,7 +40,7 @@
     <html>
     <span>
         <Button>
-            <a href="../homepage/index.html"> Trở về trang chủ</a>
+            <a href="../../homepage/homepage.php"> Trở về trang chủ</a>
         </Button>
     </span>
 

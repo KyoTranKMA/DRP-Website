@@ -49,7 +49,7 @@
 
     <span>
         <Button>
-            <a href="../homepage/index.html"> Trở về trang chủ</a>
+            <a href="../homepage/homepage.php"> Trở về trang chủ</a>
         </Button>
     </span>
 
