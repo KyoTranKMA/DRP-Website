@@ -10,38 +10,39 @@
 <body>
 
     <?php
-
-    // Check if the form is submitted
+    
+    $errorMessage = "";
+    
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        // Retrieve form data using PHP
-        $hoten = isset($_POST['hoten']) ? $_POST['hoten'] : '';
-        $password = isset($_POST['password']) ? $_POST['password'] : '';
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+        require_once(__DIR__  . "/../../index.php");
 
-        // Hash the password
-        $hashPassword = password_hash($password, PASSWORD_DEFAULT);
-
-        require_once(__DIR__ . "/../../index.php");
-        // Check the connection
-        if (!$conn) {
-            echo "Connect to DB Fail <br>";
-        }
-
-        // Insert data into the 'users' tabsle
-        $sql = "INSERT INTO users (username, password) VALUES ('$hoten', '$hashPassword')";
-
-        if ($conn->query($sql) === TRUE) {
-            echo "Đã thêm tài khoản và mật khẩu";
+        $rs = User::authenticate($conn, $username, $password);
+ 
+        if ($rs) {
+            $cookie_name = "user";
+            $cookie_value = $username;
+            setcookie($cookie_name, $cookie_value, time() + 86400 * 3, "/"); // Set cookie for 3 days
+            header("Location: ../homepage/index.html"); 
+            exit(); 
         } else {
-            echo "Error: " . $sql . "<br>" ;
+            $errorMessage = "Vui lòng nhập lại tài khoản hoặc mật khẩu <br>";
         }
     }
+    
     ?>
 
+    <html>
     <span>
         <Button>
             <a href="../homepage/index.html"> Trở về trang chủ</a>
         </Button>
     </span>
+
+    <?php echo $errorMessage; // Hiển thị lỗi nếu nhập sai thông tin đăng nhập ?>
+
+    </html>
 
 </body>
 
