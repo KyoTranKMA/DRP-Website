@@ -26,11 +26,7 @@
     </div>    
     <?php
         require("../sign-in/log-in/init-session.php");
-        try {
-        var_dump($_COOKIE);
-        echo "debug";
-        var_dump($_SESSION);
-
+        try {  
         if (isset($_COOKIE["user"]) && isset($_SESSION["id"])) {
             $username = $_COOKIE["user"];
             $_SESSION['counter'];
