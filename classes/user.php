@@ -18,9 +18,10 @@ class User
         $user = $stmt->fetch();
 
         if ($user) {
-            $hash = $user->password;
+            $passwordInDB = $user->password;
+ 
             // Check password input with password Hash
-            if (password_verify($password, $hash)) {
+            if (password_verify($password, $passwordInDB)) {
                 // Return user to get id
                 return $user;
             }

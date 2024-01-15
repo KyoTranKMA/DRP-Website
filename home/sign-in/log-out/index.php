@@ -6,7 +6,10 @@
     unset($_SESSION["name"]);
 
     unset($_SESSION["counter"]);
-    //Session_destroy();
+    // Destroy only invalod when delete next request 
+    session_destroy();
+    // Delete cookie of user
+    setcookie("user", "", time() - 3600, "/");
     header("Location: ../../homepage/homepage.php");
 
 ?>

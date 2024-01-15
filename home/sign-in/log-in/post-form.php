@@ -18,7 +18,7 @@
         $password = $_POST['password'];
         // import classes/user.php
         require_once(__DIR__  . "/../../../index.php");
-
+        require(__DIR__ . "/init-session.php");
         $rs = User::authenticate($conn, $username, $password);
   
         if ($rs) {
@@ -28,6 +28,7 @@
             $user_id = $rs->id;
             $_SESSION['id'] = $user_id;
             $_SESSION['name'] = $username;
+
             header("Location: ../../homepage/homepage.php"); 
             exit(); 
         } else {
