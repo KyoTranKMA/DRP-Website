@@ -20,7 +20,7 @@
         // Hash the password
         $hashPassword = password_hash($password, PASSWORD_DEFAULT);
 
-        require_once(__DIR__ . "/../../index.php");
+        require_once(__DIR__ . "/../../../index.php");
 
         // Check the connection
         if (!$conn) {

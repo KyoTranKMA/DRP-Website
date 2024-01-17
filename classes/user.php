@@ -5,11 +5,12 @@ class User
     public $id;
     public $username;
     public $password;
-
+    public $userTbl;
     // Authentication User
     public static function authenticate($connection, $username, $password)
     {
-        $sql = "SELECT * FROM users WHERE username=:username";
+        $userTbl = 'users';
+        $sql = "SELECT * FROM $userTbl WHERE username=:username";
 
         $stmt = $connection->prepare($sql);
         $stmt->bindValue(':username', $username, PDO::PARAM_STR);
@@ -19,7 +20,7 @@ class User
 
         if ($user) {
             $passwordInDB = $user->password;
- 
+
             // Check password input with password Hash
             if (password_verify($password, $passwordInDB)) {
                 // Return user to get id
@@ -29,4 +30,5 @@ class User
         // Return false if the user is not found 
         return false;
     }
+  
 }

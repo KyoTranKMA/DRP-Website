@@ -35,7 +35,7 @@ class DataBase
                 $this->DB_PASSWORD
             );
             $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            echo "Connect to MySQL sever successfull <br>";
+            // echo "Connect to MySQL sever successfull <br>";
             return $connection;
         } catch (PDOException $e) {
             echo "Error in connection"  . $e->getMessage() . " <br> ";
