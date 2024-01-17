@@ -1,15 +1,32 @@
-## How to run server to connect with MySQL server?
+# DRP
+## What is DRP? 
 
-First, Sure to turn on MySQL server in Ammps before running index.php
+Daily Recipes Provider (DRP) is a web-application, which daily provides users nutritious recipes. DRP base on the information gathered from users such as: ‘age, health condition, tastes, and vice versa’, to calculate and estimate the nutrition contents the user’s body require to balance health.
 
-Second, Make sure that $DB_USER has the necessary privileges to connect to the database from the specified host ('localhost'). You can do this by running in the MySQL command line on phpMyAdmin:
+Then from the data it has calculated, DRP provides alternative dinner recipes to users for their meals. In this way, people have no more worries about what they have to eat to balance their body nutrition and reduce many kinds of diseases related to uncontrolled-eating.
 
-    Example with $DB_USER = 'ad_db_ct07' 
-    SHOW GRANTS FOR 'ad_db_ct07'@'localhost';
-    If not:
-    GRANT ALL PRIVILEGES ON db_accounts.* TO 'ad_db_ct07'@'localhost';
-    FLUSH PRIVILEGES;
+-- 
 
-Final, $DB_NAME, $DB_USER, $DB_PASSWORD in DataBase which privileged must be the same with in utils/config.php/
+## 📝 Project Documentation
 
- !!!DB_SOCKET can other PATH in your PC!!!
+Documentation release at <https://docs.google.com/document/d/19eme33Eqof6gKPaSoKwPhVjzJhsyVXQID_I7lZX6Hfs/edit>.
+
+-- 
+
+## 📌 Project Graphics Relationship
+Diagram release at <https://app.diagrams.net/#HJohnNaeder%2FDRP%2Fmain%2FClass_Diagram.drawio>.
+
+-- 
+
+## ⭐️ Current project team members 
+
+  * [John](https://github.com/JohnNaeder) -
+    **Mạch Tiến Duy**  <<johnnaeder6537@gmail.com>> (he/him)
+  * [Kyo](https://github.com/kyoTran1009) -
+    **Trần Quang Diệu** <<quangdieu1009@gmail.com>> (he/him)
+  * [Maris](https://github.com/maris-git) -
+    **Võ Thị Bích Tuyền** <<vtbtuyen2222004@gmail.com>> (she/her)
+  * [Yên](https://github.com/lethanhyen-work) -
+    **Lê Thanh Yên** <<lethanhyen.gialai@gmail.com>> (he/him)
+  * [Phúc](https://github.com/PhucNgo-74) -
+    **Nguyễn Ngô Hạnh Phúc** <<phuc12345524@gmail.com>> (he/him) 
