@@ -30,7 +30,8 @@
     require("../sign-in/log-in/init-session.php");
     try {
         $username = '';
-        if ((isset($_COOKIE["user"])) && isset($_SESSION["id"])) {
+        // Set lai Session
+        if ((isset($_COOKIE["user"])) )  {
             $username = $_COOKIE["user"];
             $_SESSION['counter'];
             echo "Welcome " . $username;
