@@ -5,12 +5,11 @@ class User
     public $id;
     public $username;
     public $password;
-    public $userTbl;
+
     // Authentication User
     public static function authenticate($connection, $username, $password)
     {
-        $userTbl = 'users';
-        $sql = "SELECT * FROM $userTbl WHERE username=:username";
+        $sql = "SELECT * FROM users WHERE username=:username";
 
         $stmt = $connection->prepare($sql);
         $stmt->bindValue(':username', $username, PDO::PARAM_STR);

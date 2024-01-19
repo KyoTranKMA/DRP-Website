@@ -2,7 +2,7 @@
 
 
 
-class GoogleOAuthHandler
+class Oauth
 {
     // Google API Client instance
     private $client;
@@ -24,10 +24,10 @@ class GoogleOAuthHandler
         if (isset($_GET['code'])) {
             $token = $this->client->fetchAccessTokenWithAuthCode($_GET['code']);
             if (isset($token['error'])) {
-                header('Location: oauth-google.php');
+                header('Location: oauth.php');
                 exit;
             }
-            require_once(__DIR__ . "/../src/home/sign-in/log-in/init-session.php");
+            require_once(__DIR__ . "/../includes/init.php");
             $_SESSION['token'] = $token;
 
             // Set Access để access to Google Service get Data User
@@ -68,7 +68,7 @@ class GoogleOAuthHandler
                     exit;
                 }
             }
-            header('Location: ../../homepage/homepage.php');
+            header('Location: ../pages/homepage.php');
             exit;
             
         }
