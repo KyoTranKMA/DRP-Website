@@ -1,6 +1,6 @@
 ## How to run server to connect with MySQL server?
 
-First, Sure to turn on MySQL server in Ammps before running index.php
+First, Make Sure turn on MySQL server in Ammps before running index.php
 
 Second, Make sure that $DB_USER has the necessary privileges to connect to the database from the specified host ('localhost'). You can do this by running in the MySQL command line on phpMyAdmin:
 
