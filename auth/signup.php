@@ -20,7 +20,7 @@
         // Hash the password
         $hashPassword = password_hash($password, PASSWORD_DEFAULT);
 
-        require_once(__DIR__ . "/../../../index.php");
+        require_once(__DIR__ . "/../index.php");
 
         // Check the connection
         if (!$conn) {
@@ -49,7 +49,7 @@
 
     <span>
         <Button>
-            <a href="../homepage/homepage.php"> Trở về trang chủ</a>
+            <a href="../pages/homepage.php"> Trở về trang chủ</a>
         </Button>
     </span>
 

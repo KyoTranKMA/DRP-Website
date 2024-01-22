@@ -37,7 +37,7 @@
     <html>
     <span>
         <Button>
-            <a href="../../homepage/homepage.php"> Trở về trang chủ</a>
+            <a href="../pages/homepage.php"> Trở về trang chủ</a>
         </Button>
     </span>
 
