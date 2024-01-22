@@ -4,19 +4,19 @@
 
 
 
-class LogoutHandler
+class Logout
 {
     public static function logout()
     {
-        require_once(__DIR__ . "/../src/home/sign-in/log-in/init-session.php");
+        require_once(__DIR__ . "/../includes/init.php");
 
-        if (!isset($_SESSION["id"]))
+        if (!isset($_SESSION["logged_in"]))
         {
             echo "Bạn chưa đăng nhập vào tài khoản hệ thống";
             exit;
         }
         unset($_SESSION["id"]);
-        unset($_SESSION["name"]);
+        unset($_SESSION["logged_in"]);
         unset($_SESSION["counter"]);
 
         // Destroy only when not deleting next request
@@ -30,13 +30,12 @@ class LogoutHandler
     public static function logoutGoogle()
     {
 
-        require_once(__DIR__ . "/../src/home/sign-in/log-in/init-session.php");
+        require(__DIR__ . "/../config/google_oauth.php");
 
         if (!isset($_SESSION['token'])) {
             echo "Bạn chưa đăng nhập vào tài khoản Google";
             exit;
         }
-        require_once(__DIR__ . "/../utils/config.php");
         $client = new Google\Client();
         $client->setAccessToken($_SESSION['token']);
 
