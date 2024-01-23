@@ -6,10 +6,14 @@ class User
     public $username;
     public $password;
 
+    private function validate(){
+        return $this->username !=  '' && $this->password != ''; 
+    } 
+
     // Authentication User
     public static function authenticate($connection, $username, $password)
     {
-        $sql = "SELECT * FROM users WHERE username=:username";
+        $sql = "select * from users where username=:username";
 
         $stmt = $connection->prepare($sql);
         $stmt->bindValue(':username', $username, PDO::PARAM_STR);
@@ -29,10 +33,6 @@ class User
         // Return false if the user is not found 
         return false;
     }
-    private function validate(){
-        return $this->username !=  '' && $this->password != ''; 
-    } 
-
     
     // Add new Users
     public function addUser($connection){
