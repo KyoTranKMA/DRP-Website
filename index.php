@@ -1,11 +1,10 @@
 <?php
 
-// Require 
-require_once(__DIR__ . "/include/init-db.php");
-require_once(__DIR__ . "/classes/user.php");
+    // Get Autoload File and config
+    require_once(__DIR__ . "/includes/init.php");
+    // Get Connection
+    $conn = require_once(__DIR__ . "/includes/db.php");
 
-// Go to homepage
-require_once(__DIR__ . "/src/home/index.php");
 
 
 ?>

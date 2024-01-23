@@ -1,8 +1,6 @@
 <?php
 
-require_once(__DIR__ . "/../classes/database.php");
-require_once(__DIR__ . "/../utils/config.php");
-
+require_once(__DIR__ . "/init.php");
 
 $db = new DataBase(
     DB_HOST,

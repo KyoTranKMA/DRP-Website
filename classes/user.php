@@ -5,12 +5,15 @@ class User
     public $id;
     public $username;
     public $password;
-    public $userTbl;
+
+    private function validate(){
+        return $this->username !=  '' && $this->password != ''; 
+    } 
+
     // Authentication User
     public static function authenticate($connection, $username, $password)
     {
-        $userTbl = 'users';
-        $sql = "SELECT * FROM $userTbl WHERE username=:username";
+        $sql = "select * from users where username=:username";
 
         $stmt = $connection->prepare($sql);
         $stmt->bindValue(':username', $username, PDO::PARAM_STR);
@@ -30,5 +33,23 @@ class User
         // Return false if the user is not found 
         return false;
     }
-  
+    
+    // Add new Users
+    public function addUser($connection){
+        if($this->validate()){
+            // Insert data into the 'users' table 
+            $sql = "insert into users (username, password) values (:username, :password)";
+            // Prepare the statement
+            $stmt = $connection->prepare($sql);
+
+            // Bind parameters
+            $stmt->bindValue(':username', $this->username, PDO::PARAM_STR);
+            $hashPassword = password_hash($this->password, PASSWORD_DEFAULT);
+            $stmt->bindValue(':password', $hashPassword, PDO::PARAM_STR);
+            return $stmt->execute();
+        }
+        // If Username and PassWord not valid
+        return false;
+    }
+
 }
