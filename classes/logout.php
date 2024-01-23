@@ -4,21 +4,18 @@
 
 
 
+
 class Logout extends Auth
 {
     public static function logout()
     {
         unset($_SESSION["logged_in"]);
-
         parent::logout();
-
-
     }
 
     public static function logoutGoogle()
     {
         require(__DIR__ . "/../config/google_oauth.php");
-
         $client = new Google\Client();
         $client->setAccessToken($_SESSION['token']);
 

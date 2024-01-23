@@ -11,6 +11,7 @@ class Dish
     private $imagefile;
 
 
+
     public function __construct($name, $description, $ingredient, $nutrition ,$author, $imagefile)
     {
         $this->name = $name;
@@ -44,6 +45,7 @@ class Dish
         }
     }
     
+
     public function add($connection){
         if($this->validate()){
             try{
@@ -69,6 +71,7 @@ class Dish
     }
     public static function getAll($connection){
         try{
+
             $sql = "select * from dishs order by name asc";
             // Prepare the statement
             $stmt = $connection->prepare($sql);
@@ -84,6 +87,7 @@ class Dish
         }
 
     }
+
  
     public static function getByID($connection, $id){
         try{
@@ -101,9 +105,9 @@ class Dish
             echo $e->getMessage();
             return null;
         }
-
     
     }
+
     public function update($connection, $id){
         try{
             $sql = "UPDATE dishs SET 
@@ -174,9 +178,8 @@ class Dish
         }
     }
 
-
 }
 
 
-
 ?>
+
