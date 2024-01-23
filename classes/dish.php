@@ -6,7 +6,7 @@ class Dish
     private $name;
     private $description;
     private $ingredient;
-    private $nutrition; //Lượng dinh dưỡng của món ăn
+    private $nutrition; 
     private $author;
     private $imagefile;
 
@@ -23,28 +23,28 @@ class Dish
     }
     private function validate()
     {
-        if (!file_exists($this->imagefile)) {
-            // Image file does not exist
-            return $this->name != '' &&
-                $this->description != '' &&
-                $this->ingredient != '' &&
-                $this->nutrition != '' &&
-                $this->author != '';
-        }
-        else{
-            // Image file exists
-            return $this->name != '' &&
-                $this->description != '' &&
-                $this->ingredient != '' &&
-                $this->nutrition != '' &&
-                $this->author != '' &&
-                $this->imagefile != '';
-        }
+        return isset($this->name, $this->description, $this->ingredient, $this->nutrition, $this->author)
+        && (empty($this->imagefile) || (file_exists($this->imagefile) && getimagesize($this->imagefile)));
     }
 
-    public static function count(){
-
+    public static function count($connection) {
+        try {
+            $sql = "select count(*) as total from dishs";
+            // Prepare the statement
+            $stmt = $connection->prepare($sql);
+    
+            if ($stmt->execute()) {
+                $result = $stmt->fetch(PDO::FETCH_ASSOC);
+                return $result['total'];
+            } else {
+                return false;
+            }
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            return false;
+        }
     }
+    
 
     public function add($connection){
         if($this->validate()){
@@ -71,13 +71,14 @@ class Dish
     }
     public static function getAll($connection){
         try{
-            $sql = "select * from dishs order by title asc";
+
+            $sql = "select * from dishs order by name asc";
             // Prepare the statement
             $stmt = $connection->prepare($sql);
             $stmt->setFetchMode(PDO::FETCH_CLASS,"Dish");
             if( $stmt->execute() ){
-                $books = $stmt->fetchAll(PDO::FETCH_ASSOC);
-                return ($books);
+                $dishs = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                return $dishs;
             }
         }
         catch(PDOException $e){
@@ -87,12 +88,13 @@ class Dish
 
     }
 
-    public function getByID($connection, $id){
+ 
+    public static function getByID($connection, $id){
         try{
             $sql = "select * from dishs where id=:id";
             // Prepare the statement
             $stmt = $connection->prepare($sql);
-            $stmt->bindValue(':id', $this->id, PDO::PARAM_INT);
+            $stmt->bindValue(':id', $id, PDO::PARAM_INT);
             $stmt->setFetchMode(PDO::FETCH_CLASS,"Dish");
             if( $stmt->execute() ){
                 $Dish = $stmt->fetch();
@@ -103,32 +105,81 @@ class Dish
             echo $e->getMessage();
             return null;
         }
-
     
     }
-    public function update($connection){
+
+    public function update($connection, $id){
         try{
-            // Add them title author ... index
-            $sql = "INSERT INTO `dishs`(`idDish`, `nameDish`, `description`, `ingredient`, `nutrition`, `author`, `imagefile`) VALUES ('[value-1]','[value-2]','[value-3]','[value-4]','[value-5]','[value-6]','[value-7]')";
+            $sql = "UPDATE dishs SET 
+                    name = :name, 
+                    description = :description, 
+                    ingredient = :ingredient, 
+                    nutrition = :nutrition, 
+                    author = :author, 
+                    imagefile = :imagefile 
+                    WHERE id = :id";
+    
+            // Prepare the statement
             $stmt = $connection->prepare($sql);
+    
+            // Bind parameters
+            $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+            $stmt->bindValue(':name', $this->name, PDO::PARAM_STR);
+            $stmt->bindValue(':description', $this->description, PDO::PARAM_STR);
+            $stmt->bindValue(':ingredient', $this->ingredient, PDO::PARAM_STR);
+            $stmt->bindValue(':nutrition', $this->nutrition, PDO::PARAM_STR);
+            $stmt->bindValue(':author', $this->author, PDO::PARAM_STR);
+            $stmt->bindValue(':imagefile', $this->imagefile, PDO::PARAM_STR);
+    
+            // Execute the statement
+            if($stmt->execute()){
+                echo "Đã cập nhật món ăn id " . $id .  " thành công <br>";
+                return true;
+            } else {
+                echo "Cập nhật món ăn id " . $id .  " thất bại <br>";
+                return false;
+            }
         }
         catch(PDOException $e){
             echo $e->getMessage();
-            return null;
+            return false;
         }
     }
-    public function delete(){
-    }
-    public function deleteById($id){
+    
+    public function delete($connection){
         try{
-
-            // Xoa theo id so may
-            $sql = "delete * from books where id=:id";
-
+            $sql = "delete from dishs";
+            // Prepare the statement
+            $stmt = $connection->prepare($sql);
+            $stmt->setFetchMode(PDO::FETCH_CLASS,"Dish");
+            if($stmt->execute() ){
+                echo "Đã xoá tất cả các món ăn thành công <br>";
+            }
         }
         catch(PDOException $e){
             echo $e->getMessage();
-            return null;
+            return false;        
         }
     }
+    public function deleteById($connection, $id){
+        try{
+            $sql = "delete from dishs where id=:id";
+            // Prepare the statement
+            $stmt = $connection->prepare($sql);
+            $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+            $stmt->setFetchMode(PDO::FETCH_CLASS,"Dish");
+            if($stmt->execute()){
+                echo "Đã xoá món ăn id " . $id .  "thành công <br>";
+            }
+        }
+        catch(PDOException $e){
+            echo $e->getMessage();
+            return false; 
+        }
+    }
+
 }
+
+
+?>
+

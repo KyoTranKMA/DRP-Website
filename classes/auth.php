@@ -1,5 +1,5 @@
 <?php
-    class Auth
+    class Auth 
     {
         /* 
             This Class
@@ -20,19 +20,26 @@
         {
             if (!static::isLoggedIn()) {
                 die("Vui lòng đăng nhập");
+                // header("Location: ../auth/login_form.html");
             }
         }
 
         // Create Session when login
-        public static function login()
+        public static function login($username)
         {
-            session_regenerate_id(true);
+            $cookie_name = "user";
+            $cookie_value = $username;
+            setcookie($cookie_name, $cookie_value, time() + 86400 * 1, "/"); // Set cookie for 1 day
+            session_regenerate_id(true); // Refresh session
             $_SESSION["logged_in"] = true;
         }
 
         // Delete Session and Cookies when log-out
         public static function logout()
         {
+            // Delete user cookie
+            setcookie("user", "", time() - 3600, "/");
+            
             if (ini_get("session.use_cookies")) {
                 $params = session_get_cookie_params();
                 setcookie(
