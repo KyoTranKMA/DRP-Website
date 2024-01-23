@@ -16,15 +16,12 @@
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $username = $_POST['username'];
         $password = $_POST['password'];
-        // Get Connection and Class User
+        // Get Connection DB, Init session and Class User 
         require_once(__DIR__ .'/../index.php');
         $rs = User::authenticate($conn, $username, $password);
   
         if ($rs) {
-            $cookie_name = "user";
-            $cookie_value = $username;
-            setcookie($cookie_name, $cookie_value, time() + 86400 * 3, "/"); // Set cookie for 3 days
-            Auth::login();
+            Auth::login($username);
             header("Location: ../pages/homepage.php"); 
             exit(); 
         } else {
