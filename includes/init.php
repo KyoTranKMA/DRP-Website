@@ -29,6 +29,14 @@ function classesAutoloader($className)
     }
 }
 
+// Function to generate image tag with correct path
+function getImage($imageName)
+{
+    $dirRoot = dirname(__DIR__);
+    $imagePath = $dirRoot . "/assets/images/$imageName";
+    return "<img src='$imagePath' alt='$imageName>'";
+}
+
 // Đăng ký hàm Autoload 
 spl_autoload_register(
     'classesAutoloader'
