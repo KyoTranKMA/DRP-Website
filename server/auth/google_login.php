@@ -59,7 +59,7 @@
 
 <body>
     <div class="btn">
-        <a href="<?= $login_url ?>"><img src="../assets/image/google_logo.png" alt="Google Logo"> Login with Google</a>
+        <a href="<?= $login_url ?>"><img src="../assets/images/google_logo.png" alt="Google Logo"> Login with Google</a>
     </div>
 </body>
 

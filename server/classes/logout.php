@@ -31,7 +31,7 @@ class Logout extends Auth
 
     public static function handleLogout()
     {
-        $type = isset($_GET['type']) ? $_GET['type'] : '';
+        $type = isset($_GET['type']) ?  $_GET['type'] : '';
         switch ($type) {
             case 'google':
                 self::logoutGoogle();
