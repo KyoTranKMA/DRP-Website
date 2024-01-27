@@ -34,7 +34,7 @@ function getImage($imageName)
 {
     $dirRoot = dirname(__DIR__);
     $imagePath = $dirRoot . "/assets/images/$imageName";
-    return "<img src='$imagePath' alt='$imageName>'";
+    return "<img src='$imagePath' alt='$imageName'";
 }
 
 // Đăng ký hàm Autoload 
@@ -43,4 +43,4 @@ spl_autoload_register(
 );
 
 
-require dirname(__DIR__) . "/utils/config.php";
+require dirname(__DIR__) . "/config/db_config.php";

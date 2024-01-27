@@ -1,4 +1,5 @@
-<?
+<?php
+
     $nameError = "";
     $emailError = "";
     $websiteError = "";
@@ -8,7 +9,7 @@
             $nameError = "Name is required";
         }else{
             $name = $_POST['name'];
-            if(!preg_match("/^[A-Za-z ]*$",$name)) {
+            if(!preg_match("/^[A-Za-z]*$/",$name)) {
                 $nameError = "Only charecters and spaces are allowed";
             }
         }
@@ -50,17 +51,17 @@
             <p>
                 <label for="name">Name:</label>
                 <input type="text" name="name" id="name" placeholder="Your Name">
-                <? echo "<span class='error'> $nameError </span>"?>
+                <?php echo "<span class='error'> $nameError </span>"?>
             </p>
             <p>
                 <label for="email">Email:</label>
                 <input type="email" name="email" id="email" placeholder="test@gmail.com">
-                <? echo "<span class='error'> $emailError </span>"?>
+                <?php echo "<span class='error'> $emailError </span>"?>
             </p>
             <p>
                 <label for="website">Website:</label>
                 <input name="website" id="website" placeholder="https://yoursite.com">
-                <? echo "<span class='error'> $websiteError </span>"?>
+                <?php echo "<span class='error'> $websiteError </span>"?>
             </p>
             <p>
                 <input type="submit" name="submit" value="Submit">
