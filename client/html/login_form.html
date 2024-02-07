@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng Nhập</title>
+    <scrip scr="https://cdn.jsdelivr.net/jquery/1.12.4/jquery.min.js"></script>
+    <scrip scr="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.9.1/jquery.validate.min.js"></script>
+    <link rel="stylesheet" href="./../css/style.css">
+    <script src="../js/script.js"></script>
+
+</head>
+<body>
+    <div class="container">
+        <form class="form" id="frmRefoForm" method="post" action="../../server/auth/login.php" name="frmRegForm" >
+            <fieldset>
+                <div class="row">
+                    <label for="username">User Name</label>
+                    <input type="text" id="username" name="username" minlength="2">
+                </div>
+                <div class="row">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" minlength="2">
+                </div>
+                <div class="row">
+                    <input type="submit" class="btn" value="Login">
+                </div>                
+            </fieldset>
+        </form>   
+   </div>
+</body>
+</html>

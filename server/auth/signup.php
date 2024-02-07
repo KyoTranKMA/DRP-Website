@@ -8,13 +8,19 @@
         $user = new User();
         $user->username = isset($_POST['username']) ? $_POST['username'] : '';
         $user->password = isset($_POST['password']) ? $_POST['password'] : '';
+        $user->firstname = isset($_POST['firstname']) ? $_POST['firstname'] : '';
+        $user->lastname = isset($_POST['lastname']) ? $_POST['lastname'] : '';
+        $user->dateofbirth = isset($_POST['dateofbirth']) ? $_POST['dateofbirth'] : '';
+        $user->email = isset($_POST['email']) ? $_POST['email'] : '';
+        $user->country = isset($_POST['country']) ? $_POST['country'] : '';
+        $user->gender = isset($_POST['gender']) ? $_POST['gender'] : '';
         // Check the connection
         if (!$conn) {
             echo "Connect to DB Fail <br>";
             exit();
         }
 
-        $result = $user->addUser($conn);
+        $result = $user->addUser($conn, $username, $password, $firstname, $lastname, $dateofbirth, $email, $country, $gender);
         // Execute the statement
         if ($result) {
             echo '<p style="color:green"> Đăng ký tài khoản thành công</p>';;
