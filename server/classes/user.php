@@ -72,7 +72,7 @@ class User
         $this->connection = $connection;
 
         // check username and email has been
-        if ($username == '' || $password == '' || $dateofbirth == '' || $email == '' || $country == '' || $gender == ''){
+        if ($username == '' || $password == '' || $firstname == '' || $lastname == '' || $dateofbirth == '' || $email == '' || $country == '' || $gender == ''){
             $alert = 'Fields must be not empty!';
             return $alert;
         } else {
