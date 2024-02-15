@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add ingredients</title>
+    <script src="https://cdn.jsdelivr.net/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+    <link rel="stylesheet" href="/client/css/style.css">
+    <script src="../js/script.js"></script>
+    <style>.container {
+                display:  flex;
+                flex-direction: column;
+            }
+            .row {
+                margin-bottom: 10px;
+            }
+        input[type="text"],
+        select {
+            margin-top: 5px; /* Khoảng cách từ trên xuống cho input và select là 5px */
+            margin-bottom: 5px; /* Khoảng cách từ dưới lên cho input và select là 5px */
+            width: 100%; /* Đảm bảo input và select chiếm toàn bộ chiều rộng của div cha */
+            box-sizing: border-box;
+        }
+        select {
+            width: 100%;
+            padding: 8px;
+            font-size: 16px;
+            border-radius: 5px; /* Rounded corners */
+            box-sizing: border-box;
+            -webkit-appearance: none; /* Remove default arrow in Chrome/Safari */
+            -moz-appearance: none; /* Remove default arrow in Firefox */
+            appearance: none; /* Remove default arrow */
+        }
+        select option[disabled] {
+            color: transparent; /* Make placeholder text transparent */
+            text-shadow: 0 0 5px rgba(0,0,0,0.1); /* Apply blur effect */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form class="form" id="frmRefoForm" method="post" action="/server/pages/add_ingredient_scripts.php" name="frmRegForm">
+            <fieldset>
+                <legend>Add add ingredients form</legend>
+
+                <div class="row">
+                    <label for="Name">Ingredient name</label>
+                    <input type="text" id="Name" name="Name" placeholder="Enter name of ingredient" minlength="2">
+                </div>
+
+                <div class="row">
+                    <label for="Category">Category</label>
+                    <select name="Category" id="Category">
+                        <option value="" disabled selected>--Select a category--</option>
+                        <option value="Trứng, sữa và các sản phẩm từ sữa">Trứng, sữa và các sản phẩm liên quan</option>
+                        <option value="Chất béo">Chất béo</option>
+                        <option value="Trái cây">Trái cây</option>
+                        <option value="Ngũ cốc, các loại hạt và bánh mì">Ngũ cốc, các loại hạt và bánh mì</option>
+                        <option value="Thảo mộc và gia vị">Thảo mộc và gia vị</option>
+                        <option value="Thịt, xúc xích và các">Thịt, xúc xích và các</option>
+                        <option value="Gạo, mì và các loại đậu">Gạo, mì và các loại đậu</option>
+                        <option value="Rau củ">Rau củ</option>
+                        <option value="Khác">Khác</option>
+                        <option value="Eggs, milk and milk products">Eggs, milk and milk products</option>
+                        <option value="Fats and oils">Fats and oils</option>
+                        <option value="Fruits">Fruits</option>
+                        <option value="Grain, nuts and baking products">Grain, nuts and baking products</option>
+                        <option value="Herbs and spices">Herbs and spices</option>
+                        <option value="Meat, sausages and fish">Meat, sausages and fish</option>
+                        <option value="Pasta, rice and pulses">Pasta, rice and pulses</option>
+                        <option value="Vegetables">Vegetables</option>
+                        <option value="Others">Others</option>
+                    </select>
+                </div>
+
+                <div class="row">
+                    <label for="MeasurementUnit">Measurement unit</label>
+                    <select id="MeasurementUnit" name="MeasurementUnit">
+                        <option value="" disabled selected>--Select measurement unit--</option>
+                        <option value="miligrams">miligrams</option>
+                        <option value="grams">grams</option>
+                        <option value="kilograms">kilograms</option>
+                        <option value="mililitres">mililitres</option>
+                        <option value="litres">litres</option>
+                        <option value="teaspoons">teaspoons</option>
+                        <option value="tablespoons">tablespoons</option>
+                        <option value="desertspoons">desertspoons</option>
+                        <option value="cups">cups</option>
+                        <option value="muỗng cafe">muỗng c afe</option>
+                        <option value="muỗng canh">muỗng canh</option>
+                        <option value="cốc">cốc</option>
+                    </select>
+                </div>
+
+                <div id="nutritionComponentsContainer">
+                    <div class="row nutritionRow">
+                        <label for="NutritionComponentType">Nutrition components</label>
+                        <button type="button" id="addNutrition">Add Nutrition Component</button>
+                        <div id="nutritionComponentsContainer"></div>
+                        <script src="../js/addNutriOption.js"></script>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <label for="SpecialRequirement">Special requirement</label>
+                    <input type="text" id="SpecialRequirement" name="SpecialRequirement" placeholder="Enter Special requirement or preparation" minlength="10">
+                </div>
+
+                <div class="row">
+                    <input type="hidden" name="form_submitted" value="1">
+                    <input type="submit" class="btn" value="Upload">
+                </div>
+
+            </fieldset>
+        </form>
+    </div>
+</body>
+</html>
