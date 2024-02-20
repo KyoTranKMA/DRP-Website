@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add ingredients</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js" integrity="sha256-+C0A5Ilqmu4QcSPxrlGpaZxJ04VjsRjKu+G82kl5UJk=" crossorigin="anonymous"></script>
+    <script src="../js/selectize.js"></script>
+    <link rel="stylesheet" href="../css/add_ingre_style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/css/selectize.bootstrap3.min.css" integrity="sha256-ze/OEYGcFbPRmvCnrSeKbRTtjG4vGLHXgOqsyLFTRjg=" crossorigin="anonymous" />
+</head>
+<body>
+    <div class="container">
+        <form class="form" id="frmRefoForm" method="post" action="/server/utils/php_scripts/add_ingredient.php" name="frmRegForm">
+            <fieldset>
+                <legend>Add add ingredients form</legend>
+
+                <div class="row">
+                    <label for="Name">Ingredient name</label><br>
+                    <input type="text" id="Name" name="Name" placeholder="Enter name of ingredient">
+                </div>
+
+                <div class="row"> <div id="Categories"></div> </div>
+                <div class="row"> <div id="MeasurementUnit"></div> </div>
+                <script src="../js/loadOptions.js" type="module"></script>
+
+                <div class="row nutritionRow">
+                    <label for="NutritionComponentType">Nutrition components</label>
+                    <button type="button" id="addNutrition">Add Nutrition Component</button>
+                    <div id="nutritionComponentsContainer"></div>
+                    <script src="../js/addNutriOpts.js" type="module"></script>
+                </div>
+
+                <div class="row">
+                    <label for="SpecialRequirement">Special requirement</label>
+                    <input type="text" id="SpecialRequirement" name="SpecialRequirement" placeholder="Enter Special requirement or preparation" minlength="10">
+                </div> 
+
+                <div class="row">
+                    <input type="hidden" name="form_submitted" value="1">
+                    <input type="submit" class="btn" value="Upload">
+                </div>
+                
+            </fieldset>
+        </form>
+    </div>
+</body>
+</html>
