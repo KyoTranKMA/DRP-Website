@@ -14,7 +14,7 @@
     private $measurementUnit;
     private $nutritionComponents;
 
-    public function __construct($name, $category, $measurementUnit, $isActive = true,
+    public function __construct($name, $category, $measurementUnit, $isActive = 1,
                                 $nutritionComponents = NULL, $specialRequirement = NULL) {
         $this->name = $name;
         $this->category = $category[0];
@@ -49,15 +49,19 @@
         $stmtPrepare = $connFromDB->prepare($sqlStatement);
         $stmtPrepare->bindValue(':name', $this->name, PDO::PARAM_STR);
         $stmtPrepare->bindValue(':category', $this->category, PDO::PARAM_STR);
-        $stmtPrepare->bindValue(':isActive', $this->isActive, PDO::PARAM_BOOL);
+        $stmtPrepare->bindValue(':isActive', $this->isActive, PDO::PARAM_INT);
         $stmtPrepare->bindValue(':unit', $this->measurementUnit, PDO::PARAM_STR);
         $stmtPrepare->bindValue(':nutritionComponents', $this->nutritionComponents, PDO::PARAM_STR);
         $stmtPrepare->bindValue(':specReq', $this->specialRequirement, PDO::PARAM_STR);
+          if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    require_once($_SERVER['DOCUMENT_ROOT'] . "/server/index.php");
+    Add_Ingre_Handler::handlePostRequest($conn);
+  }
         if($stmtPrepare->execute()){
           echo "Add ingredient successfully! ";
-          return true;
+          return TRUE;
         }
-        throw new PDOException("Error(s) occour in adding ingredient stage! ");
+        throw new PDOException("Error(s) occour in adding new ingredient stage! ");
       }
       catch(PDOException $exception){
         echo $exception->getMessage();
@@ -68,7 +72,7 @@
     public static function getAll($connFromDB){
       try {
         $sqlStatement = "select id, name, category, measurementUnit, specialRequirement, nutritionComponents
-                        `from ingredients order by asc";
+                        `from ingredients where isActive = 1 order by asc";
         $prepareStatement = $connFromDB->prepare($sqlStatement);
         $prepareStatement->setFetchMode(PDO::FETCH_CLASS, 'Ingredient');
         if($prepareStatement->execute()){
@@ -83,10 +87,29 @@
       }
     }
 
+    public static function getByCategory($connToDB, $category){
+      try {
+        $sqlStatement ="select id, name, category, measurementUnit, specialRequirement, nutritionComponents
+                        from ingredients where category=:category and isActive=1";
+        $prepareStatement = $connToDB->prepare($sqlStatement);
+        $prepareStatement->bindValue(':category', $category, PDO::PARAM_INT);
+        $prepareStatement->setFetchMode(PDO::FETCH_CLASS, 'Ingredient');
+        if($prepareStatement->execute($prepareStatement)){
+          $ingredient = $prepareStatement->fetchAll(PDO::FETCH_ASSOC);
+          return $ingredient;
+        } 
+        throw new PDOException('Error(s) occour in executing get sql command stage! ');
+      }
+      catch(PDOException $exception){
+        echo $exception->getMessage();
+        return null;
+      }
+    }
+
     public static function getById($connToDB, $id){
       try {
         $sqlStatement ="select id, name, category, measurementUnit, specialRequirement, nutritionComponents
-                        from ingredients where id=:id";
+                        from ingredients where id=:id and isActive = 1";
         $prepareStatement = $connToDB->prepare($sqlStatement);
         $prepareStatement->bindValue(':id', $id, PDO::PARAM_INT);
         $prepareStatement->setFetchMode(PDO::FETCH_CLASS, 'Ingredient');
@@ -148,4 +171,7 @@
       }
     }
   }
+
+  //   public function unitConvertor()
+  // }
 ?>

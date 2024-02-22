@@ -14,13 +14,14 @@ document.addEventListener("DOMContentLoaded", function () {
   ];
 
   const MeasurementUnitOption = [
-    { value: "MGR", display: "Miligrams" },
-    { value: "GRA", display: "Grams" },
-    { value: "KGR", display: "Kilograms" },
-    { value: "MLI", display: "Mililitres" },
-    { value: "LIT", display: "Litres" },
-    { value: "TES", display: "Thìa cafe" },
-    { value: "TAS", display: "Muỗng canh" },
+    { value: "MG", display: "Miligrams" },
+    { value: "G", display: "Grams" },
+    { value: "KG", display: "Kilograms" },
+    { value: "ML", display: "Mililitres" },
+    { value: "L", display: "Litres" },
+    { value: "TSP", display: "Thìa cafe" },
+    { value: "DSP", display: "Muỗng cơm" },
+    { value: "TBSP", display: "Muỗng canh" },
     { value: "CUP", display: "Cốc" },
   ];
 
