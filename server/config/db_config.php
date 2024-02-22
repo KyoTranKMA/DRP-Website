@@ -13,12 +13,21 @@
 */
 
 // define connection
+<<<<<<< HEAD
 define('DB_HOST', 'localhost');
 define('DB_NAME', 'db_accounts');
 define('DB_USER', 'ad_db_ct07');
 define('DB_PASSWORD', 'admin');
 define('DB_PORT', '3306');
 define('DB_SOCKET', '/Applications/AMPPS/apps/mysql/var/mysql.sock');
+=======
+define('DB_HOST', 'mysql');
+define('DB_NAME', 'ct07_db');
+define('DB_USER', 'ad_db_ct07');
+define('DB_PASSWORD', 'admin');
+define('DB_PORT', '3306');
+define('DB_SOCKET', '/var/run/mysqld/mysqld.sock');
+>>>>>>> drp/NutritionCalc
 
 
 

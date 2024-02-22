@@ -8,12 +8,17 @@
   class Ingredients {
     private $_id; 
     private $name;
+<<<<<<< HEAD
     private $category;
+=======
+    public $category;
+>>>>>>> drp/NutritionCalc
     private $isActive;
     private $specialRequirement;
     private $measurementUnit;
     private $nutritionComponents;
 
+<<<<<<< HEAD
     public function __construct($name, $category, $isActive = true, $measurementUnit, 
                                 $nutritionComponents = NULL, $specialRequirement = NULL) {
         $this->name = $name;
@@ -23,6 +28,16 @@
         $this->specialRequirement = $specialRequirement;
         $this->nutritionComponents = $nutritionComponents;
 
+=======
+    public function __construct($name, $category, $measurementUnit, $isActive = true,
+                                $nutritionComponents = NULL, $specialRequirement = NULL) {
+        $this->name = $name;
+        $this->category = $category[0];
+        $this->measurementUnit = $measurementUnit[0];
+        $this->isActive = $isActive;
+        $this->nutritionComponents = $nutritionComponents;
+        $this->specialRequirement = $specialRequirement;
+>>>>>>> drp/NutritionCalc
         $this->validate();
     }
      
