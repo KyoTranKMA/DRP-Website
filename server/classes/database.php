@@ -25,7 +25,11 @@ class DataBase
     public function getConnection()
     {
         // Create Data Source Name
+<<<<<<< HEAD
         $dsn = "mysql:host=$this->DB_HOST;dbname=$this->DB_NAME;port=$this->DB_PORT;unix_socket=$this->DB_SOCKET;charset=utf8";
+=======
+        $dsn = "mysql:host=$this->DB_HOST;dbname=$this->DB_NAME;unix_socket=$this->DB_SOCKET;charset=utf8";
+>>>>>>> drp/NutritionCalc
 
         // Using Method Connect PDO
         try {
@@ -38,7 +42,11 @@ class DataBase
             // echo "Connect to MySQL sever successfull <br>";
             return $connection;
         } catch (PDOException $e) {
+<<<<<<< HEAD
             echo "Error in connection"  . $e->getMessage() . " <br> ";
+=======
+            echo "Error in making connect to database: "  . $e->getMessage() . " <br> ";
+>>>>>>> drp/NutritionCalc
             exit;
         }
     }
