@@ -1,6 +1,6 @@
 <?php
 
-class Dish
+class DishModel
 {
     private $id;
     private $name;
@@ -11,15 +11,6 @@ class Dish
     private $imagefile;
 
 
-    public function __construct($name, $description, $ingredient, $nutrition, $author, $imagefile)
-    {
-        $this->name = $name;
-        $this->description = $description;
-        $this->ingredient = $ingredient;
-        $this->nutrition = $nutrition;
-        $this->author = $author;
-        $this->imagefile = $imagefile;
-    }
     private function validate()
     {
         return isset($this->name, $this->description, $this->ingredient, $this->nutrition, $this->author)
@@ -91,7 +82,7 @@ class Dish
     }
 
 
-    public static function getByID($connection, $id)
+    public function getByID($connection, $id)
     {
         try {
             $sql = "select * from dishs where id=:id";
