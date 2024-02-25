@@ -11,7 +11,6 @@ class Dish
     private $imagefile;
 
 
-
     public function __construct($name, $description, $ingredient, $nutrition, $author, $imagefile)
     {
         $this->name = $name;
@@ -109,6 +108,10 @@ class Dish
             return null;
         }
     }
+
+
+
+
 
     public function update($connection, $id)
     {

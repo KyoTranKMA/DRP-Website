@@ -2,9 +2,6 @@
 
 <?php
 
-
-
-
 class Logout extends Auth
 {
     public static function logout()
