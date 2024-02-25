@@ -8,6 +8,7 @@
   class Ingredients {
     private $_id; 
     private $name;
+
     private $category;
     private $isActive;
     private $specialRequirement;
@@ -22,8 +23,6 @@
         $this->isActive = $isActive;
         $this->specialRequirement = $specialRequirement;
         $this->nutritionComponents = $nutritionComponents;
-
-        $this->validate();
     }
      
     private function validate(){
