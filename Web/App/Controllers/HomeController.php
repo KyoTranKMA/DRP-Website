@@ -1,12 +1,22 @@
-<?php namespace App\Controllers;
-  class HomeController{
-    public function __construct() {
+<?php
+
+class HomeController extends BaseController
+{
+    public function index()
+    {
+        return $this->loadView('frontend.pages.index');
     }
-    public function index(){
-      echo 't';
+    public function homePage()
+    {
+        return $this->loadView('frontend.pages.homepage');
     }
-    public function details(){
-      
-    }
-  }
+
+
+}
+
+
+
+
+
+
 ?>
