@@ -15,7 +15,7 @@ class DataBase
     // Constructor Method
     public function __construct()
     {
-        require_once(__DIR__ . '../../Config/db_config.php');
+        require_once(__DIR__ . '/../../Config/db_config.php');
         $this->DB_CONNECTION = DB_CONNECTION;
         $this->DB_HOST = DB_HOST;
         $this->DB_NAME = DB_NAME;
@@ -39,7 +39,7 @@ class DataBase
                 $this->DB_PASSWORD
             );
             $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            // echo "Connect to MySQL sever successfull <br>";
+            echo "Connect to MySQL sever successfull <br>";
             return $connection;
         } catch (PDOException $e) {
             echo "Error in connection"  . $e->getMessage() . " <br> ";
