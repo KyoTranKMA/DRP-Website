@@ -4,11 +4,11 @@ class HomeController extends BaseController
 {
     public function index()
     {
-        return $this->loadView('frontend.pages.index');
+        return $this->loadView('pages.index');
     }
     public function homePage()
     {
-        return $this->loadView('frontend.pages.homepage');
+        return $this->loadView('pages.homepage');
     }
 
 

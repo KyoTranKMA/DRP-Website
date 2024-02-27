@@ -3,44 +3,23 @@
 
 class DishController extends BaseController 
 {
-    private $conn;
+    private $dishModel;
     // Get Path Class Dish Model;
     public function __construct()
     {
         $this->loadModel('DishModel');
-        $dbManager = DatabaseController::getInstance();
-        $this->conn = $dbManager->getConnection();
+        $this->dishModel = new DishModel();
     } 
     public function index()
     {
-        $title = 'Cac mon an buoi sang: ';
-        $dishs = [
-            [
-                'id' => 1,
-                'name' => 'Cơm Tấm'
-            ],
-            [
-                'id' => 2,
-                'name' => 'Bánh Mì'
-            ],    
-            [
-                'id' => 3,
-                'name' => 'Phở'
-            ],
-
-        ]; 
-        $dishModel = new DishModel();
-
-        return $this->loadView('frontend.pages.dishpage', [
-            'title' => $title
-            ,'dishs' => $dishs
-        ]);
+        $dishs = $this->dishModel->getAll();
+        return $this->loadView('pages.dishpage', $dishs);
     }
     public function show()
     {
-        $dishModel = new DishModel;
-        echo $dishModel->getByID($this->conn, 1); 
-
+        $id = $_GET('id');
+        $dish = $this->dishModel->findById($id);
+        echo $dish;
     }
 
 

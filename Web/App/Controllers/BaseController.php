@@ -11,17 +11,28 @@ class BaseController
     // Create Method for get classes in Views
     protected function loadView($viewPath, array $data = [])
     {
-        foreach($data as $key => $value)
-        {
-            $$key = $value;
+        foreach ($data as $dish) {
+            echo "ID: {$dish['idDish']}, Name: {$dish['nameDish']}, Author: {$dish['author']}<br>";
         }
         
-        require('./' . self::VIEW_FOLDER_NAME . '/'.  str_replace('.', '/', $viewPath) . '.php'); 
+        $viewFile = realpath(__DIR__ . '/../' . self::VIEW_FOLDER_NAME . '/' . str_replace('.', '/', $viewPath) . '.php');
+
+        if ($viewFile !== false) {
+            require $viewFile;
+        } else {
+            echo "View file not found: $viewFile";
+        } 
     } 
     // Create Method for get classes in Models
     protected function loadModel($modelPath)
     {
-        require('./' . self::MODEl_FOLDER_NAME . '/'.  str_replace('.', '/', $modelPath) . '.php');
+        $modelFile = realpath(__DIR__ . '/../' . self::MODEl_FOLDER_NAME . '/' . str_replace('.', '/', $modelPath) . '.php');
+
+    if ($modelFile !== false) {
+        require $modelFile;
+    } else {
+        echo "Model file not found: $modelPath";
+    }
     }
 
 }
