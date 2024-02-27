@@ -1,3 +1,7 @@
-.vscode
-/docker
+
+/Data
+.db_config.php
 .DS_Store
+/docker
+.vscode
+
