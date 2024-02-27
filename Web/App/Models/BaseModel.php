@@ -6,26 +6,18 @@ class BaseModel extends DataBase
     public function __construct()
     {
         parent::__construct();
-        $this->connection = $this->getConnection();
     }
-    // Create Method Connection to DB for Models
+    // Method Connection to DB for Models
     protected function getConnect()
     {
         return parent::getConnection();
     }
-    // Create Method get all common for Models
-    public function all($table)
-    {
-        $sql = "select * from $table";
-        return $this->query($sql);
-    }
-
-    private function query($sql)
+    private function query($sql, $className)
     {
         try {
             // Prepare the statement
             $stmt = $this->getConnect()->prepare($sql);
-            $stmt->setFetchMode(PDO::FETCH_CLASS, "BaseModel");
+            $stmt->setFetchMode(PDO::FETCH_CLASS, $className);
             if ($stmt->execute()) {
                 $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 return $data;
@@ -34,8 +26,32 @@ class BaseModel extends DataBase
             echo $e->getMessage();
             return null;
         }
-
     }
+    // Method common for get all for Models
+    public function all($className, $table, $select, $limit = 5)
+    {
+        $select = implode(',',$select); // Convert from arr to string
+        $sql = "select {$select} from {$table} limit {$limit} ";
+        $query = $this->query($sql, $className);
+        return $query;
+    }
+    // Method common for get by id for Models
+    public function find($className, $table, $id)
+    {
+        $sql = "select * from {$table} where id=:$id limit 1";
+        $query = $this->query($sql, $className);
+        return $query;
+    }
+    // Method common for get by id for Models
+    public function add($className, $table, $fields ,$value)
+    {
+        $fields = implode(',',$fields);
+        $value = implode(',',$value);
+        $sql = "insert into {$table}($fields) values ($value)";
+        $query = $this->query($sql, $className);
+        return $query;
+    }
+
 }
 
 
