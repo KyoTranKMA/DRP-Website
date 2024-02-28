@@ -35,14 +35,14 @@ class BaseModel extends DataBase
         $query = $this->query($sql, $className);
         return $query;
     }
-    // Method common for get by id for Models
+    // Method common for find by id for Models
     public function find($className, $table, $id)
     {
         $sql = "select * from {$table} where id=:$id limit 1";
         $query = $this->query($sql, $className);
         return $query;
     }
-    // Method common for get by id for Models
+    // Method common for add value for Models
     public function add($className, $table, $fields ,$value)
     {
         $fields = implode(',',$fields);
@@ -50,6 +50,20 @@ class BaseModel extends DataBase
         $sql = "insert into {$table}($fields) values ($value)";
         $query = $this->query($sql, $className);
         return $query;
+    }
+    // Method common for check value for Models
+    public function check($className, $table, $value)
+    {
+        $sql = "select * from {$table} where $value=:$value limit 1";
+        $stmt = $this->getConnect()->prepare($sql);
+        $stmt->bindValue(':$value', $value, PDO::PARAM_STR);
+        $stmt->setFetchMode(PDO::FETCH_CLASS, "$className");
+        $stmt->execute();
+        $user = $stmt->fetch();
+        if ($user) {
+            return true;
+        }
+        return false;
     }
 
 }

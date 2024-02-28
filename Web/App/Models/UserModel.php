@@ -1,19 +1,28 @@
 <?php
-class UserModel
+class UserModel extends BaseModel
 {
-    public function __construct()
+    const CLASSNAME = 'UserModel';
+    const TABLE = 'users';
+
+    private function checkEmail($email)
     {
+        return $this->check(self::CLASSNAME,self::TABLE, $email);
     }
 
-    public static function authenticate($connection, $data)
+    private function checkUserName($username)
+    {
+        return $this->check(self::CLASSNAME,self::TABLE, $username);
+    }
+    
+    public function authenticate($data)
     {
         $email = $data['email'];
         $password = $data['password'];
 
-        $sql = "SELECT * FROM users WHERE email=:email";
-        $stmt = $connection->prepare($sql);
+        $sql = "select * from users where email=:email";
+        $stmt = $this->getConnect()->prepare($sql);
         $stmt->bindValue(':email', $email, PDO::PARAM_STR);
-        $stmt->setFetchMode(PDO::FETCH_CLASS, 'UserModel');
+        $stmt->setFetchMode(PDO::FETCH_CLASS, self::CLASSNAME);
         $stmt->execute();
         $user = $stmt->fetch();
         if ($user) {
@@ -28,7 +37,7 @@ class UserModel
         return false;
     }
 
-    public function addUser($connection, $data)
+    public function addUser($data)
     {
         $username = $data['username'];
         $password = password_hash($data['password'], PASSWORD_DEFAULT);
@@ -42,11 +51,11 @@ class UserModel
             $alert = 'Fields must be not empty!';
             return $alert;
         } else {
-            if ($this->checkEmail($connection, $email)) {
+            if ($this->checkEmail($email)) {
                 $alert = 'Email Already Existed';
                 return $alert;
             };
-            if ($this->checkUserName($connection, $username)) {
+            if ($this->checkUserName($username)) {
                 $alert = 'Username Already Existed';
                 return $alert;
             }
@@ -54,7 +63,7 @@ class UserModel
 
         $sql = "insert into users (username, password, dateofbirth, email, country, gender, level) values (:username, :password, :dateofbirth, :email, :country, :gender, :level)";
         // Prepare the statement
-        $stmt = $connection->prepare($sql);
+        $stmt = $this->getConnect()->prepare($sql);
         // Bind parameters
         $stmt->bindValue(':username', $username, PDO::PARAM_STR);
         $stmt->bindValue(':password', $password, PDO::PARAM_STR);
@@ -66,31 +75,7 @@ class UserModel
         return $stmt->execute();
     }
 
-    private function checkEmail($connection, $email)
-    {
-        $sql = "select * from users where email=:email LIMIT 1";
-        $stmt = $connection->prepare($sql);
-        $stmt->bindValue(':email', $email, PDO::PARAM_STR);
-        $stmt->setFetchMode(PDO::FETCH_CLASS, 'UserModel');
-        $stmt->execute();
-        $user = $stmt->fetch();
-        if ($user) {
-            return true;
-        }
-        return false;
-    }
-
-    private function checkUserName($connection, $username)
-    {
-        $sql = "select * from users where username=:username LIMIT 1";
-        $stmt = $connection->prepare($sql);
-        $stmt->bindValue(':username', $username, PDO::PARAM_STR);
-        $stmt->setFetchMode(PDO::FETCH_CLASS, 'UserModel');
-        $stmt->execute();
-        $user = $stmt->fetch();
-        if ($user) {
-            return true;
-        }
-        return false;
-    }
 }
+
+
+?>
