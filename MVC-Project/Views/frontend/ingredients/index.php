@@ -1,1 +1,0 @@
-<h1>Ingredient page</h1>
