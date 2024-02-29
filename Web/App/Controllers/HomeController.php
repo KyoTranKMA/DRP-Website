@@ -15,5 +15,3 @@ class HomeController extends BaseController
 }
 
 
-
-
