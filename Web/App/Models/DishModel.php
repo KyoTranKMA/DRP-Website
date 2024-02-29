@@ -13,5 +13,13 @@ class DishModel extends BaseModel
     {
         return $this->find(self::CLASSNAME , self::TABLE, $id);
     }
+    public function updateById($id, $data)
+    {
+        return $this->update(self::CLASSNAME , self::TABLE, $id, $data);
+    }
+    public function deleteById($id)
+    {
+        return $this->delete(self::CLASSNAME , self::TABLE, $id);
+    }
 
 }

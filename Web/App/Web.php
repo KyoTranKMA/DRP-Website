@@ -1,4 +1,4 @@
-<?php
+<?php namespace App; 
 
 use App\Controllers\HomeController;
 
@@ -10,7 +10,6 @@ use App\Controllers\HomeController;
       $this->__action = 'index';
       $this->__params = [];
       $this->handleURL();
-      
     }
     public function getURL() {
       if (!empty($_SERVER['PATH_INFO'])) {

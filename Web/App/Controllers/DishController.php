@@ -1,4 +1,6 @@
-<?php
+<?php 
+namespace App\Controllers;
+use App\Models\DishModel;
 
 
 class DishController extends BaseController 
@@ -17,11 +19,22 @@ class DishController extends BaseController
     }
     public function show()
     {
-        $id = $_GET('id');
+        $id = $_GET('id');  
         $dish = $this->dishModel->findById($id);
         echo $dish;
     }
 
+    public function update()
+    {
+        $id = $_GET('id');
+        $data = ['name' => 'test'];
+        $this->dishModel->updateById($id, $data);
+    }
+    public function delete()
+    {
+        $id = $_GET('id');
+        $this->dishModel->deleteById($id);
+    }
 
 
 }

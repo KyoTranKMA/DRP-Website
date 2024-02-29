@@ -1,4 +1,5 @@
-<?php
+<?php namespace App\Models;
+use PDO;
 class UserModel extends BaseModel
 {
     const CLASSNAME = 'UserModel';
