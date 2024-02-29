@@ -1,5 +1,5 @@
-<?php
-
+<?php namespace App\Models;
+use App\Core\DataBase;
 class BaseModel extends DataBase
 {
     protected $connection;
@@ -35,6 +35,14 @@ class BaseModel extends DataBase
         $query = $this->query($sql, $className);
         return $query;
     }
+    // Method common for get all for Models
+    public function showById($className, $table, $id)
+    {
+        $sql = "select * from {$table} where id:=$id ";
+        $query = $this->query($sql, $className);
+        return $query;
+    }
+    
     // Method common for find by id for Models
     public function find($className, $table, $id)
     {
@@ -42,21 +50,12 @@ class BaseModel extends DataBase
         $query = $this->query($sql, $className);
         return $query;
     }
-    // Method common for add value for Models
-    public function add($className, $table, $fields ,$value)
+    // Method common for check data for Models
+    public function check($className, $table, $data)
     {
-        $fields = implode(',',$fields);
-        $value = implode(',',$value);
-        $sql = "insert into {$table}($fields) values ($value)";
-        $query = $this->query($sql, $className);
-        return $query;
-    }
-    // Method common for check value for Models
-    public function check($className, $table, $value)
-    {
-        $sql = "select * from {$table} where $value=:$value limit 1";
+        $sql = "select * from {$table} where $data=:$data limit 1";
         $stmt = $this->getConnect()->prepare($sql);
-        $stmt->bindValue(':$value', $value, PDO::PARAM_STR);
+        $stmt->bindValue(':$data', $data, PDO::PARAM_STR);
         $stmt->setFetchMode(PDO::FETCH_CLASS, "$className");
         $stmt->execute();
         $user = $stmt->fetch();
@@ -64,6 +63,69 @@ class BaseModel extends DataBase
             return true;
         }
         return false;
+    }
+    // Method common for add data for Models
+    public function create($className, $table, $data = [])
+    {
+        $colums = implode(',', array_keys($data));
+
+        $values = array_map(function($value){
+            return "'" . $value . "'";
+        }, array_values($data));
+        $values = implode(',', $values);
+
+        $sql = "insert into {$table}($colums) values ($values)";
+        $query = $this->query($sql, $className);
+        return $query;
+    }
+
+
+    public function update($className, $table, $id, $data)
+    {
+        try {
+            $dataSets = [];
+            foreach($data as $key => $val)
+            {
+                array_push($dataSets, "{$key} = '. $val .'");
+            }
+            $dataString = implode(',', $dataSets);
+
+            $sql = "update $table set {$dataString} where id = :id";
+
+            // Prepare the statement
+            $stmt = $this->getConnect()->prepare($sql);
+
+            // Bind parameters
+            $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+            // Execute the statement
+            if ($stmt->execute()) {
+                echo "Đã cập nhật thành công <br>";
+                return true;
+            } else {
+                echo "Cập nhật thất bại <br>";
+                return false;
+            }
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            return false;
+        }
+    }
+
+    public function delete($className, $table, $id)
+    {
+        try {
+            $sql = "delete from {$table} where id=:id";
+            // Prepare the statement
+            $stmt = $this->getConnect()->prepare($sql);
+            $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+            $stmt->setFetchMode(PDO::FETCH_CLASS, "$className");
+            if ($stmt->execute()) {
+                echo "Đã xoá " . $id .  " thành công <br>";
+            }
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            return false;
+        }
     }
 
 }
