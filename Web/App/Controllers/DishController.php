@@ -9,7 +9,6 @@ class DishController extends BaseController
     // Get Path Class Dish Model;
     public function __construct()
     {
-        $this->loadModel('DishModel');
         $this->dishModel = new DishModel();
     } 
     public function index()

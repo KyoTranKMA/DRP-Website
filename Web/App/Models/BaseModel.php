@@ -1,4 +1,5 @@
 <?php namespace App\Models;
+
 use PDO, PDOException, App\Core\Database;
 class BaseModel extends Database
 {
@@ -56,7 +57,7 @@ class BaseModel extends Database
         $sql = "select * from {$table} where $data=:$data limit 1";
         $stmt = $this->getConnect()->prepare($sql);
         $stmt->bindValue(':$data', $data, PDO::PARAM_STR);
-        $stmt->setFetchMode(PDO::FETCH_CLASS, "$className");
+        $stmt->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, "$className");
         $stmt->execute();
         $user = $stmt->fetch();
         if ($user) {

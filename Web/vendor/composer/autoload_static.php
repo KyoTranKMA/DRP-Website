@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit21469c992d6bb27d66e4ac4bca82f83c
+class ComposerStaticInit1a38387b3563d6863abba005b6fe071d
 {
     public static $prefixLengthsPsr4 = array (
         'A' => 
@@ -41,19 +41,29 @@ class ComposerStaticInit21469c992d6bb27d66e4ac4bca82f83c
     );
 
     public static $classMap = array (
+        'App\\Controllers\\BaseController' => __DIR__ . '/../..' . '/App/Controllers/BaseController.php',
+        'App\\Controllers\\DatabaseController' => __DIR__ . '/../..' . '/App/Controllers/DatabaseController.php',
         'App\\Controllers\\DishController' => __DIR__ . '/../..' . '/App/Controllers/DishController.php',
+        'App\\Controllers\\HomeController' => __DIR__ . '/../..' . '/App/Controllers/HomeController.php',
+        'App\\Controllers\\IngredientController' => __DIR__ . '/../..' . '/App/Controllers/IngredientController.php',
+        'App\\Controllers\\RecipeUnitConverterController' => __DIR__ . '/../..' . '/App/Controllers/RecipeUnitConverterController.php',
+        'App\\Controllers\\UploadFileErrorController' => __DIR__ . '/../..' . '/App/Controllers/UploadFileErrorController.php',
         'App\\Controllers\\UserController' => __DIR__ . '/../..' . '/App/Controllers/UserController.php',
+        'App\\Core\\Database' => __DIR__ . '/../..' . '/App/Core/Database.php',
         'App\\Models\\BaseModel' => __DIR__ . '/../..' . '/App/Models/BaseModel.php',
+        'App\\Models\\DatabaseModel' => __DIR__ . '/../..' . '/App/Models/DatabaseModel.php',
+        'App\\Models\\DishModel' => __DIR__ . '/../..' . '/App/Models/DishModel.php',
         'App\\Models\\UserModel' => __DIR__ . '/../..' . '/App/Models/UserModel.php',
+        'App\\Web' => __DIR__ . '/../..' . '/App/Web.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit21469c992d6bb27d66e4ac4bca82f83c::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit21469c992d6bb27d66e4ac4bca82f83c::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInit21469c992d6bb27d66e4ac4bca82f83c::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit1a38387b3563d6863abba005b6fe071d::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit1a38387b3563d6863abba005b6fe071d::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit1a38387b3563d6863abba005b6fe071d::$classMap;
 
         }, null, ClassLoader::class);
     }

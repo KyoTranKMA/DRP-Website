@@ -7,7 +7,6 @@ class UserController extends BaseController
     // Get Path Class User Model;
     public function __construct()
     {
-        $this->loadModel('UserModel');
         $this->userModel = new UserModel();
     } 
 

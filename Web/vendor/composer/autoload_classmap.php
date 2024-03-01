@@ -6,9 +6,19 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
+    'App\\Controllers\\BaseController' => $baseDir . '/App/Controllers/BaseController.php',
+    'App\\Controllers\\DatabaseController' => $baseDir . '/App/Controllers/DatabaseController.php',
     'App\\Controllers\\DishController' => $baseDir . '/App/Controllers/DishController.php',
+    'App\\Controllers\\HomeController' => $baseDir . '/App/Controllers/HomeController.php',
+    'App\\Controllers\\IngredientController' => $baseDir . '/App/Controllers/IngredientController.php',
+    'App\\Controllers\\RecipeUnitConverterController' => $baseDir . '/App/Controllers/RecipeUnitConverterController.php',
+    'App\\Controllers\\UploadFileErrorController' => $baseDir . '/App/Controllers/UploadFileErrorController.php',
     'App\\Controllers\\UserController' => $baseDir . '/App/Controllers/UserController.php',
+    'App\\Core\\Database' => $baseDir . '/App/Core/Database.php',
     'App\\Models\\BaseModel' => $baseDir . '/App/Models/BaseModel.php',
+    'App\\Models\\DatabaseModel' => $baseDir . '/App/Models/DatabaseModel.php',
+    'App\\Models\\DishModel' => $baseDir . '/App/Models/DishModel.php',
     'App\\Models\\UserModel' => $baseDir . '/App/Models/UserModel.php',
+    'App\\Web' => $baseDir . '/App/Web.php',
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
 );
