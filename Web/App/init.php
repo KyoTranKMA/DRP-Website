@@ -1,6 +1,8 @@
 <?php
   require_once(__DIR__ . "/../vendor/autoload.php");
   require_once("Config/db_config.php");
+  define('DEBUG', true);
+
   function exceptionHandler($exception){
     if(DEBUG){
         echo "<h2>Lỗi: " . $exception->getMessage() . "</h2>";

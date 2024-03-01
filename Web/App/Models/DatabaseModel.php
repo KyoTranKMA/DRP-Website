@@ -1,4 +1,5 @@
 <?php namespace App\Models;
+
 use PDO, PDOException;
 
 class DatabaseModel
@@ -40,7 +41,7 @@ class DatabaseModel
             // echo "Connect to MySQL sever successfull <br>";
             return $connection;
         } catch (PDOException $e) {
-            echo "Error in connection"  . $e->getMessage() . " <br> ";
+            echo "Error in connection: "  . $e->getMessage() . " <br> ";
             exit;
         }
     }

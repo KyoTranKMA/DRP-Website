@@ -1,6 +1,7 @@
-<?php namespace App\Models;
+<?php 
+namespace App\Models;
+use App\Core\DataBase, PDO, PDOException;
 
-use PDO, PDOException, App\Core\Database;
 class BaseModel extends Database
 {
     protected $connection;

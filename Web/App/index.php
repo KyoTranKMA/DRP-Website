@@ -1,22 +1,18 @@
 <?php
-
     require_once(__DIR__ . '/Core/init.php');
-    // require_once(__DIR__ . '/Core/Database.php');
-    // require_once(__DIR__ . '/Models/BaseModel.php');
-    // require_once(__DIR__ . '/Controllers/BaseController.php');
 
     // Get Route name and Validate Param
-    $controllerName = ucfirst(strtolower($_REQUEST[('controller')]) . 'Controller');
+    $controllerName = $_REQUEST['controller'] ?? 'Home';
+    echo json_encode($controllerName);
     $actionName = $_REQUEST['action'] ?? 'index';
-    $fullPathController = "App\Controllers\\$controllerName";
-    // require_once(__DIR__ . "/Controllers/$controllerName.php");
+    if(class_exists('App\Controllers\\' . $controllerName) == false) {
+        die('Controller not found');
+    }
+    $fullController = "App\Controllers\\$controllerName";
     
     // Generate Object  
-    $controllerObject = new $fullPathController;
+    $controllerObject = new $fullController;
     // Get Method
     $controllerObject->$actionName();
-    
-
-    
 
 ?>

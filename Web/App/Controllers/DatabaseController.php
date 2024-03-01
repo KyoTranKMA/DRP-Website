@@ -23,7 +23,7 @@ class DatabaseController extends BaseController
     public static function getInstance() {
         if (!self::$instance) {
             require_once(__DIR__ . "../config/db_config.php");
-            self::$instance = new DataBaseModel(DB_HOST,
+            self::$instance = new DatabaseModel(DB_HOST,
             DB_NAME,
             DB_USER,
             DB_PASSWORD,

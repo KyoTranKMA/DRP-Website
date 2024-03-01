@@ -1,6 +1,5 @@
 <?php
 namespace App\Core;
-
 use PDO, PDOException;
 
 require_once('init.php');
@@ -52,5 +51,3 @@ class Database
         }
     }
 }
-
-?>

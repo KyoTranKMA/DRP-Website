@@ -1,8 +1,6 @@
 <?php 
 namespace App\Controllers;
 use App\Models\DishModel;
-
-
 class DishController extends BaseController 
 {
     private $dishModel;

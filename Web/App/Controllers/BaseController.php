@@ -1,11 +1,6 @@
-<?php 
-namespace App\Controllers;
+<?php namespace App\Controllers;
 
-class BaseController
-{
-    /*
-        pathname: foldername.filename
-    */
+class BaseController {
     const VIEW_FOLDER_NAME = 'Views';
     const MODEl_FOLDER_NAME = 'Models';    
 
