@@ -1,6 +1,9 @@
 <?php
 namespace App\Controllers;
+// use autoload from composer
+require($_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php');
 use App\Models\DatabaseModel;
+
 class DatabaseController extends BaseController
 {
     private static $instance = null;

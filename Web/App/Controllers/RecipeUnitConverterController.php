@@ -1,5 +1,8 @@
-<?php namespace App\Controllers;
-use Exception;
+<?php 
+namespace App\Controllers;
+// use autoload from composer
+require($_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php');
+
 class RecipeUnitConverterController extends BaseController{ 
   const CONVERSION_RATIOS = [
     'TSP' => ['DSP' => 4 / 3, 'TBSP' => 1 / 3, 'CUP' => 1 / 48, 'ML' => 5, 'LIT' => 1 / 200],
@@ -19,7 +22,7 @@ class RecipeUnitConverterController extends BaseController{
       preg_match('/([\d\s\/]+)\s*(\D+)/', $input, $matches);
       $trimInput = array(trim($matches[1]), trim($matches[2]));
       if (!isset(self::CONVERSION_RATIOS[$trimInput[1]]) || !isset(self::CONVERSION_RATIOS[$trimInput[1]][$toUnit]))
-        throw new Exception("Incapitable unit or no suitable conversion ratio! ");
+        throw new \Exception("Incapitable unit or no suitable conversion ratio! ");
 
       // Trim the number and fraction 
       preg_match('/(\d+)\s*(\d*\/\d*)?/', $trimInput[0], $matches);
@@ -34,7 +37,7 @@ class RecipeUnitConverterController extends BaseController{
       $conversionRatio = self::CONVERSION_RATIOS[$trimInput[1]][$toUnit];
       $convertedAmount = (float)$total * $conversionRatio;
       return $convertedAmount;
-    } catch (Exception $e) {
+    } catch (\Exception $e) {
       echo $e->getMessage();
       return false;
     }

@@ -1,4 +1,6 @@
 <?php namespace App\Models;
+// use autoload from composer
+require($_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php');
 
 class DishModel extends BaseModel
 {

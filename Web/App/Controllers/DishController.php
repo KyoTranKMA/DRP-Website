@@ -1,6 +1,9 @@
 <?php 
 namespace App\Controllers;
 use App\Models\DishModel;
+// use autoload from composer
+require($_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php');
+
 class DishController extends BaseController 
 {
     private $dishModel;

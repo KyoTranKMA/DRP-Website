@@ -1,6 +1,8 @@
 <?php
 namespace App\Models;
-use PDO, PDOException, App\Core\Database;
+// use autoload from composer
+require($_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php');
+
 class UserModel extends BaseModel
 {
     const CLASSNAME = 'UserModel';
@@ -23,8 +25,8 @@ class UserModel extends BaseModel
 
         $sql = "select * from users where email=:email";
         $stmt = $this->getConnect()->prepare($sql);
-        $stmt->bindValue(':email', $email, PDO::PARAM_STR);
-        $stmt->setFetchMode(PDO::FETCH_CLASS, self::CLASSNAME);
+        $stmt->bindValue(':email', $email, \PDO::PARAM_STR);
+        $stmt->setFetchMode(\PDO::FETCH_CLASS, self::CLASSNAME);
         $stmt->execute();
         $user = $stmt->fetch();
         if ($user) {
@@ -67,13 +69,13 @@ class UserModel extends BaseModel
         // Prepare the statement
         $stmt = $this->getConnect()->prepare($sql);
         // Bind parameters
-        $stmt->bindValue(':username', $username, PDO::PARAM_STR);
-        $stmt->bindValue(':password', $password, PDO::PARAM_STR);
-        $stmt->bindValue(':dateofbirth', $dateofbirth, PDO::PARAM_STR);
-        $stmt->bindValue(':email', $email, PDO::PARAM_STR);
-        $stmt->bindValue(':country', $country, PDO::PARAM_STR);
-        $stmt->bindValue(':gender', $gender, PDO::PARAM_STR);
-        $stmt->bindValue(':level', 3, PDO::PARAM_INT);
+        $stmt->bindValue(':username', $username, \PDO::PARAM_STR);
+        $stmt->bindValue(':password', $password, \PDO::PARAM_STR);
+        $stmt->bindValue(':dateofbirth', $dateofbirth, \PDO::PARAM_STR);
+        $stmt->bindValue(':email', $email, \PDO::PARAM_STR);
+        $stmt->bindValue(':country', $country, \PDO::PARAM_STR);
+        $stmt->bindValue(':gender', $gender, \PDO::PARAM_STR);
+        $stmt->bindValue(':level', 3, \PDO::PARAM_INT);
         return $stmt->execute();
     }
 

@@ -1,4 +1,7 @@
-<?php namespace App\Controllers;
+<?php 
+namespace App\Controllers;
+// use autoload from composer
+require($_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php');
 class HomeController extends BaseController
 {
     public function index()

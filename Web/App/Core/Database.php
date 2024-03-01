@@ -1,6 +1,5 @@
 <?php
 namespace App\Core;
-use PDO, PDOException;
 
 require_once('init.php');
 
@@ -35,17 +34,17 @@ class Database
         // Create Data Source Name
         $dsn = "$this->DB_CONNECTION:host=$this->DB_HOST;dbname=$this->DB_NAME;port=$this->DB_PORT;unix_socket=$this->DB_SOCKET;charset=utf8";
 
-        // Using Method Connect PDO
+        // Using Method Connect \PDO
         try {
-            $connection = new PDO(
+            $connection = new \PDO(
                 $dsn,
                 $this->DB_USER,
                 $this->DB_PASSWORD
             );
-            $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $connection->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
             echo "Connect to MySQL sever successfull <br>";
             return $connection;
-        } catch (PDOException $e) {
+        } catch (\PDOException $e) {
             echo "Error in connection"  . $e->getMessage() . " <br> ";
             exit;
         }

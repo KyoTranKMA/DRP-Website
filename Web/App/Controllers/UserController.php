@@ -1,5 +1,7 @@
 <?php 
 namespace App\Controllers;
+// use autoload from composer
+require($_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php');
 use App\Models\UserModel;
 
 class UserController extends BaseController

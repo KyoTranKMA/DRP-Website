@@ -1,6 +1,8 @@
 <?php 
 namespace App\Models;
-use App\Core\DataBase, PDO, PDOException;
+use App\Core\DataBase;
+// use autoload from composer
+require($_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php');
 
 class BaseModel extends Database
 {
@@ -19,12 +21,12 @@ class BaseModel extends Database
         try {
             // Prepare the statement
             $stmt = $this->getConnect()->prepare($sql);
-            $stmt->setFetchMode(PDO::FETCH_CLASS, $className);
+            $stmt->setFetchMode(\PDO::FETCH_CLASS, $className);
             if ($stmt->execute()) {
-                $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                $data = $stmt->fetchAll(\PDO::FETCH_ASSOC);
                 return $data;
             }
-        } catch (PDOException $e) {
+        } catch (\PDOException $e) {
             echo $e->getMessage();
             return null;
         }
@@ -57,8 +59,8 @@ class BaseModel extends Database
     {
         $sql = "select * from {$table} where $data=:$data limit 1";
         $stmt = $this->getConnect()->prepare($sql);
-        $stmt->bindValue(':$data', $data, PDO::PARAM_STR);
-        $stmt->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, "$className");
+        $stmt->bindValue(':$data', $data, \PDO::PARAM_STR);
+        $stmt->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, "$className");
         $stmt->execute();
         $user = $stmt->fetch();
         if ($user) {
@@ -98,7 +100,7 @@ class BaseModel extends Database
             $stmt = $this->getConnect()->prepare($sql);
 
             // Bind parameters
-            $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+            $stmt->bindValue(':id', $id, \PDO::PARAM_INT);
             // Execute the statement
             if ($stmt->execute()) {
                 echo "Đã cập nhật thành công <br>";
@@ -107,7 +109,7 @@ class BaseModel extends Database
                 echo "Cập nhật thất bại <br>";
                 return false;
             }
-        } catch (PDOException $e) {
+        } catch (\PDOException $e) {
             echo $e->getMessage();
             return false;
         }
@@ -119,12 +121,12 @@ class BaseModel extends Database
             $sql = "delete from {$table} where id=:id";
             // Prepare the statement
             $stmt = $this->getConnect()->prepare($sql);
-            $stmt->bindValue(':id', $id, PDO::PARAM_INT);
-            $stmt->setFetchMode(PDO::FETCH_CLASS, "$className");
+            $stmt->bindValue(':id', $id, \PDO::PARAM_INT);
+            $stmt->setFetchMode(\PDO::FETCH_CLASS, "$className");
             if ($stmt->execute()) {
                 echo "Đã xoá " . $id .  " thành công <br>";
             }
-        } catch (PDOException $e) {
+        } catch (\PDOException $e) {
             echo $e->getMessage();
             return false;
         }
