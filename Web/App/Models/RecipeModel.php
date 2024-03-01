@@ -2,11 +2,11 @@
 // use autoload from composer
 require($_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php');
 
-class DishModel extends BaseModel
+class RecipeModel extends BaseModel
 {
 
-    const CLASSNAME = 'DishModel';
-    const TABLE = 'dishs';
+    const CLASSNAME = 'RecipeModel';
+    const TABLE = 'Recipes';
     public function getAll($select = ['*'], $limit = 5)
     {
         return $this->all(self::CLASSNAME ,self::TABLE, $select, $limit);

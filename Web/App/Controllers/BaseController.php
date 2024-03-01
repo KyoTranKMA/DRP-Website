@@ -7,8 +7,8 @@ class BaseController {
     // Create Method for get classes in Views
     protected function loadView($viewPath, array $data = [])
     {
-        foreach ($data as $dish) {
-            echo "ID: {$dish['idDish']}, Name: {$dish['nameDish']}, Author: {$dish['author']}<br>";
+        foreach ($data as $Recipe) {
+            echo "ID: {$Recipe['idRecipe']}, Name: {$Recipe['nameRecipe']}, Author: {$Recipe['author']}<br>";
         }
         
         $viewFile = realpath(__DIR__ . '/../' . self::VIEW_FOLDER_NAME . '/' . str_replace('.', '/', $viewPath) . '.php');
