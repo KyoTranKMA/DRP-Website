@@ -1,3 +1,7 @@
+<?php
+    use App\Core\init;
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,19 +40,19 @@
                         <img src="https://static.zerochan.net/Yukihira.Souma.full.3758381.jpg" class="img-fluid" alt="Sample image" style="height:650px; width:500px">
                     </div>
                     <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-                        <form name="frmPOST" method="POST" action="">
+                        <form name="frmPOST" method="POST" action="./../../Controllers/AuthController.php">
                             <h2>Welcome to PaPals</h2>
                             <!-- Email input -->
                             <div class="form-outline mb-4">
-                                <label class="form-label" for="form3Example3">Email address</label>
-                                <input type="email" id="email" class="form-control form-control-lg"
-                                placeholder="Enter a valid email address" />
+                                <label class="form-label" for="username">User name</label>
+                                <input type="username" id="username" name="username" class="form-control form-control-lg"
+                                placeholder="Enter a valid user name" />
                             </div>
 
                             <!-- Password input -->
                             <div class="form-outline mb-3">
-                                <label class="form-label" for="form3Example4">Password</label>
-                                <input type="password" id="password" class="form-control form-control-lg"
+                                <label class="form-label" for="password">Password</label>
+                                <input type="password" id="password" name="password" class="form-control form-control-lg"
                                 placeholder="Enter password" />
                             </div>
 

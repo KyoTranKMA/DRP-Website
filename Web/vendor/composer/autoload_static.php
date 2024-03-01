@@ -41,20 +41,6 @@ class ComposerStaticInit1a38387b3563d6863abba005b6fe071d
     );
 
     public static $classMap = array (
-        'App\\Controllers\\BaseController' => __DIR__ . '/../..' . '/App/Controllers/BaseController.php',
-        'App\\Controllers\\DatabaseController' => __DIR__ . '/../..' . '/App/Controllers/DatabaseController.php',
-        'App\\Controllers\\DishController' => __DIR__ . '/../..' . '/App/Controllers/DishController.php',
-        'App\\Controllers\\HomeController' => __DIR__ . '/../..' . '/App/Controllers/HomeController.php',
-        'App\\Controllers\\IngredientController' => __DIR__ . '/../..' . '/App/Controllers/IngredientController.php',
-        'App\\Controllers\\RecipeUnitConverterController' => __DIR__ . '/../..' . '/App/Controllers/RecipeUnitConverterController.php',
-        'App\\Controllers\\UploadFileErrorController' => __DIR__ . '/../..' . '/App/Controllers/UploadFileErrorController.php',
-        'App\\Controllers\\UserController' => __DIR__ . '/../..' . '/App/Controllers/UserController.php',
-        'App\\Core\\Database' => __DIR__ . '/../..' . '/App/Core/Database.php',
-        'App\\Models\\BaseModel' => __DIR__ . '/../..' . '/App/Models/BaseModel.php',
-        'App\\Models\\DatabaseModel' => __DIR__ . '/../..' . '/App/Models/DatabaseModel.php',
-        'App\\Models\\DishModel' => __DIR__ . '/../..' . '/App/Models/DishModel.php',
-        'App\\Models\\UserModel' => __DIR__ . '/../..' . '/App/Models/UserModel.php',
-        'App\\Web' => __DIR__ . '/../..' . '/App/Web.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
     );
 
