@@ -4,7 +4,7 @@ require($_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php');
 
 class DatabaseModel
 {
-    // Delcare Propertys of DataBase
+    // Delcare Propertys of Database
     protected $DB_HOST;
     protected $DB_NAME;
     protected $DB_USER;

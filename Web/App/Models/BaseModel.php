@@ -1,6 +1,6 @@
 <?php 
 namespace App\Models;
-use App\Core\DataBase;
+use App\Core\Database;
 // use autoload from composer
 require($_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php');
 

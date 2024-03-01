@@ -5,7 +5,7 @@ require_once('init.php');
 
 class Database
 {
-    // Delcare Propertys of DataBase
+    // Delcare Propertys of Database
     protected $DB_CONNECTION;
     protected $DB_HOST;
     protected $DB_NAME;
