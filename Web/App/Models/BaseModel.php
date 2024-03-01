@@ -1,6 +1,6 @@
 <?php namespace App\Models;
-use App\Core\DataBase;
-class BaseModel extends DataBase
+use PDO, PDOException, App\Core\Database;
+class BaseModel extends Database
 {
     protected $connection;
     public function __construct()

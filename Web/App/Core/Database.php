@@ -5,7 +5,7 @@ use PDO, PDOException;
 
 require_once('init.php');
 
-class DataBase
+class Database
 {
     // Delcare Propertys of DataBase
     protected $DB_CONNECTION;
