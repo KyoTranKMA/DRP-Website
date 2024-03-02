@@ -47,8 +47,8 @@ class IngredientModel extends BaseModel {
   private function query($sql) {
     try {
       // Make sure the connection is established
-      if ($this->connection !== null) {
-        $stmt = $this->connection->prepare($sql);
+      if ($this->getConnect() !== null) {
+        $stmt = $this->getConnect()->prepare($sql);
         $stmt->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, get_called_class());
         if ($stmt->execute()) {
           $data = $stmt->fetchAll(\PDO::FETCH_ASSOC);

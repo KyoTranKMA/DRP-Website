@@ -5,7 +5,7 @@ require($_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php');
 
 class UserModel extends BaseModel
 {
-    const CLASSNAME = 'UserModel';
+    const CLASSNAME = get_called_class();
     const TABLE = 'users';
 
     private $user_id;
@@ -35,7 +35,7 @@ class UserModel extends BaseModel
         $sql = "select * from users where username=:username";
         $stmt = $this->getConnect()->prepare($sql);
         $stmt->bindValue(':username', $this->username, \PDO::PARAM_STR);
-        $stmt->setFetchMode(\PDO::FETCH_CLASS, 'App\\Models\\UserModel');
+        $stmt->setFetchMode(\PDO::FETCH_CLASS, self::CLASSNAME);
         $stmt->execute();
         $user = $stmt->fetch();
         if ($user) {

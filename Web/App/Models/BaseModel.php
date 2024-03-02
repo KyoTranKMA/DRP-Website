@@ -6,7 +6,7 @@ require($_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php');
 
 class BaseModel  {
     private $DB_CONNECTION;
-    protected $connection; 
+    private $connection; 
     public function __construct()
     {
         $this->DB_CONNECTION = new Database();
@@ -17,6 +17,7 @@ class BaseModel  {
         }
     }
 
+    protected function getConnect() { return $this->connection; }
     private function query($sql)
     {
         try {
@@ -65,7 +66,7 @@ class BaseModel  {
         $sql = "select * from {$table} where {$field}=:data limit 1";
         $stmt = $this->connection->prepare($sql);
         $stmt->bindValue(':data', $data, \PDO::PARAM_STR);
-        $stmt->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, 'App\\Models\\UserModel');
+        $stmt->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, get_called_class());
         $stmt->execute();
         $user = $stmt->fetch();
         if ($user) {

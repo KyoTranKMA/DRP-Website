@@ -5,7 +5,7 @@ require($_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php');
 class RecipeModel extends BaseModel
 {
 
-    const CLASSNAME = 'RecipeModel';
+    const CLASSNAME = get_called_class();
     const TABLE = 'Recipes';
     public function getAll($select = ['*'], $limit = 5)
     {
