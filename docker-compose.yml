@@ -6,7 +6,7 @@ services:
     container_name: php_web_server
     build:
       context: ./
-      dockerfile: ./php.dockerfile
+      dockerfile: ./zdocker/php.dockerfile
     ports:
       - "80:80"
     volumes:
@@ -18,14 +18,10 @@ services:
 
   # Database using MySQL
   db-mysql:
-    image: mysql:8.3.0
+    build:
+      context: ./
+      dockerfile: ./zdocker/mysql.dockerfile
     container_name: mysql_8_3_0
-    hostname: localhost
-    environment:
-      - MYSQL_DATABASE=ct07_db
-      - MYSQL_ROOT_PASSWORD=admin
-      - MYSQL_USER=ad_db_ct07
-      - MYSQL_PASSWORD=admin
     ports:
       - "3306:3306"
     volumes:
