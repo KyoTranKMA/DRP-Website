@@ -4,27 +4,32 @@ use App\Core\Database;
 // use autoload from composer
 require($_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php');
 
-class BaseModel extends Database
-{
-    protected $connection;
+class BaseModel  {
+    private $DB_CONNECTION;
+    protected $connection; 
     public function __construct()
     {
-        parent::__construct();
+        $this->DB_CONNECTION = new Database();
+        $this->connection = $this->DB_CONNECTION->getConnection();
+        if ($this->connection === false) {
+            echo "Error: Unable to establish database connection. <br>";
+            exit; 
+        }
     }
-    // Method Connection to DB for Models
-    protected function getConnect()
-    {
-        return parent::getConnection();
-    }
-    private function query($sql, $className)
+
+    private function query($sql)
     {
         try {
-            // Prepare the statement
-            $stmt = $this->getConnect()->prepare($sql);
-            $stmt->setFetchMode(\PDO::FETCH_CLASS, $className);
-            if ($stmt->execute()) {
-                $data = $stmt->fetchAll(\PDO::FETCH_ASSOC);
-                return $data;
+            // Make sure the connection is established
+            if ($this->connection !== null) {
+                $stmt = $this->connection->prepare($sql);
+                $stmt->setFetchMode(\PDO::FETCH_CLASS, get_called_class());
+                if ($stmt->execute()) {
+                    $data = $stmt->fetchAll();
+                    return $data;
+                }
+            } else {
+                throw new \PDOException("Error: Unable to establish database connection. <br>");
             }
         } catch (\PDOException $e) {
             echo $e->getMessage();
@@ -32,33 +37,33 @@ class BaseModel extends Database
         }
     }
     // Method common for get all for Models
-    public function all($className, $table, $select, $limit = 5)
+    public function all($table, $selectRow, $limit = 5)
     {
-        $select = implode(',',$select); // Convert from arr to string
-        $sql = "select {$select} from {$table} limit {$limit} ";
-        $query = $this->query($sql, $className);
+        $selectRow = implode(',',$selectRow); // Convert from arr to string
+        $sql = "select {$selectRow} from {$table} limit {$limit} ";
+        $query = $this->query($sql);
         return $query;
     }
     // Method common for get all for Models
-    public function showById($className, $table, $id)
+    public function showById($table, $id)
     {
-        $sql = "select * from {$table} where id:=$id ";
-        $query = $this->query($sql, $className);
+        $sql = "select * from {$table} where id=:$id ";
+        $query = $this->query($sql);
         return $query;
     }
     
     // Method common for find by id for Models
-    public function find($className, $table, $id)
+    public function find($table, $id)
     {
         $sql = "select * from {$table} where id=:$id limit 1";
-        $query = $this->query($sql, $className);
+        $query = $this->query($sql);
         return $query;
     }
     // Method common for check data for Models
     public function check($table, $field, $data)
     {
         $sql = "select * from {$table} where {$field}=:data limit 1";
-        $stmt = $this->getConnect()->prepare($sql);
+        $stmt = $this->connection->prepare($sql);
         $stmt->bindValue(':data', $data, \PDO::PARAM_STR);
         $stmt->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, 'App\\Models\\UserModel');
         $stmt->execute();
@@ -69,7 +74,7 @@ class BaseModel extends Database
         return false;
     }
     // Method common for add data for Models
-    public function create($className, $table, $data = [])
+    public function create($table, $data = [])
     {
         $colums = implode(',', array_keys($data));
 
@@ -79,12 +84,12 @@ class BaseModel extends Database
         $values = implode(',', $values);
 
         $sql = "insert into {$table}($colums) values ($values)";
-        $query = $this->query($sql, $className);
+        $query = $this->query($sql);
         return $query;
     }
 
 
-    public function update($className, $table, $id, $data)
+    public function update($table, $id, $data)
     {
         try {
             $dataSets = [];
@@ -97,7 +102,7 @@ class BaseModel extends Database
             $sql = "update $table set {$dataString} where id = :id";
 
             // Prepare the statement
-            $stmt = $this->getConnect()->prepare($sql);
+            $stmt = $this->connection->prepare($sql);
 
             // Bind parameters
             $stmt->bindValue(':id', $id, \PDO::PARAM_INT);
@@ -115,14 +120,14 @@ class BaseModel extends Database
         }
     }
 
-    public function delete($className, $table, $id)
+    public function delete($table, $id)
     {
         try {
             $sql = "delete from {$table} where id=:id";
             // Prepare the statement
-            $stmt = $this->getConnect()->prepare($sql);
+            $stmt = $this->connection->prepare($sql);
             $stmt->bindValue(':id', $id, \PDO::PARAM_INT);
-            $stmt->setFetchMode(\PDO::FETCH_CLASS, "$className");
+            $stmt->setFetchMode(\PDO::FETCH_CLASS, get_called_class());
             if ($stmt->execute()) {
                 echo "Đã xoá " . $id .  " thành công <br>";
             }
@@ -133,9 +138,4 @@ class BaseModel extends Database
     }
 
 }
-
-
-
-
-
 ?>
