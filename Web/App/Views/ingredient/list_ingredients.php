@@ -1,9 +1,9 @@
 <?
+  require_once(ROOT_PATH . 'App/Core/init.php');
+  $Ingredients = new App\Models\IngredientModel();
+  $data = $Ingredients->all('ingredients', ['*']);
 
-require_once('init.php');
-use App\Controllers\IngredientController;
-
-$controller = new IngredientController();
+  
 ?> 
 <!DOCTYPE html>
 <html lang="en">
@@ -21,29 +21,22 @@ $controller = new IngredientController();
       <thead>
         <tr>
           <th scope="col">#</th>
-          <th scope="col">First</th>
-          <th scope="col">Last</th>
-          <th scope="col">Handle</th>
+          <th scope="col">ID</th>
+          <th scope="col">Name</th>
+          <th scope="col">Category</th>
+          <th scope="col">Nutrition components</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>@fat</td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td colspan="2">Larry the Bird</td>
-          <td>@twitter</td>
-        </tr>
+        <?php foreach ($Ingredients->all('ingredients', ['*']) as $ingredient) : ?>
+          <tr>
+            <th scope="row">1</th>
+            <td><?= $ingredient->getId() ?></td>
+            <td><?= $ingredient->getName() ?></td>
+            <td><?= $ingredient->getCategory() ?></td>
+            <td><?= implode(', ', $ingredient->getNutritionComponents()) ?></td>
+          </tr>
+        <?php endforeach; ?>
       </tbody>
     </table>
   </div>

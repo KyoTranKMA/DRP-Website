@@ -1,7 +1,7 @@
 <?php
     require($_SERVER['DOCUMENT_ROOT'] . '/App/Core/init.php');
     header("Location: Views/auth/index.php");
-    exit();
+
     /*
     // Get Route name and Validate Param
     $controllerName = $_REQUEST['controller'] ?? 'Home';
