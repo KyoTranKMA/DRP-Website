@@ -1,7 +1,3 @@
-<?php
-    use App\Core\init;
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -40,7 +36,7 @@
                         <img src="https://static.zerochan.net/Yukihira.Souma.full.3758381.jpg" class="img-fluid" alt="Sample image" style="height:650px; width:500px">
                     </div>
                     <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-                        <form name="frmPOST" method="POST" action="./../../Controllers/AuthController.php">
+                        <form name="frmPOST" method="POST" action="./../../Controllers/LoginController.php">
                             <h2>Welcome to PaPals</h2>
                             <!-- Email input -->
                             <div class="form-outline mb-4">
@@ -71,7 +67,7 @@
                             <div class="text-center text-lg-start mt-4 pt-2">
                                 <button type="submit" name="login" class="btn btn-primary btn-lg"
                                 style="padding-left: 2.5rem; padding-right: 2.5rem;">Login</button>
-                                <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a href="#!"
+                                <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a href="registery.php"
                                 class="link-danger">Register</a></p>
                             </div>
                             

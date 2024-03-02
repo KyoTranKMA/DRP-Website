@@ -1,6 +1,8 @@
 <?php
-    require_once(__DIR__ . '/Core/init.php');
-
+    require($_SERVER['DOCUMENT_ROOT'] . '/App/Core/init.php');
+    header("Location: Views/auth/index.php");
+    exit();
+    /*
     // Get Route name and Validate Param
     $controllerName = $_REQUEST['controller'] ?? 'Home';
     echo json_encode($controllerName);
@@ -14,5 +16,5 @@
     $controllerObject = new $fullController;
     // Get Method
     $controllerObject->$actionName();
-
+    */
 ?>

@@ -1,39 +1,49 @@
-<?php
-namespace App\Models;
-// use autoload from composer
+<?php namespace App\Models;
 require($_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php');
+// use autoload from composer
+
 
 class UserModel extends BaseModel
 {
     const CLASSNAME = 'UserModel';
     const TABLE = 'users';
 
+    private $user_id;
+    private $username;
+    private $password;
+    private $email;
+    private $date_of_birth;
+    private $country;
+    private $gender;
+    private $level;
+
     private function checkEmail($email)
     {
-        return $this->check(self::CLASSNAME,self::TABLE, $email);
+        return $this->check(self::TABLE, 'email', $email);
     }
 
     private function checkUserName($username)
     {
-        return $this->check(self::CLASSNAME,self::TABLE, $username);
+        return $this->check(self::TABLE, 'username', $username);
     }
     
     public function authenticate($data)
     {
-        $email = $data['email'];
-        $password = $data['password'];
+        $this->username = $data['username'];
+        $this->password = $data['password'];
 
-        $sql = "select * from users where email=:email";
+        $sql = "select * from users where username=:username";
         $stmt = $this->getConnect()->prepare($sql);
-        $stmt->bindValue(':email', $email, \PDO::PARAM_STR);
-        $stmt->setFetchMode(\PDO::FETCH_CLASS, self::CLASSNAME);
+        $stmt->bindValue(':username', $this->username, \PDO::PARAM_STR);
+        $stmt->setFetchMode(\PDO::FETCH_CLASS, 'App\\Models\\UserModel');
         $stmt->execute();
         $user = $stmt->fetch();
         if ($user) {
             $passwordInDB = $user->password;
             // Check password input with password Hash
-            if (password_verify($password, $passwordInDB)) {
+            if (password_verify($this->password, $passwordInDB)) {
                 // Return user to get id
+                $_SESSION['level'] = $user->level;
                 return $user;
             }
         }
@@ -43,38 +53,32 @@ class UserModel extends BaseModel
 
     public function addUser($data)
     {
-        $username = $data['username'];
-        $password = password_hash($data['password'], PASSWORD_DEFAULT);
-        $dateofbirth = $data['dateofbirth'];
-        $email = $data['email'];
-        $country = $data['country'];
-        $gender = $data['gender'];
+        $this->username = $data['username'];
+        $this->password = password_hash($data['password'], PASSWORD_DEFAULT);
+        $this->email = $data['email'];
 
         // check username and email has been
-        if ($username == '' || $password == '' || $dateofbirth == '' || $email == '' || $country == '' || $gender == '') {
+        if ($this->username == '' || $this->password == '' || $this->email == '') {
             $alert = 'Fields must be not empty!';
             return $alert;
         } else {
-            if ($this->checkEmail($email)) {
+            if ($this->checkEmail($this->email)) {
                 $alert = 'Email Already Existed';
                 return $alert;
             };
-            if ($this->checkUserName($username)) {
+            if ($this->checkUserName($this->username)) {
                 $alert = 'Username Already Existed';
                 return $alert;
             }
         }
 
-        $sql = "insert into users (username, password, dateofbirth, email, country, gender, level) values (:username, :password, :dateofbirth, :email, :country, :gender, :level)";
+        $sql = "insert into users (username, password, email, level) values (:username, :password, :email, :level)";
         // Prepare the statement
         $stmt = $this->getConnect()->prepare($sql);
         // Bind parameters
-        $stmt->bindValue(':username', $username, \PDO::PARAM_STR);
-        $stmt->bindValue(':password', $password, \PDO::PARAM_STR);
-        $stmt->bindValue(':dateofbirth', $dateofbirth, \PDO::PARAM_STR);
-        $stmt->bindValue(':email', $email, \PDO::PARAM_STR);
-        $stmt->bindValue(':country', $country, \PDO::PARAM_STR);
-        $stmt->bindValue(':gender', $gender, \PDO::PARAM_STR);
+        $stmt->bindValue(':username', $this->username, \PDO::PARAM_STR);
+        $stmt->bindValue(':password', $this->password, \PDO::PARAM_STR);
+        $stmt->bindValue(':email', $this->email, \PDO::PARAM_STR);
         $stmt->bindValue(':level', 3, \PDO::PARAM_INT);
         return $stmt->execute();
     }

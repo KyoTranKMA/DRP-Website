@@ -1,3 +1,5 @@
+<?session_start()?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,10 +16,9 @@
             Giao diện cho người dùng ở file này
         */
     -->
-    <?php
-   
 
-    ?>
+    <h1>Hello user!</h1>
+    <h2>Click <a href="./../../Controllers/LogoutController.php">here</a> to logout</h2>
 
 
 </body>

@@ -14,7 +14,7 @@
 
 // define connection
 define('DB_CONNECTION', 'mysql');
-define('DB_HOST', 'localhost');
+define('DB_HOST', 'mysql_8_3_0');
 define('DB_NAME', 'ct07_db');
 define('DB_USER', 'ad_db_ct07');
 define('DB_PASSWORD', 'admin');

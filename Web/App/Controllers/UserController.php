@@ -15,37 +15,46 @@ class UserController extends BaseController
 
     public function index()
     {
-        $email = $_POST('email');
-        $password = $_POST('password');
-        $users = $this->userModel->authenticate([$email, $password]);
-        if($users)
-        {
-            return $this->loadView('pages.homepaage', $users);
-        }
     }
 
     public function login(){
         if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])){
-            $email = $_POST['email'];
-            $password = $_POST['password'];
-    
-            $rs = $this->userModel->authenticate($_POST);
-            if ($rs){
-                $_SESSION['email'] = $email;
-                /*header("Location: index.php");
-                exit();*/
-            } else {
-                // Báo lỗi login
-                echo "Invalid Username or password";
+            $this->userModel = $this->userModel->authenticate($_POST);
+            if($this->userModel)
+            {   
+                session_regenerate_id(true);
+                $_SESSION['logged_in'] = true;
+                header("Location: LoginController.php");
+                exit();
             }
-            }
-    }
-
-    public function register(){
-        if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['register'])){
-        $rs = $this->userModel->addUser($_POST);
         }
     }
 
+    public static function logout(){
+        if(ini_get("session.use_cookie")) {
+            $params = session_get_cookie_params();
+            setcookie(
+                session_name(), 
+                '', 
+                time() - 42000, 
+                $params["path"],
+                $params["domain"],
+                $params["secure"],
+                $params["httponly"]
+            );
+        }
+        session_destroy();
+    }
+
+    public function registery(){
+        if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['registery'])){
+            $this->userModel->addUser($_POST);
+        }
+        $this->login();
+    }
+
+    public function isLoggedIn(){
+        return isset($_SESSION['logged_in']) && $_SESSION['logged_in'];
+    }
 }
 

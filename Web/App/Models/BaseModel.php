@@ -55,12 +55,12 @@ class BaseModel extends Database
         return $query;
     }
     // Method common for check data for Models
-    public function check($className, $table, $data)
+    public function check($table, $field, $data)
     {
-        $sql = "select * from {$table} where $data=:$data limit 1";
+        $sql = "select * from {$table} where {$field}=:data limit 1";
         $stmt = $this->getConnect()->prepare($sql);
-        $stmt->bindValue(':$data', $data, \PDO::PARAM_STR);
-        $stmt->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, "$className");
+        $stmt->bindValue(':data', $data, \PDO::PARAM_STR);
+        $stmt->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, 'App\\Models\\UserModel');
         $stmt->execute();
         $user = $stmt->fetch();
         if ($user) {

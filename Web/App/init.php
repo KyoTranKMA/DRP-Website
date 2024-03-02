@@ -1,4 +1,7 @@
 <?php
+  if (session_status() == PHP_SESSION_NONE) {
+    session_start(); // Khởi động phiên nếu nó chưa được khởi động
+  }
   require_once(__DIR__ . "/../vendor/autoload.php");
   require_once("Config/db_config.php");
 
