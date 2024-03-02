@@ -20,17 +20,6 @@ class BaseController {
         } 
     } 
     // Create Method for get classes in Models
-    protected function loadModel($modelPath)
-    {
-        $modelFile = realpath(__DIR__ . '/../' . self::MODEl_FOLDER_NAME . '/' . str_replace('.', '/', $modelPath) . '.php');
-
-    if ($modelFile !== false) {
-        require $modelFile;
-    } else {
-        echo "Model file not found: $modelPath";
-    }
-    }
-
 }
 
 ?>

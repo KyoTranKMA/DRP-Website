@@ -13,7 +13,7 @@ class BaseModel  {
         $this->connection = $this->DB_CONNECTION->getConnection();
         if ($this->connection === false) {
             echo "Error: Unable to establish database connection. <br>";
-            exit; 
+            exit;
         }
     }
 
