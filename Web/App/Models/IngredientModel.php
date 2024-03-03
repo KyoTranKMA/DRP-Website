@@ -4,6 +4,7 @@ namespace App\Models;
 require($_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php');
 
 class IngredientModel extends BaseModel {
+  const TABLE = 'ingredients';
   private $id;
   private $name;
   private $category; 
@@ -30,7 +31,7 @@ class IngredientModel extends BaseModel {
         'sodium' => null,
         'sugar' => null,
         'vitamin_a' => null,
-        'vitamin_c' => null,
+        'vitamin_c' => null
     ];
   }
   public function getId() { return $this->id; }
@@ -44,32 +45,49 @@ class IngredientModel extends BaseModel {
     $this->nutritionComponents = $nutritionComponents; 
   }
 
-  private function query($sql) {
+  public function getAll() {
     try {
       // Make sure the connection is established
-      if ($this->getConnect() !== null) {
-        $stmt = $this->getConnect()->prepare($sql);
-        $stmt->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, get_called_class());
-        if ($stmt->execute()) {
-          $data = $stmt->fetchAll(\PDO::FETCH_ASSOC);
-          return $data;
-        }
-      } else {
+      if ($this->getConnect() === null) {
         throw new \PDOException("Error: Unable to establish database connection. <br>");
       }
+      $table = self::TABLE;
+      $sql = "select * from {$table}";
+      $stmt = $this->getConnect()->prepare($sql);
+      if($stmt->execute()){
+        $ingridients = [];
+        while($row = $stmt->fetch(\PDO::FETCH_ASSOC)){
+          $ingrident = new IngredientModel();
+          $ingrident->setID($row['id']);
+          $ingrident->setName($row['name']);
+          $ingrident->setCategory($row['category']);
+          $nutritionComponents = [
+            'calcium' => $row['calcium'],
+            'calories' => $row['calories'],
+            'carbohydrate' => $row['carbohydrate'],
+            'cholesterol' => $row['cholesterol'],
+            'fiber' => $row['fiber'],
+            'iron' => $row['iron'],
+            'fat' => $row['fat'],
+            'monounsaturated_fat' => $row['monounsaturated_fat'],
+            'polyunsaturated_fat' => $row['polyunsaturated_fat'],
+            'saturated_fat' => $row['saturated_fat'],
+            'potassium' => $row['potassium'],
+            'protein' => $row['protein'],
+            'sodium' => $row['sodium'],
+            'sugar' => $row['sugar'],
+            'vitamin_a' => $row['vitamin_a'],
+            'vitamin_c' => $row['vitamin_c'],
+          ];
+          $ingrident->setNutritionComponents($nutritionComponents);
+          $ingridients[] = $ingrident;
+        }
+        return $ingridients;
+      }
+      else {throw new \Exception("Error in executing prepare statement. ");}
     } catch (\PDOException $e) {
       echo $e->getMessage();
       return null;
     }
   }
-
-  public function all($table, $selectRow, $limit = 5) {
-    $selectRow = implode(',',$selectRow); // Convert from arr to string
-    $sql = "select {$selectRow} from {$table} limit {$limit} ";
-    $query = $this->query($sql);
-    return $query;
-  }
-
-  
-
 }
