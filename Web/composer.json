@@ -13,7 +13,9 @@
       "App\\Controllers\\":"App/Controllers/",
       "App\\Models\\":"App/Models/",
       "App\\Core\\":"App/Core/",
-      "App\\Views\\":"App/Views/"
+      "App\\Views\\":"App/Views/",
+      "App\\Controllers\\Auth\\": "App/Controllers/Views/"
+
     }
   }
 }
