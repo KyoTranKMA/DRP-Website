@@ -1,5 +1,6 @@
 <?php namespace App\Controllers;
-
+// use autoload from composer
+require($_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php');
 class BaseController {
     const VIEW_FOLDER_NAME = 'Views';
     const MODEl_FOLDER_NAME = 'Models';    

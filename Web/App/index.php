@@ -1,4 +1,6 @@
 <?php
+    namespace App; 
+    use App\Controllers\HomeController;
     require_once(__DIR__ . '/Core/init.php');
 
     // Get Route name and Validate Param

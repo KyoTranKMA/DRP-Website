@@ -1,27 +1,28 @@
 <?php 
 namespace App\Models;
-use App\Core\Database;
+use PDO,App\Core\Database;
 // use autoload from composer
 require($_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php');
 
-class BaseModel extends Database
+require(__DIR__ . "/../Core/Database.php");
+class BaseModel 
 {
     protected $connection;
+    protected $db;
     public function __construct()
     {
-        parent::__construct();
+        $this->db = new DataBase();
+        $this->connection = $this->db->getConnection();
     }
-    // Method Connection to DB for Models
-    protected function getConnect()
-    {
-        return parent::getConnection();
-    }
+
     private function query($sql, $className)
     {
         try {
             // Prepare the statement
-            $stmt = $this->getConnect()->prepare($sql);
-            $stmt->setFetchMode(\PDO::FETCH_CLASS, $className);
+
+            $stmt = $this->connection->prepare($sql);
+            $stmt->setFetchMode(PDO::FETCH_CLASS, $className);
+
             if ($stmt->execute()) {
                 $data = $stmt->fetchAll(\PDO::FETCH_ASSOC);
                 return $data;
@@ -58,9 +59,9 @@ class BaseModel extends Database
     public function check($className, $table, $data)
     {
         $sql = "select * from {$table} where $data=:$data limit 1";
-        $stmt = $this->getConnect()->prepare($sql);
-        $stmt->bindValue(':$data', $data, \PDO::PARAM_STR);
-        $stmt->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, "$className");
+        $stmt = $this->connection->prepare($sql);
+        $stmt->bindValue(':$data', $data, PDO::PARAM_STR);
+        $stmt->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, "$className");
         $stmt->execute();
         $user = $stmt->fetch();
         if ($user) {
@@ -97,10 +98,10 @@ class BaseModel extends Database
             $sql = "update $table set {$dataString} where id = :id";
 
             // Prepare the statement
-            $stmt = $this->getConnect()->prepare($sql);
+            $stmt = $this->connection->prepare($sql);
 
             // Bind parameters
-            $stmt->bindValue(':id', $id, \PDO::PARAM_INT);
+            $stmt->bindValue(':id', $id, PDO::PARAM_INT);
             // Execute the statement
             if ($stmt->execute()) {
                 echo "Đã cập nhật thành công <br>";
@@ -120,9 +121,10 @@ class BaseModel extends Database
         try {
             $sql = "delete from {$table} where id=:id";
             // Prepare the statement
-            $stmt = $this->getConnect()->prepare($sql);
-            $stmt->bindValue(':id', $id, \PDO::PARAM_INT);
-            $stmt->setFetchMode(\PDO::FETCH_CLASS, "$className");
+            $stmt = $this->connection->prepare($sql);
+            $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+            $stmt->setFetchMode(PDO::FETCH_CLASS, "$className");
+
             if ($stmt->execute()) {
                 echo "Đã xoá " . $id .  " thành công <br>";
             }

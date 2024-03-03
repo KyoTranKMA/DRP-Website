@@ -6,6 +6,7 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
+<<<<<<< HEAD
     'App\\Controllers\\BaseController' => $baseDir . '/App/Controllers/BaseController.php',
     'App\\Controllers\\DatabaseController' => $baseDir . '/App/Controllers/DatabaseController.php',
     'App\\Controllers\\HomeController' => $baseDir . '/App/Controllers/HomeController.php',
@@ -20,5 +21,7 @@ return array(
     'App\\Models\\RecipeModel' => $baseDir . '/App/Models/RecipeModel.php',
     'App\\Models\\UserModel' => $baseDir . '/App/Models/UserModel.php',
     'App\\Web' => $baseDir . '/App/Web.php',
+=======
+>>>>>>> 63f622de (update(Core) router)
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
 );

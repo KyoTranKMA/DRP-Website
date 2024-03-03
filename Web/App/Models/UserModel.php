@@ -24,7 +24,7 @@ class UserModel extends BaseModel
         $password = $data['password'];
 
         $sql = "select * from users where email=:email";
-        $stmt = $this->getConnect()->prepare($sql);
+        $stmt = $this->connection->prepare($sql);
         $stmt->bindValue(':email', $email, \PDO::PARAM_STR);
         $stmt->setFetchMode(\PDO::FETCH_CLASS, self::CLASSNAME);
         $stmt->execute();
@@ -67,7 +67,7 @@ class UserModel extends BaseModel
 
         $sql = "insert into users (username, password, dateofbirth, email, country, gender, level) values (:username, :password, :dateofbirth, :email, :country, :gender, :level)";
         // Prepare the statement
-        $stmt = $this->getConnect()->prepare($sql);
+        $stmt = $this->connection->prepare($sql);
         // Bind parameters
         $stmt->bindValue(':username', $username, \PDO::PARAM_STR);
         $stmt->bindValue(':password', $password, \PDO::PARAM_STR);

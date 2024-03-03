@@ -41,6 +41,7 @@ class ComposerStaticInit1a38387b3563d6863abba005b6fe071d
     );
 
     public static $classMap = array (
+<<<<<<< HEAD
         'App\\Controllers\\BaseController' => __DIR__ . '/../..' . '/App/Controllers/BaseController.php',
         'App\\Controllers\\DatabaseController' => __DIR__ . '/../..' . '/App/Controllers/DatabaseController.php',
         'App\\Controllers\\HomeController' => __DIR__ . '/../..' . '/App/Controllers/HomeController.php',
@@ -55,6 +56,8 @@ class ComposerStaticInit1a38387b3563d6863abba005b6fe071d
         'App\\Models\\RecipeModel' => __DIR__ . '/../..' . '/App/Models/RecipeModel.php',
         'App\\Models\\UserModel' => __DIR__ . '/../..' . '/App/Models/UserModel.php',
         'App\\Web' => __DIR__ . '/../..' . '/App/Web.php',
+=======
+>>>>>>> 63f622de (update(Core) router)
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
     );
 
