@@ -8,10 +8,12 @@ class UserModel extends BaseModel
     const CLASSNAME = get_called_class();
     const TABLE = 'users';
 
-    private $user_id;
+    private $id;
     private $username;
     private $password;
     private $email;
+    private $first_Name;
+    private $last_Name;
     private $date_of_birth;
     private $country;
     private $gender;

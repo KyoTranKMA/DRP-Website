@@ -1,5 +1,6 @@
 <?
 require_once($_SERVER['DOCUMENT_ROOT'] . '/App/Core/init.php');
+require(ROOT_PATH . 'Public/inc/header.php');
 $Ingredients = new App\Models\IngredientModel();
 $data = $Ingredients->getAll();
 ?>
