@@ -1,8 +1,9 @@
 <?php 
 namespace App\Models;
-use App\Core\Database;
+use PDO,App\Core\Database;
 // use autoload from composer
 require($_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php');
+
 
 class BaseModel  {
     private $DB_CONNECTION;
@@ -18,25 +19,22 @@ class BaseModel  {
     }
 
     protected function getConnect() { return $this->connection; }
+
     private function query($sql)
     {
-        try {
-            // Make sure the connection is established
-            if ($this->connection !== null) {
-                $stmt = $this->connection->prepare($sql);
-                $stmt->setFetchMode(\PDO::FETCH_CLASS, get_called_class());
-                if ($stmt->execute()) {
-                    $data = $stmt->fetchAll();
-                    return $data;
-                }
-            } else {
-                throw new \PDOException("Error: Unable to establish database connection. <br>");
+        // Make sure the connection is established
+        if ($this->connection !== null) {
+            $stmt = $this->connection->prepare($sql);
+            $stmt->setFetchMode(PDO::FETCH_CLASS, get_called_class());
+            if ($stmt->execute()) {
+                $data = $stmt->fetchAll();
+                return $data;
             }
-        } catch (\PDOException $e) {
-            echo $e->getMessage();
-            return null;
+        } else {
+            throw new \PDOException("Error: Unable to establish database connection. <br>");
         }
     }
+    
     // Method common for get all for Models
     public function all($table, $selectRow, $limit = 5)
     {
@@ -63,10 +61,12 @@ class BaseModel  {
     // Method common for check data for Models
     public function check($table, $field, $data)
     {
+
         $sql = "select * from {$table} where {$field}=:data limit 1";
         $stmt = $this->connection->prepare($sql);
-        $stmt->bindValue(':data', $data, \PDO::PARAM_STR);
-        $stmt->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, get_called_class());
+        $stmt->bindValue(':data', $data, PDO::PARAM_STR);
+        $stmt->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, get_called_class());
+
         $stmt->execute();
         $user = $stmt->fetch();
         if ($user) {
@@ -106,7 +106,7 @@ class BaseModel  {
             $stmt = $this->connection->prepare($sql);
 
             // Bind parameters
-            $stmt->bindValue(':id', $id, \PDO::PARAM_INT);
+            $stmt->bindValue(':id', $id, PDO::PARAM_INT);
             // Execute the statement
             if ($stmt->execute()) {
                 echo "Đã cập nhật thành công <br>";
@@ -127,8 +127,9 @@ class BaseModel  {
             $sql = "delete from {$table} where id=:id";
             // Prepare the statement
             $stmt = $this->connection->prepare($sql);
-            $stmt->bindValue(':id', $id, \PDO::PARAM_INT);
-            $stmt->setFetchMode(\PDO::FETCH_CLASS, get_called_class());
+            $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+            $stmt->setFetchMode(PDO::FETCH_CLASS, get_called_class());
+
             if ($stmt->execute()) {
                 echo "Đã xoá " . $id .  " thành công <br>";
             }
@@ -138,5 +139,5 @@ class BaseModel  {
         }
     }
 
-}
+}  
 ?>

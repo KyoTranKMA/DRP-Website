@@ -34,9 +34,10 @@ class UserModel extends BaseModel
         $this->username = $data['username'];
         $this->password = $data['password'];
 
+
         $sql = "select * from users where username=:username";
         $stmt = $this->getConnect()->prepare($sql);
-        $stmt->bindValue(':username', $this->username, \PDO::PARAM_STR);
+        $stmt->bindValue('::username', $this->username, \PDO::PARAM_STR);
         $stmt->setFetchMode(\PDO::FETCH_CLASS, self::CLASSNAME);
         $stmt->execute();
         $user = $stmt->fetch();
