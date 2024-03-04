@@ -2,7 +2,6 @@
   "name": "web/app",
   "require": {
     "php": "^8.2",
-    "ext-redis": "*",
     "ext-pdo": "*",
     "ext-pdo_mysql": "*",
     "ext-mysqli": "*"
@@ -13,7 +12,9 @@
       "App\\Controllers\\":"App/Controllers/",
       "App\\Models\\":"App/Models/",
       "App\\Core\\":"App/Core/",
-      "App\\Views\\":"App/Views/"
+      "App\\Views\\":"App/Views/",
+      "App\\Controllers\\Auth\\": "App/Controllers/Views/"
+
     }
   }
-}
+}x

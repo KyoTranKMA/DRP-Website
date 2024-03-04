@@ -18,6 +18,5 @@ return array(
     'App\\Models\\IngredientModel' => $baseDir . '/App/Models/IngredientModel.php',
     'App\\Models\\RecipeModel' => $baseDir . '/App/Models/RecipeModel.php',
     'App\\Models\\UserModel' => $baseDir . '/App/Models/UserModel.php',
-    'App\\Web' => $baseDir . '/App/Web.php',
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
 );

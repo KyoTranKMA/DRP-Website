@@ -12,6 +12,7 @@ class ComposerStaticInit1a38387b3563d6863abba005b6fe071d
             'App\\Views\\' => 10,
             'App\\Models\\' => 11,
             'App\\Core\\' => 9,
+            'App\\Controllers\\Auth\\' => 21,
             'App\\Controllers\\' => 16,
             'App\\' => 4,
         ),
@@ -29,6 +30,10 @@ class ComposerStaticInit1a38387b3563d6863abba005b6fe071d
         'App\\Core\\' => 
         array (
             0 => __DIR__ . '/../..' . '/App/Core',
+        ),
+        'App\\Controllers\\Auth\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/App/Controllers/Views',
         ),
         'App\\Controllers\\' => 
         array (
@@ -53,7 +58,6 @@ class ComposerStaticInit1a38387b3563d6863abba005b6fe071d
         'App\\Models\\IngredientModel' => __DIR__ . '/../..' . '/App/Models/IngredientModel.php',
         'App\\Models\\RecipeModel' => __DIR__ . '/../..' . '/App/Models/RecipeModel.php',
         'App\\Models\\UserModel' => __DIR__ . '/../..' . '/App/Models/UserModel.php',
-        'App\\Web' => __DIR__ . '/../..' . '/App/Web.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
     );
 

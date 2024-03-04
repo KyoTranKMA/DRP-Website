@@ -6,7 +6,7 @@
   
   require_once($_SERVER['DOCUMENT_ROOT'] . "/vendor/autoload.php");
   require_once($_SERVER['DOCUMENT_ROOT'] . "/Config/general_config.php");
-
+  
   function exceptionHandler($exception){
     if(DEBUG){
         echo "<h2>Lỗi: " . $exception->getMessage() . "</h2>";

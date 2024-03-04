@@ -11,7 +11,6 @@ SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+07:00";
 
-
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
@@ -33,6 +32,7 @@ DROP TABLE IF EXISTS `ingredients`;
 CREATE TABLE IF NOT EXISTS `ingredients` (
   `id` int NOT NULL AUTO_INCREMENT,
   `category` set('EMMP','FAO','FRU','GNBK','HRBS','MSF','OTHR','PRP','VEGI') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT 'Eggs, milk and milk products: EMMP;  Fats and oils: FAO; Fruits: FRU; Grain, nuts and baking products: GNBK; Herbs and spices: HRBS ; Meat, sausages and fish: MSF; Others: OTHR; Pasta, rice and pulses: PRP; Vegetables: VEGI;',
+  `measurement_description` ENUM('tsp', 'cup', 'tbsp', 'g', 'lb', 'can', 'oz'),
   `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `calcium` float DEFAULT NULL,
   `calories` float DEFAULT NULL,
@@ -57,7 +57,6 @@ CREATE TABLE IF NOT EXISTS `ingredients` (
 -- Dumping data for table `ingredients`
 --
 
-
 -- --------------------------------------------------------
 
 --
@@ -69,6 +68,7 @@ CREATE TABLE IF NOT EXISTS `ingredient_recipe` (
   `ingredient_id` int NOT NULL,
   `recipe_id` int NOT NULL,
   `number_of_unit` int DEFAULT NULL,
+  `measurement_description` ENUM('tsp', 'cup', 'tbsp', 'g', 'lb', 'can', 'oz'),
   PRIMARY KEY (`ingredient_id`,`recipe_id`),
   KEY `recipe_id` (`recipe_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -82,16 +82,22 @@ CREATE TABLE IF NOT EXISTS `ingredient_recipe` (
 DROP TABLE IF EXISTS `recipes`;
 CREATE TABLE IF NOT EXISTS `recipes` (
   `id` int NOT NULL,
-  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `image_url` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `name` varchar(255) NOT NULL,
+  `description` text,
+  `image_url` varchar(255) DEFAULT NULL,
   `preparation_time_min` int DEFAULT NULL,
   `cooking_time_min` int DEFAULT NULL,
   `number_of_servings` int DEFAULT NULL,
-  `directions` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `type` set('Appetizer','Soup','Main Dish','Side Dish','Baked','Salad and Salad Dressing','Sauce and Condiment','Dessert','Snack','Beverage','Other','Breakfast','Lunch') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `directions` text,
+  `meal_type_1` set('Breakfast','Lunch','Dinner'),
+  `meal_type_2` enum('Appetizer','Main Dish','Side Dish','Dessert'),
+  `meal_type_3` enum('Baked','Salad and Salad Dressing','Sauce and Condiment','Snack','Beverage','Soup','Other'),
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+
+
+
 
 -- --------------------------------------------------------
 
@@ -112,6 +118,26 @@ CREATE TABLE IF NOT EXISTS `user` (
   `level` enum('1','2','3') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=12312315 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+
+-- Table structure for table `pla`
+CREATE TABLE IF NOT EXISTS `recipe_saved` (
+  `recipe_id` int NOT NULL,
+  `user_id` int NOT NULL,
+  `update_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`recipe_id`,`user_id`),
+  KEY `fk_user_id` (`user_id`),
+  CONSTRAINT `fk_user_id` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`),
+  CONSTRAINT `fk_recipe_id` FOREIGN KEY (`recipe_id`) REFERENCES `recipes` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+
+
+
+
+
+
+
 
 --
 -- Constraints for dumped tables

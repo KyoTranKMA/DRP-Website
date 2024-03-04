@@ -1,8 +1,9 @@
 <?php 
 namespace App\Models;
-use App\Core\Database;
+use PDO,App\Core\Database;
 // use autoload from composer
 require($_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php');
+
 
 class BaseModel  {
     private $DB_CONNECTION;
@@ -12,44 +13,51 @@ class BaseModel  {
         $this->DB_CONNECTION = new Database();
         $this->connection = $this->DB_CONNECTION->getConnection();
         if ($this->connection === false) {
-            echo "Error: Unable to establish database connection. <br>";
-            exit;
+            throw new \Error( "Error: Unable to establish database connection");
         }
     }
 
     protected function getConnect() { return $this->connection; }
-    private function query($sql)
+
+    private function query($sql, $fetchMode = PDO::FETCH_ASSOC, $params = [])
     {
         try {
             // Make sure the connection is established
             if ($this->connection !== null) {
                 $stmt = $this->connection->prepare($sql);
-                $stmt->setFetchMode(\PDO::FETCH_CLASS, get_called_class());
+                if (!empty($params)) {
+                    foreach ($params as $key => $value) {
+                        $stmt->bindValue($key, $value);
+                    }
+                }
                 if ($stmt->execute()) {
-                    $data = $stmt->fetchAll();
-                    return $data;
+                    $stmt->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, get_called_class());
+                    return $stmt->fetchAll($fetchMode);
                 }
             } else {
                 throw new \PDOException("Error: Unable to establish database connection. <br>");
             }
         } catch (\PDOException $e) {
             echo $e->getMessage();
-            return null;
+            return false;
         }
     }
+    
+    
     // Method common for get all for Models
-    public function all($table, $selectRow, $limit = 5)
+    public function all($table, $selectRow, $limit = 5, $fetchMode = PDO::FETCH_ASSOC)
     {
-        $selectRow = implode(',',$selectRow); // Convert from arr to string
-        $sql = "select {$selectRow} from {$table} limit {$limit} ";
-        $query = $this->query($sql);
+        $selectRow = implode(',', $selectRow); // Convert from array to string
+        $sql = "select {$selectRow} from {$table} limit  {$limit}";
+        $query = $this->query($sql, $fetchMode);
         return $query;
     }
+    
     // Method common for get all for Models
     public function showById($table, $id)
     {
         $sql = "select * from {$table} where id=:$id ";
-        $query = $this->query($sql);
+        $query = $this->query($sql, PDO::FETCH_ASSOC, [':id' => $id]);
         return $query;
     }
     
@@ -57,86 +65,50 @@ class BaseModel  {
     public function find($table, $id)
     {
         $sql = "select * from {$table} where id=:$id limit 1";
-        $query = $this->query($sql);
+        $query = $this->query($sql, PDO::FETCH_ASSOC, [':id' => $id]);
         return $query;
     }
     // Method common for check data for Models
     public function check($table, $field, $data)
     {
+
         $sql = "select * from {$table} where {$field}=:data limit 1";
-        $stmt = $this->connection->prepare($sql);
-        $stmt->bindValue(':data', $data, \PDO::PARAM_STR);
-        $stmt->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, get_called_class());
-        $stmt->execute();
-        $user = $stmt->fetch();
-        if ($user) {
-            return true;
-        }
-        return false;
+        $result = $this->query($sql, PDO::FETCH_ASSOC, [':data' => $data]);
+        return !empty($result);
     }
     // Method common for add data for Models
     public function create($table, $data = [])
     {
-        $colums = implode(',', array_keys($data));
+        $columns = implode(',', array_keys($data));
+        $values = implode(',', array_fill(0, count($data), '?'));
 
-        $values = array_map(function($value){
-            return "'" . $value . "'";
-        }, array_values($data));
-        $values = implode(',', $values);
+        $sql = "insert into {$table} ({$columns}) values ({$values})";
+        return $this->query($sql, PDO::FETCH_ASSOC, array_values($data));
 
-        $sql = "insert into {$table}($colums) values ($values)";
-        $query = $this->query($sql);
-        return $query;
     }
 
 
     public function update($table, $id, $data)
     {
-        try {
-            $dataSets = [];
-            foreach($data as $key => $val)
-            {
-                array_push($dataSets, "{$key} = '. $val .'");
-            }
-            $dataString = implode(',', $dataSets);
-
-            $sql = "update $table set {$dataString} where id = :id";
-
-            // Prepare the statement
-            $stmt = $this->connection->prepare($sql);
-
-            // Bind parameters
-            $stmt->bindValue(':id', $id, \PDO::PARAM_INT);
-            // Execute the statement
-            if ($stmt->execute()) {
-                echo "Đã cập nhật thành công <br>";
-                return true;
-            } else {
-                echo "Cập nhật thất bại <br>";
-                return false;
-            }
-        } catch (\PDOException $e) {
-            echo $e->getMessage();
-            return false;
+        $dataSets = [];
+        foreach($data as $key => $val)
+        {
+            $dataSets[] = "{$key} = ?";
         }
+        $dataString = implode(',', $dataSets);
+
+        $sql = "update {$table} set {$dataString} where id= ?";
+        $dataValues = array_values($data);
+        $dataValues[] = $id;
+
+        return $this->query($sql, PDO::FETCH_ASSOC, $dataValues);
     }
 
     public function delete($table, $id)
     {
-        try {
-            $sql = "delete from {$table} where id=:id";
-            // Prepare the statement
-            $stmt = $this->connection->prepare($sql);
-            $stmt->bindValue(':id', $id, \PDO::PARAM_INT);
-            $stmt->setFetchMode(\PDO::FETCH_CLASS, get_called_class());
-            if ($stmt->execute()) {
-                echo "Đã xoá " . $id .  " thành công <br>";
-            }
-        } catch (\PDOException $e) {
-            echo $e->getMessage();
-            return false;
-        }
+        $sql = "delete from {$table} where id = ?";
+        return $this->query($sql, PDO::FETCH_ASSOC, [$id]);
     }
 
-}
+}  
 ?>

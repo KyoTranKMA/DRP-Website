@@ -1,5 +1,6 @@
 <?php
-    require($_SERVER['DOCUMENT_ROOT'] . '/App/Core/init.php');
+    require($_SERVER['DOCUMENT_ROOT']  . '/App/Core/init.php');
+    
     header("Location: Views/auth/index.php");
 
     /*
