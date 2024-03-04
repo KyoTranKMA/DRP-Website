@@ -1,7 +1,11 @@
 <?php namespace App\Models;
-// use autoload from composer
-require_once($_SERVER['DOCUMENT_ROOT'] . 'App/Core/init.php');
 
+
+// use autoload from composer
+
+
+
+require_once($_SERVER['DOCUMENT_ROOT'] . '/App/Core/init.php');
 class RecipeModel extends BaseModel {
     private $id;
     private $name;
