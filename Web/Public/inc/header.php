@@ -1,27 +1,4 @@
 <!-- Navbar -->
-<?php
-
-use App\Controllers\Auth\UserController;
-
-  require($_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php');
-
-  if (!UserController::isLoggedIn()){
-    ?>
-
-  <!-- HTML LOGIN O DAY -->
-  <h1>Click <a href="/App/Views/auth/login.php">here </a> to login</h1><br>
-  <!-- Link nut login: /App/Views/auth/login.php" -->
-  
-
-  <?php } else {?>
-  
-  <!-- HTML LOGOUT O DAY  -->
-  <h1>Click <a href="/App/Controllers/Auth/LogoutController.php">here </a> to logout</h1>
-  <!-- Link nut logout: /App/Controllers/Auth/LogoutController.php -->
-
-  <?php }
-  ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -125,7 +102,29 @@ use App\Controllers\Auth\UserController;
               height="30"
               alt="Black and White Portrait of a Man"
             />
-            <button>Logout</button>
+            <?php
+            // Kiểm tra xem đã đăng nhập chưa
+
+            require($_SERVER['DOCUMENT_ROOT'] . "/vendor/autoload.php");
+            use App\Controllers\Auth\UserController;
+
+            if (UserController::isLoggedIn()) {
+                // Nếu đã đăng nhập, hiển thị nút logout
+                ?>
+                <div class="d-flex align-items-center">
+                    <img src="https://cdn-icons-png.flaticon.com/128/3033/3033143.png" class="rounded-circle me-3" height="30" alt="Avatar" />
+                    <a href="/App/Controllers/Auth/LogoutController.php">Logout</a>
+                </div>
+                <?php
+            } else {
+                // Nếu chưa đăng nhập, hiển thị nút login
+                ?>
+                <div class="d-flex align-items-center">
+                    <a href="/App/Views/auth/login.php">Login</a>
+                </div>
+                <?php
+            }
+            ?>
           </a>
           <!-- <ul
               id="dropdown-menu"
