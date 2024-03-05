@@ -1,7 +1,5 @@
-<?php namespace App\Controllers;
+<?php namespace App\Controllers\Auth;
     require($_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php');
 
-    $userController = new UserController;
-
-    $userController->registery();
+    UserController::registery();
 ?>

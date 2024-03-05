@@ -5,7 +5,7 @@ require($_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php');
 
 class UserModel extends BaseModel
 {
-    const CLASSNAME = get_called_class();
+    const CLASSNAME = 'App\\Model\\UserModel';
     const TABLE = 'users';
 
     private $id;
@@ -37,7 +37,7 @@ class UserModel extends BaseModel
         $sql = "select * from users where username=:username";
         $stmt = $this->getConnect()->prepare($sql);
         $stmt->bindValue(':username', $this->username, \PDO::PARAM_STR);
-        $stmt->setFetchMode(\PDO::FETCH_CLASS, self::CLASSNAME);
+        $stmt->setFetchMode(\PDO::FETCH_CLASS, 'App\Models\UserModel');
         $stmt->execute();
         $user = $stmt->fetch();
         if ($user) {
@@ -45,7 +45,6 @@ class UserModel extends BaseModel
             // Check password input with password Hash
             if (password_verify($this->password, $passwordInDB)) {
                 // Return user to get id
-                $_SESSION['level'] = $user->level;
                 return $user;
             }
         }

@@ -36,7 +36,7 @@
                         <img src="https://static.zerochan.net/Yukihira.Souma.full.3758381.jpg" class="img-fluid" alt="Sample image" style="height:650px; width:500px">
                     </div>
                     <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-                        <form name="frmPOST" method="POST" action="./../../Controllers/LoginController.php">
+                        <form name="frmPOST" method="POST" action="/App/Controllers/Auth/LoginController.php">
                             <h2>Welcome to PaPals</h2>
                             <!-- Email input -->
                             <div class="form-outline mb-4">
