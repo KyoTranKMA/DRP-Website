@@ -1,60 +1,70 @@
 <?php 
-namespace App\Controllers;
+namespace App\Controllers\Auth;
 // use autoload from composer
 require($_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php');
+
+use App\Controllers\BaseController;
 use App\Models\UserModel;
 
 class UserController extends BaseController
 {
-    private $userModel;
     // Get Path Class User Model;
     public function __construct()
     {
-        $this->userModel = new UserModel();
     } 
 
     public function index()
     {
     }
 
-    public function login(){
+    public static function login(){
+        $userModel = new UserModel;
         if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])){
-            $this->userModel = $this->userModel->authenticate($_POST);
-            if($this->userModel)
+            $userModel = $userModel->authenticate($_POST);
+            if($userModel)
             {   
                 session_regenerate_id(true);
                 $_SESSION['logged_in'] = true;
-                header("Location: LoginController.php");
+                $_SESSION['level'] = $userModel->level;
+                die($_SESSION['level']);
+                header("Location: /App/Controllers/Auth/LoginController.php");
                 exit();
             }
         }
     }
 
     public static function logout(){
-        if(ini_get("session.use_cookie")) {
-            $params = session_get_cookie_params();
-            setcookie(
-                session_name(), 
-                '', 
-                time() - 42000, 
-                $params["path"],
-                $params["domain"],
-                $params["secure"],
-                $params["httponly"]
-            );
+        // Kiểm tra xem session có tồn tại không
+        if(session_status() === PHP_SESSION_ACTIVE) {
+            // Hủy toàn bộ session
+            session_destroy();
+
+            // Xóa cookie session nếu được sử dụng
+            if(ini_get("session.use_cookies")) {
+                $params = session_get_cookie_params();
+                setcookie(
+                    session_name(), 
+                    '', 
+                    time() - 42000, 
+                    $params["path"],
+                    $params["domain"],
+                    $params["secure"],
+                    $params["httponly"]
+                );
+            }
         }
-        session_destroy();
     }
 
-    public function registery(){
+    public static function registery(){
+        $userModel = new UserModel;
         if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['registery'])){
-            $this->userModel->addUser($_POST);
+            $userModel->addUser($_POST);
         }
-        $this->login();
+        UserController::login();
     }
 
-    public function isLoggedIn(){
-        return isset($_SESSION['logged_in']) && $_SESSION['logged_in'];
+    public static function isLoggedIn(){
+        return isset($_SESSION) && isset($_SESSION['logged_in']);
     }
 }
 
