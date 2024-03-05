@@ -1,6 +1,6 @@
 <?php
     require($_SERVER['DOCUMENT_ROOT'] . '/App/Core/init.php');
-    header("Location: Views/auth/index.php");
+    header("Location: Views/auth/homepage.php");
 
     /*
     // Get Route name and Validate Param

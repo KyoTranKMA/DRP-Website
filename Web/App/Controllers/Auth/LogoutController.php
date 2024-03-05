@@ -1,12 +1,10 @@
 <?php
-    namespace App\Controllers;
+    namespace App\Controllers\Auth;
     require($_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php');
 
-    $userController = new UserController;
-
-    if ($userController->isLoggedIn()){
-        $userController->logout();
+    if (UserController::isLoggedIn()){
+        UserController::logout();
     }
 
-    header("Location: /App/Views/auth/index.php");
+    header("Location: /App/Views/auth/homepage.php");
 ?>
