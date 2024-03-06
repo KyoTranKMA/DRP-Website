@@ -1,5 +1,5 @@
 FROM php:8.2-apache 
-
+RUN a2enmod rewrite
 # Install necessary system dependencies
 RUN apt-get update \
     && apt-get install -y \
