@@ -17,6 +17,7 @@
 //     exit();
 //   }   
 
+
 //   function errorHandler($level, $message, $file, $line){
 //         throw new ErrorException($level, $message, $file, $line);
 //   }
