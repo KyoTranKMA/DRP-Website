@@ -1,3 +1,8 @@
+<?
+require_once($_SERVER['DOCUMENT_ROOT'] . '/App/Core/init.php');
+use App\Controllers\Auth\UserController;
+?>
+
 <!-- Navbar -->
 <!DOCTYPE html>
 <html lang="en">
@@ -103,16 +108,12 @@
               alt="Black and White Portrait of a Man"
             />
             <?php
-            // Kiểm tra xem đã đăng nhập chưa
-
-            require($_SERVER['DOCUMENT_ROOT'] . "/vendor/autoload.php");
-            use App\Controllers\Auth\UserController;
+            // Kiểm tra xem đã đăng nhập chưa            
 
             if (UserController::isLoggedIn()) {
                 // Nếu đã đăng nhập, hiển thị nút logout
                 ?>
                 <div class="d-flex align-items-center">
-                    <img src="https://cdn-icons-png.flaticon.com/128/3033/3033143.png" class="rounded-circle me-3" height="30" alt="Avatar" />
                     <a href="/App/Controllers/Auth/LogoutController.php">Logout</a>
                 </div>
                 <?php

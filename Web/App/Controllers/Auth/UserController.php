@@ -1,9 +1,8 @@
 <?php 
 namespace App\Controllers\Auth;
-// use autoload from composer
-require($_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php');
-
+require_once($_SERVER['DOCUMENT_ROOT'] . '/App/Core/init.php');
 use App\Controllers\BaseController;
+use App\Controllers\HomeController;
 use App\Models\UserModel;
 
 class UserController extends BaseController
@@ -21,14 +20,12 @@ class UserController extends BaseController
         $userModel = new UserModel;
         if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])){
             $userModel = $userModel->authenticate($_POST);
-            if($userModel)
-            {   
-                session_regenerate_id(true);
+            if($userModel){   
                 $_SESSION['logged_in'] = true;
-                $_SESSION['level'] = $userModel->level;
-                die($_SESSION['level']);
                 header("Location: /App/Controllers/Auth/LoginController.php");
                 exit();
+            } else {
+                HomeController::loadView('auth.404');
             }
         }
     }
@@ -37,6 +34,7 @@ class UserController extends BaseController
         // Kiểm tra xem session có tồn tại không
         if(session_status() === PHP_SESSION_ACTIVE) {
             // Hủy toàn bộ session
+            session_unset();
             session_destroy();
 
             // Xóa cookie session nếu được sử dụng

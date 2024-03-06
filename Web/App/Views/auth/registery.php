@@ -6,35 +6,35 @@
     <div class="container-fluid h-custom">
         <div class="row d-flex justify-content-center align-items-center h-100">
             <div class="col-md-8 col-lg-6 col-xl-4 ">
-                <form>
+                <form name="frmPOST" method="POST" action="/App/Controllers/Auth/RegisteryController.php">
                     <h2>Welcome to PaPals</h2>
                     <h4>Create your account!</h4>
                     <!-- Email input -->
                     <div class="form-outline mb-3">
                         <label class="form-label" for="email">Email address</label>
-                        <input type="email" id="email" class="form-control form-control-lg"
+                        <input type="email" id="email" name="email" class="form-control form-control-lg"
                         placeholder="Enter a valid email address" />
                     </div>
                     <!-- Username input -->
                     <div class="form-outline mb-3">
                         <label class="form-label" for="ussername">Username</label>
-                        <input type="username" id="ussername" class="form-control form-control-lg"
+                        <input type="username" id="ussername" name="username" class="form-control form-control-lg"
                         placeholder="Enter a Username" />
                     </div>
                     <!-- Password input -->
                     <div class="form-outline mb-3">
                         <label class="form-label" for="password">Create Your Password</label>
-                        <input type="password" id="password" class="form-control form-control-lg"
+                        <input type="password" id="password" name="password" class="form-control form-control-lg"
                         placeholder="Enter password" />
                     </div>
                     <!-- Password check -->
                     <div class="form-outline mb-3">
                         <label class="form-label" for="repassword">Retype Your Password</label>
-                        <input type="password" id="repassword" class="form-control form-control-lg"
+                        <input type="password" id="repassword" name="repassword" class="form-control form-control-lg"
                         placeholder="Enter password" />
                     </div>                            
                     <div class="text-center text-lg-start mt-4 pt-2">
-                        <button type="button" class="btn btn-primary btn-lg"
+                        <button type="submit" name="registery" class="btn btn-primary btn-lg"
                         style="padding-left: 2.5rem; padding-right: 2.5rem;">Create account</button>
                         <p class="small fw-bold mt-2 pt-1 mb-0">Already an account? <a href="./login.php"
                         class="link-danger">Log In</a></p>

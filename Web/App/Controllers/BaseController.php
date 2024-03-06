@@ -1,11 +1,13 @@
-<?php namespace App\Controllers;
+<?php
+namespace App\Controllers;
+require_once($_SERVER['DOCUMENT_ROOT'] . '/App/Core/init.php');
 
 class BaseController {
     const VIEW_FOLDER_NAME = 'Views';
     const MODEl_FOLDER_NAME = 'Models';    
 
     // Create Method for get classes in Views
-    protected function loadView($viewPath, array $data = [])
+    protected static function loadView($viewPath, array $data = [])
     {
         foreach ($data as $Recipe) {
             echo "ID: {$Recipe['idRecipe']}, Name: {$Recipe['nameRecipe']}, Author: {$Recipe['author']}<br>";

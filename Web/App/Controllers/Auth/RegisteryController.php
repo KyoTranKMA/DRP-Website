@@ -1,5 +1,10 @@
 <?php namespace App\Controllers\Auth;
-    require($_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php');
+
+use App\Controllers\HomeController;
+
+    require_once($_SERVER['DOCUMENT_ROOT'] . '/App/Core/init.php');
 
     UserController::registery();
+
+    HomeController::homePage();
 ?>

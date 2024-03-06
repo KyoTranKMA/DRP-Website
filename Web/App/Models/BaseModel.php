@@ -2,7 +2,7 @@
 namespace App\Models;
 use App\Core\Database;
 // use autoload from composer
-require($_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php');
 
 class BaseModel  {
     private $DB_CONNECTION;

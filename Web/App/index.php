@@ -1,6 +1,9 @@
 <?php
+
+use App\Controllers\HomeController;
+
     require($_SERVER['DOCUMENT_ROOT'] . '/App/Core/init.php');
-    header("Location: Views/auth/homepage.php");
+    HomeController::homePage();
 
     /*
     // Get Route name and Validate Param
