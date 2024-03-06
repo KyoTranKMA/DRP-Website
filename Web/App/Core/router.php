@@ -52,7 +52,7 @@ class Router {
 	{
         http_response_code($code);
 
-		require(ERRORS_PATH  . $code . '.php');
+		require(ERRORS_PATH  . "$code.php");
         die();
 	}
 
