@@ -1,5 +1,5 @@
 <?php namespace App\Models;
-require($_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php');
 // use autoload from composer
 
 
@@ -12,13 +12,12 @@ class UserModel extends BaseModel
     private $username;
     private $password;
     private $email;
-    private $first_Name;
-    private $last_Name;
     private $date_of_birth;
     private $country;
     private $gender;
     private $level;
 
+    // Support Function
     private function checkEmail($email)
     {
         return $this->check(self::TABLE, 'email', $email);
@@ -29,6 +28,21 @@ class UserModel extends BaseModel
         return $this->check(self::TABLE, 'username', $username);
     }
     
+    //Getter
+    public function getId(){
+        return $this->id;
+    }
+
+    public function getPassword(){
+        return $this->password;
+    }
+
+    public function getLevel(){
+        return $this->level;
+    }
+
+
+    // Main function
     public function authenticate($data)
     {
         $this->username = $data['username'];
@@ -42,10 +56,11 @@ class UserModel extends BaseModel
         $stmt->execute();
         $user = $stmt->fetch();
         if ($user) {
-            $passwordInDB = $user->password;
+            $passwordInDB = $user->getPassword();
             // Check password input with password Hash
             if (password_verify($this->password, $passwordInDB)) {
                 // Return user to get id
+                $_SESSION['level'] = $user->getLevel();
                 return $user;
             }
         }

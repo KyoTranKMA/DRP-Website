@@ -11,6 +11,7 @@
     <div class="loader_container">
         <span class="loader">Loading....</span>
     </div>
+    <h1>Click <a href="/App/Controllers/Auth/LogoutController.php">here </a> to logout!</h1>
     <img src="https://zshop.vn/blogs/wp-content/uploads/2016/08/1045.jpg" alt="">
 </body>
 </html>

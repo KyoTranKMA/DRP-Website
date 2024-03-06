@@ -1,10 +1,13 @@
 <?php
     namespace App\Controllers\Auth;
-    require($_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php');
 
+use App\Controllers\HomeController;
+
+    require_once($_SERVER['DOCUMENT_ROOT'] . '/App/Core/init.php');
+    
     if (UserController::isLoggedIn()){
         UserController::logout();
     }
 
-    header("Location: /App/Views/auth/homepage.php");
+    HomeController::homePage();
 ?>

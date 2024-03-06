@@ -1,19 +1,21 @@
 <?php 
 namespace App\Controllers;
-// use autoload from composer
-require($_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . '/App/Core/init.php');
 class HomeController extends BaseController
 {
     public function index()
     {
-        return $this->loadView('pages.homepage');
+        return parent::loadView('pages.index');
     }
-    public function homePage()
+    public static function homePage()
     {
-        return $this->loadView('pages.homepage');
+        return parent::loadView('auth.homepage');
     }
 
-
+    public static function admin()
+    {
+        return parent::loadView('admin.index');
+    }
 }
 
 

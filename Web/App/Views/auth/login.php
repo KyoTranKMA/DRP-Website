@@ -1,5 +1,4 @@
-<?require($_SERVER['DOCUMENT_ROOT'] . "/App/Core/init.php");
- require($_SERVER['DOCUMENT_ROOT'] . "/Public/inc/header.php");
+<?require($_SERVER['DOCUMENT_ROOT'] . "/Public/inc/header.php");
 ?>
 
 <section class="vh-100">

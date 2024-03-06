@@ -1,12 +1,15 @@
-<?php namespace App\Controllers;
-// use autoload from composer
-require($_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php');
+
+<?php
+namespace App\Controllers;
+require_once($_SERVER['DOCUMENT_ROOT'] . '/App/Core/init.php');
+
+
 class BaseController {
     const VIEW_FOLDER_NAME = 'Views';
     const MODEl_FOLDER_NAME = 'Models';    
 
     // Create Method for get classes in Views
-    protected function loadView($viewPath, array $data = [])
+    protected static function loadView($viewPath, array $data = [])
     {
         foreach ($data as $Recipe) {
             echo "ID: {$Recipe['id']}, Name: {$Recipe['name']}, Direction: {$Recipe['directions']}<br>";

@@ -1,15 +1,16 @@
 <?php namespace App\Controllers\Auth;
 
-    require($_SERVER['DOCUMENT_ROOT'] . '/App/Core/init.php');
+use App\Controllers\HomeController;
 
+    require_once($_SERVER['DOCUMENT_ROOT'] . "/vendor/autoload.php");
+    
     if (!UserController::isLoggedIn()){
         UserController::login();
+    } 
+
+    if ($_SESSION['level'] == 1){
+        HomeController::admin();
     } else {
-        if ($_SESSION['level'] == 1){
-            header("Location: /App/Views/admin/index.html");
-        } else {
-            die("login");
-            header("Location: /App/Views/auth/homepage.php");
-        }
+        HomeController::homePage();
     }
 ?>
