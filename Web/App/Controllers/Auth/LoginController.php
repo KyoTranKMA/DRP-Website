@@ -1,16 +1,15 @@
-<?php namespace App\Controllers;
+<?php namespace App\Controllers\Auth;
 
     require($_SERVER['DOCUMENT_ROOT'] . '/App/Core/init.php');
 
-    $userController = new UserController;
-
-    if (!$userController->isLoggedIn()){
-        $userController->login();
-    }
-
-    if ($_SESSION['level'] == 1){
-        header("Location: ./../Views/admin/index.html");
+    if (!UserController::isLoggedIn()){
+        UserController::login();
     } else {
-        header("Location: ./../Views/auth/homepage.php");
+        if ($_SESSION['level'] == 1){
+            header("Location: /App/Views/admin/index.html");
+        } else {
+            die("login");
+            header("Location: /App/Views/auth/homepage.php");
+        }
     }
 ?>

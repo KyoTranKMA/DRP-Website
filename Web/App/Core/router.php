@@ -1,49 +1,62 @@
 <?php
 
-$uri = parse_url($_SERVER['REQUEST_URI'])['path'];
+namespace App\Core;
 
-$controllerDirectory = __DIR__; // Thư mục chứa các file controller
-$routes = generateRoutes($controllerDirectory);
 
-function generateRoutes($controllerDirectory) {
-    $routes = [];
+class Router {
+    protected $routes = [];
 
-    $controllerFiles = scandir($controllerDirectory);
-    foreach ($controllerFiles as $file) {
-        if ($file !== '.' && $file !== '..' && is_file($controllerDirectory . '/' . $file)) {
-            $controllerName = pathinfo($file, PATHINFO_FILENAME);
-            // Xây dựng route từ tên controller, ví dụ: UserController.php sẽ có route /user
-            $route = '/' . strtolower(str_replace('Controller', '', $controllerName));
-            $routes[$route] = $file;
+    private function add ($method, $uri, $controller) {
+        $this->routes[] = [
+            'method' => $method,
+            'uri' => $uri,
+            'controller' => $controller
+        ];
+    }
+
+    public function get($uri, $controller) {
+        $this->add('GET', $uri, $controller);
+    }
+
+    public function post($uri, $controller) {
+        $this->add('POST', $uri, $controller);
+    }
+
+    public function delete($uri, $controller) {
+        $this->add('DELETE', $uri, $controller);
+    }
+    public function put($uri, $controller) {
+        $this->add('PUT', $uri, $controller);
+    }
+
+    public function patch($uri, $controller) {
+        $this->add('PATCH', $uri, $controller);
+    }
+
+    public function route($uri, $method){
+        foreach($this->routes as $route){
+            if($route['uri'] == $uri && $route['method'] == strtoupper($method)){
+                $controller_action = $route['controller'];
+                list($controller, $action) = explode('@', $controller_action);
+                
+                $controller = "App\\Controllers\\$controller";
+                $controller_instance = new $controller();
+                $controller_instance->$action();
+                return;
+            }
         }
+
+        $this->loadError();
     }
 
-    return $routes;
+    private function loadError($code = '404')
+	{
+        http_response_code($code);
+
+		require(ERRORS_PATH  . $code . '.php');
+        die();
+	}
+
 }
 
-function routerToController($uri, $routes) {
-    $urlParts = explode('/', $uri);
-    $controllerName = $urlParts[1];
-    $action = $urlParts[2];
-
-    $controllerFile = $routes['/' . $controllerName];
-    require __DIR__ . '/' . $controllerFile;
-
-    $controllerClass = 'App\\Controllers\\' . pathinfo($controllerFile, PATHINFO_FILENAME);
-    $controller = new $controllerClass();
-
-    // Gọi phương thức action tương ứng
-    if (method_exists($controller, $action)) {
-        $controller->$action();
-    } else {
-        abort(404);
-    }
-}
-
-function abort($code = 404) {
-    http_response_code($code);
-    require __DIR__ . "/../Errors/{$code}.php";
-}
-
-routerToController($uri, $routes);
 ?>

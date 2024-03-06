@@ -1,4 +1,4 @@
-<? require($_SERVER['DOCUMENT_ROOT'] . "/Public/inc/header.php");?>
+<? require($_SERVER['DOCUMENT_ROOT'] . "/Public/inc/header.php")?>
 
 <div class="container mb-3">
     <div class="content d-flex justify-content-between align-items-center mt-3">
@@ -59,9 +59,9 @@
             </div>
         </div>
     </div>
-    <div class="checkbmi mb-3 p-3">
+    <!-- <div class="checkbmi mb-3 p-3">
         <iframe src="https://www.mdcalc.com/calc/29/body-mass-index-bmi-body-surface-area-bsa"  style="width:85vw; height:695px" frameborder="0.5px"></iframe>
-    </div>
+    </div> -->
 </div>
 
-<? require($_SERVER['DOCUMENT_ROOT'] . "/Public/inc/footer.php");?>
+<? require($_SERVER['DOCUMENT_ROOT'] . "/Public/inc/footer.php")?>

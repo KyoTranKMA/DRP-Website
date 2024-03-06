@@ -5,7 +5,7 @@ require($_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php');
 
 class UserModel extends BaseModel
 {
-    const CLASSNAME = get_called_class();
+    const CLASSNAME = 'App\\Model\\UserModel';
     const TABLE = 'users';
 
     private $id;
@@ -46,7 +46,6 @@ class UserModel extends BaseModel
             // Check password input with password Hash
             if (password_verify($this->password, $passwordInDB)) {
                 // Return user to get id
-                $_SESSION['level'] = $user->level;
                 return $user;
             }
         }
