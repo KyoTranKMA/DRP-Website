@@ -51,7 +51,10 @@ class Router {
     private function loadError($code = '404')
 	{
         http_response_code($code);
-        require_once (ERRORS_PATH . "/$code.php");
-    }
+
+		require(ERRORS_PATH  . $code . '.php');
+        die();
+	}
+
 }
 ?>
