@@ -6,7 +6,7 @@ class HomeController extends BaseController
 {
     public function index()
     {
-        return $this->loadView('pages.index');
+        return $this->loadView('pages.homepage');
     }
     public function homePage()
     {
