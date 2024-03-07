@@ -74,7 +74,7 @@ class UserModel extends BaseModel
 
         $sql = "INSERT INTO users (username, password, email, level) values (:username, :password, :email, :level)";
         // Prepare the statement
-        $stmt = $models->connection->prepare($sql);
+        $stmt = $models->getConnect()->prepare($sql);
         // Bind parameters
         $stmt->bindValue(':username', $data['username'], \PDO::PARAM_STR);
         $stmt->bindValue(':password', $data['password'], \PDO::PARAM_STR);
