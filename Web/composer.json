@@ -2,7 +2,6 @@
   "name": "web/app",
   "require": {
     "php": "^8.2",
-    "ext-redis": "*",
     "ext-pdo": "*",
     "ext-pdo_mysql": "*",
     "ext-mysqli": "*"
@@ -18,4 +17,4 @@
 
     }
   }
-}x
+}

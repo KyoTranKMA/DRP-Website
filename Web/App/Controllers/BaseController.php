@@ -1,6 +1,8 @@
+
 <?php
 namespace App\Controllers;
 require_once($_SERVER['DOCUMENT_ROOT'] . '/App/Core/init.php');
+
 
 class BaseController {
     const VIEW_FOLDER_NAME = 'Views';
@@ -10,7 +12,7 @@ class BaseController {
     protected static function loadView($viewPath, array $data = [])
     {
         foreach ($data as $Recipe) {
-            echo "ID: {$Recipe['idRecipe']}, Name: {$Recipe['nameRecipe']}, Author: {$Recipe['author']}<br>";
+            echo "ID: {$Recipe['id']}, Name: {$Recipe['name']}, Direction: {$Recipe['directions']}<br>";
         }
         
         $viewFile = realpath(__DIR__ . '/../' . self::VIEW_FOLDER_NAME . '/' . str_replace('.', '/', $viewPath) . '.php');

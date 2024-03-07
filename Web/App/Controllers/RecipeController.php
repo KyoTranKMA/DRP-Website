@@ -15,7 +15,7 @@ class RecipeController extends BaseController
     public function index()
     {
         $Recipes = $this->RecipeModel->getAll();
-        return $this->loadView('pages.Recipepage', $Recipes);
+        return $this->loadView('pages.recipepage', $Recipes);
     }
     public function show()
     {
