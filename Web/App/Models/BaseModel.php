@@ -1,6 +1,6 @@
 <?php 
 namespace App\Models;
-use PDO,App\Core\Database;
+use App\Core\Database;
 // use autoload from composer
 require_once($_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php');
 
@@ -13,7 +13,7 @@ class BaseModel  {
     }
     protected function getConnect() {return $this->DB_CONNECTION->getConnection();;}
 
-    static protected function query($sql, $fetchMode = PDO::FETCH_ASSOC, $params = []) {
+    static protected function query($sql, $fetchMode = \PDO::FETCH_ASSOC, $params = []) {
         $dbconnect = new static();
         try {
             // Make sure the connection is established
@@ -25,7 +25,7 @@ class BaseModel  {
                     }
                 }
                 if ($stmt->execute()) {
-                    $stmt->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, get_called_class());
+                    $stmt->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, get_called_class());
                     return $stmt->fetchAll($fetchMode);
                 }
             } else {
@@ -39,7 +39,7 @@ class BaseModel  {
     
     
     // Method common for get all for Models
-    static public function all($table, $selectRow, $limit = 5, $fetchMode = PDO::FETCH_ASSOC)
+    static public function all($table, $selectRow, $limit = 5, $fetchMode = \PDO::FETCH_ASSOC)
     {
         $selectRow = implode(',', $selectRow); // Convert from array to string
         $sql = "select {$selectRow} from {$table} limit  {$limit}";
@@ -51,14 +51,14 @@ class BaseModel  {
     static public function showById($table, $id)
     {
         $sql = "select * from {$table} where id=:$id ";
-        $query = self::query($sql, PDO::FETCH_ASSOC, [':id' => $id]);
+        $query = self::query($sql, \PDO::FETCH_ASSOC, [':id' => $id]);
         return $query;
     }
     
     static public function getByName($table, $name)
     {
         $sql = "select * from {$table} where name=:name in natural language mode ";
-        $query = self::query($sql, PDO::FETCH_ASSOC, [':name' => $name]);
+        $query = self::query($sql, \PDO::FETCH_ASSOC, [':name' => $name]);
         return $query;
     }
 
@@ -66,14 +66,14 @@ class BaseModel  {
     static public function find($table, $id)
     {
         $sql = "select * from {$table} where id=:$id limit 1";
-        $query = self::query($sql, PDO::FETCH_ASSOC, [':id' => $id]);
+        $query = self::query($sql, \PDO::FETCH_ASSOC, [':id' => $id]);
         return $query;
     }
     // Method common for check data for Models
     static public function check($table, $field, $data)
     {
         $sql = "select * from {$table} where {$field}=:data limit 1";
-        $result = self::query($sql, PDO::FETCH_ASSOC, [':data' => $data]);
+        $result = self::query($sql, \PDO::FETCH_ASSOC, [':data' => $data]);
         return !empty($result);
     }
     // Method common for add data for Models
@@ -83,7 +83,7 @@ class BaseModel  {
         $values = implode(',', array_fill(0, count($data), '?'));
 
         $sql = "insert into {$table} ({$columns}) values ({$values})";
-        return self::query($sql, PDO::FETCH_ASSOC, array_values($data));
+        return self::query($sql, \PDO::FETCH_ASSOC, array_values($data));
 
     }
 
@@ -100,13 +100,13 @@ class BaseModel  {
         $dataValues = array_values($data);
         $dataValues[] = $id;
 
-        return self::query($sql, PDO::FETCH_ASSOC, $dataValues);
+        return self::query($sql, \PDO::FETCH_ASSOC, $dataValues);
     }
 
     static public function delete($table, $id)
     {
         $sql = "delete from {$table} where id = ?";
-        return self::query($sql, PDO::FETCH_ASSOC, [$id]);
+        return self::query($sql, \PDO::FETCH_ASSOC, [$id]);
     }
 
 

@@ -1,51 +1,74 @@
-<? 
-namespace App\Models;
+<?
 
-use App\Core\Database;
+namespace App\Models;
 
 // use autoload from composer
 require($_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php');
 
-class IngredientModel extends BaseModel {
+class IngredientModel extends BaseModel
+{
   const TABLE = 'ingredients';
   private $id;
   private $name;
-  private $category; 
-  private $nutritionComponents; 
+  private $category;
+  private $nutritionComponents;
 
-  public function __construct($id = null, $name = null, $category = null, $nutritionComponents = null) {
+  public function __construct($id = null, $name = null, $category = null, $nutritionComponents = null)
+  {
     parent::__construct();
     $this->id = $id ?? 0;
     $this->name = $name ?? '';
     $this->category = $category ?? '';
     $this->nutritionComponents = $nutritionComponents ?? [
-        'calcium' => null,
-        'calories' => null,
-        'carbohydrate' => null,
-        'cholesterol' => null,
-        'fiber' => null,
-        'iron' => null,
-        'fat' => null,
-        'monounsaturated_fat' => null,
-        'polyunsaturated_fat' => null,
-        'saturated_fat' => null,
-        'potassium' => null,
-        'protein' => null,
-        'sodium' => null,
-        'sugar' => null,
-        'vitamin_a' => null,
-        'vitamin_c' => null
+      'calcium' => null,
+      'calories' => null,
+      'carbohydrate' => null,
+      'cholesterol' => null,
+      'fiber' => null,
+      'iron' => null,
+      'fat' => null,
+      'monounsaturated_fat' => null,
+      'polyunsaturated_fat' => null,
+      'saturated_fat' => null,
+      'potassium' => null,
+      'protein' => null,
+      'sodium' => null,
+      'sugar' => null,
+      'vitamin_a' => null,
+      'vitamin_c' => null
     ];
   }
-  public function getId() { return $this->id; }
-  public function getName() { return $this->name; }
-  public function getCategory() { return $this->category; }
-  public function getNutritionComponents() { return $this->nutritionComponents; }
-  public function setId($id) { $this->id = $id; }
-  public function setName($name) { $this->name = $name; }
-  public function setCategory($category) { $this->category = $category; }
-  public function setNutritionComponents($nutritionComponents) { 
-    $this->nutritionComponents = $nutritionComponents; 
+  public function getId()
+  {
+    return $this->id;
+  }
+  public function getName()
+  {
+    return $this->name;
+  }
+  public function getCategory()
+  {
+    return $this->category;
+  }
+  public function getNutritionComponents()
+  {
+    return $this->nutritionComponents;
+  }
+  public function setId($id)
+  {
+    $this->id = $id;
+  }
+  public function setName($name)
+  {
+    $this->name = $name;
+  }
+  public function setCategory($category)
+  {
+    $this->category = $category;
+  }
+  public function setNutritionComponents($nutritionComponents)
+  {
+    $this->nutritionComponents = $nutritionComponents;
   }
 
   static public function getAll() {
@@ -58,9 +81,9 @@ class IngredientModel extends BaseModel {
       $table = self::TABLE;
       $sql = "select * from {$table}";
       $stmt = $dbcon->getConnect()->prepare($sql);
-      if($stmt->execute()){
+      if ($stmt->execute()) {
         $ingridients = [];
-        while($row = $stmt->fetch(\PDO::FETCH_ASSOC)){
+        while ($row = $stmt->fetch(\PDO::FETCH_ASSOC)) {
           $ingrident = new IngredientModel();
           $ingrident->setID($row['id']);
           $ingrident->setName($row['name']);
@@ -87,18 +110,63 @@ class IngredientModel extends BaseModel {
           $ingridients[] = $ingrident;
         }
         return $ingridients;
+      } else {
+        throw new \Exception("Error in executing prepare statement. ");
       }
-      else {throw new \Exception("Error in executing prepare statement. ");}
     } catch (\PDOException $e) {
       echo $e->getMessage();
       return null;
     }
   }
 
-  static public function getByName($table, $name) {
+  static public function getByName($table, $name)  {
+    $dbconnect = new static();
     $sql = "select * from {$table} where match(name) against(:name in natural language mode) limit 5";
-    $query = self::query($sql, \PDO::FETCH_ASSOC, [':name' => "%{$name}%"]);
-    echo json_encode($query);
-    return $query;
+
+    try {
+      // Make sure the connection is established
+      if ($dbconnect->getConnect() === null) {
+        throw new \PDOException("Error: Unable to establish database connection. <br>");
+      }
+      $query = $dbconnect->getConnect()->prepare($sql);
+      if (empty($name)) {
+        throw new \Exception("Error: Name cannot be empty. <br>");
+      }
+      $query->bindValue(':name', $name, \PDO::PARAM_STR);
+      if ($query->execute()) {
+        $ingredients = [];
+        while($row = $query->fetch(\PDO::FETCH_ASSOC)) {
+          $ingredient = new IngredientModel();
+          $ingredient->setId($row['id']);
+          $ingredient->setName($row['name']);
+          $ingredient->setCategory($row['category']);
+          $ingredient->setNutritionComponents([
+            'calcium' => $row['calcium'],
+            'calories' => $row['calories'],
+            'carbohydrate' => $row['carbohydrate'],
+            'cholesterol' => $row['cholesterol'],
+            'fiber' => $row['fiber'],
+            'iron' => $row['iron'],
+            'fat' => $row['fat'],
+            'monounsaturated_fat' => $row['monounsaturated_fat'],
+            'polyunsaturated_fat' => $row['polyunsaturated_fat'],
+            'saturated_fat' => $row['saturated_fat'],
+            'potassium' => $row['potassium'],
+            'protein' => $row['protein'],
+            'sodium' => $row['sodium'],
+            'sugar' => $row['sugar'],
+            'vitamin_a' => $row['vitamin_a'],
+            'vitamin_c' => $row['vitamin_c']
+          ]);
+          $ingredients[] = $ingredient;
+        }
+        return $ingredients;
+      } else {
+        throw new \Exception("Error in executing prepare statement. ");
+      }
+    } catch (\PDOException $e) {
+      echo $e->getMessage();
+      return null;
+    }
   }
-} 
+}

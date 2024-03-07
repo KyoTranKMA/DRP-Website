@@ -1,4 +1,5 @@
 FROM php:8.2-apache 
+
 RUN a2enmod rewrite
 # Install necessary system dependencies
 RUN apt-get update \
@@ -11,7 +12,6 @@ RUN apt-get update \
 RUN docker-php-ext-install pdo pdo_mysql mysqli zip \
     && pecl install redis \
     && docker-php-ext-enable redis pdo pdo_mysql mysqli
-
 
 
 # Using composer for autoloading 
