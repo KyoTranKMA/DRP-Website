@@ -1,62 +1,69 @@
-<?require($_SERVER['DOCUMENT_ROOT'] . "/Public/inc/header.php");
-?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="/vendor/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/Public/css/login-style.css">
+</head>
 
-<section class="vh-100">
-    <div class="container-fluid h-custom">
-        <div class="row d-flex justify-content-center align-items-center h-100">
-            <div class="col-md-8 col-lg-6 col-xl-4 ">
-                <form name="frmPOST" method="POST" action="/App/Controllers/Auth/LoginController.php">
-                    <h2>Welcome to PaPals</h2>
-                    <!-- username input -->
-                    <div class="form-outline mb-4">
-                        <label class="form-label" for="username">Username</label>
-                        <input type="username" id="username" name="username" class="form-control form-control-lg"
-                        placeholder="Enter a valid username address" />
-                    </div>
+<body>
+    <div class="container" id="container">
+        <form name="frmPOST" method="POST" action="/App/Controllers/Auth/RegisteryController.php">
+        <div class="form-container sign-up">
+            <h1>Create account</h1>
+            <div class="social-icons">
+                <a href="#" class="icon"><i class="fa fa-google"></i></a>
+                <a href="#" class="icon"><i class="fa fa-facebook"></i></a>
+                <a href="#" class="icon"><i class="fa fa-github"></i></a>
+            </div>
+            <p style="font-weight: bolder; margin: 10px 0;">OR</p>
+            <span>Register with your email</span>
+            <input type="text" name="username" id="username" placeholder="Enter your username.">
+            <input type="email" name="email" id="email" placeholder="Enter your email.">
+            <input type="password" name="password" id="password" placeholder="Enter your password.">
+            <input type="password" name="repassword" id="repassword" placeholder="Re-enter your password.">
+            <button type="submit" name="registery">Sign up</button>
+        </form>
+    </div>
+    
+    <div class="form-container sign-in">
+        <form name="frmPOST" method="POST" action="/App/Controllers/Auth/LoginController.php">
+            <h1>Sign In</h1>
+            <div class="social-icons">
+                <a href="#" class="icon"><i class="fa fa-google"></i></a>
+                    <a href="#" class="icon"><i class="fa fa-facebook"></i></a>
+                    <a href="#" class="icon"><i class="fa fa-github"></i></a>
+                </div>
+                <p style="font-weight: bolder;margin: 10px 0;">OR</p>
+                <span>Sign in with your username</span>
+                <input type="text" name="username" id="username" placeholder="Enter your username.">
+                <input type="password" name="password" id="password" placeholder="Enter your password.">
+                <a href="#">Forgot your password?</a>
+                <button type="submit" name="login">Sign in</button>
+            </form>
+        </div>
 
-                    <!-- Password input -->
-                    <div class="form-outline mb-3">
-                        <label class="form-label" for="password">Password</label>
-                        <input type="password" id="password" name="password" class="form-control form-control-lg"
-                        placeholder="Enter password" />
-                    </div>
-
-                    <div class="d-flex justify-content-between align-items-center">
-                        <!-- Checkbox -->
-                        <div class="form-check mb-0">
-                        <input class="form-check-input me-2" type="checkbox" value="" id="rememberme" />
-                        <label class="form-check-label" for="rememberme">
-                            Remember me
-                        </label>
-                        </div>
-                        <a href="#!" class="text-body">Forgot password?</a>
-                    </div>
-
-                    
-                    <div class="text-center text-lg-start mt-4 pt-2">
-                        <button type="submit" name="login" class="btn btn-primary btn-lg"
-                        style="padding-left: 2.5rem; padding-right: 2.5rem; ">Login</button>
-                        <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a href="./registery.php"
-                        class="link-danger">Register</a></p>
-                    </div>
-                    
-                    <div class="divider d-flex align-items-center my-4">
-                        <p class="text-center fw-bold mx-3 mb-0">Or</p>
-                    </div>
-                    <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
-                        <p class="lead fw-normal mb-0 me-3">Sign in with</p>
-                        <button type="button" class="btn btn-primary btn-floating mx-1">
-                        <i class="fa-brands fa-facebook-f"></i>
-                        </button>
-
-                        <button type="button" class="btn btn-primary btn-floating mx-1">
-                        <i class="fa-brands fa-google"></i>
-                        </button>
-                    </div>
-                </form>
+        <div class="toggle-container">
+            <div class="toggle">
+                <div class="toggle-panel toggle-right"> 
+                <h1>Welcome Back!</h1>
+                <p>Sign in to your account to continue.</p>
+                <button class="hidden" id="register">Sign up</button>
+            </div>
+            
+            <div class="toggle-panel toggle-left"> 
+                <h1>Welcome to Palpals!</h1>
+                <p>Register to be a part of us for much more site features.</p>
+                <button class="hidden" id="login">Sign in</button>
+                </div>
             </div>
         </div>
     </div>
-</section>
 
-<? require($_SERVER['DOCUMENT_ROOT'] . "/Public/inc/footer.php")?>
+    <script src="/Web/Public/js/login-page.js"></script>
+</body>
+</html> 
+
+
