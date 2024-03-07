@@ -74,7 +74,6 @@ class BaseModel  {
     // Method common for check data for Models
     static public function check($table, $field, $data)
     {
-
         $sql = "select * from {$table} where {$field}=:data limit 1";
         $result = self::query($sql, PDO::FETCH_ASSOC, [':data' => $data]);
         return !empty($result);
