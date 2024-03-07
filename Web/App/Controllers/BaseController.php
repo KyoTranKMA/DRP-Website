@@ -1,4 +1,3 @@
-
 <?php
 namespace App\Controllers;
 require_once($_SERVER['DOCUMENT_ROOT'] . '/App/Core/init.php');
