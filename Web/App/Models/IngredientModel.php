@@ -96,8 +96,9 @@ class IngredientModel extends BaseModel {
   }
 
   static public function getByName($table, $name) {
-    $sql = "select * from {$table} where match(name) against(:name in ) limit 5";
+    $sql = "select * from {$table} where match(name) against(:name in natural language mode) limit 5";
     $query = self::query($sql, \PDO::FETCH_ASSOC, [':name' => "%{$name}%"]);
+    echo json_encode($query);
     return $query;
   }
 } 

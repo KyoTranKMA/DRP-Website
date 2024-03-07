@@ -7,20 +7,18 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php');
 
 class BaseModel  {
     private $DB_CONNECTION;
-    protected $connection; 
 
     public function __construct() {
         $this->DB_CONNECTION = new Database();
-        $this->connection = $this->DB_CONNECTION->getConnection();
     }
-    protected function getConnect() {return $this->connection;}
+    protected function getConnect() {return $this->DB_CONNECTION->getConnection();;}
 
     static protected function query($sql, $fetchMode = PDO::FETCH_ASSOC, $params = []) {
-        $models = new static;
+        $dbconnect = new static();
         try {
             // Make sure the connection is established
-            if ($models->connection !== null) {
-                $stmt = $models->connection->prepare($sql);
+            if ($dbconnect->getConnect() !== null) {
+                $stmt = $dbconnect->getConnect()->prepare($sql);
                 if (!empty($params)) {
                     foreach ($params as $key => $value) {
                         $stmt->bindValue($key, $value);
@@ -59,7 +57,7 @@ class BaseModel  {
     
     static public function getByName($table, $name)
     {
-        $sql = "select * from {$table} where name=:$name ";
+        $sql = "select * from {$table} where name=:name in natural language mode ";
         $query = self::query($sql, PDO::FETCH_ASSOC, [':name' => $name]);
         return $query;
     }
