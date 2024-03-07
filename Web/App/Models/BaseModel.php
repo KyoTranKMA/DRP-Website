@@ -6,23 +6,21 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php');
 
 
 class BaseModel  {
-    static private $DB_CONNECTION;
-    static private $connection; 
-    public function __construct()
-    {
-        self::$DB_CONNECTION = new Database();
-        self::$connection = self::$DB_CONNECTION->getConnection();
+    private $DB_CONNECTION;
+    private $connection; 
+
+    public function __construct() {
+        $this->DB_CONNECTION = new Database();
+        $this->connection = $this->DB_CONNECTION->getConnection();
     }
+    protected function getConnect() {return $this->connection;}
 
-    static protected function getConnect() { return self::$connection; }
-
-    static public function closeConnect() { self::$connection = self::$DB_CONNECTION = null;}
-    static private function query($sql, $fetchMode = PDO::FETCH_ASSOC, $params = [])
-    {
+    static protected function query($sql, $fetchMode = PDO::FETCH_ASSOC, $params = []) {
+        $dbconnect = new static();
         try {
             // Make sure the connection is established
             if (self::$connection !== null) {
-                $stmt = self::$connection->prepare($sql);
+                $stmt = $dbconnect->getConnect()->prepare($sql);
                 if (!empty($params)) {
                     foreach ($params as $key => $value) {
                         $stmt->bindValue($key, $value);
@@ -61,8 +59,8 @@ class BaseModel  {
     
     static public function getByName($table, $name)
     {
-        $sql = "select * from {$table} where match(name) against(:name in ) limit 5";
-        $query = self::query($sql, PDO::FETCH_ASSOC, [':name' => "%{$name}%"]);
+        $sql = "select * from {$table} where name=:$name ";
+        $query = self::query($sql, PDO::FETCH_ASSOC, [':name' => $name]);
         return $query;
     }
 

@@ -49,14 +49,15 @@ class IngredientModel extends BaseModel {
   }
 
   static public function getAll() {
+    $dbcon = new static();
     try {
       // Make sure the connection is established
-      if (Database::getConnection() === null) {
+      if ($dbcon->getConnect() === null) {
         throw new \PDOException("Error: Unable to establish database connection. <br>");
       }
       $table = self::TABLE;
       $sql = "select * from {$table}";
-      $stmt = self::getConnect()->prepare($sql);
+      $stmt = $dbcon->getConnect()->prepare($sql);
       if($stmt->execute()){
         $ingridients = [];
         while($row = $stmt->fetch(\PDO::FETCH_ASSOC)){
@@ -99,5 +100,4 @@ class IngredientModel extends BaseModel {
     $query = self::query($sql, \PDO::FETCH_ASSOC, [':name' => "%{$name}%"]);
     return $query;
   }
-
-}
+} 
