@@ -1,5 +1,8 @@
 <? 
 namespace App\Models;
+
+use App\Core\Database;
+
 // use autoload from composer
 require($_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php');
 
@@ -45,15 +48,15 @@ class IngredientModel extends BaseModel {
     $this->nutritionComponents = $nutritionComponents; 
   }
 
-  public function getAll() {
+  static public function getAll() {
     try {
       // Make sure the connection is established
-      if ($this->getConnect() === null) {
+      if (Database::getConnection() === null) {
         throw new \PDOException("Error: Unable to establish database connection. <br>");
       }
       $table = self::TABLE;
       $sql = "select * from {$table}";
-      $stmt = $this->getConnect()->prepare($sql);
+      $stmt = self::getConnect()->prepare($sql);
       if($stmt->execute()){
         $ingridients = [];
         while($row = $stmt->fetch(\PDO::FETCH_ASSOC)){
@@ -90,4 +93,11 @@ class IngredientModel extends BaseModel {
       return null;
     }
   }
+
+  static public function getByName($table, $name) {
+    $sql = "select * from {$table} where match(name) against(:name in ) limit 5";
+    $query = self::query($sql, \PDO::FETCH_ASSOC, [':name' => "%{$name}%"]);
+    return $query;
+  }
+
 }
