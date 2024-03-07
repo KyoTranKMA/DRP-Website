@@ -11,9 +11,10 @@ class UserModel extends BaseModel
     protected $id;
     protected $username;
     protected $password;
-    protected $email;
+    protected $first_Name;
+    protected $last_Name;
     protected $date_of_birth;
-    protected $country;
+    protected $email;
     protected $gender;
     protected $level;
 
@@ -58,7 +59,7 @@ class UserModel extends BaseModel
             if (password_verify($data['password'], $passwordInDB)) {
                 // Return user to get id
                 $data['id'] = $result->id;
-                $_SESSION['level'] = $data->getLevel();
+                $_SESSION['level'] = $result->level;
                 return $result;
             }
         }
@@ -73,11 +74,12 @@ class UserModel extends BaseModel
 
         $sql = "INSERT INTO users (username, password, email, level) values (:username, :password, :email, :level)";
         // Prepare the statement
-        $stmt = $models->getConnect()->prepare($sql);
+        $stmt = $models->connection->prepare($sql);
         // Bind parameters
         $stmt->bindValue(':username', $data['username'], \PDO::PARAM_STR);
         $stmt->bindValue(':password', $data['password'], \PDO::PARAM_STR);
         $stmt->bindValue(':email', $data['email'], \PDO::PARAM_STR);
         $stmt->bindValue(':level', 3, \PDO::PARAM_INT);
+        $stmt->execute();
     }
 }

@@ -1,5 +1,5 @@
 <?php 
-namespace App\Controllers\Auth;
+namespace App\Controllers;
 require_once($_SERVER['DOCUMENT_ROOT'] . '/App/Core/init.php');
 use App\Controllers\BaseController;
 use App\Controllers\HomeController;
@@ -10,7 +10,7 @@ class UserController extends BaseController
     // Get Path Class User Model;
     public function index()
     {
-        return $this->loadView('auth.pages');
+        return $this->loadView('auth.homepage');
     }
 
     public function loginUI()
@@ -36,12 +36,21 @@ class UserController extends BaseController
             $userModel = UserModel::authenticate($data);
             if($userModel){   
                 $_SESSION['logged_in'] = true;
-                header("Location: /App/Controllers/Auth/LoginController.php");
+                if ($_SESSION['level'] == 1){
+                    header("Location: /admin");
+                } else {
+                    header("Location: /user");
+                }
                 exit();
             } else {
                 $this->loadView('auth.404');
             }
         }
+    }
+
+    public function registeryUI()
+    {
+        return $this->loadView('auth.login');
     }
 
     public function registery(){
@@ -72,9 +81,10 @@ class UserController extends BaseController
         }
 
         UserModel::addUser($data);
+        header("Location: /user");
     }
 
-    public static function logout(){
+    public function logout(){
         // Kiểm tra xem session có tồn tại không
         if(session_status() === PHP_SESSION_ACTIVE) {
             // Hủy toàn bộ session
@@ -95,6 +105,7 @@ class UserController extends BaseController
                 );
             }
         }
+        header("Location: /user");
     }
 
     public static function isLoggedIn(){

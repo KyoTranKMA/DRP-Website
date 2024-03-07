@@ -7,7 +7,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php');
 
 class BaseModel  {
     private $DB_CONNECTION;
-    private $connection; 
+    protected $connection; 
 
     public function __construct() {
         $this->DB_CONNECTION = new Database();
@@ -16,11 +16,11 @@ class BaseModel  {
     protected function getConnect() {return $this->connection;}
 
     static protected function query($sql, $fetchMode = PDO::FETCH_ASSOC, $params = []) {
-        $dbconnect = new static();
+        $models = new static;
         try {
             // Make sure the connection is established
-            if (self::$connection !== null) {
-                $stmt = $dbconnect->getConnect()->prepare($sql);
+            if ($models->connection !== null) {
+                $stmt = $models->connection->prepare($sql);
                 if (!empty($params)) {
                     foreach ($params as $key => $value) {
                         $stmt->bindValue($key, $value);
