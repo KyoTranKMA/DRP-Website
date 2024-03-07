@@ -12,7 +12,7 @@
     <div class="container" id="container">
         
         <div class="form-container sign-up">
-            <form action="">
+            <form name="frmPOST" method="POST" action="/App/Controllers/Auth/RegisteryController.php">
                 <h1>Create account</h1>
                 <div class="social-icons">
                     <a href="#" class="icon"><i class="fa fa-google"></i></a>
@@ -30,7 +30,7 @@
         </div>
 
         <div class="form-container sign-in">
-            <form action="">
+            <form form name="frmPOST" method="POST" action="/App/Controllers/Auth/LoginController.php">
                 <h1>Sign In</h1>
                 <div class="social-icons">
                     <a href="#" class="icon"><i class="fa fa-google"></i></a>
@@ -60,7 +60,7 @@
                 <h1>Welcome to Palpals!</h1>
                 <img src="/Public/images/logo.png" alt="" style="height:100px" >
                 <p>Register to be a part of us for much more site features.</p>
-                <button class="hidden" id="login">Sign in</button>
+                <button class="hidden" id="login" type="submit" name="login">Sign in</button>
                 </div>
             </div>
         </div>

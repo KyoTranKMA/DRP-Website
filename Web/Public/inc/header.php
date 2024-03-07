@@ -100,7 +100,7 @@ use App\Controllers\Auth\UserController;
                     alt="Black and White Portrait of a Man"
                   />
                   <div class="d-flex align-items-center">
-                    <a href="App/Controllers/Auth/LogoutController.php" class="btn btn-primary btn-lg " 
+                    <a href="App/Controllers/Auth/LogoutController.php/" class="btn btn-primary btn-lg " 
                       tabindex="-1" role="button" aria-disabled="true">Logout</a>
                   </div>
                 </div>
@@ -109,7 +109,7 @@ use App\Controllers\Auth\UserController;
                 // Nếu chưa đăng nhập, hiển thị nút login
                 ?>
                 <div class="d-flex align-items-center">
-                  <a href="/App/Views/auth/login.php" class="btn btn-primary btn-lg " 
+                  <a href="/App/Views/auth/login.php/" class="btn btn-primary btn-lg " 
                     tabindex="-1" role="button" aria-disabled="true">Login</a>
                 </div>
                 <?php
