@@ -11,11 +11,8 @@ use App\Controllers\Auth\UserController;
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/font-awesome.min.css">
     <script src="https://kit.fontawesome.com/a2af703eed.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="vendors/font-awesome-4.7.0/css/font-awesome.min.css" />
-    <script src="./../../Public/js/preload.js"></script>
-    <link rel="stylesheet" href="./../../Public/css/preloader_styles.css">
     <title>PaPals-Enjoy your meals</title>
     <style>
         .divider:after,
@@ -32,15 +29,6 @@ use App\Controllers\Auth\UserController;
             .h-custom {
                 height: 100%;
             }
-        }
-        .show {
-        display: none;  
-        }
-        .dropdown-toggle:hover .show {
-            display: block !important;
-            position: absolute;
-            top: 36px;
-            right: 0px;
         }
         </style>
 </head>
@@ -69,7 +57,7 @@ use App\Controllers\Auth\UserController;
         <!-- Navbar brand -->
         <a class="navbar-brand mt-2 mt-lg-0" href="#">
           <img
-            src="https://cdn-icons-png.flaticon.com/128/3274/3274099.png"
+            src="/Public/images/logo.png"
             height="50"
             alt="PaPals"
             loading="lazy"
@@ -96,52 +84,38 @@ use App\Controllers\Auth\UserController;
       <!-- Collapsible wrapper -->
   
       <!-- Right elements -->
-      <div class="d-flex align-items-center">
-        <!-- Notifications -->
-            <!-- <i class="fas fa-bell me-3" style="height: 30"></i> -->
-            <!-- <span class="badge rounded-pill badge-notification bg-danger">1</span> -->
-        <!-- Avatar -->
-            <img
-              src="https://cdn-icons-png.flaticon.com/128/3033/3033143.png"
-              class="rounded-circle me-3"
-              height="30"
-              alt="Black and White Portrait of a Man"
-            />
+      
             <?php
             // Kiểm tra xem đã đăng nhập chưa            
 
             if (UserController::isLoggedIn()) {
-                // Nếu đã đăng nhập, hiển thị nút logout
+                // Nếu đã đăng nhập, hiển thị nút logout và account
                 ?>
-                <div class="d-flex align-items-center">
-                    <a href="/App/Controllers/Auth/LogoutController.php">Logout</a>
+                  <div class="d-flex align-items-center">
+                  <img
+                    src="/Public/images/account.png"
+                    id="user"
+                    class="rounded-circle me-3 account hide"
+                    height="30"
+                    alt="Black and White Portrait of a Man"
+                  />
+                  <div class="d-flex align-items-center">
+                    <a href="App/Controllers/Auth/LogoutController.php" class="btn btn-primary btn-lg " 
+                      tabindex="-1" role="button" aria-disabled="true">Logout</a>
+                  </div>
                 </div>
                 <?php
             } else {
                 // Nếu chưa đăng nhập, hiển thị nút login
                 ?>
                 <div class="d-flex align-items-center">
-                    <a href="/App/Views/auth/login.php">Login</a>
+                  <a href="/App/Views/auth/login.php" class="btn btn-primary btn-lg " 
+                    tabindex="-1" role="button" aria-disabled="true">Login</a>
                 </div>
                 <?php
             }
             ?>
           </a>
-          <!-- <ul
-              id="dropdown-menu"
-              class="show dropdown-menu dropdown-menu-end"
-              aria-labelledby="navbarDropdownMenuAvatar"
-          >
-            <li>
-              <a class="dropdown-item" href="#">My profile</a>
-            </li>
-            <li>
-              <a class="dropdown-item" href="#">Settings</a>
-            </li>
-            <li>
-              <a class="dropdown-item" href="#">Logout</a>
-            </li>
-          </ul> -->
         </div>
       </div>
       <!-- Right elements -->
