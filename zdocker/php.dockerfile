@@ -1,5 +1,11 @@
 FROM php:8.2-apache 
 
+
+# Set the timezone
+ENV TZ=Asia/Ho_Chi_Minh
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
+# Enable mod_rewrite
 RUN a2enmod rewrite
 # Install necessary system dependencies
 RUN apt-get update \
