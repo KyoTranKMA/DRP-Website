@@ -64,4 +64,4 @@
     </div> -->
 </div>
 
-<? require($_SERVER['DOCUMENT_ROOT'] . "/Public/inc/footer.php")?>
+<? require($_SERVER['DOCUMENT_ROOT'] . "/Public/inc/footer.php");?>

@@ -3,6 +3,7 @@
 
 require_once($_SERVER['DOCUMENT_ROOT'] . '/Config/general_config.php');
 require_once(ROOT_PATH . '/App/Core/init.php');
+header("Location: Views/auth/homepage.php");
 
 $router = new Core\Router();
 // Get Routes from routes.php
