@@ -97,13 +97,17 @@ class IngredientModel extends BaseModel {
       } else {
         throw new \Exception(self::MSG_EXECUTE_PDO_LOG . __METHOD__ . '. ');
       }
-    } catch (\PDOException $e) {
-      Logger::logError(DB_RELATED_LOG, $e->getMessage());
-      return null;
-    } catch (\Exception $e) {
-      Logger::logError(EXCEPTION_LOG, $e->getMessage());
-      return null;
+    } catch(\PDOException $PDOException) {
+      Logger::logError(DB_RELATED_LOG, $PDOException->getMessage());
+      echo $PDOException->getMessage();
+    } catch(\Exception $exception) {
+      Logger::logError(EXCEPTION_LOG, $exception->getMessage());
+      echo $exception->getMessage();
+    } catch (\Throwable $throwable) {
+      Logger::logError(ERROR_LOG, $throwable->getMessage());
+      echo $throwable->getMessage();
     }
+    return NULL;
   }
   static public function getByName($name, $table = self::TABLE, $limit = 10)  {
     $functionName = __FUNCTION__;
@@ -131,13 +135,17 @@ class IngredientModel extends BaseModel {
       } else {
         throw new \Exception(self::MSG_EXECUTE_PDO_LOG . $functionName);
       }
-    } catch (\PDOException $e) {
-      Logger::logError(DB_RELATED_LOG, $e->getMessage());
-      return null;
-    } catch (\Exception $e) {
-      Logger::logError(EXCEPTION_LOG, $e->getMessage());
-      return null;
+    } catch(\PDOException $PDOException) {
+      Logger::logError(DB_RELATED_LOG, $PDOException->getMessage());
+      echo $PDOException->getMessage();
+    } catch(\Exception $exception) {
+      Logger::logError(EXCEPTION_LOG, $exception->getMessage());
+      echo $exception->getMessage();
+    } catch (\Throwable $throwable) {
+      Logger::logError(ERROR_LOG, $throwable->getMessage());
+      echo $throwable->getMessage();
     }
+    return NULL;
   }
 
   static public function create($table = self::TABLE, $data = null){
@@ -181,14 +189,15 @@ class IngredientModel extends BaseModel {
       } else {
         throw new \Exception(self::MSG_EXECUTE_PDO_LOG . __METHOD__ . '. ');
       }
-      
-    }
-    catch(\PDOException $PDOException) {
+    } catch(\PDOException $PDOException) {
       Logger::logError(DB_RELATED_LOG, $PDOException->getMessage());
       echo $PDOException->getMessage();
     } catch(\Exception $exception) {
       Logger::logError(EXCEPTION_LOG, $exception->getMessage());
       echo $exception->getMessage();
+    } catch (\Throwable $throwable) {
+      Logger::logError(ERROR_LOG, $throwable->getMessage());
+      echo $throwable->getMessage();
     }
     return false;
   }

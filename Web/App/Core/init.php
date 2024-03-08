@@ -1,7 +1,8 @@
 <?php
+
 use App\Core\Logger;
 
-if (!isset($_SESSION)){
+if (!isset($_SESSION)) {
   session_start();
 }
 require_once($_SERVER['DOCUMENT_ROOT'] . "/vendor/autoload.php");
@@ -11,7 +12,8 @@ set_error_handler('handleError');
 set_exception_handler('handleException');
 register_shutdown_function('handleFatalError');
 
-function handleError(int $errno, string $errstr, string $errfile, int $errline) {
+function handleError(int $errno, string $errstr, string $errfile, int $errline)
+{
   $errorType = getErrorType($errno);
   $backtrace = debug_backtrace();
   $backtrace = array_slice($backtrace, 2); // remove handleError from the call stack
@@ -19,11 +21,11 @@ function handleError(int $errno, string $errstr, string $errfile, int $errline) 
   // Start building the backtrace string
   $backtraceStr = '';
   foreach ($backtrace as $i => $call) {
-    $file = $call['file'] ?? '';
-    $line = $call['line'] ?? '';
-    $function = $call['function'] ?? '';
-    $class = $call['class'] ?? '';
-    $type = $call['type'] ?? '';
+    $file = $call['file'] ?? 'UNKNOWN';
+    $line = $call['line'] ?? 'UNKNOWN';
+    $function = $call['function'] ?? 'UNKNOWN';
+    $class = $call['class'] ?? 'UNKNOWN';
+    $type = $call['type'] ?? 'UNKNOWN';
     $backtraceStr .= "#$i $file($line): $class$type$function()\n";
   }
   $backtraceStr .= "{main}";
@@ -33,16 +35,30 @@ function handleError(int $errno, string $errstr, string $errfile, int $errline) 
   // Don't halt the script execution
   return true;
 }
-function handleException($exception) {
+function handleException($exception)
+{
   $backtrace = $exception->getTraceAsString(); // get the call stack as a string
   Logger::logError(EXCEPTION_LOG, "Uncaught Exception: " . $exception->getMessage() . "\nCall Stack:\n$backtrace");
 }
-function handlePDOException($exception) {
+function handlePDOException($exception)
+{
   $backtrace = $exception->getTraceAsString(); // get the call stack as a string
   Logger::logError(DB_RELATED_LOG, "Uncaught Exception: " . $exception->getMessage() . "\nCall Stack:\n$backtrace");
 }
-
-function getErrorType($errno) {
+function handleFatalError()
+{
+  $lastError = error_get_last();
+  if ($lastError && $lastError['type'] === E_ERROR) {
+    $errno = $lastError['type'] ?? 'UNKNOWN';
+    $errstr = $lastError['message'] ?? 'UNKNOWN';
+    $errfile = $lastError['file'] ?? 'UNKNOWN';
+    $errline = $lastError['line'] ?? 'UNKNOWN';
+    $errorType = getErrorType($errno);
+    Logger::logError(FATAL_ERROR_LOG, "$errorType: [$errno] $errstr - $errfile:$errline");
+  }
+}
+function getErrorType($errno)
+{
   $errorTypes = array(
     E_ERROR             => 'E_ERROR',
     E_WARNING           => 'E_WARNING',
@@ -62,4 +78,3 @@ function getErrorType($errno) {
   );
   return $errorTypes[$errno] ?? 'UNKNOWN';
 }
-?>
