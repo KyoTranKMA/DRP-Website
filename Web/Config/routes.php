@@ -9,13 +9,17 @@ $router->get(App . '/cong-thuc', 'RecipeController@index');
 $router->get(App . '/thanh-phan', 'IngredientController@index');
 $router->get(App . '/upload', 'UploadController@index');
 
-$router->get(App . '/dang-nhap', 'Auth\\LoginController@index');
-$router->get(App . '/dang-ky', 'Auth\\RegisterController@index');
-$router->get(App . '/dang-xuat', 'Auth\\LogoutController@index');
-$router->get(App . '/quan-ly/nguoi-dung', 'Auth\\Admin@user');
-$router->get(App . '/quan-ly/cong-thuc', 'Auth\\Admin@recipe');
-$router->get(App . '/quan-ly/thanh-phan', 'Auth\\Admin@ingredient');
+$router->get(App . '/user','UserController@index');
+$router->get(App . '/user/login','UserController@loginUI');
+$router->get(App . '/user/registery','UserController@registeryUI');
+$router->get(App . '/user/logout','UserController@logout');
+$router->get(App . '/manager/user', 'Admin@userAccount');
+$router->get(App . '/manager/recipe', 'Admin@recipeManager');
+$router->get(App . '/manager/ingredient', 'Admin@ingredientsManager');
 
 
 /* Action đăng ký */
-$router->post(App . '/dang-nhap', 'Auth\\LoginController@login');
+$router->post('/user/login','UserController@login');
+$router->post('/user/registery','UserController@registery');
+
+
