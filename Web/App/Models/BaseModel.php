@@ -11,7 +11,7 @@ class BaseModel  {
     public function __construct() {
         $this->DB_CONNECTION = new Database();
     }
-    protected function getConnect() {return $this->DB_CONNECTION->getConnection();;}
+    protected function getConnect() {return $this->DB_CONNECTION->getConnection();}
 
     static protected function query($sql, $fetchMode = \PDO::FETCH_ASSOC, $params = []) {
         $dbconnect = new static();
@@ -29,12 +29,18 @@ class BaseModel  {
                     return $stmt->fetchAll($fetchMode);
                 }
             } else {
-                throw new \PDOException("Error: Unable to establish database connection. <br>");
+                throw new \PDOException("Error: Unable to establish database connection - " .  __METHOD__);
             }
         } catch (\PDOException $e) {
-            echo $e->getMessage();
+            handlePDOException($e);
             return false;
-        }
+        } catch (\Exception $e) {
+            handleException($e);
+            return false;
+        } catch (\Throwable $e) {
+            handleError($e->getCode(), $e->getMessage(), $e->getFile(), $e->getLine());
+            return false;
+        } 
     }
     
     
@@ -55,10 +61,10 @@ class BaseModel  {
         return $query;
     }
     
-    static public function getByName($table, $name)
+    static public function getByName($table, $name, $limit = 5)
     {
-        $sql = "select * from {$table} where name=:name in natural language mode ";
-        $query = self::query($sql, \PDO::FETCH_ASSOC, [':name' => $name]);
+        $sql = "select * from :table where name=:name in natural language mode limit :limit";
+        $query = self::query($sql, \PDO::FETCH_ASSOC, [':name' => $name, ':limit' => $limit, ':table' => $table]);
         return $query;
     }
 
