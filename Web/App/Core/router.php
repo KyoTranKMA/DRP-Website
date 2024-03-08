@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Core;
 
 
@@ -39,9 +38,6 @@ class Router {
                 $controller_action = $route['controller'];
                 list($controller, $action) = explode('@', $controller_action);
                 
-                // Handle for sub folder
-                $controller = str_replace("\\", "/", $controller);
-                // Require Class
                 $controller = "App\\Controllers\\$controller";
                 $controller_instance = new $controller();
                 $controller_instance->$action();
@@ -61,5 +57,4 @@ class Router {
 	}
 
 }
-
 ?>
