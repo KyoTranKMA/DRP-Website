@@ -1,10 +1,6 @@
 <?
 namespace App\Core;
 class Logger{
-  private $logFile;
-  public function __construct($logFile){
-    $this->logFile = $logFile;
-  }
   public static function logError($logFile, $message){
     if (!file_exists($logFile)) {
       $file = fopen($logFile, 'w');

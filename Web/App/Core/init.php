@@ -13,19 +13,33 @@ register_shutdown_function('handleFatalError');
 
 function handleError(int $errno, string $errstr, string $errfile, int $errline) {
   $errorType = getErrorType($errno);
-  Logger::logError(ERROR_LOG, "$errorType: [$errno] $errstr - $errfile:$errline");
-}
+  $backtrace = debug_backtrace();
+  $backtrace = array_slice($backtrace, 2); // remove handleError from the call stack
 
-function handleException($exception) {
-  Logger::logError(EXCEPTION_LOG, "Uncaught Exception: " . $exception->getMessage());
-}
-
-function handleFatalError() {
-  $lastError = error_get_last();
-  if ($lastError && $lastError['type'] === E_ERROR) {
-    $errorType = getErrorType($lastError['type']);
-    Logger::logError(FATAL_ERROR_LOG, "$errorType: " . $lastError['message']);
+  // Start building the backtrace string
+  $backtraceStr = '';
+  foreach ($backtrace as $i => $call) {
+    $file = $call['file'] ?? '';
+    $line = $call['line'] ?? '';
+    $function = $call['function'] ?? '';
+    $class = $call['class'] ?? '';
+    $type = $call['type'] ?? '';
+    $backtraceStr .= "#$i $file($line): $class$type$function()\n";
   }
+  $backtraceStr .= "{main}";
+
+  Logger::logError(ERROR_LOG, "$errorType: [$errno] $errstr - $errfile:$errline\nCall Stack:\n$backtraceStr");
+
+  // Don't halt the script execution
+  return true;
+}
+function handleException($exception) {
+  $backtrace = $exception->getTraceAsString(); // get the call stack as a string
+  Logger::logError(EXCEPTION_LOG, "Uncaught Exception: " . $exception->getMessage() . "\nCall Stack:\n$backtrace");
+}
+function handlePDOException($exception) {
+  $backtrace = $exception->getTraceAsString(); // get the call stack as a string
+  Logger::logError(DB_RELATED_LOG, "Uncaught Exception: " . $exception->getMessage() . "\nCall Stack:\n$backtrace");
 }
 
 function getErrorType($errno) {
