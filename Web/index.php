@@ -1,42 +1,17 @@
-<?php
+<?php namespace App;
 
-use App\Controllers\Auth\UserController;
-use App\Core\Router;
 
-require_once($_SERVER['DOCUMENT_ROOT'] . "/App/Core/init.php");
+require_once($_SERVER['DOCUMENT_ROOT'] . '/Config/general_config.php');
+require_once(ROOT_PATH . '/App/Core/init.php');
 
-$router = new Router;
+$router = new Core\Router();
+// Get Routes from routes.php
+require_once(ROOT_PATH . '/Config/routes.php');
 
-// user router
-$router->get('/user','UserController@index');
-$router->get('/user/login','UserController@loginUI');
-$router->post('/user/login','UserController@login');
-$router->get('/user/registery','UserController@registeryUI');
-$router->post('/user/registery','UserController@registery');
-$router->get('/user/logout','UserController@logout');
-// $router->get('/user/profile','UserController@profile');
-// $router->get('/user/edit','UserController@editUI');
-// $router->post('/user/edit','UserController@edit');
+// Get URI and parse URI from Server
+$uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
-// ingredient router
-$router->get('/ingredient','IngredientController@index');
-$router->get('/ingredient/list','IngredientController@listAll');
-$router->get('/ingredient/add','IngredientController@addUI');
-$router->post('/ingredient/add','IngredientController@add');
-$router->get('/ingredient/edit','IngredientController@editUI');
-$router->post('/ingredient/edit','IngredientController@edit');
-$router->get('/ingredient/delete','IngredientController@delete');
-
-// recipe router
-$router->get('/recipe','RecipeController@index');
-$router->get('/recipe/list','RecipeController@list_all');
-$router->get('/recipe/add','RecipeController@addUI');
-$router->post('/recipe/add','RecipeController@add');
-$router->get('/recipe/edit','RecipeController@editUI');
-$router->post('/recipe/edit','RecipeController@edit');
-$router->get('/recipe/delete','RecipeController@delete');
-$router->get('/recipe/show','RecipeController@show');
-$router->get('/recipe/search','RecipeController@search');
-
-$router->route($_SERVER['REQUEST_URI'], $_SERVER['REQUEST_METHOD']);
-?>
+// Get methods from Server
+$method = $_SERVER['REQUEST_METHOD'];
+// Route to the URI
+$router->route($uri, $method);
