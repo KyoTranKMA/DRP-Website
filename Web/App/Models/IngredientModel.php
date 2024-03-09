@@ -84,8 +84,15 @@ class IngredientModel extends BaseModel {
       if ($dbcon->getConnect() === null) {
         throw new \PDOException(self::MSG_CONNECT_PDO_EXCEPTION . __METHOD__ . '. ');
       }
-      $table = self::TABLE;
-      $sql = "select * from {$table}";
+    } catch(\PDOException $PDOException) {
+      Logger::logError(DB_RELATED_LOG, $PDOException->getMessage());
+      echo(\App\Views\ViewRender::errorViewRender('500'));
+      die;
+    } 
+
+    $table = self::TABLE;
+    $sql = "select * from {$table}";
+    try {
       $stmt = $dbcon->getConnect()->prepare($sql);
       if ($stmt->execute()) {
         $ingridients = [];
@@ -97,15 +104,10 @@ class IngredientModel extends BaseModel {
       } else {
         throw new \Exception(self::MSG_EXECUTE_PDO_LOG . __METHOD__ . '. ');
       }
-    } catch(\PDOException $PDOException) {
-      Logger::logError(DB_RELATED_LOG, $PDOException->getMessage());
-      echo $PDOException->getMessage();
-    } catch(\Exception $exception) {
-      Logger::logError(EXCEPTION_LOG, $exception->getMessage());
-      echo $exception->getMessage();
-    } catch (\Throwable $throwable) {
+    } catch (\Exception $exception) {
+      Logger::logError(EXCEPTION_LOG, $exception->getMessage());      
+    }catch (\Throwable $throwable) {
       Logger::logError(ERROR_LOG, $throwable->getMessage());
-      echo $throwable->getMessage();
     }
     return NULL;
   }
@@ -117,11 +119,21 @@ class IngredientModel extends BaseModel {
       if ($dbconnect->getConnect() === null) {
         throw new \PDOException(self::MSG_CONNECT_PDO_EXCEPTION . $functionName);
       }
+    } catch(\PDOException $PDOException) {
+      Logger::logError(DB_RELATED_LOG, $PDOException->getMessage());
+      echo(\App\Views\ViewRender::errorViewRender('500'));
+      die;
+    }
+    try {
       $query = $dbconnect->getConnect()->prepare($sql);
       if (empty($name)) {
         throw new \Exception(self::MSG_INPUT_DATA_EMPTY . $functionName);
       }
-
+    } catch(\Exception $exception) {
+      Logger::logError(EXCEPTION_LOG, $exception->getMessage());
+      die($exception->getMessage());
+    }
+    try{
       $query->bindValue(':name', $name, \PDO::PARAM_STR);
       $query->bindValue(':limit', $limit, \PDO::PARAM_INT);
 
@@ -135,15 +147,8 @@ class IngredientModel extends BaseModel {
       } else {
         throw new \Exception(self::MSG_EXECUTE_PDO_LOG . $functionName);
       }
-    } catch(\PDOException $PDOException) {
-      Logger::logError(DB_RELATED_LOG, $PDOException->getMessage());
-      echo $PDOException->getMessage();
-    } catch(\Exception $exception) {
-      Logger::logError(EXCEPTION_LOG, $exception->getMessage());
-      echo $exception->getMessage();
     } catch (\Throwable $throwable) {
       Logger::logError(ERROR_LOG, $throwable->getMessage());
-      echo $throwable->getMessage();
     }
     return NULL;
   }
@@ -155,16 +160,25 @@ class IngredientModel extends BaseModel {
       if ($dbconnect->getConnect() === null) {
         throw new \PDOException(self::MSG_CONNECT_PDO_EXCEPTION . __METHOD__ . '. ');
       }
+    } catch(\PDOException $PDOException) {
+      Logger::logError(DB_RELATED_LOG, $PDOException->getMessage());
+      return $PDOException->getMessage();
+    }
+    try {
       if (empty($data)) {
         throw new \Exception(self::MSG_INPUT_DATA_EMPTY . __METHOD__ . '. ');
       }
+    } catch(\Exception $exception) {
+      Logger::logError(EXCEPTION_LOG, $exception->getMessage());
+      die($exception->getMessage());
+    }
+    try {
       $sql = "insert into {$table} (name, category, calcium, calories, carbohydrate, 
-                cholesterol, fiber, iron, fat, monounsaturated_fat, polyunsaturated_fat, 
-                saturated_fat, potassium, protein, sodium, sugar, vitamin_a, vitamin_c) 
-              values (:name, :category, :calcium, :calories, :carbohydrate, :cholesterol, 
-                :fiber, :iron, :fat, :monounsaturated_fat, :polyunsaturated_fat, :saturated_fat, 
-                :potassium, :protein, :sodium, :sugar, :vitamin_a, :vitamin_c)";
-
+          cholesterol, fiber, iron, fat, monounsaturated_fat, polyunsaturated_fat, 
+          saturated_fat, potassium, protein, sodium, sugar, vitamin_a, vitamin_c) 
+          values (:name, :category, :calcium, :calories, :carbohydrate, :cholesterol, 
+          :fiber, :iron, :fat, :monounsaturated_fat, :polyunsaturated_fat, :saturated_fat, 
+          :potassium, :protein, :sodium, :sugar, :vitamin_a, :vitamin_c)";
       if (self::query($sql, \PDO::FETCH_ASSOC, [
         'name' => $data['name'],
         'category' => $data['category'],
@@ -189,15 +203,8 @@ class IngredientModel extends BaseModel {
       } else {
         throw new \Exception(self::MSG_EXECUTE_PDO_LOG . __METHOD__ . '. ');
       }
-    } catch(\PDOException $PDOException) {
-      Logger::logError(DB_RELATED_LOG, $PDOException->getMessage());
-      echo $PDOException->getMessage();
-    } catch(\Exception $exception) {
-      Logger::logError(EXCEPTION_LOG, $exception->getMessage());
-      echo $exception->getMessage();
     } catch (\Throwable $throwable) {
       Logger::logError(ERROR_LOG, $throwable->getMessage());
-      echo $throwable->getMessage();
     }
     return false;
   }

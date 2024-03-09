@@ -6,17 +6,5 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
-    'App\\Controllers\\BaseController' => $baseDir . '/App/Controllers/BaseController.php',
-    'App\\Controllers\\HomeController' => $baseDir . '/App/Controllers/HomeController.php',
-    'App\\Controllers\\IngredientController' => $baseDir . '/App/Controllers/IngredientController.php',
-    'App\\Controllers\\RecipeController' => $baseDir . '/App/Controllers/RecipeController.php',
-    'App\\Controllers\\RecipeUnitConverterController' => $baseDir . '/App/Controllers/RecipeUnitConverterController.php',
-    'App\\Controllers\\UploadFileErrorController' => $baseDir . '/App/Controllers/UploadFileErrorController.php',
-    'App\\Controllers\\UserController' => $baseDir . '/App/Controllers/UserController.php',
-    'App\\Core\\Database' => $baseDir . '/App/Core/Database.php',
-    'App\\Models\\BaseModel' => $baseDir . '/App/Models/BaseModel.php',
-    'App\\Models\\IngredientModel' => $baseDir . '/App/Models/IngredientModel.php',
-    'App\\Models\\RecipeModel' => $baseDir . '/App/Models/RecipeModel.php',
-    'App\\Models\\UserModel' => $baseDir . '/App/Models/UserModel.php',
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
 );
