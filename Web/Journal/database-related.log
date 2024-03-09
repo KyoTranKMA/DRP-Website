@@ -1,0 +1,18 @@
+08-03-2024 38:05:11: Error in executing prepare statement. 
+08-03-2024 38:05:11: Error in executing prepare statement. 
+08-03-2024 32:09:11: Error in executing prepare statement. 
+08-03-2024 32:09:11: Error in executing prepare statement. 
+08-03-2024 44:25:11: Error in executing prepare statement - App\Models\IngredientModel::create
+08-03-2024 44:25:11: Error in executing prepare statement - App\Models\IngredientModel::create
+08-03-2024 22:27:11: Error in executing prepare statement - App\Models\IngredientModel::create. 
+08-03-2024 22:27:11: Error in executing prepare statement - App\Models\IngredientModel::create. 
+08-03-2024 35:28:11: Error in executing prepare statement - App\Models\IngredientModel::create. 
+08-03-2024 35:28:11: Error in executing prepare statement - App\Models\IngredientModel::create. 
+09-03-2024 52:15:09: Uncaught Exception: SQLSTATE[HY000]: General error: 1364 Field 'id' doesn't have a default value
+Call Stack:
+#0 /var/www/html/App/Models/BaseModel.php(27): PDOStatement->execute()
+#1 /var/www/html/App/Models/IngredientModel.php(168): App\Models\BaseModel::query('insert into ing...', 2, Array)
+#2 /var/www/html/App/Controllers/IngredientController.php(24): App\Models\IngredientModel::create('ingredients', Array)
+#3 /var/www/html/App/Core/Router.php(52): App\Controllers\IngredientController->add()
+#4 /var/www/html/index.php(18): App\Core\Router->route('/ingredient/add', 'POST')
+#5 {main}

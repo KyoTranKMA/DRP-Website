@@ -1,0 +1,2131 @@
+08-03-2024 35:18:12: Uncaught Exception: Call to a member function method() on null
+09-03-2024 37:30:10: Uncaught Exception: Failed opening required '/var/www/html/App/Errors/200.php' (include_path='.:/usr/local/lib/php')
+Call Stack:
+#0 /var/www/html/App/Core/Router.php(57): App\Core\Router->loadError()
+#1 /var/www/html/index.php(18): App\Core\Router->route('/Web/App/Core/R...', 'GET')
+#2 {main}
+09-03-2024 40:30:10: Uncaught Exception: Failed opening required '/var/www/html/App/Errors/200.php' (include_path='.:/usr/local/lib/php')
+Call Stack:
+#0 /var/www/html/App/Core/Router.php(57): App\Core\Router->loadError()
+#1 /var/www/html/index.php(18): App\Core\Router->route('/Web/Ap%C3%A1', 'GET')
+#2 {main}
+09-03-2024 46:30:10: Uncaught Exception: Failed opening required '/var/www/html/App/Errors/200.php' (include_path='.:/usr/local/lib/php')
+Call Stack:
+#0 /var/www/html/App/Core/Router.php(57): App\Core\Router->loadError()
+#1 /var/www/html/index.php(18): App\Core\Router->route('/as', 'GET')
+#2 {main}
+09-03-2024 51:30:10: Uncaught Exception: Failed opening required '/var/www/html/App/Errors/200.php' (include_path='.:/usr/local/lib/php')
+Call Stack:
+#0 /var/www/html/App/Core/Router.php(57): App\Core\Router->loadError()
+#1 /var/www/html/index.php(18): App\Core\Router->route('/as', 'GET')
+#2 {main}
+09-03-2024 28:31:10: Uncaught Exception: Failed opening required '/var/www/html/App/Errors/200.php' (include_path='.:/usr/local/lib/php')
+Call Stack:
+#0 /var/www/html/App/Core/Router.php(57): App\Core\Router->loadError()
+#1 /var/www/html/index.php(18): App\Core\Router->route('/Web/index.php', 'GET')
+#2 {main}
+09-03-2024 33:31:10: Uncaught Exception: Failed opening required '/var/www/html/App/Errors/200.php' (include_path='.:/usr/local/lib/php')
+Call Stack:
+#0 /var/www/html/App/Core/Router.php(57): App\Core\Router->loadError()
+#1 /var/www/html/index.php(18): App\Core\Router->route('/vendors/font-a...', 'GET')
+#2 {main}
+09-03-2024 34:31:10: Uncaught Exception: Failed opening required '/var/www/html/App/Errors/200.php' (include_path='.:/usr/local/lib/php')
+Call Stack:
+#0 /var/www/html/App/Core/Router.php(57): App\Core\Router->loadError()
+#1 /var/www/html/index.php(18): App\Core\Router->route('/vendors/font-a...', 'GET')
+#2 {main}
+09-03-2024 41:31:10: Uncaught Exception: Failed opening required '/var/www/html/App/Errors/200.php' (include_path='.:/usr/local/lib/php')
+Call Stack:
+#0 /var/www/html/App/Core/Router.php(57): App\Core\Router->loadError()
+#1 /var/www/html/index.php(18): App\Core\Router->route('/cong-thuc', 'GET')
+#2 {main}
+09-03-2024 48:31:10: Uncaught Exception: Failed opening required '/var/www/html/App/Errors/200.php' (include_path='.:/usr/local/lib/php')
+Call Stack:
+#0 /var/www/html/App/Core/Router.php(57): App\Core\Router->loadError()
+#1 /var/www/html/index.php(18): App\Core\Router->route('/cong-thuc', 'GET')
+#2 {main}
+09-03-2024 05:10:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(53): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/Appsasa', 'GET')
+#10 {main}
+09-03-2024 05:10:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(53): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/vendors/font-a...', 'GET')
+#10 {main}
+09-03-2024 06:10:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(53): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/vendors/font-a...', 'GET')
+#10 {main}
+09-03-2024 44:23:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(53): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/Web/index.php', 'GET')
+#10 {main}
+09-03-2024 44:23:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(53): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/Web/vendors/fo...', 'GET')
+#10 {main}
+09-03-2024 46:23:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(53): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/Web/vendors/fo...', 'GET')
+#10 {main}
+09-03-2024 50:23:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/HomeController.php(4): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/App/Core/Router.php(50): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/index.php(18): App\Core\Router->route('/index.php', 'GET')
+#6 {main}
+09-03-2024 55:23:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(53): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/inasasa', 'GET')
+#10 {main}
+09-03-2024 55:23:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(53): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/vendors/font-a...', 'GET')
+#10 {main}
+09-03-2024 55:23:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(53): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/vendors/font-a...', 'GET')
+#10 {main}
+09-03-2024 00:27:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(53): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/inasasa', 'GET')
+#10 {main}
+09-03-2024 00:27:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(53): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/vendors/font-a...', 'GET')
+#10 {main}
+09-03-2024 01:27:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(53): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/vendors/font-a...', 'GET')
+#10 {main}
+09-03-2024 58:27:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(53): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/inasasa', 'GET')
+#10 {main}
+09-03-2024 58:27:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(53): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/vendors/font-a...', 'GET')
+#10 {main}
+09-03-2024 26:28:17: Uncaught Exception: Failed opening required '/var/www/html/Public/inc/headesr.php' (include_path='.:/usr/local/lib/php')
+Call Stack:
+#0 /var/www/html/App/Views/ViewRender.php(17): include()
+#1 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#2 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#3 /var/www/html/index.php(18): App\Core\Router->route('/inasasa', 'GET')
+#4 {main}
+09-03-2024 42:28:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(53): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/inasasa', 'GET')
+#10 {main}
+09-03-2024 42:28:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(53): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/vendors/font-a...', 'GET')
+#10 {main}
+09-03-2024 43:28:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(53): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/vendors/font-a...', 'GET')
+#10 {main}
+09-03-2024 44:28:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(53): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/inasasa', 'GET')
+#10 {main}
+09-03-2024 44:28:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(53): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/vendors/font-a...', 'GET')
+#10 {main}
+09-03-2024 44:28:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(53): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/vendors/font-a...', 'GET')
+#10 {main}
+09-03-2024 45:28:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(53): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/inasasa', 'GET')
+#10 {main}
+09-03-2024 45:28:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(53): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/vendors/font-a...', 'GET')
+#10 {main}
+09-03-2024 45:28:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(53): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/vendors/font-a...', 'GET')
+#10 {main}
+09-03-2024 46:28:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(53): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/inasasa', 'GET')
+#10 {main}
+09-03-2024 46:28:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(53): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/vendors/font-a...', 'GET')
+#10 {main}
+09-03-2024 46:28:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(53): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/vendors/font-a...', 'GET')
+#10 {main}
+09-03-2024 46:28:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(53): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/inasasa', 'GET')
+#10 {main}
+09-03-2024 46:28:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(53): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/vendors/font-a...', 'GET')
+#10 {main}
+09-03-2024 46:28:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(53): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/vendors/font-a...', 'GET')
+#10 {main}
+09-03-2024 46:28:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(53): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/inasasa', 'GET')
+#10 {main}
+09-03-2024 46:28:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(53): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/vendors/font-a...', 'GET')
+#10 {main}
+09-03-2024 46:28:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(53): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/vendors/font-a...', 'GET')
+#10 {main}
+09-03-2024 56:28:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(53): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/inasasa', 'GET')
+#10 {main}
+09-03-2024 56:28:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(53): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/vendors/font-a...', 'GET')
+#10 {main}
+09-03-2024 56:28:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(53): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/vendors/font-a...', 'GET')
+#10 {main}
+09-03-2024 58:28:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(53): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/inasasa', 'GET')
+#10 {main}
+09-03-2024 58:28:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(53): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/vendors/font-a...', 'GET')
+#10 {main}
+09-03-2024 58:28:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(53): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/vendors/font-a...', 'GET')
+#10 {main}
+09-03-2024 58:28:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(53): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/inasasa', 'GET')
+#10 {main}
+09-03-2024 58:28:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(53): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/vendors/font-a...', 'GET')
+#10 {main}
+09-03-2024 58:28:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(53): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/vendors/font-a...', 'GET')
+#10 {main}
+09-03-2024 58:28:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(53): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/inasasa', 'GET')
+#10 {main}
+09-03-2024 58:28:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(53): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/vendors/font-a...', 'GET')
+#10 {main}
+09-03-2024 58:28:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(53): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/vendors/font-a...', 'GET')
+#10 {main}
+09-03-2024 38:36:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(53): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/inasasa', 'GET')
+#10 {main}
+09-03-2024 38:36:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(53): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/vendors/font-a...', 'GET')
+#10 {main}
+09-03-2024 39:36:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(53): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/vendors/font-a...', 'GET')
+#10 {main}
+09-03-2024 18:38:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(56): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/inasasa', 'GET')
+#10 {main}
+09-03-2024 18:38:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(56): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/vendors/font-a...', 'GET')
+#10 {main}
+09-03-2024 18:38:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(56): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/vendors/font-a...', 'GET')
+#10 {main}
+09-03-2024 20:38:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(56): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/inasasa', 'GET')
+#10 {main}
+09-03-2024 20:38:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(56): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/vendors/font-a...', 'GET')
+#10 {main}
+09-03-2024 20:38:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(56): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/vendors/font-a...', 'GET')
+#10 {main}
+09-03-2024 20:38:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(56): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/inasasa', 'GET')
+#10 {main}
+09-03-2024 20:38:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(56): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/vendors/font-a...', 'GET')
+#10 {main}
+09-03-2024 20:38:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(56): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/vendors/font-a...', 'GET')
+#10 {main}
+09-03-2024 21:38:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(56): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/inasasa', 'GET')
+#10 {main}
+09-03-2024 21:38:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(56): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/vendors/font-a...', 'GET')
+#10 {main}
+09-03-2024 21:38:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(56): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/vendors/font-a...', 'GET')
+#10 {main}
+09-03-2024 22:38:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(56): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/inasasa', 'GET')
+#10 {main}
+09-03-2024 22:38:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(56): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/vendors/font-a...', 'GET')
+#10 {main}
+09-03-2024 22:38:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(56): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/vendors/font-a...', 'GET')
+#10 {main}
+09-03-2024 22:38:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(56): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/inasasa', 'GET')
+#10 {main}
+09-03-2024 22:38:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(56): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/vendors/font-a...', 'GET')
+#10 {main}
+09-03-2024 22:38:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(56): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/vendors/font-a...', 'GET')
+#10 {main}
+09-03-2024 22:38:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(56): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/inasasa', 'GET')
+#10 {main}
+09-03-2024 22:38:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(56): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/vendors/font-a...', 'GET')
+#10 {main}
+09-03-2024 22:38:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(56): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/vendors/font-a...', 'GET')
+#10 {main}
+09-03-2024 44:39:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(56): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/inasasa', 'GET')
+#10 {main}
+09-03-2024 44:39:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(56): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/vendors/font-a...', 'GET')
+#10 {main}
+09-03-2024 44:39:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(56): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/vendors/font-a...', 'GET')
+#10 {main}
+09-03-2024 45:39:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(56): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/inasasa', 'GET')
+#10 {main}
+09-03-2024 45:39:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(56): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/vendors/font-a...', 'GET')
+#10 {main}
+09-03-2024 45:39:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(56): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/vendors/font-a...', 'GET')
+#10 {main}
+09-03-2024 45:39:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(56): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/inasasa', 'GET')
+#10 {main}
+09-03-2024 46:39:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(56): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/vendors/font-a...', 'GET')
+#10 {main}
+09-03-2024 46:39:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(56): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/vendors/font-a...', 'GET')
+#10 {main}
+09-03-2024 46:39:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(56): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/inasasa', 'GET')
+#10 {main}
+09-03-2024 46:39:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(56): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/vendors/font-a...', 'GET')
+#10 {main}
+09-03-2024 46:39:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(56): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/vendors/font-a...', 'GET')
+#10 {main}
+09-03-2024 46:39:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(56): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/inasasa', 'GET')
+#10 {main}
+09-03-2024 46:39:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(56): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/vendors/font-a...', 'GET')
+#10 {main}
+09-03-2024 46:39:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(56): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/vendors/font-a...', 'GET')
+#10 {main}
+09-03-2024 14:40:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(56): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/inasasa', 'GET')
+#10 {main}
+09-03-2024 14:40:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(56): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/vendors/font-a...', 'GET')
+#10 {main}
+09-03-2024 14:40:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(56): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/vendors/font-a...', 'GET')
+#10 {main}
+09-03-2024 15:40:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(56): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/inasasa', 'GET')
+#10 {main}
+09-03-2024 15:40:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(56): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/vendors/font-a...', 'GET')
+#10 {main}
+09-03-2024 15:40:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(56): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/vendors/font-a...', 'GET')
+#10 {main}
+09-03-2024 15:40:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(56): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/inasasa', 'GET')
+#10 {main}
+09-03-2024 15:40:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(56): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/vendors/font-a...', 'GET')
+#10 {main}
+09-03-2024 15:40:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(56): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/vendors/font-a...', 'GET')
+#10 {main}
+09-03-2024 15:40:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(56): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/inasasa', 'GET')
+#10 {main}
+09-03-2024 15:40:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(56): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/vendors/font-a...', 'GET')
+#10 {main}
+09-03-2024 15:40:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(56): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/vendors/font-a...', 'GET')
+#10 {main}
+09-03-2024 40:40:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(56): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/inasasa', 'GET')
+#10 {main}
+09-03-2024 40:40:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(56): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/vendors/font-a...', 'GET')
+#10 {main}
+09-03-2024 40:40:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(56): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/vendors/font-a...', 'GET')
+#10 {main}
+09-03-2024 40:40:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(56): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/inasasa', 'GET')
+#10 {main}
+09-03-2024 41:40:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(56): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/vendors/font-a...', 'GET')
+#10 {main}
+09-03-2024 41:40:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(56): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/vendors/font-a...', 'GET')
+#10 {main}
+09-03-2024 56:40:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(56): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/inasasa', 'GET')
+#10 {main}
+09-03-2024 56:40:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(56): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/vendors/font-a...', 'GET')
+#10 {main}
+09-03-2024 56:40:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(56): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/vendors/font-a...', 'GET')
+#10 {main}
+09-03-2024 57:40:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(56): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/inasasa', 'GET')
+#10 {main}
+09-03-2024 57:40:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(56): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/vendors/font-a...', 'GET')
+#10 {main}
+09-03-2024 57:40:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(56): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/inasasa', 'GET')
+#10 {main}
+09-03-2024 57:40:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(56): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/vendors/font-a...', 'GET')
+#10 {main}
+09-03-2024 57:40:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(56): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/vendors/font-a...', 'GET')
+#10 {main}
+09-03-2024 59:40:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(56): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/inasasa', 'GET')
+#10 {main}
+09-03-2024 59:40:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(56): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/vendors/font-a...', 'GET')
+#10 {main}
+09-03-2024 59:40:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(56): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/vendors/font-a...', 'GET')
+#10 {main}
+09-03-2024 59:40:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(56): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/inasasa', 'GET')
+#10 {main}
+09-03-2024 59:40:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(56): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/vendors/font-a...', 'GET')
+#10 {main}
+09-03-2024 00:41:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(56): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/vendors/font-a...', 'GET')
+#10 {main}
+09-03-2024 00:41:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(56): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/inasasa', 'GET')
+#10 {main}
+09-03-2024 00:41:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(56): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/vendors/font-a...', 'GET')
+#10 {main}
+09-03-2024 00:41:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(56): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/vendors/font-a...', 'GET')
+#10 {main}
+09-03-2024 35:43:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(56): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/Web/App/Views/...', 'GET')
+#10 {main}
+09-03-2024 35:43:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(56): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/Web/App/Views/...', 'GET')
+#10 {main}
+09-03-2024 36:43:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(56): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/Web/App/Views/...', 'GET')
+#10 {main}
+09-03-2024 08:45:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(56): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/Web/App/Views/...', 'GET')
+#10 {main}
+09-03-2024 08:45:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(56): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/Web/App/Views/...', 'GET')
+#10 {main}
+09-03-2024 09:45:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(56): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/Web/App/Views/...', 'GET')
+#10 {main}
+09-03-2024 12:45:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(56): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/App/Views/auth...', 'GET')
+#10 {main}
+09-03-2024 23:46:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(56): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/Web/index.php', 'GET')
+#10 {main}
+09-03-2024 23:46:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(56): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/Web/vendors/fo...', 'GET')
+#10 {main}
+09-03-2024 23:46:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(56): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/Web/vendors/fo...', 'GET')
+#10 {main}
+09-03-2024 26:46:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/HomeController.php(4): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/App/Core/Router.php(50): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/index.php(18): App\Core\Router->route('/index.php', 'GET')
+#6 {main}
+09-03-2024 49:46:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/HomeController.php(4): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/App/Core/Router.php(50): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/index.php(18): App\Core\Router->route('/homepage', 'GET')
+#6 {main}
+09-03-2024 04:47:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/HomeController.php(4): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/App/Core/Router.php(50): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/index.php(18): App\Core\Router->route('/homepage', 'GET')
+#6 {main}
+09-03-2024 35:48:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/HomeController.php(4): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/App/Core/Router.php(50): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/index.php(18): App\Core\Router->route('/homepage', 'GET')
+#6 {main}
+09-03-2024 11:50:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/HomeController.php(4): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/App/Core/Router.php(50): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/index.php(18): App\Core\Router->route('/homepage', 'GET')
+#6 {main}
+09-03-2024 20:50:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(56): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/home%C3%A2sa/', 'GET')
+#10 {main}
+09-03-2024 20:50:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(56): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/home%C3%A2sa/v...', 'GET')
+#10 {main}
+09-03-2024 20:50:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(56): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/home%C3%A2sa/v...', 'GET')
+#10 {main}
+09-03-2024 31:50:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(56): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/home%C3%A2sa/', 'GET')
+#10 {main}
+09-03-2024 31:50:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(56): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/home%C3%A2sa/v...', 'GET')
+#10 {main}
+09-03-2024 31:50:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(56): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/home%C3%A2sa/v...', 'GET')
+#10 {main}
+09-03-2024 32:50:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(56): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/home%C3%A2sa/', 'GET')
+#10 {main}
+09-03-2024 32:50:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(56): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/home%C3%A2sa/v...', 'GET')
+#10 {main}
+09-03-2024 32:50:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(56): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/home%C3%A2sa/v...', 'GET')
+#10 {main}
+09-03-2024 32:50:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(56): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/home%C3%A2sa/', 'GET')
+#10 {main}
+09-03-2024 32:50:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(56): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/home%C3%A2sa/v...', 'GET')
+#10 {main}
+09-03-2024 32:50:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(56): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/home%C3%A2sa/v...', 'GET')
+#10 {main}
+09-03-2024 44:50:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/App/Core/Router.php(50): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/index.php(18): App\Core\Router->route('/user/login', 'GET')
+#6 {main}
+09-03-2024 51:50:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(56): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/user/loginUI', 'GET')
+#10 {main}
+09-03-2024 51:50:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(56): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/user/vendors/f...', 'GET')
+#10 {main}
+09-03-2024 51:50:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(56): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/user/vendors/f...', 'GET')
+#10 {main}
+09-03-2024 17:51:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(56): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/user/loginUI', 'GET')
+#10 {main}
+09-03-2024 17:51:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(56): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/user/vendors/f...', 'GET')
+#10 {main}
+09-03-2024 17:51:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(56): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/user/vendors/f...', 'GET')
+#10 {main}
+09-03-2024 18:51:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(56): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/user/loginUI', 'GET')
+#10 {main}
+09-03-2024 18:51:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(56): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/user/vendors/f...', 'GET')
+#10 {main}
+09-03-2024 18:51:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(56): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/user/vendors/f...', 'GET')
+#10 {main}
+09-03-2024 18:51:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(56): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/user/loginUI', 'GET')
+#10 {main}
+09-03-2024 18:51:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(56): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/user/vendors/f...', 'GET')
+#10 {main}
+09-03-2024 18:51:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(56): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/user/vendors/f...', 'GET')
+#10 {main}
+09-03-2024 15:52:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(53): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/user/loginUI', 'GET')
+#10 {main}
+09-03-2024 15:52:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(53): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/user/vendors/f...', 'GET')
+#10 {main}
+09-03-2024 16:52:17: Uncaught Exception: syntax error, unexpected token "<<", expecting "function" or "const"
+Call Stack:
+#0 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#1 /var/www/html/App/Controllers/UserController.php(8): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#2 /var/www/html/vendor/composer/ClassLoader.php(576): include('/var/www/html/A...')
+#3 /var/www/html/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/html/v...')
+#4 /var/www/html/Public/inc/header.php(89): Composer\Autoload\ClassLoader->loadClass('App\\Controllers...')
+#5 /var/www/html/App/Views/errors/error_template.php(53): require_once('/var/www/html/P...')
+#6 /var/www/html/App/Views/ViewRender.php(17): include('/var/www/html/A...')
+#7 /var/www/html/App/Core/Router.php(62): App\Views\ViewRender::errorViewRender('404')
+#8 /var/www/html/App/Core/Router.php(56): App\Core\Router->loadError()
+#9 /var/www/html/index.php(18): App\Core\Router->route('/user/vendors/f...', 'GET')
+#10 {main}
