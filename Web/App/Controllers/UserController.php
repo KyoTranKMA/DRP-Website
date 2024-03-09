@@ -43,7 +43,7 @@ class UserController extends BaseController
                 }
                 exit();
             } else {
-                $this->loadView('auth.404');
+                echo \App\Views\ViewRender::errorViewRender('404');
             }
         }
     }

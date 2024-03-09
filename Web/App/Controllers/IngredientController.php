@@ -10,7 +10,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/App/Core/init.php');
 class IngredientController extends BaseController
 {
     public function index() {
-        return $this->loadView('pages.index');
+        return $this->loadView('pages.homepage');
     }
 
     public function listAll() {

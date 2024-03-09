@@ -21,10 +21,9 @@ class BaseController {
             } 
         } catch (\Exception $e) {
             handleException($e);
-            require_once(ERRORS_PATH . '/404.php');
+            echo \App\Views\ViewRender::errorViewRender('404');
         } 
     }
-    // Create Method for get classes in Models
 }
 
 ?>

@@ -2,7 +2,6 @@
 
 namespace App\Core;
 
-
 class Router {
     protected $routes = [];
 
@@ -52,8 +51,7 @@ class Router {
     private function loadError($code = '404')
 	{
         http_response_code($code);
-
-		require(ERRORS_PATH  . $code . '.php');
+        echo \App\Views\ViewRender::errorViewRender($code);
         die();
 	}
 
