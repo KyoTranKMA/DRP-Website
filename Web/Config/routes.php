@@ -1,21 +1,42 @@
 <?php
-const App = '/App';
 
+// homepage router
+$router->get('/index.php', 'HomeController@homePage');
+$router->get('/homepage', 'HomeController@homePage');
 
-/* Action mặc định (index) -> Mục đích từ index trong Controller gọi đến Views trả về giao diện khi người dùng gọi đến URI bên dưới */
-$router->get(App . '/index.php', 'HomeController@index');
-$router->get(App . '/trang-chu', 'HomeController@homePage');
-$router->get(App . '/cong-thuc', 'RecipeController@index');
-$router->get(App . '/thanh-phan', 'IngredientController@index');
-$router->get(App . '/upload', 'UploadController@index');
+// user router
+$router->get('/user','UserController@index');
+$router->get('/user/login','UserController@loginUI');
+$router->post('/user/login','UserController@login');
+$router->get('/user/registery','UserController@registeryUI');
+$router->post('/user/registery','UserController@registery');
+$router->get('/user/logout','UserController@logout');
+// $router->get('/user/profile','UserController@profile');
+// $router->get('/user/edit','UserController@editUI');
+// $router->post('/user/edit','UserController@edit');
 
-$router->get(App . '/dang-nhap', 'Auth\\LoginController@index');
-$router->get(App . '/dang-ky', 'Auth\\RegisterController@index');
-$router->get(App . '/dang-xuat', 'Auth\\LogoutController@index');
-$router->get(App . '/quan-ly/nguoi-dung', 'Auth\\Admin@user');
-$router->get(App . '/quan-ly/cong-thuc', 'Auth\\Admin@recipe');
-$router->get(App . '/quan-ly/thanh-phan', 'Auth\\Admin@ingredient');
+// admin router
+$router->get('/manager/user', 'Admin@userAccount');
+$router->get('/manager/recipe', 'Admin@recipeManager');
+$router->get('/manager/ingredient', 'Admin@ingredientsManager');
+$router->get('/manager/recipe/add', 'Admin@addRecipeUI');
 
+// ingredient router
+$router->get('/ingredient','IngredientController@index');
+$router->get('/ingredient/list','IngredientController@listAll');
+$router->get('/ingredient/add','IngredientController@addUI');
+$router->post('/ingredient/add','IngredientController@add');
+$router->get('/ingredient/edit','IngredientController@editUI');
+$router->post('/ingredient/edit','IngredientController@edit');
+$router->get('/ingredient/delete','IngredientController@delete');
 
-/* Action đăng ký */
-$router->post(App . '/dang-nhap', 'Auth\\LoginController@login');
+// recipe router
+$router->get('/recipe','RecipeController@index');
+$router->get('/recipe/list','RecipeController@list_all');
+$router->get('/recipe/add','RecipeController@addUI');
+$router->post('/recipe/add','RecipeController@add');
+$router->get('/recipe/edit','RecipeController@editUI');
+$router->post('/recipe/edit','RecipeController@edit');
+$router->get('/recipe/delete','RecipeController@delete');
+$router->get('/recipe/show','RecipeController@show');
+$router->get('/recipe/search','RecipeController@search');
