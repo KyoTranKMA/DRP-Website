@@ -40,8 +40,7 @@ class Database
     public function getConnection()
     {
         // Create Data Source Name
-        $dsn = "$this->DB_CONNECTION:host=$this->DB_HOST;dbname=$this->DB_NAME;port=$this->DB_PORT;unix_socket=$this->DB_SOCKET;charset=utf8";
-
+        $dsn = $this->DB_CONNECTION . ":host=" . $this->DB_HOST . ";dbname=" . $this->DB_NAME . ";port=" . $this->DB_PORT . ";unix_socket=" . $this->DB_SOCKET . ";charset=utf8";
         // Using Method Connect \PDO
         try {
             $connection = new \PDO(
@@ -50,7 +49,6 @@ class Database
                 $this->DB_PASSWORD
             );
             $connection->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
-            
             return $connection;
         } catch (\PDOException $e) {
             echo $e->getMessage() . " <br> ";

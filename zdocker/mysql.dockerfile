@@ -9,13 +9,10 @@ ENV MYSQL_DATABASE=ct07_db \
     MYSQL_ALLOW_EMPTY_PASSWORD=yes
 
 # # Copy the data.sql file to the Docker container
-COPY ./Data/dump/table_structure.sql /docker-entrypoint-initdb.d/
+COPY ./Data/dump/*.sql /docker-entrypoint-initdb.d/
 
 # Expose MySQL port
 EXPOSE 3306
 
-# Grant all privileges to ad_db_ct07 user for the ct07_db database
-RUN echo "GRANT ALL PRIVILEGES ON ct07_db.* TO 'ad_db_ct07'@'%' IDENTIFIED BY 'admin';" > /docker-entrypoint-initdb.d/grant.sql
-
 # Set permissions to make sure the script is executable
-RUN chmod +x /docker-entrypoint-initdb.d/grant.sql
+RUN chmod +x /docker-entrypoint-initdb.d/*.sql

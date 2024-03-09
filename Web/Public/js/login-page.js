@@ -13,12 +13,12 @@ registerBtn.addEventListener('click', () => {
   signUpForm.classList.remove('hide');
 });
 
-function changeForgot() {
-  container.classList.add('active');
-  signUpForm.classList.add('show');
-  forgotForm.classList.add('hide');
-  forgotForm.classList.remove('show');
-}
+// function changeForgot() {
+//   container.classList.add('active');
+//   signUpForm.classList.add('show');
+//   forgotForm.classList.add('hide');
+//   forgotForm.classList.remove('show');
+// }
 
 forgotBtn.addEventListener('click', () => {
   container.classList.add('active');

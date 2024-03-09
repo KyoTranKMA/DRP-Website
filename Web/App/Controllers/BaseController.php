@@ -1,4 +1,8 @@
-<?php namespace App\Controllers;
+<?php
+namespace App\Controllers;
+use App\Core\Logger;
+use App\Core\Router;
+
 require_once($_SERVER['DOCUMENT_ROOT'] . '/App/Core/init.php');
 
 
@@ -7,20 +11,19 @@ class BaseController {
     const MODEl_FOLDER_NAME = 'Models';    
 
     // Create Method for get classes in Views
-    protected static function loadView($viewPath, array $data = [])
-    {
-        foreach ($data as $Recipe) {
-            echo "ID: {$Recipe['id']}, Name: {$Recipe['name']}, Direction: {$Recipe['directions']}<br>";
-        }
-        
-        $viewFile = realpath(__DIR__ . '/../' . self::VIEW_FOLDER_NAME . '/' . str_replace('.', '/', $viewPath) . '.php');
-
-        if ($viewFile !== false) {
-            require $viewFile;
-        } else {
-            echo "View file not found: $viewFile";
+    protected static function loadView($viewPath, $data = []) {
+        try {
+            $viewFile = VIEWS_PATH . str_replace('.', '/', $viewPath) . '.php';
+            if (file_exists($viewFile) && is_readable($viewFile)) {
+                require $viewFile;
+            } else {
+                throw new \Exception("View file not found: $viewFile");
+            } 
+        } catch (\Exception $e) {
+            handleException($e);
+            require_once(ERRORS_PATH . '/404.php');
         } 
-    } 
+    }
     // Create Method for get classes in Models
 }
 

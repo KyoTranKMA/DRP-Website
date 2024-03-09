@@ -1,6 +1,5 @@
 <?
-require_once($_SERVER['DOCUMENT_ROOT'] . '/App/Core/init.php');
-use App\Controllers\Auth\UserController;
+use App\Controllers\UserController;
 ?>
 
 <!-- Navbar -->
@@ -11,111 +10,57 @@ use App\Controllers\Auth\UserController;
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://kit.fontawesome.com/a2af703eed.js" crossorigin="anonymous"></script>
+    <script src="js/script.js"></script>
     <link rel="stylesheet" href="vendors/font-awesome-4.7.0/css/font-awesome.min.css" />
-    <title>PaPals-Enjoy your meals</title>
-    <style>
-        .divider:after,
-        .divider:before {
-            content: "";
-            flex: 1;
-            height: 1px;
-            background: #eee;
-        }
-        .h-custom {
-            height: calc(100% - 73px);
-        }
-        @media (max-width: 450px) {
-            .h-custom {
-                height: 100%;
-            }
-        }
-        </style>
+    <title>PaPals</title>
 </head>
 <body>
-  <!-- <div class="loader_container">
-    <span class="loader">Loading....</span>
-  </div> -->
-  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e1ebfa;">
-    <!-- Container wrapper -->
-    <div class="container-fluid">
-      <!-- Toggle button -->
-      <button
-        data-mdb-collapse-init
-        class="navbar-toggler"
-        type="button"
-        data-mdb-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <i class="fas fa-bars"></i>
-      </button>
-  
-      <!-- Collapsible wrapper -->
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <!-- Navbar brand -->
-        <a class="navbar-brand mt-2 mt-lg-0" href="#">
-          <img
-            src="/Public/images/logo.png"
-            height="50"
-            alt="PaPals"
-            loading="lazy"
-          />
-          <h3>PaPals</h3>
-        </a>
-        <!-- Left links -->
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="font-size:16px">
-          <li class="nav-item">
-            <a class="nav-link" href="#">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Blogs</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Recipes</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Post</a>
-          </li>
-        </ul>
-        <!-- Left links -->
-      </div>
-      <!-- Collapsible wrapper -->
-  
-      <!-- Right elements -->
-      
-            <?php
-            // Kiểm tra xem đã đăng nhập chưa            
+<section class="vh-100" style="background-color: #9A616D;">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col col-xl-10">
+        <div class="card" style="border-radius: 1rem;">
+          <div class="row g-0">
+            <div class="col-md-6 col-lg-5 d-none d-md-block">
+              <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/img1.webp"
+                alt="login form" class="img-fluid" style="border-radius: 1rem 0 0 1rem;" />
+            </div>
+            <div class="col-md-6 col-lg-7 d-flex align-items-center">
+              <div class="card-body p-4 p-lg-5 text-black">
 
-            if (UserController::isLoggedIn()) {
-                // Nếu đã đăng nhập, hiển thị nút logout và account
-                ?>
-                  <div class="d-flex align-items-center">
-                  <img
-                    src="/Public/images/account.png"
-                    id="user"
-                    class="rounded-circle me-3 account hide"
-                    height="30"
-                    alt="Black and White Portrait of a Man"
-                  />
-                  <div class="d-flex align-items-center">
-                    <a href="App/Controllers/Auth/LogoutController.php/" class="btn btn-primary btn-lg " 
-                      tabindex="-1" role="button" aria-disabled="true">Logout</a>
+                <form>
+
+                  <div class="d-flex align-items-center mb-3 pb-1">
+                    <i class="fas fa-cubes fa-2x me-3" style="color: #ff6219;"></i>
+                    <span class="h1 fw-bold mb-0">Logo</span>
                   </div>
-                </div>
-                <?php
-            } else {
-                // Nếu chưa đăng nhập, hiển thị nút login
-                ?>
-                <div class="d-flex align-items-center">
-                  <a href="/App/Views/auth/login.php/" class="btn btn-primary btn-lg " 
-                    tabindex="-1" role="button" aria-disabled="true">Login</a>
-                </div>
-                <?php
-            }
-            ?>
-          </a>
+
+                  <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Sign into your account</h5>
+
+                  <div class="form-outline mb-4">
+                    <input type="email" id="form2Example17" class="form-control form-control-lg" />
+                    <label class="form-label" for="form2Example17">Email address</label>
+                  </div>
+
+                  <div class="form-outline mb-4">
+                    <input type="password" id="form2Example27" class="form-control form-control-lg" />
+                    <label class="form-label" for="form2Example27">Password</label>
+                  </div>
+
+                  <div class="pt-1 mb-4">
+                    <button class="btn btn-dark btn-lg btn-block" type="button">Login</button>
+                  </div>
+
+                  <a class="small text-muted" href="#!">Forgot password?</a>
+                  <p class="mb-5 pb-lg-2" style="color: #393f81;">Don't have an account? <a href="#!"
+                      style="color: #393f81;">Register here</a></p>
+                  <a href="#!" class="small text-muted">Terms of use.</a>
+                  <a href="#!" class="small text-muted">Privacy policy</a>
+                </form>
+
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <!-- Right elements -->
@@ -124,3 +69,4 @@ use App\Controllers\Auth\UserController;
   </nav>
   <!-- Navbar -->
 </body>
+</html>
