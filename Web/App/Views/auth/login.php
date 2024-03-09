@@ -12,7 +12,7 @@
     <div class="container" id="container">
         
         <div class="form-container sign-up">
-            <form name="frmPOST" method="POST" action="/App/Controllers/Auth/RegisteryController.php">
+            <form class="hide" name="frmPOST" method="POST" action="/App/Controllers/Auth/RegisteryController.php" id="sign-up-form">
                 <h1>Create account</h1>
                 <div class="social-icons">
                     <a href="#" class="icon"><i class="fa fa-google"></i></a>
@@ -26,6 +26,12 @@
                 <input type="password" name="password" id="password" placeholder="Enter your password.">
                 <input type="password" name="repassword" id="repassword" placeholder="Re-enter your password.">
                 <button>Sign up</button>
+            </form>
+            <form action="" class="show" id="forgot-form">
+                <h1>Forgot Password?</h1>
+                <p>Enter your email to reset your password.</p>
+                <input type="email" placeholder="Your email">
+                <button>Reset Password</button>
             </form>
         </div>
 
@@ -41,7 +47,7 @@
                 <span>Sign in with your username</span>
                 <input type="text" name="username" id="username" placeholder="Enter your username.">
                 <input type="password" name="password" id="password" placeholder="Enter your password.">
-                <a href="#">Forgot your password?</a>
+                <p style="cursor: pointer;" id="forgot">Forgot your password?</p>
                 <button>Sign in</button>
             </form>
         </div>
