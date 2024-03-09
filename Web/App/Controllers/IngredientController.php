@@ -1,6 +1,7 @@
 <?php 
 namespace App\Controllers;
 
+use App\Core\SampleTest;
 use App\Models\IngredientModel;
 
 // use autoload from composer

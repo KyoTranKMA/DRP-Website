@@ -1,4 +1,0 @@
-08-03-2024 35:18:12: E_USER_ERROR: [256] This is a user error - /var/www/html/App/Models/IngredientModel.php:207
-08-03-2024 35:18:12: E_USER_WARNING: [512] This is a user warning - /var/www/html/App/Models/IngredientModel.php:210
-08-03-2024 35:18:12: E_USER_NOTICE: [1024] This is a user notice - /var/www/html/App/Models/IngredientModel.php:213
-08-03-2024 35:18:12: E_WARNING: [2] Undefined variable $undefinedVar - /var/www/html/App/Models/IngredientModel.php:218

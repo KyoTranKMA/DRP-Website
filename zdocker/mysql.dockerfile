@@ -6,7 +6,8 @@ ENV MYSQL_DATABASE=ct07_db \
     MYSQL_ROOT_PASSWORD=admin \
     MYSQL_USER=ad_db_ct07 \
     MYSQL_PASSWORD=admin \
-    MYSQL_ALLOW_EMPTY_PASSWORD=yes
+    MYSQL_ALLOW_EMPTY_PASSWORD=yes \
+    TZ=Asia/Ho_Chi_Minh  
 
 # # Copy the data.sql file to the Docker container
 COPY ./Data/dump/*.sql /docker-entrypoint-initdb.d/
