@@ -51,14 +51,10 @@
 <body>
   <div class="header">
     <? require_once($_SERVER['DOCUMENT_ROOT'] . '/Public/inc/header.php'); ?>
-  </div>
-
+  </div>  
   <div class="container">
-    <h1>OOPS! ERROR <?= $errorCode ?></h1>
-    <p><?= $errorMsg?></p>
+      <img src="/Public/images/<?= $errorCode ?>.png" alt="" style="height:100vh; width:100vw; object-fit: fit">
   </div>
-
-
   <div class="footer">
     <? require_once($_SERVER['DOCUMENT_ROOT'] . '/Public/inc/footer.php'); ?>
   </div>
