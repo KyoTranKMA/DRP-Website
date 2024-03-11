@@ -14,6 +14,7 @@ use App\Controllers\UserController;
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://kit.fontawesome.com/a2af703eed.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="vendors/font-awesome-4.7.0/css/font-awesome.min.css" />
+  <link rel="icon" type="image/x-icon" href="/Public/images/logo.png">
   <title>PaPals-Enjoy your meals</title>
   <style>
     .divider:after,
