@@ -101,7 +101,7 @@ use App\Controllers\UserController;
         <div class="d-flex align-items-center">
           <img src="/Public/images/account.png" id="user" class="rounded-circle me-3 account hide" height="30" alt="Black and White Portrait of a Man" />
           <div class="d-flex align-items-center">
-            <a href="/logout" class="btn btn-primary btn-lg " tabindex="-1" role="button" aria-disabled="true">Logout</a>
+            <a href="/logout" class="btn btn-primary btn-xs " tabindex="-1" role="button" aria-disabled="true">Logout</a>
           </div>
         </div>
       <?php
