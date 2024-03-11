@@ -13,6 +13,7 @@ class BaseController {
     // Create Method for get classes in Views
     protected static function loadView($viewPath, $data = []) {
         try {
+            extract($data);
             $viewFile = VIEWS_PATH . str_replace('.', '/', $viewPath) . '.php';
             if (file_exists($viewFile) && is_readable($viewFile)) {
                 require $viewFile;

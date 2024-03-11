@@ -1,25 +1,24 @@
 <?php
 
 // homepage router
-$router->get('/index.php', 'HomeController@homePage');
+$router->get('/index', 'HomeController@homePage');
 $router->get('/homepage', 'HomeController@homePage');
 
 // user router
-$router->get('/user','UserController@index');
-$router->get('/user/login','UserController@loginUI');
-$router->post('/user/login','UserController@login');
-$router->get('/user/registery','UserController@registeryUI');
-$router->post('/user/registery','UserController@registery');
-$router->get('/user/logout','UserController@logout');
+$router->get('/login','UserController@loginUI');
+$router->post('/login','UserController@login');
+$router->get('/registery','UserController@registeryUI');
+$router->post('/registery','UserController@registery');
+$router->get('/logout','UserController@logout');
 // $router->get('/user/profile','UserController@profile');
 // $router->get('/user/edit','UserController@editUI');
 // $router->post('/user/edit','UserController@edit');
 
 // admin router
-$router->get('/manager/user', 'Admin@userAccount');
-$router->get('/manager/recipe', 'Admin@recipeManager');
-$router->get('/manager/ingredient', 'Admin@ingredientsManager');
-$router->get('/manager/recipe/add', 'Admin@addRecipeUI');
+$router->get('/manager/user', 'AdminController@userAccount');
+$router->get('/manager/recipe', 'AdminController@recipeManager');
+$router->get('/manager/ingredient', 'AdminController@ingredientsManager');
+$router->get('/manager/recipe/add', 'AdminController@addRecipeUI');
 
 // ingredient router
 $router->get('/ingredient','IngredientController@index');

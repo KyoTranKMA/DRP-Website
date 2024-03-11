@@ -8,11 +8,6 @@ use App\Models\UserModel;
 class UserController extends BaseController
 {
     // Get Path Class User Model;
-    public function index()
-    {
-        return $this->loadView('auth.homepage');
-    }
-
     public function loginUI()
     {
         return $this->loadView('auth.login');
@@ -37,9 +32,9 @@ class UserController extends BaseController
             if($userModel){   
                 $_SESSION['logged_in'] = true;
                 if ($_SESSION['level'] == 1){
-                    header("Location: /admin");
+                    header("Location: /manager/user");
                 } else {
-                    header("Location: /user");
+                    header("Location: /index");
                 }
                 exit();
             } else {
@@ -81,7 +76,7 @@ class UserController extends BaseController
         }
 
         UserModel::addUser($data);
-        header("Location: /user");
+        header("Location: /index");
     }
 
     public function logout(){
@@ -105,7 +100,7 @@ class UserController extends BaseController
                 );
             }
         }
-        header("Location: /user");
+        header("Location: /index");
     }
 
     public static function isLoggedIn(){

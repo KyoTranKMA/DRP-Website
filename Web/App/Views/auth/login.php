@@ -1,3 +1,17 @@
+<?
+
+use App\Controllers\UserController;
+
+    if(UserController::isLoggedIn()){
+        if ($_SESSION['level'] == 1){
+            header("Location: /manager/user");
+        } else {
+            header("Location: /index");
+        }
+        exit();
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +26,7 @@
     <div class="container" id="container">
         
         <div class="form-container sign-up">
-            <form id="sign-up-form" name="frmPOST" method="POST" action="/user/registery">
+            <form id="sign-up-form" name="frmPOST" method="POST" action="/registery">
                 <h1>Create account</h1>
                 <div class="social-icons">
                     <a href="#" class="icon"><i class="fa fa-google"></i></a>
@@ -40,7 +54,7 @@
         </div>
 
         <div class="form-container sign-in">
-            <form form name="frmPOST" method="POST" action="/user/login">
+            <form form name="frmPOST" method="POST" action="/login">
                 <h1>Sign In</h1>
                 <div class="social-icons">
                     <a href="#" class="icon"><i class="fa fa-google"></i></a>

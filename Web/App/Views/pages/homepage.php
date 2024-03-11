@@ -16,7 +16,7 @@
     -->
 
     <h1>Hello user!</h1>
-    <h2>Click <a href="./../../Controllers/LogoutController.php">here</a> to logout</h2>
+    <h2>Click <a href="/logout">here</a> to logout</h2>
 
 
 </body>

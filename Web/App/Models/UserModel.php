@@ -34,8 +34,24 @@ class UserModel extends BaseModel
         return $this->id;
     }
 
-    public function getPassword(){
-        return $this->password;
+    public function getUsername(){
+        return $this->username;
+    }
+
+    public function getEmail(){
+        return $this->email;
+    }
+
+    public function getFirstName(){
+        return $this->first_Name;
+    }
+
+    public function getLastName(){
+        return $this->last_Name;
+    }
+
+    public function getDateOfBirth(){
+        return $this->date_of_birth;
     }
 
     public function getLevel(){
@@ -81,5 +97,14 @@ class UserModel extends BaseModel
         $stmt->bindValue(':email', $data['email'], \PDO::PARAM_STR);
         $stmt->bindValue(':level', 3, \PDO::PARAM_INT);
         $stmt->execute();
+    }
+
+    public static function getAllUser(){
+        $models = new static;
+        $sql = "SELECT * FROM users";
+        $stmt = $models->getConnect()->prepare($sql);
+        $stmt->setFetchMode(\PDO::FETCH_CLASS, 'App\Models\UserModel');
+        $stmt->execute();
+        return $stmt->fetchAll();
     }
 }
