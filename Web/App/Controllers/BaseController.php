@@ -25,6 +25,13 @@ class BaseController {
             echo \App\Views\ViewRender::errorViewRender('404');
         } 
     }
+    
+    public static function loadError($code = '404')
+    {
+        http_response_code($code);
+        echo \App\Views\ViewRender::errorViewRender($code);
+        die();
+    }
 }
 
 ?>

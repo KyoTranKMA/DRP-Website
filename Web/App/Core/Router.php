@@ -2,6 +2,8 @@
 
 namespace App\Core;
 
+use App\Controllers\BaseController;
+
 class Router
 {
     protected $routes = [];
@@ -53,13 +55,6 @@ class Router
             }
         }
 
-        $this->loadError();
-    }
-
-    private function loadError($code = '404')
-    {
-        http_response_code($code);
-        echo \App\Views\ViewRender::errorViewRender($code);
-        die();
+        BaseController::loadError('404');
     }
 }

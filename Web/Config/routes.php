@@ -1,7 +1,8 @@
 <?php
 
 // homepage router
-$router->get('/index', 'HomeController@homePage');
+$router->get('/index', 'HomeController@index');
+$router->get('/homepage', 'HomeController@homePage');
 
 // user router
 $router->get('/login','UserController@loginUI');

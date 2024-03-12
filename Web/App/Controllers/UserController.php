@@ -31,11 +31,7 @@ class UserController extends BaseController
             $userModel = UserModel::authenticate($data);
             if($userModel){   
                 $_SESSION['logged_in'] = true;
-                if ($_SESSION['level'] == 1){
-                    header("Location: /manager/user");
-                } else {
-                    header("Location: /index");
-                }
+                header("Location: /index");
                 exit();
             } else {
                 echo \App\Views\ViewRender::errorViewRender('404');
