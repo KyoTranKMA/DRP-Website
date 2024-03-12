@@ -2,7 +2,6 @@
 
 // homepage router
 $router->get('/index', 'HomeController@homePage');
-$router->get('/homepage', 'HomeController@homePage');
 
 // user router
 $router->get('/login','UserController@loginUI');
@@ -16,6 +15,7 @@ $router->get('/logout','UserController@logout');
 
 // admin router
 $router->get('/manager/user', 'AdminController@userAccount');
+$router->post('/manager/user/setLevel', 'AdminController@setLevel');
 $router->get('/manager/recipe', 'AdminController@recipeManager');
 $router->get('/manager/ingredient', 'AdminController@ingredientsManager');
 $router->get('/manager/recipe/add', 'AdminController@addRecipeUI');

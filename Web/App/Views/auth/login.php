@@ -36,13 +36,9 @@ use App\Controllers\UserController;
                 <p style="font-weight: bolder; margin: 10px 0;">OR</p>
                 <span>Register with your email</span>
                 <input type="text" name="username" id="username" placeholder="Enter your username.">
-                    <span style="color: red;"><?= $errors['username'] ?? ''?></span>
                 <input type="email" name="email" id="email" placeholder="Enter your email.">
-                    <span style="color: red;"><?= $errors['email'] ?? ''?></span>
                 <input type="password" name="password" id="password" placeholder="Enter your password.">
-                    <span style="color: red;"><?= $errors['password'] ?? ''?></span>
                 <input type="password" name="repassword" id="repassword" placeholder="Re-enter your password.">
-                <span style="color: red;"><?= $errors['repassword'] ?? ''?></span>
                 <button>Sign up</button>
             </form>
             <form action="" class="show" id="forgot-form">
@@ -64,9 +60,7 @@ use App\Controllers\UserController;
                 <p style="font-weight: bolder;margin: 10px 0;">OR</p>
                 <span>Sign in with your username</span>
                 <input type="text" name="username" id="username" placeholder="Enter your username.">
-                    <span style="color: red;"><?= $errors['username'] ?? ''?></span>
                 <input type="password" name="password" id="password" placeholder="Enter your password.">
-                <span style="color: red;"><?= $errors['password'] ?? ''?></span>
                 <p style="cursor: pointer;" id="forgot">Forgot your password?</p>
                 <button type="submit" name="login">Sign in</button>
             </form>

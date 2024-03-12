@@ -38,6 +38,10 @@ class UserModel extends BaseModel
         return $this->username;
     }
 
+    public function getPassword(){
+        return $this->password;
+    }
+
     public function getEmail(){
         return $this->email;
     }
@@ -70,7 +74,7 @@ class UserModel extends BaseModel
         $stmt->execute();
         $result = $stmt->fetch();
         if ($result) {
-            $passwordInDB = $result->getPassword();
+            $passwordInDB = $result->password;
             // Check password input with password Hash
             if (password_verify($data['password'], $passwordInDB)) {
                 // Return user to get id
@@ -106,5 +110,14 @@ class UserModel extends BaseModel
         $stmt->setFetchMode(\PDO::FETCH_CLASS, 'App\Models\UserModel');
         $stmt->execute();
         return $stmt->fetchAll();
+    }
+
+    public static function setLevel($data){
+        $models = new static;
+        $sql = "UPDATE users SET level =:level WHERE id=:id";
+        $stmt = $models->getConnect()->prepare($sql);
+        $stmt->bindValue(':level', $data['level'], \PDO::PARAM_INT);
+        $stmt->bindValue(':id', $data['id'], \PDO::PARAM_INT);
+        $stmt->execute();
     }
 }

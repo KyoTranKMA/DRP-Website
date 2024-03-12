@@ -5,7 +5,11 @@ class HomeController extends BaseController
 {
     public function index()
     {
-        return parent::loadView('pages.index');
+        if ($_SESSION['level'] == 1){
+            return $this->homePage();
+        } else {
+            return $this->admin();
+        }
     }
     public static function homePage()
     {

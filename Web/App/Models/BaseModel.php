@@ -95,6 +95,7 @@ class BaseModel  {
 
     static public function update($table, $id, $data)
     {
+        $sql = '.';
         $dataSets = [];
         foreach($data as $key => $val)
         {
