@@ -9,7 +9,7 @@ class ViewRender {
         000 => 'Something Went Wrong. Please Try Again Later.'
     ];
 
-    static public function errorViewRender($errorCode = 000) {
+    static public function  errorViewRender($errorCode = 000) {
         $errorCode = htmlspecialchars($errorCode, ENT_QUOTES, 'UTF-8');
         $errorMsg = self::ERROR_MESSAGES[$errorCode] ?? self::ERROR_MESSAGES[000];
         $vars = compact('errorCode', 'errorMsg');
