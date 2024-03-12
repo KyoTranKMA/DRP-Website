@@ -13,7 +13,7 @@ $router->get('/logout','UserController@logout');
 // $router->get('/user/profile','UserController@profile');
 // $router->get('/user/edit','UserController@editUI');
 // $router->post('/user/edit','UserController@edit');
-
+  
 // admin router
 $router->get('/manager/user', 'AdminController@userAccount');
 $router->post('/manager/user/setLevel', 'AdminController@setLevel');
@@ -24,6 +24,7 @@ $router->get('/manager/recipe/add', 'AdminController@addRecipeUI');
 // ingredient router
 $router->get('/ingredient','IngredientController@index');
 $router->get('/ingredient/list','IngredientController@listAll');
+$router->get('/ingredient/list-by-category','IngredientController@listByCategory');
 $router->get('/ingredient/add','IngredientController@addUI');
 $router->post('/ingredient/add','IngredientController@add');
 $router->get('/ingredient/edit','IngredientController@editUI');
