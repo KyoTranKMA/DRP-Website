@@ -16,20 +16,22 @@
             <th>Actions</th>
         </tr>
         <?php foreach ($users as $user): 
-            if ($user->getLevel() > 1){?>
+            if ($user->getLevel() > 1):?>
             <tr>
                 <td><?= $user->getId() ?></td>
                 <td><?= $user->getUsername() ?></td>
                 <td><?= $user->getEmail() ?></td>
                 <td><?= $user->getLevel() ?></td>
                 <td>
-                    <?if ($user->getLevel() == 3){?>
+                    <?if ($user->getLevel() == 3):?>
                         <button onclick="setContributor(<?= $user->getId() ?>)">Set Contributor</button>
-                    <?}else{?>
+                    <?else :?>
                         <button onclick="setContributor(<?= $user->getId() ?>)">Unset Contributor</button>
+                    <?endif?>
                 </td>
             </tr>
-        <?php }}endforeach; ?>
+            <?endif?>
+        <?php endforeach; ?>
     </table>
 
     <script>
