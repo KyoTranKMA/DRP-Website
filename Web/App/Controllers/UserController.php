@@ -47,32 +47,34 @@ class UserController extends BaseController
     public function registery(){
         $userModel = new UserModel;
         $data = $_POST;
-        $errors = [];
 
-        if ($data['email'] == ''){
-            $errors['email'] = "Please enter your email!";
-        } else if ($userModel->checkEmail($data['email'])) {
-            $errors['email'] = 'Email Already Existed';
+        if ($userModel->checkEmail($data['email'])) {
+            echo '<script>
+            alert("email already exist!");
+            window.location.href = "/registery";
+            </script>';
         }
-        if ($data['username'] == ''){
-            $errors['username'] = "Please enter your name login!";
-        } else if ($userModel->checkUserName($data['username'])) {
-            $errors['username'] = 'Username Already Existed';
-        }
-        if ($data['password'] == ''){
-            $errors['password'] = "Please enter your password!";
-        }
-        if ($data['repassword'] == ''){
-            $errors['repassword'] = "Please enter your re-password!";
-        } else if ($data['repassword'] != $data['password'] ){
-            $errors['repassword'] = "Passwords do not match!";
-        }
-        if ($errors){
-            return $this->loadView('auth.login', $errors);
+        if ($userModel->checkUserName($data['username'])){
+            echo '<script>
+            alert("Username Already Existed");
+            window.location.href = "/registery";
+            </script>';
         }
 
-        UserModel::addUser($data);
-        header("Location: /index");
+        if(UserModel::addUser($data)){
+            echo '<script>
+                alert("Register Success!");
+                window.location.href = "/login";
+            </script>';
+            exit();
+        } else {
+            echo '<script>
+                alert("Register Fail!, Please try again!");
+                window.location.href = "/registery";
+            </script>';
+            exit();
+        }
+
     }
 
     public function logout(){

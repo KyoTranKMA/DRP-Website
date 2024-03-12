@@ -1,7 +1,7 @@
 <?php namespace App\Models;
 require_once($_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php');
 // use autoload from composer
-
+use PDOException;
 
 class UserModel extends BaseModel
 {
@@ -92,15 +92,22 @@ class UserModel extends BaseModel
         $models = new static;
         $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
 
-        $sql = "INSERT INTO users (username, password, email, level) values (:username, :password, :email, :level)";
-        // Prepare the statement
-        $stmt = $models->getConnect()->prepare($sql);
-        // Bind parameters
-        $stmt->bindValue(':username', $data['username'], \PDO::PARAM_STR);
-        $stmt->bindValue(':password', $data['password'], \PDO::PARAM_STR);
-        $stmt->bindValue(':email', $data['email'], \PDO::PARAM_STR);
-        $stmt->bindValue(':level', 3, \PDO::PARAM_INT);
-        $stmt->execute();
+        try{
+            $sql = "INSERT INTO users (username, password, email, level) values (:username, :password, :email, :level)";
+            // Prepare the statement
+            $stmt = $models->getConnect()->prepare($sql);
+            // Bind parameters
+            $stmt->bindValue(':username', $data['username'], \PDO::PARAM_STR);
+            $stmt->bindValue(':password', $data['password'], \PDO::PARAM_STR);
+            $stmt->bindValue(':email', $data['email'], \PDO::PARAM_STR);
+            $stmt->bindValue(':level', 3, \PDO::PARAM_INT);
+            $stmt->execute();
+            return $stmt->execute();
+        } catch(PDOException $e){
+            echo $e->getMessage();
+            return false;
+        }
+
     }
 
     public static function getAllUser(){
