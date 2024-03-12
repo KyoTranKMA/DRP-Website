@@ -6,8 +6,9 @@ class  IngredientUpdateOperation extends DatabaseRelatedOperation implements Cre
   static public function notify($message) {
     echo "<script>alert('$message')</script>";
   }
-  static public function validateData($data = null) {
-    if ($data === null) { $data = $_POST; }
+  static public function validateData($data) {
+    if($data == null) 
+      throw new \InvalidArgumentException(self::MSG_DATA_ERROR . __METHOD__ . '. ');
     $validCategories = array('EMMP', 'FAO', 'FRU', 'GNBK', 'HRBS', 'MSF', 'OTHR', 'PRP', 'VEGI');
     $validMeasurements = array('tsp', 'cup', 'tbsp', 'g', 'lb', 'can', 'oz', 'unit');
     if (!in_array($data['category'], $validCategories)) 
@@ -18,7 +19,7 @@ class  IngredientUpdateOperation extends DatabaseRelatedOperation implements Cre
       throw new \InvalidArgumentException(self::MSG_DATA_ERROR . __METHOD__ . '. ');
   }
 
-  static public function saveToDatabase($data = null) {
+  static public function saveToDatabase($data) {
     $conn = new static();
     if ($data === null) { $data = $_POST; }
     if ($conn === null) {
@@ -32,25 +33,24 @@ class  IngredientUpdateOperation extends DatabaseRelatedOperation implements Cre
             vitamin_a = :vitamin_a, vitamin_c = :vitamin_c where id = :id";
 
     self::query($sql, $conn, \PDO::FETCH_ASSOC, [ 
-      'id' => $data['id'],
       'name' => $data['name'],
       'category' => $data['category'],
-      'calcium' => $data['calcium'] ? $data['calcium'] : 0,
-      'calories' => $data['calories'] ? $data['calories'] : 0,
-      'carbohydrate' => $data['carbohydrate'] ? $data['carbohydrate'] : 0,
-      'cholesterol' => $data['cholesterol'] ? $data['cholesterol'] : 0,
-      'fiber' => $data['fiber'] ? $data['fiber'] : 0,
-      'iron' => $data['iron'] ? $data['iron'] : 0,
-      'fat' => $data['fat'] ? $data['fat'] : 0,
-      'monounsaturated_fat' => $data['monounsaturated_fat'] ? $data['monounsaturated_fat'] : 0,
-      'polyunsaturated_fat' => $data['polyunsaturated_fat'] ? $data['polyunsaturated_fat'] : 0,
-      'saturated_fat' => $data['saturated_fat'] ? $data['saturated_fat'] : 0,
-      'potassium' => $data['potassium'] ? $data['potassium'] : 0,
-      'protein' => $data['protein'] ? $data['protein'] : 0,
-      'sodium' => $data['sodium'] ? $data['sodium'] : 0,
-      'sugar' => $data['sugar'] ? $data['sugar'] : 0,
-      'vitamin_a' => $data['vitamin_a'] ? $data['vitamin_a'] : 0,
-      'vitamin_c' => $data['vitamin_c'] ? $data['vitamin_c'] : 0
+      'calcium' => $data['calcium'] ?? 0,
+      'calories' => $data['calories'] ?? 0,
+      'carbohydrate' => $data['carbohydrate'] ?? 0,
+      'cholesterol' => $data['cholesterol'] ?? 0,
+      'fiber' => $data['fiber'] ?? 0,
+      'iron' => $data['iron'] ?? 0,
+      'fat' => $data['fat'] ?? 0,
+      'monounsaturated_fat' => $data['monounsaturated_fat'] ?? 0,
+      'polyunsaturated_fat' => $data['polyunsaturated_fat'] ?? 0,
+      'saturated_fat' => $data['saturated_fat'] ?? 0,
+      'potassium' => $data['potassium'] ?? 0,
+      'protein' => $data['protein'] ?? 0,
+      'sodium' => $data['sodium'] ?? 0,
+      'sugar' => $data['sugar'] ?? 0,
+      'vitamin_a' => $data['vitamin_a'] ?? 0,
+      'vitamin_c' => $data['vitamin_c'] ?? 0
     ]);
   }
   static public function execute($data)
