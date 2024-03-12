@@ -1,5 +1,5 @@
 <!-- Giới thiệu -->
-<div class="d-flex flex-column flex-md-row text-center text-md-start justify-content-between py-4 px-4 px-xl-5" style="background-color: #e1ebfa;">
+<div class="d-flex flex-column flex-md-row text-center text-md-start justify-content-between py-0 px-4 px-xl-5" style="background-color: #e1ebfa;">
     <!-- Thông tin nhóm -->
     <div class="text-black mb-3 mb-md-0">
         <p style="font-weight: 700; font-size: 25px">PaPals</p>

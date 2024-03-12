@@ -1,7 +1,8 @@
 
-/Data
+/Data/mysql
 db_config.php
 .DS_Store
 .vscode
 /Code_Diagram 
-Web/App/test.php
+/Web/App/test.php
+/Web/Journal

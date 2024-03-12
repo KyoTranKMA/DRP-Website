@@ -1,9 +1,10 @@
 <?
 require_once($_SERVER['DOCUMENT_ROOT'] . '/App/Core/init.php');
-require(ROOT_PATH . 'Public/inc/header.php');
+// require(ROOT_PATH . 'Public/inc/header.php');
 use App\Models\IngredientModel;
 $Ingredients = new IngredientModel();
 $data = $Ingredients->getAll();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

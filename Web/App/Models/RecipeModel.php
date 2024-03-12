@@ -13,13 +13,12 @@ class RecipeModel extends BaseModel {
     private $image_url;
     private $preparation_time;
     private $cooking_time;
-    private $recipe_direction;
-    private $recipe_type;
+    private $direction;
+    private $meal_type_1;
+    private $meal_type_2;
+    private $meal_type_3;
 
     const TABLE = 'Recipes';
-    public function getAll($select = ['*'], $limit = 5) { return $this->all(self::TABLE, $select, $limit);}
-    public function findById($id)  { return $this->find(self::TABLE, $id); }
-    public function updateById($id, $data) { return $this->update(self::TABLE, $id, $data); }
-    public function deleteById($id) { return $this->delete(self::TABLE, $id); }
+
 
 }
