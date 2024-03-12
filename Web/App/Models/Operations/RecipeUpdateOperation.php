@@ -2,7 +2,7 @@
 namespace App\Operations;
 use App\Core\Logger;
 
-class RecipeUpdateOperation extends DatabaseRelatedOperation implements CreateAndUpdateOperation {
+class RecipeUpdateOperation extends DatabaseRelatedOperation implements I_CreateAndUpdateOperation {
   static public function notify($message) {
     echo "<script>alert('$message')</script>";
   }

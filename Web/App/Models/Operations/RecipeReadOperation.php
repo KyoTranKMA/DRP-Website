@@ -1,7 +1,7 @@
 <?
 namespace App\Operations;
 
-class RecipeReadOperation extends DatabaseRelatedOperation implements ReadOperation {
+class RecipeReadOperation extends DatabaseRelatedOperation implements I_ReadOperation {
   static public function getAllObjects() {
     $model = new static();
     $conn = $model->DB_CONNECTION;
