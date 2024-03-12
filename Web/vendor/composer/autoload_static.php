@@ -10,6 +10,7 @@ class ComposerStaticInit1a38387b3563d6863abba005b6fe071d
         'A' => 
         array (
             'App\\Views\\' => 10,
+            'App\\Operations\\' => 15,
             'App\\Models\\' => 11,
             'App\\Core\\' => 9,
             'App\\Controllers\\Auth\\' => 21,
@@ -22,6 +23,10 @@ class ComposerStaticInit1a38387b3563d6863abba005b6fe071d
         'App\\Views\\' => 
         array (
             0 => __DIR__ . '/../..' . '/App/Views',
+        ),
+        'App\\Operations\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/App/Models/Operations',
         ),
         'App\\Models\\' => 
         array (
@@ -46,6 +51,30 @@ class ComposerStaticInit1a38387b3563d6863abba005b6fe071d
     );
 
     public static $classMap = array (
+        'App\\Controllers\\AdminController' => __DIR__ . '/../..' . '/App/Controllers/AdminController.php',
+        'App\\Controllers\\BaseController' => __DIR__ . '/../..' . '/App/Controllers/BaseController.php',
+        'App\\Controllers\\HomeController' => __DIR__ . '/../..' . '/App/Controllers/HomeController.php',
+        'App\\Controllers\\IngredientController' => __DIR__ . '/../..' . '/App/Controllers/IngredientController.php',
+        'App\\Controllers\\RecipeController' => __DIR__ . '/../..' . '/App/Controllers/RecipeController.php',
+        'App\\Controllers\\RecipeUnitConverterController' => __DIR__ . '/../..' . '/App/Controllers/RecipeUnitConverterController.php',
+        'App\\Controllers\\UploadFileErrorController' => __DIR__ . '/../..' . '/App/Controllers/UploadFileErrorController.php',
+        'App\\Controllers\\UserController' => __DIR__ . '/../..' . '/App/Controllers/UserController.php',
+        'App\\Core\\Database' => __DIR__ . '/../..' . '/App/Core/Database.php',
+        'App\\Core\\Logger' => __DIR__ . '/../..' . '/App/Core/Logger.php',
+        'App\\Core\\Router' => __DIR__ . '/../..' . '/App/Core/Router.php',
+        'App\\Models\\BaseModel' => __DIR__ . '/../..' . '/App/Models/BaseModel.php',
+        'App\\Models\\IngredientModel' => __DIR__ . '/../..' . '/App/Models/IngredientModel.php',
+        'App\\Models\\RecipeModel' => __DIR__ . '/../..' . '/App/Models/RecipeModel.php',
+        'App\\Models\\UserModel' => __DIR__ . '/../..' . '/App/Models/UserModel.php',
+        'App\\Operations\\CreateAndUpdateOperation' => __DIR__ . '/../..' . '/App/Models/Operations/CreateAndUpdateOperation.php',
+        'App\\Operations\\DatabaseRelatedOperation' => __DIR__ . '/../..' . '/App/Models/Operations/DatabaseRelatedOperation.php',
+        'App\\Operations\\DeleteOperation' => __DIR__ . '/../..' . '/App/Models/Operations/DeleteOperation.php',
+        'App\\Operations\\IngredientCreateOperation' => __DIR__ . '/../..' . '/App/Models/Operations/IngredientCreateOperation.php',
+        'App\\Operations\\IngredientReadOperation' => __DIR__ . '/../..' . '/App/Models/Operations/IngredientReadOperation.php',
+        'App\\Operations\\IngredientUpdateOperation' => __DIR__ . '/../..' . '/App/Models/Operations/IngredientUpdateOperation.php',
+        'App\\Operations\\ReadOperation' => __DIR__ . '/../..' . '/App/Models/Operations/ReadOperation.php',
+        'App\\Operations\\RecipeCreateOperation' => __DIR__ . '/../..' . '/App/Models/Operations/RecipeCreateOperation.php',
+        'App\\Views\\ViewRender' => __DIR__ . '/../..' . '/App/Views/ViewRender.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
     );
 
