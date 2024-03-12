@@ -1,6 +1,6 @@
 <?
 namespace App\Operations;
-interface ReadOperation { 
+interface I_ReadOperation { 
   static function getSingleObjectById(int $id);
   static function getAllObjects(); 
   static function getAllObjectsByFieldAndValue(string $columnName, $value);
