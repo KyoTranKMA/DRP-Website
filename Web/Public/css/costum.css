@@ -1,0 +1,24 @@
+.description{
+color: #666;
+}
+
+.author-img {
+    width: 50px;
+    border-radius: 50%;
+}
+
+.date-update{
+    color: #666;
+}
+
+.img-meal{
+    width: 40vw;
+}
+
+.ingredients{
+    display: block;
+    width: 40vw;
+    height: 300px;
+    background-color: rgb(230, 239, 239);
+    border-style:groove;
+}

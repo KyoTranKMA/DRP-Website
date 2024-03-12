@@ -1,11 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
+<? require($_SERVER['DOCUMENT_ROOT'] . "/Public/inc/header.php")?>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Món ăn</title>
-</head>
+<title>Món ăn</title>
+
 
 <body>
     <?php
@@ -17,3 +13,4 @@
 </body>
 
 </html>
+<? require($_SERVER['DOCUMENT_ROOT'] . "/Public/inc/footer.php")?>
