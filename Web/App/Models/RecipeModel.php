@@ -15,8 +15,11 @@ class RecipeModel extends BaseModel {
     private $meal_type_1;
     private $meal_type_2;
     private $meal_type_3;
+    private $timestamp;
 
-    public function __construct($id, $name, $description, $image_url, $preparation_time, $cooking_time, $direction, $meal_type_1, $meal_type_2, $meal_type_3) {
+    public function __construct($id = null, $name = null, $description = null, $image_url = null, 
+            $preparation_time = null, $cooking_time = null, $direction = null, $meal_type_1 = null, 
+            $meal_type_2 = null, $meal_type_3 = null, $timestamp = null) {
         $this->id = $id;
         $this->name = $name;
         $this->description = $description;
@@ -27,6 +30,7 @@ class RecipeModel extends BaseModel {
         $this->meal_type_1 = $meal_type_1;
         $this->meal_type_2 = $meal_type_2;
         $this->meal_type_3 = $meal_type_3;
+        $this->timestamp = $timestamp;
     }
 
     // get and set 
@@ -54,5 +58,6 @@ class RecipeModel extends BaseModel {
     public function setMealType2($meal_type_2) { $this->meal_type_2 = $meal_type_2; }
     public function getMealType3() { return $this->meal_type_3; }
     public function setMealType3($meal_type_3) { $this->meal_type_3 = $meal_type_3; }
-
+    public function getTimestamp() { return $this->timestamp; }
+    public function setTimestamp($timestamp) { $this->timestamp = $timestamp; }
 }
