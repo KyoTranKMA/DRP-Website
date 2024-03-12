@@ -9,7 +9,7 @@ class Logger{
       }
       fclose($file);
     }
-    $dateTime = date('d-m-Y s:i:H');
+    $dateTime = date('d-m-Y H:i:s');
     $logMessage = $dateTime . ': ' . $message . PHP_EOL;
     error_log($logMessage, 3, $logFile);
   }
@@ -21,7 +21,7 @@ class Logger{
       }
       fclose($file);
     }
-    $dateTime = date('d-m-Y s:i:H');
+    $dateTime = date('d-m-Y H:i:s');
     $logMessage = "[DEBUG] [$dateTime] $message\n";
     file_put_contents(DEBUG_LOG, $logMessage, FILE_APPEND);
   }

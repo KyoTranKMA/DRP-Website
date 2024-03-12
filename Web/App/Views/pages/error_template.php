@@ -49,7 +49,7 @@
 
 <body>
   <div class="header">
-    <? require_once($_SERVER['DOCUMENT_ROOT'] . '/Public/inc/header.php'); ?>
+    <?require_once($_SERVER['DOCUMENT_ROOT'] . '/Public/inc/header.php'); ?>
   </div>  
   <div class="container">
       <img src="/Public/images/<?= $errorCode ?>.png" alt="" style="height:100vh; width:100vw; object-fit: fit">

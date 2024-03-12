@@ -1,20 +1,27 @@
 <?php 
 namespace App\Controllers;
+
+use App\Models\UserModel;
+
 require_once($_SERVER['DOCUMENT_ROOT'] . '/App/Core/init.php');
 class HomeController extends BaseController
 {
     public function index()
     {
-        return parent::loadView('pages.index');
+        if ($_SESSION['level'] == 1){
+            return $this->adminUser();
+        } else {
+            return $this->homePage();
+        }
     }
     public static function homePage()
     {
-        return parent::loadView('auth.homepage');
+        return parent::loadView('pages.homepage');
     }
 
-    public static function admin()
+    public static function adminUser()
     {
-        return parent::loadView('admin.index');
+        header("Location: /manager/user");
     }
 }
 

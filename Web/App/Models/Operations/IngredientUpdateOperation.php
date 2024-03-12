@@ -1,9 +1,10 @@
 <?
-namespace App\Models;
+namespace App\Operations;
+use App\Core\Logger;
 
-class  UpdateIngredientOperation extends CreateAndOperation {
+class  IngredientUpdateOperation extends DatabaseRelatedOperation implements CreateAndUpdateOperation {
   static public function notify($message) {
-    echo $message;
+    echo "<script>alert('$message')</script>";
   }
   static public function validateData($data = null) {
     if ($data === null) { $data = $_POST; }
@@ -23,15 +24,15 @@ class  UpdateIngredientOperation extends CreateAndOperation {
     if ($conn === null) {
       throw new \PDOException(self::MSG_CONNECT_PDO_EXCEPTION . __METHOD__ . '. ');
     }
-    $sql = "insert into ingredients (name, category, calcium, calories, carbohydrate, 
-    cholesterol, fiber, iron, fat, monounsaturated_fat, polyunsaturated_fat, 
-    saturated_fat, potassium, protein, sodium, sugar, vitamin_a, vitamin_c) 
-    values (:name, :category, :calcium, :calories, :carbohydrate, :cholesterol, 
-    :fiber, :iron, :fat, :monounsaturated_fat, :polyunsaturated_fat, :saturated_fat, 
-    :potassium, :protein, :sodium, :sugar, :vitamin_a, :vitamin_c)";
-    // ...
+    $sql = "update ingredients set name = :name, category = :category, calcium = :calcium, 
+            calories = :calories, carbohydrate = :carbohydrate, cholesterol = :cholesterol, 
+            fiber = :fiber, iron = :iron, fat = :fat, monounsaturated_fat = :monounsaturated_fat, 
+            polyunsaturated_fat = :polyunsaturated_fat, saturated_fat = :saturated_fat, 
+            potassium = :potassium, protein = :protein, sodium = :sodium, sugar = :sugar, 
+            vitamin_a = :vitamin_a, vitamin_c = :vitamin_c where id = :id";
 
-    parent::query($sql, $conn, \PDO::FETCH_ASSOC, [ // Call the query method on the parent class
+    self::query($sql, $conn, \PDO::FETCH_ASSOC, [ 
+      'id' => $data['id'],
       'name' => $data['name'],
       'category' => $data['category'],
       'calcium' => $data['calcium'] ? $data['calcium'] : 0,
@@ -51,5 +52,24 @@ class  UpdateIngredientOperation extends CreateAndOperation {
       'vitamin_a' => $data['vitamin_a'] ? $data['vitamin_a'] : 0,
       'vitamin_c' => $data['vitamin_c'] ? $data['vitamin_c'] : 0
     ]);
+  }
+  static public function execute($data)
+  {
+    try {
+      self::validateData($data);
+    } catch (\InvalidArgumentException $InvalidArgumentException) {
+      Logger::logError(ERROR_LOG, $InvalidArgumentException->getMessage());
+      self::notify("Update ingredient failed casued by: " . $InvalidArgumentException->getMessage());
+      return false;
+    }
+    try {
+      self::saveToDatabase($data);
+    } catch (\PDOException $PDOException) {
+      Logger::logError(DB_RELATED_LOG, $PDOException->getMessage());
+      self::notify("Update ingredient failed casued by: " . $PDOException->getMessage());
+      return false;
+    }
+    self::notify("Ingredient created successfully!");
+    return true;
   }
 }

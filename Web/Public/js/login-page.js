@@ -22,10 +22,10 @@ registerBtn.addEventListener('click', () => {
 
 forgotBtn.addEventListener('click', () => {
   container.classList.add('active');
-  signUpForm  .classList.remove('show');
+  signUpForm.classList.remove('show');
   forgotForm.classList.remove('hide');
   forgotForm.classList.add('show');
-  signUpForm  .classList.add('hide');
+  signUpForm.classList.add('hide');
 });
 
 loginBtn.addEventListener('click', () => {

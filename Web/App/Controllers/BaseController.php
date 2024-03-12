@@ -1,8 +1,5 @@
 <?php
 namespace App\Controllers;
-use App\Core\Logger;
-use App\Core\Router;
-
 require_once($_SERVER['DOCUMENT_ROOT'] . '/App/Core/init.php');
 
 
@@ -24,6 +21,13 @@ class BaseController {
             handleException($e);
             echo \App\Views\ViewRender::errorViewRender('404');
         } 
+    }
+    
+    public static function loadError($code = '404')
+    {
+        http_response_code($code);
+        echo \App\Views\ViewRender::errorViewRender($code);
+        die();
     }
 }
 
