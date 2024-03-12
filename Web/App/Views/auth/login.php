@@ -20,6 +20,12 @@ use App\Controllers\UserController;
     <title>Login</title>
     <link rel="stylesheet" href="/vendor/font-awesome-4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="/Public/css/login-style.css">
+    <style>
+        .error-message {
+        color: #ff4d4d;
+        font-size: 14px;
+    }
+    </style>
 </head>
 
 <body>
@@ -39,6 +45,7 @@ use App\Controllers\UserController;
                 <input type="password" name="password" id="password" placeholder="Enter your password.">
                 <input type="password" name="repassword" id="repassword" placeholder="Re-enter your password.">
                 <button>Sign up</button>
+                
             </form>
             <form action="" class="show" id="forgot-form">
                 <h1>Forgot Password?</h1>
@@ -62,6 +69,7 @@ use App\Controllers\UserController;
                 <input type="password" name="password" id="password" placeholder="Enter your password.">
                 <p style="cursor: pointer;" id="forgot">Forgot your password?</p>
                 <button type="submit" name="login">Sign in</button>
+
             </form>
         </div>
 
@@ -86,5 +94,12 @@ use App\Controllers\UserController;
     </div>
 
     <script src="/Public/js/login-page.js"></script>
+    <!-- Include jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Include jQuery Validate plugin -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
+    <script src="/Public/js/jquery-validate.js"></script>
+    
+    
 </body>
 </html> 
