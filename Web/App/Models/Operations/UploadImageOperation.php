@@ -1,7 +1,7 @@
 <?
 namespace App\Operations;
 use App\Controllers\Dialog;
-class Uploadfile {
+class UploadImageOperation {
   public static function process() {
     try {
       if (empty($_FILES)) {
