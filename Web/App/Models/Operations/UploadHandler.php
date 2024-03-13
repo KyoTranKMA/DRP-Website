@@ -1,6 +1,6 @@
 <?
 namespace App\Operations;
-use App\Controllers\Dialog, App\Core\Logger;
+use App\Controllers\Dialog;
 class Uploadfile {
   public static function process() {
     try {

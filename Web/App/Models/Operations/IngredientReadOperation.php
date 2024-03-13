@@ -1,6 +1,5 @@
 <?php
 namespace App\Operations;
-use App\Core\Logger;
 use App\Models\IngredientModel;
 
 class IngredientReadOperation extends DatabaseRelatedOperation implements I_ReadOperation {
