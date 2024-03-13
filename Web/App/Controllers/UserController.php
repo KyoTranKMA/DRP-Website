@@ -34,7 +34,11 @@ class UserController extends BaseController
                 header("Location: /index");
                 exit();
             } else {
-                echo \App\Views\ViewRender::errorViewRender('404');
+                echo '<script>
+                alert("Incorrect username or password!, Please try again!");
+                window.location.href = "/login";
+                </script>';
+                exit();
             }
         }
     }
