@@ -1,7 +1,6 @@
 <?
 
 namespace App\Models;
-use App\Core\Logger;
 // use autoload from composer
 require($_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php');
 

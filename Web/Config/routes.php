@@ -1,7 +1,7 @@
 <?php
 
 // homepage router
-$router->get('/index', 'HomeController@index');
+$router->get('/', 'HomeController@index');
 $router->get('/homepage', 'HomeController@homePage');
 
 // user router
@@ -32,6 +32,7 @@ $router->post('/ingredient/edit','IngredientController@edit');
 $router->get('/ingredient/delete','IngredientController@delete');
 
 // recipe router
+
 $router->get('/recipe','RecipeController@index');
 $router->get('/recipe/list','RecipeController@list_all');
 $router->get('/recipe/add','RecipeController@addUI');

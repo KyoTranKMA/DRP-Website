@@ -11,30 +11,66 @@ class IngredientCreateOperation extends DatabaseRelatedOperation implements I_Cr
   }
   static public function validateData($data)
   {
+    /**
+     * Validate the data with specific rules
+     * name: required, only letters and numbers
+     * category: required, must be one of the valid categories
+     * measurement_description: required, must be one of the valid measurements
+     * calcium, calories, carbohydrate, cholesterol, fiber, iron, fat, monounsaturated_fat, polyunsaturated_fat,
+     * saturated_fat, potassium, protein, sodium, sugar, vitamin_a, vitamin_c: optional, must be a number
+     */
+  
     if($data == null) 
       throw new \InvalidArgumentException(self::MSG_DATA_ERROR . __METHOD__ . '. ');
     $validCategories = array('EMMP', 'FAO', 'FRU', 'GNBK', 'HRBS', 'MSF', 'OTHR', 'PRP', 'VEGI');
     $validMeasurements = array('tsp', 'cup', 'tbsp', 'g', 'lb', 'can', 'oz', 'unit');
-    if (empty($data['name']) || !preg_match('/^[a-zA-Z0-9]+$/', $data['name']) ||
-        empty($data['category']) || !in_array($data['category'], $validCategories) ||
-        empty($data['measurement_description']) || !in_array($data['measurement_description'], $validMeasurements) 
-    )
+
+    $requiredFields = ['name', 'category', 'measurement_description'];
+    $numericFields = ['calcium', 'calories', 'carbohydrate', 'cholesterol', 'fiber', 'iron', 'fat', 
+      'monounsaturated_fat', 'polyunsaturated_fat', 'saturated_fat', 'potassium', 'protein', 'sodium', 'sugar', 'vitamin_a', 'vitamin_c'];
+
+    foreach ($requiredFields as $field) {
+      if (empty($data[$field])) {
+        throw new \InvalidArgumentException(self::MSG_DATA_ERROR . __METHOD__ . '. ');
+      }
+    }
+
+    foreach ($numericFields as $field) {
+      if (!empty($data[$field]) && !is_numeric($data[$field])) {
+        throw new \InvalidArgumentException(self::MSG_DATA_ERROR . __METHOD__ . '. ');
+      }
+    }
+
+    if (!preg_match('/^[a-zA-Z0-9]+$/', $data['name'])) {
       throw new \InvalidArgumentException(self::MSG_DATA_ERROR . __METHOD__ . '. ');
+    }
+
+    if (!in_array($data['category'], $validCategories)) {
+      throw new \InvalidArgumentException(self::MSG_DATA_ERROR . __METHOD__ . '. ');
+    }
+
+    if (!in_array($data['measurement_description'], $validMeasurements)) {
+      throw new \InvalidArgumentException(self::MSG_DATA_ERROR . __METHOD__ . '. ');
+    }
   }
-  static public function saveToDatabase($data)
-  {
+  static public function saveToDatabase($data) {
     $model = new static();
     $conn = $model->DB_CONNECTION;
     if ($conn == null) {
       throw new \PDOException(self::MSG_CONNECT_PDO_EXCEPTION . __METHOD__ . '. ');
     }
-    $sql = "insert into ingredients (name, category, calcium, calories, carbohydrate, 
+
+
+    $sql = "INSERT INTO ingredients (name, category, calcium, calories, carbohydrate, 
     cholesterol, fiber, iron, fat, monounsaturated_fat, polyunsaturated_fat, 
     saturated_fat, potassium, protein, sodium, sugar, vitamin_a, vitamin_c) 
-    values (:name, :category, :calcium, :calories, :carbohydrate, :cholesterol, 
+    VALUES (:name, :category, :calcium, :calories, :carbohydrate, :cholesterol, 
     :fiber, :iron, :fat, :monounsaturated_fat, :polyunsaturated_fat, :saturated_fat, 
     :potassium, :protein, :sodium, :sugar, :vitamin_a, :vitamin_c)";
 
+    /** 
+     * Execute the query with the given data
+     */
     self::query($sql, $conn, \PDO::FETCH_ASSOC, [ 
       'name' => $data['name'],
       'category' => $data['category'],
@@ -57,8 +93,12 @@ class IngredientCreateOperation extends DatabaseRelatedOperation implements I_Cr
       'vitamin_c' => $data['vitamin_c'] ?? 0
     ]);
   }
+
   static public function execute($data)
   {
+    /**
+     * Validate the data before saving to the database
+     */
     try {
       self::validateData($data);
     } catch (\InvalidArgumentException $InvalidArgumentException) {
@@ -66,6 +106,10 @@ class IngredientCreateOperation extends DatabaseRelatedOperation implements I_Cr
       self::notify("Add ingredient failed casued by: " . $InvalidArgumentException->getMessage());
       return false;
     }
+
+    /**
+     * Saving datab to database process
+     */
     try {
       self::saveToDatabase($data);
     } catch (\PDOException $PDOException) {
@@ -73,6 +117,7 @@ class IngredientCreateOperation extends DatabaseRelatedOperation implements I_Cr
       self::notify("Add ingredient failed casued by: " . $PDOException->getMessage());
       return false;
     }
+
     self::notify("Ingredient created successfully!");
     return true;
   }

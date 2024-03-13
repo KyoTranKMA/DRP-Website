@@ -55,7 +55,7 @@ class RecipeUpdateOperation extends DatabaseRelatedOperation implements I_Create
       self::validateData($data);
     } catch (\InvalidArgumentException $InvalidArgumentException) {
       handleException($InvalidArgumentException);
-      self::notify("Update recipe failed casued by: " . $InvalidArgumentException->getMessage());
+      self::notify("Update recipe failed casued by: " . htmlspecialchars($InvalidArgumentException->getMessage()));
       return false;
     }
     try {
@@ -63,7 +63,7 @@ class RecipeUpdateOperation extends DatabaseRelatedOperation implements I_Create
       self::notify("Update recipe successfully! ");
     } catch (\PDOException $PDOException) {
       handlePDOException($PDOException);
-      self::notify("Update recipe failed casued by: " . $PDOException->getMessage());
+      self::notify("Update recipe failed casued by: " . htmlspecialchars($PDOException->getMessage()));
       return false;
     }
   }
