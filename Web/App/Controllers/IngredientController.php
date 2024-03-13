@@ -9,11 +9,8 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/App/Core/init.php');
 
 class IngredientController extends BaseController
 {
-    public function index() {
-        return $this->loadView('pages.homepage');
-    }
 
-    public function listAll() {
+    public function index() {
         $ingredients = IngredientReadOperation::getAllObjects();
         return $this->loadView('ingredient.list_all', $ingredients);
     }
@@ -50,20 +47,31 @@ class IngredientController extends BaseController
     }
 
     public function editUI() {
-        // $this->loadView('ingredient.find_by_name_form');
-        // list danh sách các nguyên liệu hoac tim kiem nguyen lieu theo ten nguyen lieu
-        // view nhap ten nguyen lieu va hien ra cac ket qua tim kiem
-        // sau khi chon nguyen lieu can sua thi chuyen den trang sua nguyen lieu dua tren id
-        // $data = $_POST['name'];
-        // $ingredients = IngredientReadOperation::getAllObjectsByFieldAndValue('name', $data);
-        // if(!isset($ingredients)) 
-        //     echo \App\Views\ViewRender::errorViewRender('410'); 
-        // else $this->loadView('ingredient.select_edit', $ingredients);
-        // $id = $_GET['id'];
-        // $ingredient = IngredientReadOperation::getSingleObjectById($id);
-        $ingredient = IngredientReadOperation::getSingleObjectById(1);
-        $data[] = $ingredient; 
-        return $this->loadView('ingredient.update', $data);
+        try {
+            // $this->loadView('ingredient.find_by_name_form');
+            // list danh sách các nguyên liệu hoac tim kiem nguyen lieu theo ten nguyen lieu
+            // view nhap ten nguyen lieu va hien ra cac ket qua tim kiem
+            // sau khi chon nguyen lieu can sua thi chuyen den trang sua nguyen lieu dua tren id
+            // $data = $_POST['name'];
+            // $ingredients = IngredientReadOperation::getAllObjectsByFieldAndValue('name', $data);
+            // if(!isset($ingredients)) 
+            //     echo \App\Views\ViewRender::errorViewRender('410'); 
+            // else $this->loadView('ingredient.select_edit', $ingredients);
+            // $id = $_GET['id'];
+            // $ingredient = IngredientReadOperation::getSingleObjectById($id);
+            $ingredient = IngredientReadOperation::getSingleObjectById(1);
+            $data[] = $ingredient; 
+            return $this->loadView('ingredient.update', $data);
+        } catch (\PDOException $PDOException) {
+            handlePDOException($PDOException);
+            echo \App\Views\ViewRender::errorViewRender('500');
+        } catch (\Exception $exception) {
+            handleException($exception);
+        } catch (\Throwable $throwable) {
+            handleError($throwable->getCode(), $throwable->getMessage(), $throwable->getFile(), $throwable->getLine());
+        }
+        echo \App\Views\ViewRender::errorViewRender('404');
+        return;
     }
 
     public function edit() {

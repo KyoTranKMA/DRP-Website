@@ -1,40 +1,53 @@
 <?php 
 namespace App\Controllers;
 use App\Models\RecipeModel;
+use App\Operations\RecipeReadOperation;
+use App\Operations\RecipeCreateOperation;
+use App\Operations\RecipeUpdateOperation;
+use App\Operations\RecipeDeleteOperation;
+
 // use autoload from composer
 require($_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php');
 
 class RecipeController extends BaseController 
 {
-    private $RecipeModel;
-    // Get Path Class Recipe Model;
-    public function __construct()
-    {
-        $this->RecipeModel = new RecipeModel();
-    } 
-    public function index()
-    {
-        $Recipes = $this->RecipeModel->getAll();
-        return $this->loadView('pages.recipepage', $Recipes);
+    public function index() {
+        $recipes = RecipeReadOperation::getAllObjects();
+        $this->loadView('recipe.recipe_view', $recipes);
     }
-    public function show()
+    public function findByID()
     {
         $id = $_GET('id');  
-        $Recipe = $this->RecipeModel->findById($id);
-        echo $Recipe;
+        $this->loadView('recipe.recipe_view', $id);
+    }
+    public function addUI() {
+        $this->loadView('recipe.add');
+    }
+    public function add() {
+        $data = $_POST;
+        RecipeCreateOperation::execute($data);
+        header("Location: /recipe/add");
+    }
+    public function editUI() {
+        $id = $_GET['id'];
+        $recipe = RecipeReadOperation::getSingleObjectById($id);
+        $this->loadView('recipe.edit', $recipe);
     }
 
-    public function update()
-    {
-        $id = $_GET('id');
-        $data = ['name' => 'test'];
-        $this->RecipeModel->updateById($id, $data);
+    public function edit() {
+        $data = $_POST;
+        RecipeUpdateOperation::execute($data);
+        header("Location: /recipe/edit?id=" . $data['id']);
     }
-    public function delete()
-    {
-        $id = $_GET('id');
-        $this->RecipeModel->deleteById($id);
+    public function deleteUI() {
+        $id = $_GET['id'];
+        $recipe = RecipeReadOperation::getSingleObjectById($id);
+        $this->loadView('recipe.delete', $recipe);
     }
 
-
+    public function delete() {
+        $id = $_GET['id'];
+        RecipeDeleteOperation::deleteById($id);
+        header("Location: /recipe");
+    }
 }
