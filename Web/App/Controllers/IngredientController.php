@@ -54,14 +54,16 @@ class IngredientController extends BaseController
         // list danh sách các nguyên liệu hoac tim kiem nguyen lieu theo ten nguyen lieu
         // view nhap ten nguyen lieu va hien ra cac ket qua tim kiem
         // sau khi chon nguyen lieu can sua thi chuyen den trang sua nguyen lieu dua tren id
-        $data = $_POST['name'];
-        $ingredients = IngredientReadOperation::getAllObjectsByFieldAndValue('name', $data);
-        if(!isset($ingredients)) 
-            echo \App\Views\ViewRender::errorViewRender('410'); 
-        else $this->loadView('ingredient.select_edit', $ingredients);
-        $id = $_GET['id'];
-        $ingredient = IngredientReadOperation::getSingleObjectById($id);
-        return $this->loadView('ingredient.update', $ingredient);
+        // $data = $_POST['name'];
+        // $ingredients = IngredientReadOperation::getAllObjectsByFieldAndValue('name', $data);
+        // if(!isset($ingredients)) 
+        //     echo \App\Views\ViewRender::errorViewRender('410'); 
+        // else $this->loadView('ingredient.select_edit', $ingredients);
+        // $id = $_GET['id'];
+        // $ingredient = IngredientReadOperation::getSingleObjectById($id);
+        $ingredient = IngredientReadOperation::getSingleObjectById(1);
+        $data[] = $ingredient; 
+        return $this->loadView('ingredient.update', $data);
     }
 
     public function edit() {

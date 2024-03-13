@@ -9,7 +9,7 @@
     <div class="content">
         <form method="post" id="frmUPDATEingredient">
             <fieldset>
-            <? foreach($data as $ingredient): ?>
+            <? $ingredient = $data[0]; ?>
             <legend>Update ingredient</legend>
             <div class="row">
                 <label for="description">Name:</label>
@@ -130,10 +130,9 @@
             <div class="row">
                 <input class="btn" type="submit" value="Update">
                 <input class="btn" type="reset" value="Cancel"
-                onclick="parent.location='index.php'"/>
+                onclick="parent.location='/homepage'"/>
 
             </div>
-            <? endforeach; ?>
         </fieldset>
     </form>
 </div>
