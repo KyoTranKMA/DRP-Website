@@ -58,14 +58,15 @@ class  IngredientUpdateOperation extends DatabaseRelatedOperation implements I_C
     try {
       self::validateData($data);
     } catch (\InvalidArgumentException $InvalidArgumentException) {
-      Logger::logError(ERROR_LOG, $InvalidArgumentException->getMessage());
+      handleError($InvalidArgumentException->getCode(), $InvalidArgumentException->getMessage(), 
+        $InvalidArgumentException->getFile(), $InvalidArgumentException->getLine());
       self::notify("Update ingredient failed casued by: " . $InvalidArgumentException->getMessage());
       return false;
     }
     try {
       self::saveToDatabase($data);
     } catch (\PDOException $PDOException) {
-      Logger::logError(DB_RELATED_LOG, $PDOException->getMessage());
+      handlePDOException($PDOException);
       self::notify("Update ingredient failed casued by: " . $PDOException->getMessage());
       return false;
     }

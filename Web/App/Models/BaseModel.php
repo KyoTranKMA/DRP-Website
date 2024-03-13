@@ -42,79 +42,11 @@ class BaseModel  {
             return false;
         } 
     }
-    
-    
-    // Method common for get all for Models
-    static public function all($table, $selectRow, $limit = 5, $fetchMode = \PDO::FETCH_ASSOC)
-    {
-        $selectRow = implode(',', $selectRow); // Convert from array to string
-        $sql = "select {$selectRow} from {$table} limit  {$limit}";
-        $query = self::query($sql, $fetchMode);
-        return $query;
-    }
-    
-    // Method common for get all for Models
-    static public function showById($table, $id)
-    {
-        $sql = "select * from {$table} where id=:$id ";
-        $query = self::query($sql, \PDO::FETCH_ASSOC, [':id' => $id]);
-        return $query;
-    }
-    
-    static public function getByName($table, $name, $limit = 5)
-    {
-        $sql = "select * from :table where name=:name in natural language mode limit :limit";
-        $query = self::query($sql, \PDO::FETCH_ASSOC, [':name' => $name, ':limit' => $limit, ':table' => $table]);
-        return $query;
-    }
 
-    // Method common for find by id for Models
-    static public function find($table, $id)
-    {
-        $sql = "select * from {$table} where id=:$id limit 1";
-        $query = self::query($sql, \PDO::FETCH_ASSOC, [':id' => $id]);
-        return $query;
-    }
-    // Method common for check data for Models
-    static public function check($table, $field, $data)
-    {
+    static public function check($table, $field, $data) {
         $sql = "select * from {$table} where {$field}=:data limit 1";
         $result = self::query($sql, \PDO::FETCH_ASSOC, [':data' => $data]);
         return !empty($result);
     }
-    // Method common for add data for Models
-    static public function create($table, $data = [])
-    {
-        $columns = implode(',', array_keys($data));
-        $values = implode(',', array_fill(0, count($data), '?'));
-
-        $sql = "insert into {$table} ({$columns}) values ({$values})";
-        return self::query($sql, \PDO::FETCH_ASSOC, array_values($data));
-
-    }
-
-    static public function update($table, $id, $data)
-    {
-        $sql = '.';
-        $dataSets = [];
-        foreach($data as $key => $val)
-        {
-            $dataSets[] = "{$key} = ?";
-        }
-        $dataString = implode(',', $dataSets);
-
-        $sql = "update {$table} set {$dataString} where id= ?";
-        $dataValues = array_values($data);
-        $dataValues[] = $id;
-
-        return self::query($sql, \PDO::FETCH_ASSOC, $dataValues);
-    }
-
-    static public function delete($table, $id)
-    {
-        $sql = "delete from {$table} where id = ?";
-        return self::query($sql, \PDO::FETCH_ASSOC, [$id]);
-    }
-
 
 }  

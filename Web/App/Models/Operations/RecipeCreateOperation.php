@@ -53,14 +53,14 @@ class RecipeCreateOperation extends DatabaseRelatedOperation implements I_Create
     try {
       self::validateData($data);
     } catch (\InvalidArgumentException $InvalidArgumentException) {
-      Logger::logError(ERROR_LOG, $InvalidArgumentException->getMessage());
+      handleException($InvalidArgumentException);
       self::notify("Add recipe failed casued by: " . $InvalidArgumentException->getMessage());
       return false;
     }
     try {
       self::saveToDatabase($data);
     } catch (\PDOException $PDOException) {
-      Logger::logError(DB_RELATED_LOG, $PDOException->getMessage());
+      handlePDOException($PDOException);
       self::notify("Add recipe failed casued by: " . $PDOException->getMessage());
       return false;
     }
