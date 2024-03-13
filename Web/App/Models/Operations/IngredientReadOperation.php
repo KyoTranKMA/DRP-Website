@@ -3,7 +3,7 @@ namespace App\Operations;
 use App\Core\Logger;
 use App\Models\IngredientModel;
 
-class IngredientReadOperation extends DatabaseRelatedOperation implements ReadOperation {
+class IngredientReadOperation extends DatabaseRelatedOperation implements I_ReadOperation {
   public function __construct() {
     parent::__construct();
   }
