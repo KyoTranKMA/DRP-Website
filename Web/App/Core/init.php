@@ -39,11 +39,17 @@ function handleException($exception)
 {
   $backtrace = $exception->getTraceAsString(); // get the call stack as a string
   Logger::logError(EXCEPTION_LOG, "Uncaught Exception: " . $exception->getMessage() . "\nCall Stack:\n$backtrace");
+
+  // Don't halt the script execution
+  return true;
 }
 function handlePDOException($exception)
 {
   $backtrace = $exception->getTraceAsString(); // get the call stack as a string
   Logger::logError(DB_RELATED_LOG, "Uncaught Exception: " . $exception->getMessage() . "\nCall Stack:\n$backtrace");
+
+  // Don't halt the script execution
+  return true;
 }
 function handleFatalError()
 {
@@ -56,6 +62,7 @@ function handleFatalError()
     $errorType = getErrorType($errno);
     Logger::logError(FATAL_ERROR_LOG, "$errorType: [$errno] $errstr - $errfile:$errline");
   }
+  return true;
 }
 function getErrorType($errno)
 {
