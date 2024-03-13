@@ -50,20 +50,26 @@ class IngredientController extends BaseController
     }
 
     public function editUI() {
-        // $this->loadView('ingredient.find_by_name_form');
-        // list danh sách các nguyên liệu hoac tim kiem nguyen lieu theo ten nguyen lieu
-        // view nhap ten nguyen lieu va hien ra cac ket qua tim kiem
-        // sau khi chon nguyen lieu can sua thi chuyen den trang sua nguyen lieu dua tren id
-        // $data = $_POST['name'];
-        // $ingredients = IngredientReadOperation::getAllObjectsByFieldAndValue('name', $data);
-        // if(!isset($ingredients)) 
-        //     echo \App\Views\ViewRender::errorViewRender('410'); 
-        // else $this->loadView('ingredient.select_edit', $ingredients);
-        // $id = $_GET['id'];
-        // $ingredient = IngredientReadOperation::getSingleObjectById($id);
-        $ingredient = IngredientReadOperation::getSingleObjectById(1);
-        $data[] = $ingredient; 
-        return $this->loadView('ingredient.update', $data);
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['name'])) {
+            // Xử lý form tìm kiếm theo tên nguyên liệu
+            $data = $_POST['name'];
+            $ingredients = IngredientReadOperation::getAllObjectsByFieldAndValue('name', $data);
+            if (!isset($ingredients)) {
+                echo \App\Views\ViewRender::errorViewRender('410');
+            } else {
+                $this->loadView('ingredient.select_edit', $ingredients);
+            }
+        } else {
+            $this->loadView('ingredient.find_by_name_frm');
+        }
+        
+        // Kiểm tra nếu tồn tại tham số 'id' trong URL
+        if (isset($_GET['id'])) {
+            // Lấy thông tin nguyên liệu dựa trên ID
+            $id = $_GET['id'];
+            $ingredient = IngredientReadOperation::getSingleObjectById($id);
+            return $this->loadView('ingredient.update', $ingredient);
+        }
     }
 
     public function edit() {
