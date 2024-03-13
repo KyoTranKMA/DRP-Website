@@ -37,7 +37,7 @@ class  IngredientUpdateOperation extends DatabaseRelatedOperation implements I_C
       }
     }
 
-    if (!preg_match('/^[a-zA-Z0-9]+$/', $data['name'])) {
+    if (!preg_match('/^[a-zA-Z0-9\s.,]+$/', $data['name'])) {
       throw new \InvalidArgumentException(self::MSG_DATA_ERROR . __METHOD__ . '. ');
     }
 
@@ -51,7 +51,8 @@ class  IngredientUpdateOperation extends DatabaseRelatedOperation implements I_C
   }
 
   static public function saveToDatabase($data) {
-    $conn = new static();
+    $model = new static();
+    $conn = $model->DB_CONNECTION;
     if ($data === null) { $data = $_POST; }
 
     if ($conn === null) {
@@ -59,15 +60,22 @@ class  IngredientUpdateOperation extends DatabaseRelatedOperation implements I_C
     }
 
     
-    $sql = "update ingredients set name = :name, category = :category, calcium = :calcium, 
+    if (!isset($data['id'])) {
+      throw new \InvalidArgumentException("Missing 'id' key in data array.");
+    }
+    if (!isset($data['name'])) {
+      throw new \InvalidArgumentException("Invalid 'id' value in data array.");
+    }
+
+    $sql = "UPDATE ingredients SET name = :name, category = :category, calcium = :calcium, 
             calories = :calories, carbohydrate = :carbohydrate, cholesterol = :cholesterol, 
             fiber = :fiber, iron = :iron, fat = :fat, monounsaturated_fat = :monounsaturated_fat, 
             polyunsaturated_fat = :polyunsaturated_fat, saturated_fat = :saturated_fat, 
             potassium = :potassium, protein = :protein, sodium = :sodium, sugar = :sugar, 
-            vitamin_a = :vitamin_a, vitamin_c = :vitamin_c where id = :id";
-
+            vitamin_a = :vitamin_a, vitamin_c = :vitamin_c WHERE id = :id";
 
     self::query($sql, $conn, \PDO::FETCH_ASSOC, [ 
+      'id' => $data['id'],
       'name' => $data['name'],
       'category' => $data['category'],
       'calcium' => $data['calcium'] ?? 0,

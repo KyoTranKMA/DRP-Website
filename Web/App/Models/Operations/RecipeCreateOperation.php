@@ -14,7 +14,10 @@ class RecipeCreateOperation extends DatabaseRelatedOperation implements I_Create
     $cate1 = ['Breakfast','Lunch','Dinner'];
     $cate2 = ['Appetizer','Main Dish','Side Dish','Dessert'];
     $cate3 = ['Baked','Salad and Salad Dressing','Sauce and Condiment','Snack','Beverage','Soup','Other'];
-    if (empty($data['name']) || !preg_match('/^[a-zA-Z]+$/', $data['name']) ||
+    if (!preg_match('/^[a-zA-Z0-9\s.,]+$/', $data['name'])) {
+      throw new \InvalidArgumentException(self::MSG_DATA_ERROR . __METHOD__ . '. ');
+    }
+    if (empty($data['name']) || !preg_match('/^[a-zA-Z0-9\s.,]+$/', $data['name']) ||
         empty($data['description']) || 
         empty($data['image_url']) || 
         empty($data['preparation_time']) || 

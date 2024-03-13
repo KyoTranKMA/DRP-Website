@@ -41,7 +41,7 @@ class IngredientCreateOperation extends DatabaseRelatedOperation implements I_Cr
       }
     }
 
-    if (!preg_match('/^[a-zA-Z0-9]+$/', $data['name'])) {
+    if (!preg_match('/^[a-zA-Z0-9\s.,]+$/', $data['name'])) {
       throw new \InvalidArgumentException(self::MSG_DATA_ERROR . __METHOD__ . '. ');
     }
 
