@@ -11,7 +11,7 @@ $(document).ready(function () {
             },
             password: {
                 required: true,
-                minlength: 6,
+                minlength: 7,
                 maxlength: 255,
                 containUppercaseAndNumber: true
             },
@@ -46,6 +46,7 @@ $(document).ready(function () {
             error.insertAfter(element);
         }
     });
+
 
     $.validator.addMethod("containUppercaseAndNumber", function(value, element) {
         return this.optional(element) || /^(?=.*[A-Z])(?=.*\d).*$/.test(value);

@@ -98,7 +98,8 @@ use App\Controllers\UserController;
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- Include jQuery Validate plugin -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
-    <script src="/Public/js/jquery-validate.js"></script>
+    <script src="/Public/js/jquery-validate-signup.js"></script>
+    <script src="/Public/js/jquery-validate-login.js"></script>
     
     
 </body>
