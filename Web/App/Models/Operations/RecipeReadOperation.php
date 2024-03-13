@@ -77,7 +77,6 @@ class RecipeReadOperation extends DatabaseRelatedOperation implements I_ReadOper
     }
     return false;
   }
-
   static public function getIngredientDetailsByRecipeId(int $recipeId) {
     try {
       $model = new static();
