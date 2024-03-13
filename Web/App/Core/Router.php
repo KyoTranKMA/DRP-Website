@@ -8,18 +8,19 @@ class Router
 {
     protected $routes = [];
 
-    private function add($method, $uri, $controller)
+    private function add($method, $uri, $controller, $params = [])
     {
         $this->routes[] = [
             'method' => $method,
             'uri' => $uri,
-            'controller' => $controller
+            'controller' => $controller,
+            'params' => $params
         ];
     }
 
-    public function get($uri, $controller)
+    public function get($uri, $controller, $params = [])
     {
-        $this->add('GET', $uri, $controller);
+        $this->add('GET', $uri, $controller, $params);
     }
 
     public function post($uri, $controller)
@@ -44,14 +45,21 @@ class Router
     public function route($uri, $method)
     {
         foreach ($this->routes as $route) {
-            if ($route['uri'] == $uri && $route['method'] == strtoupper($method)) {
-                $controller_action = $route['controller'];
-                list($controller, $action) = explode('@', $controller_action);
+            if ($route['method'] == strtoupper($method)) {
+                $pattern = preg_replace('/\/{(.*?)}/', '/(.*?)', $route['uri']);
+                if (preg_match('#^' . $pattern . '$#', $uri, $matches)) {
+                    $controller_action = $route['controller'];
+                    list($controller, $action) = explode('@', $controller_action);
 
-                $controller = "App\\Controllers\\$controller";
-                $controller_instance = new $controller();
-                $controller_instance->$action();
-                return;
+                    $controller = "App\\Controllers\\$controller";
+                    $controller_instance = new $controller();
+
+                    // Pass parameters to controller action
+                    $params = array_slice($matches, 1);
+                    call_user_func_array([$controller_instance, $action], $params);
+
+                    return;
+                }
             }
         }
 

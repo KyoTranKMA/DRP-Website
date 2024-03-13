@@ -1,6 +1,7 @@
 <?php
 
 // homepage router
+$router->get('/', 'HomeController@index');
 $router->get('/index', 'HomeController@index');
 $router->get('/homepage', 'HomeController@homePage');
 

@@ -12,6 +12,7 @@ require_once(ROOT_PATH . '/Config/routes.php');
 // Get URI and parse URI from Server
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
+
 // Get methods from Server
 $method = $_SERVER['REQUEST_METHOD'];
 // Route to the URI
