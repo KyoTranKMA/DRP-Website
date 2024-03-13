@@ -1,10 +1,20 @@
 <!DOCTYPE html>
 <html>
+
+
+<head>
+  <style>
+      .error-message {
+      color: #ff4d4d;
+      font-size: 14px;
+      }
+  </style>
+</head>
 <body>
 
 <h2>Ingredient Form</h2>
 
-<form action="/ingredient/add" method="post">
+<form id="ingredient-form" action="/ingredient/add" method="post">
   <label for="id">ID:</label><br>
   <input type="number" id="id" name="id"><br>
   <label for="category">Category:</label><br>
@@ -65,6 +75,10 @@
   <input type="number" id="vitamin_c" name="vitamin_c" step="0.01"><br>
   <button type="submit" name="login">Upload</button>
 </form> 
-
+    <!-- Include jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Include jQuery Validate plugin -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
+    <script src="/Public/js/validate-ingredients.js"></script>
 </body>
 </html>
