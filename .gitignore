@@ -5,4 +5,6 @@ db_config.php
 .vscode
 /Code_Diagram 
 /Web/App/test.php
-/Web/Journal
+/Web/Journal/database-related.log
+/Web/Journal/errors.log
+/Web/Journal/exceptions.log
