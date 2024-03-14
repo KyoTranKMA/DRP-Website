@@ -79,7 +79,7 @@ use App\Controllers\UserController;
 </head>
 
 <body>
-  <div class="page">
+  <div class="header">
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e1ebfa;">
       <!-- Container wrapper -->
       <div class="container-fluid">
@@ -139,3 +139,4 @@ use App\Controllers\UserController;
       <!-- Container wrapper -->
     </nav>
     <!-- Navbar -->
+  </div>
