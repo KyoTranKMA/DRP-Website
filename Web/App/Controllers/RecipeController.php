@@ -12,8 +12,8 @@ require($_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php');
 class RecipeController extends BaseController 
 {
     public function index() {
-        $recipes = RecipeReadOperation::getAllObjects();
-        $this->loadView('recipe.recipe_view', $recipes);
+        $recipe = RecipeReadOperation::getAllObjects();
+        $this->loadView('recipe.recipe', $recipe);
     }
     public function findByID()
     {
