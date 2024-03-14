@@ -21,7 +21,6 @@ class DatabaseRelatedOperation {
     if (!empty($params))
       foreach ($params as $key => $value)
         $stmt->bindValue($key, $value);
-
     /**
      * execute the statement
      */

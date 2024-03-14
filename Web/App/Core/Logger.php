@@ -5,7 +5,7 @@ class Logger{
     if (!file_exists($logFile)) {
       $file = fopen($logFile, 'w');
       if ($file === false) {
-          die('Unable to create log file.');
+        die('Unable to create log file.');
       }
       fclose($file);
     }

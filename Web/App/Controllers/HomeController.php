@@ -1,7 +1,6 @@
 <?php 
 namespace App\Controllers;
-
-use App\Models\UserModel;
+use App\Operations\RecipeReadOperation;
 
 require_once($_SERVER['DOCUMENT_ROOT'] . '/App/Core/init.php');
 class HomeController extends BaseController
@@ -16,7 +15,9 @@ class HomeController extends BaseController
     }
     public static function homePage()
     {
-        return parent::loadView('pages.homepage');
+        $ingredients = RecipeReadOperation::getObjectWithOffset();
+
+        return parent::loadView('pages.homepage', $ingredients);
     }
 
     public static function adminUser()

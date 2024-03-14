@@ -3,7 +3,7 @@
 <div class="homepage">
     <div class="container mb-3">
         <div class="content d-flex justify-content-between align-items-center mt-3">
-            <? $mainRecipe = $data[1]; ?>
+            <? $mainRecipe = $data[0]; ?>
             <div class="main-content">
                 <div class="card" style="width: 40rem;">
                     <a href="#">

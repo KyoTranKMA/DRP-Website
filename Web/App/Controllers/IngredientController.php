@@ -9,7 +9,6 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/App/Core/init.php');
 
 class IngredientController extends BaseController
 {
-
     public function index() {
         $ingredients = IngredientReadOperation::getAllObjects();
         return $this->loadView('ingredient.list_all', $ingredients);
@@ -46,6 +45,11 @@ class IngredientController extends BaseController
         header("Location: /ingredient/add");
     }
 
+
+    public function findByName(){
+        return $this->loadView('ingredient.find_ingredient');
+    }
+
     public function editUI() {
         try {
             // $this->loadView('ingredient.find_by_name_form');
@@ -77,6 +81,6 @@ class IngredientController extends BaseController
     public function edit() {
         $data = $_POST;
         IngredientUpdateOperation::execute($data);
-        header("Location: /ingredient/editUI");
+        header("Location: /ingredient/edit");
     }
 }
