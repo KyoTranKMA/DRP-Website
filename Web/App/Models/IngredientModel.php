@@ -55,29 +55,29 @@ class IngredientModel extends BaseModel {
   public function setNutritionComponents($nutritionComponents) {
     $this->nutritionComponents = $nutritionComponents;
   }
-  static public function createIngredientFromRow($row) {
-    $ingredient = new IngredientModel();
-    $ingredient->setID($row['id']);
-    $ingredient->setName($row['name']);
-    $ingredient->setCategory($row['category']);
-    $ingredient->setMeasurementDescription($row['measurement_description']);
+  static public function createObjectByRawArray($data) {
+    $ingredient = new self();
+    $ingredient->setID($data['id']);
+    $ingredient->setName($data['name']);
+    $ingredient->setCategory($data['category']);
+    $ingredient->setMeasurementDescription($data['measurement_description']);
     $nutritionComponents = [
-      'calcium' => $row['calcium'],
-      'calories' => $row['calories'],
-      'carbohydrate' => $row['carbohydrate'],
-      'cholesterol' => $row['cholesterol'],
-      'fiber' => $row['fiber'],
-      'iron' => $row['iron'],
-      'fat' => $row['fat'],
-      'monounsaturated_fat' => $row['monounsaturated_fat'],
-      'polyunsaturated_fat' => $row['polyunsaturated_fat'],
-      'saturated_fat' => $row['saturated_fat'],
-      'potassium' => $row['potassium'],
-      'protein' => $row['protein'],
-      'sodium' => $row['sodium'],
-      'sugar' => $row['sugar'],
-      'vitamin_a' => $row['vitamin_a'],
-      'vitamin_c' => $row['vitamin_c'],
+      'calcium' => $data['calcium'],
+      'calories' => $data['calories'],
+      'carbohydrate' => $data['carbohydrate'],
+      'cholesterol' => $data['cholesterol'],
+      'fiber' => $data['fiber'],
+      'iron' => $data['iron'],
+      'fat' => $data['fat'],
+      'monounsaturated_fat' => $data['monounsaturated_fat'],
+      'polyunsaturated_fat' => $data['polyunsaturated_fat'],
+      'saturated_fat' => $data['saturated_fat'],
+      'potassium' => $data['potassium'],
+      'protein' => $data['protein'],
+      'sodium' => $data['sodium'],
+      'sugar' => $data['sugar'],
+      'vitamin_a' => $data['vitamin_a'],
+      'vitamin_c' => $data['vitamin_c'],
     ];
     $ingredient->setNutritionComponents($nutritionComponents);
     return $ingredient;

@@ -5,7 +5,7 @@ use App\Core\Database;
 require_once($_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php');
 
 
-class BaseModel  {
+abstract class BaseModel {
     private $DB_CONNECTION;
 
     public function __construct() {
@@ -48,5 +48,7 @@ class BaseModel  {
         $result = self::query($sql, \PDO::FETCH_ASSOC, [':data' => $data]);
         return !empty($result);
     }
+
+    static abstract public function createObjectByRawArray($data);
 
 }  
