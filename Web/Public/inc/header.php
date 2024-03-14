@@ -139,3 +139,5 @@ use App\Controllers\UserController;
       <!-- Container wrapper -->
     </nav>
     <!-- Navbar -->
+  </div>
+</body>
