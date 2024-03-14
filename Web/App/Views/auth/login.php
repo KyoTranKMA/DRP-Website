@@ -77,7 +77,9 @@ use App\Controllers\UserController;
             <div class="toggle">
                 <div class="toggle-panel toggle-right"> 
                     <h1>Welcome Back!</h1>
-                    <img src="/Public/images/logo.png" alt="" style="height:100px" >
+                    <a href="/homepage">
+                        <img src="/Public/images/logo.png" alt="" style="height:100px" >
+                    </a>
                     <h3>PaPals - Enjoy your meals</h3>
                 <p>Sign in to your account to continue.</p>
                 <button class="hidden" id="register">Sign up</button>
@@ -85,7 +87,9 @@ use App\Controllers\UserController;
             
             <div class="toggle-panel toggle-left"> 
                 <h1>Welcome to Palpals!</h1>
-                <img src="/Public/images/logo.png" alt="" style="height:100px" >
+                <a href="/homepage">
+                    <img src="/Public/images/logo.png" alt="" style="height:100px" >
+                </a>
                 <p>Register to be a part of us for much more site features.</p>
                 <button class="hidden" id="login">Sign in</button>
                 </div>
