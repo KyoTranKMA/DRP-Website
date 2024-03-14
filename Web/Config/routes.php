@@ -28,6 +28,7 @@ $router->get('/ingredient/list','IngredientController@listAll');
 $router->get('/ingredient/list-by-category','IngredientController@listByCategory');
 $router->get('/ingredient/add','IngredientController@addUI');
 $router->post('/ingredient/add','IngredientController@add');
+$router->get('/ingredient/find','IngredientController@findByName');
 $router->get('/ingredient/edit','IngredientController@editUI');
 $router->post('/ingredient/edit','IngredientController@edit');
 $router->get('/ingredient/delete','IngredientController@delete');

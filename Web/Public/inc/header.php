@@ -17,6 +17,30 @@ use App\Controllers\UserController;
   <link rel="icon" type="image/x-icon" href="/Public/images/logo.png">
   <title>PaPals-Enjoy your meals</title>
   <style>
+    p {
+      margin: 0.25rem;
+    }
+
+    .page {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    .page .header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+
+    .page .footer {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+
     .divider:after,
     .divider:before {
       content: "";
@@ -51,74 +75,67 @@ use App\Controllers\UserController;
       font-size: 15px
     }
   </style>
+
 </head>
 
 <body>
-  <!-- <div class="loader_container">
-    <span class="loader">Loading....</span>
-  </div> -->
-  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e1ebfa;">
-    <!-- Container wrapper -->
-    <div class="container-fluid">
-      <!-- Toggle button -->
-      <button data-mdb-collapse-init class="navbar-toggler" type="button" data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <i class="fas fa-bars"></i>
-      </button>
+  <div class="page">
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e1ebfa;">
+      <!-- Container wrapper -->
+      <div class="container-fluid">
+        <!-- Toggle button -->
+        <button data-mdb-collapse-init class="navbar-toggler" type="button" data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="fas fa-bars"></i>
+        </button>
 
-      <!-- Collapsible wrapper -->
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <!-- Navbar brand -->
-        <a class="navbar-brand mt-2 mt-lg-0" href="#">
-          <img src="/Public/images/logo.png" height="50" alt="PaPals" loading="lazy" />
-          <h3>PaPals</h3>
-        </a>
-        <!-- Left links -->
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="font-size:16px">
-          <li class="nav-item">
-            <a class="nav-link" href="/homepage">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Blogs</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Recipes</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Post</a>
-          </li>
-        </ul>
-        <!-- Left links -->
-      </div>
-      <!-- Collapsible wrapper -->
+        <!-- Collapsible wrapper -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <!-- Navbar brand -->
+          <a class="navbar-brand mt-2 mt-lg-0" href="#">
+            <img src="/Public/images/logo.png" height="50" alt="PaPals" loading="lazy" />
+            <h3>PaPals</h3>
+          </a>
+          <!-- Left links -->
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="font-size:16px">
+            <li class="nav-item">
+              <a class="nav-link" href="/homepage">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Blogs</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Recipes</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Post</a>
+            </li>
+          </ul>
+          <!-- Left links -->
+        </div>
+        <!-- Collapsible wrapper -->
 
-      <!-- Right elements -->
+        <!-- Right elements -->
 
-      <?php
-      // Kiểm tra xem đã đăng nhập chưa            
-      if (UserController::isLoggedIn()) {
-        // Nếu đã đăng nhập, hiển thị nút logout và account
-      ?>
-        <div class="d-flex align-items-center">
-          <img src="/Public/images/account.png" id="user" class="rounded-circle me-3 account hide" height="30" alt="Black and White Portrait of a Man" />
+        <?php
+        // Kiểm tra xem đã đăng nhập chưa            
+        if (UserController::isLoggedIn()) :
+          // Nếu đã đăng nhập, hiển thị nút logout và account
+        ?>
           <div class="d-flex align-items-center">
-            <a href="/logout" class="btn btn-primary btn-xs " tabindex="-1" role="button" aria-disabled="true">Logout</a>
+            <img src="/Public/images/account.png" id="user" class="rounded-circle me-3 account hide" height="30" alt="Black and White Portrait of a Man" />
+            <div class="d-flex align-items-center">
+              <a href="/logout" class="btn btn-primary btn-xs " tabindex="-1" role="button" aria-disabled="true">Logout</a>
+            </div>
           </div>
-        </div>
-      <?php
-      } else {
-        // Nếu chưa đăng nhập, hiển thị nút login
-      ?>
-        <div class="d-flex align-items-center">
-          <a href="/login" class="btn btn-primary btn-xs " tabindex="-1" role="button" aria-disabled="true">Login</a>
-        </div>
-      <?php
-      }
-      ?>
-      </a>
-    </div>
-    </div>
-    <!-- Right elements -->
-    </div>
-    <!-- Container wrapper -->
-  </nav>
-  <!-- Navbar -->
+        <?php else : // Nếu chưa đăng nhập, hiển thị nút login
+        ?>
+          <div class="d-flex align-items-center">
+            <a href="/login" class="btn btn-primary btn-xs " tabindex="-1" role="button" aria-disabled="true">Login</a>
+          </div>
+        <?php endif; ?>
+        </a>
+        <!-- Right elements -->
+      </div>
+      <!-- Container wrapper -->
+    </nav>
+    <!-- Navbar -->
