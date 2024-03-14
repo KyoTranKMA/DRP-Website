@@ -66,7 +66,7 @@ class RecipeModel extends BaseModel {
         $object->setId($data['id']);
         $object->setName($data['name']);
         $object->setDescription($data['description']);
-        $object->setImgUrl($data['image_url']);
+        $object->setImgUrl($data['image_url'] ?? "image_not_found.png");
         $object->setPreparationTime($data['preparation_time_min']);
         $object->setCookingTime($data['cooking_time_min']);
         $object->setDirection($data['directions']);

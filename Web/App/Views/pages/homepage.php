@@ -7,7 +7,7 @@
             <div class="main-content">
                 <div class="card" style="width: 40rem;">
                     <a href="#">
-                        <img src="/Public/uploads/recipes/<?echo $mainRecipe->getImgUrl() ?? "image.png" ; ?>" class="card-img-top" alt="Picture of meal" style="object-fit: cover; height:30rem">
+                        <img src="/Public/uploads/recipes/<?echo $mainRecipe->getImgUrl() ?? "image_not_found.png" ; ?>" class="card-img-top" alt="Picture of meal" style="object-fit: cover; height:30rem">
                     </a>
                     <div class="card-body">
                         <h5 class="card-title"><? echo $mainRecipe->getName() ?></h5>
@@ -22,7 +22,7 @@
                 <div class="card mb-3" style="max-width: 540px;">
                     <div class="row g-0">
                         <div class="col-md-4">
-                            <img src="/Public/uploads/recipes/<?echo $recipe->getImgUrl()?>" class="card-img-bottom" alt="Picture of meal" style="object-fit: cover; height:12rem">
+                            <img src="/Public/uploads/recipes/<?echo $recipe->getImgUrl()?? "image_not_found.png"?>" class="card-img-bottom" alt="Picture of meal" style="object-fit: cover; height:12rem">
                         </div>
                         <div class="col-md-8">
                             <div class="card-body">
