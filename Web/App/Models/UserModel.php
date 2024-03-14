@@ -122,7 +122,6 @@ class UserModel extends BaseModel
             $stmt->bindValue(':password', $data['password'], \PDO::PARAM_STR);
             $stmt->bindValue(':email', $data['email'], \PDO::PARAM_STR);
             $stmt->bindValue(':level', 3, \PDO::PARAM_INT);
-            $stmt->execute();
             return $stmt->execute();
         } catch(PDOException $e){
             echo $e->getMessage();
