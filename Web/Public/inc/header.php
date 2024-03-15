@@ -74,15 +74,6 @@ use App\Controllers\UserController;
     .navbar-nav .nav-link {
       font-size: 15px
     }
-    /* .header{
-      position: fixed;
-      top: 0;
-      right: 0;
-      left: 0;
-    } */
-    /* .magrin-10{
-      margin-bottom: 20px
-    } */
   </style>
 
 </head>
@@ -104,13 +95,13 @@ use App\Controllers\UserController;
           <!-- Left links -->
           <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="font-size:16px">
             <li class="nav-item">
-              <a class="nav-link" href="/homepage">Home</a>
+              <a class="m-2" href="/homepage">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/recipe">Recipe</a>
+              <a class="m-2" href="/recipe">Recipe</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/ingredient">Ingredients</a>
+              <a class="m-2" href="/ingredient">Ingredients</a>
             </li>
           </ul>
           <!-- Left links -->

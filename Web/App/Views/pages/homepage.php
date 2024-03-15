@@ -19,10 +19,10 @@
             <?php array_shift($data); ?>
             <div class="nav-content flex-fill ms-3">
                 <? foreach ($data as $recipe):?>
-                <div class="card mb-3" >
+                <a href="#" class="card mb-3" >
                     <div class="row g-0">
                         <div class="col-md-4">
-                            <img src="/Public/uploads/recipes/<?echo $recipe->getImgUrl()?? "image_not_found.png"?>" class="card-img-bottom" alt="Picture of meal" style="object-fit: cover; height:12rem">
+                            <img src="/Public/uploads/recipes/<?echo $recipe->getImgUrl()?? "no_image.jpg"?>" class="card-img-bottom" alt="Picture of meal" style="object-fit: cover; height:12rem">
                         </div>
                         <div class="col-md-8">
                             <div class="card-body">
@@ -32,7 +32,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </a>
                 <?endforeach;?>
             </div>
         </div>
