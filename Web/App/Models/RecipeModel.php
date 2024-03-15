@@ -65,15 +65,15 @@ class RecipeModel extends BaseModel {
         $object = new self();
         $object->setId($data['id']);
         $object->setName($data['name']);
-        $object->setDescription($data['description']);
-        $object->setImgUrl($data['image_url'] ?? "image_not_found.png");
-        $object->setPreparationTime($data['preparation_time_min']);
-        $object->setCookingTime($data['cooking_time_min']);
-        $object->setDirection($data['directions']);
-        $object->setMealType1($data['meal_type_1']);
-        $object->setMealType2($data['meal_type_2']);
-        $object->setMealType3($data['meal_type_3']);
-        $object->setTimestamp($data['timestamp']);
+        $object->setDescription($data['description'] ?? "Unknown");
+        $object->setImgUrl($data['image_url'] ?? null);
+        $object->setPreparationTime($data['preparation_time_min'] ?? "Unknown");
+        $object->setCookingTime($data['cooking_time_min'] ?? "Unknown");
+        $object->setDirection($data['directions'] ?? "Unknown");
+        $object->setMealType1($data['meal_type_1'] ?? "Unknown");
+        $object->setMealType2($data['meal_type_2'] ?? "Unknown");
+        $object->setMealType3($data['meal_type_3'] ?? "Unknown");
+        $object->setTimestamp($data['timestamp'] ?? "Unknown");
         return $object;
     }
 }

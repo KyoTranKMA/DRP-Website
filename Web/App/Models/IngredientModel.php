@@ -23,22 +23,22 @@ class IngredientModel extends BaseModel {
     $this->category = $category ?? '';
     $this->measurementDescription = $measurementDescription ?? '';
     $this->nutritionComponents = $nutritionComponents ?? [
-      'calcium' => null,
-      'calories' => null,
-      'carbohydrate' => null,
-      'cholesterol' => null,
-      'fiber' => null,
-      'iron' => null,
-      'fat' => null,
-      'monounsaturated_fat' => null,
-      'polyunsaturated_fat' => null,
-      'saturated_fat' => null,
-      'potassium' => null,
-      'protein' => null,
-      'sodium' => null,
-      'sugar' => null,
-      'vitamin_a' => null,
-      'vitamin_c' => null
+      'calcium' => 0,
+      'calories' => 0,
+      'carbohydrate' => 0,
+      'cholesterol' => 0,
+      'fiber' => 0,
+      'iron' => 0,
+      'fat' => 0,
+      'monounsaturated_fat' => 0,
+      'polyunsaturated_fat' => 0,
+      'saturated_fat' => 0,
+      'potassium' => 0,
+      'protein' => 0,
+      'sodium' => 0,
+      'sugar' => 0,
+      'vitamin_a' => 0,
+      'vitamin_c' => 0
     ];
   }
   public function getId() { return $this->id; }
