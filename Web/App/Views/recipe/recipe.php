@@ -6,28 +6,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/Public/css/style.css">
+    <style>
+        .header-space {
+            height: 40px;
+        }
+    </style>
     <title>Recipes</title>
 </head>
 
+
 <body>
+    <div class="header-space"></div>
     <div class="container">
         <div class="row" style="width: 100%;">
             <div class="d-flex flex-wrap justify-content-between" id="recipeContainer">
-                <?php foreach ($ajax_data as $recipe) : ?>
-                    <div class="card col-md-8" style="width: 18rem;" data-description="<?php echo $recipe['description']; ?>">
-                    <img src="<?php echo $data['image']; ?>" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h3 class="card-title" style="height: 56px;"><?php echo $recipe['name']; ?></h3>
-                            <div class="card-footer d-flex align-items-center" style="border: none; background-color: white; padding: 0;">
-                                <i class="fa-solid fa-clock-rotate-left"></i>
-                                <p style="margin: 0;padding-left: 8px;">32 mins ago</p>
-                            </div>
-                            <div class="rating">
-                            </div>
-                        </div>
-                    </div>
-                <?php endforeach; ?>
             </div>
         </div>
     </div>
