@@ -1,4 +1,3 @@
-<?  require_once ($_SERVER['DOCUMENT_ROOT'] . "Public/inc/header.php"); ?>
 <div class="content">
     <?php foreach($data as $recipe): ?>
         <div class="flip-card">
@@ -15,4 +14,3 @@
         </div>
     <?php endforeach; ?>
 </div>
-<? require_once ($_SERVER['DOCUMENT_ROOT'] . "Public/inc/footer.php"); ?>

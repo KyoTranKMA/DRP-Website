@@ -14,11 +14,8 @@ class IngredientController extends BaseController
         return $this->loadView('ingredient.list_all', $ingredients);
     }
     public function listByCategory() {
-        // $category = 'OTHR';
-        // $ingredients = IngredientReadOperation::getAllObjectsByFieldAndValue('category', $category);
-        // return $this->loadView('ingredient.list_all', $ingredients);
-        $name = 'lemon juice'; 
-        $ingredients = IngredientReadOperation::getAllObjectsByFieldAndValue('name', $name);
+        $category = $_GET['category'];
+        $ingredients = IngredientReadOperation::getAllObjectsByFieldAndValue('category', $category);
         if(! $ingredients == null) 
             return $this->loadView('ingredient.list_all', $ingredients);
         else
