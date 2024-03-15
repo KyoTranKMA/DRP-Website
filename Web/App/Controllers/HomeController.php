@@ -8,10 +8,9 @@ class HomeController extends BaseController
     public function index()
     {
         if ($_SESSION['level'] == 1){
-            return $this->adminUser();
-        } else {
-            return $this->homePage();
+            return $this->admin();
         }
+        return $this->homePage();
     }
     public static function homePage()
     {
@@ -20,9 +19,9 @@ class HomeController extends BaseController
         return parent::loadView('pages.homepage', $ingredients);
     }
 
-    public static function adminUser()
+    public static function admin()
     {
-        header("Location: /manager/user");
+        header("Location: /manager");
     }
 }
 
