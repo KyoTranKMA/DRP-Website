@@ -4,36 +4,39 @@ function viewRecipes(data) {
   var recipes = JSON.parse(data);
 
   // Container để chứa các thẻ công thức
-  var recipeContainer = $(".d-flex.flex-wrap.justify-content-between");
+  var recipeContainer = $(".d-flex.flex-wrap");
 
   // Duyệt qua mỗi công thức và thêm vào container
   $.each(recipes, function (index, recipe) {
     // Tạo thẻ div chứa thông tin của mỗi công thức
     var recipeDiv = $(
-      '<div class="card col-md-8 mb-4" style="width: 18rem;">' +
-        '<img src="/Public/uploads/recipes/' +
-        (recipe.image_url ? recipe.image_url : "image_not_found.png") +
-        '" class="card-img-top" alt="...">' +
-        '<div class="card-body">' +
-        '<h3 class="card-title">' +
-        recipe.name +
-        "</h3>" +
-        '<p class="card-text">' +
-        recipe.description +
-        "</p>" +
-        // Thêm data attribute để lưu trữ thông tin chi tiết của công thức
-        '<div class="card-details" style="display: none;" data-details=\'' +
-        JSON.stringify(recipe) +
-        "'></div>" +
-        '<div class="card-footer d-flex align-items-center" style="border: none; background-color: white; padding: 0;">' +
-        '<i class="fa-solid fa-clock-rotate-left"></i>' +
-        '<p style="margin: 0;padding-left: 8px;">' +
-        recipe.preparation_time_min +
-        " mins</p>" +
-        "</div>" +
-        '<div class="rating"></div>' + // Thẻ div để chứa rating
-        "</div>" +
-        "</div>"
+        '<div class="card col-md-8" style="width: 22.5%; height: 25rem; margin: 1rem 1.25%">' +
+          '<img src="/Public/uploads/recipes/' +
+          (recipe.image_url ? recipe.image_url : "image_not_found.png") +
+          '" class="card-img-top" alt="Picture of meal" style="object-fit: cover; height:12rem">' +
+          '<div class="card-content" style="height:10rem">'+
+            '<div class="card-body">' +
+            '<h3 class="card-title">' +
+            recipe.name +
+            "</h3>" +
+            '<p class="card-text">' +
+            recipe.description +
+            "</p>" +
+            // Thêm data attribute để lưu trữ thông tin chi tiết của công thức
+            '<div class="card-details" style="display: none;" data-details=\'' +
+            JSON.stringify(recipe) +
+            // "'></div>" +
+            // "'</div>"+
+          '<div class="card-footer d-flex align-items-center" style="border: none; background-color: white; padding: 0;">' +
+          '<i class="fa-solid fa-clock-rotate-left"></i>' +
+          '<p style="margin: 0;padding-left: 8px;">' +
+          recipe.preparation_time_min +
+          " mins</p>" +
+          "</div>" +
+          '<div class="rating"></div>' + // Thẻ div để chứa rating
+          "</div>" +
+          "</div>"+
+        '</div>'
     );
 
     // Thêm thẻ div vào container

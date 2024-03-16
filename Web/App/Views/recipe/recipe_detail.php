@@ -1,9 +1,9 @@
 <? require_once($_SERVER['DOCUMENT_ROOT'] . '/Public/inc/header.php'); ?>
 
-<div class="recipe_detail" style="position: relative;">
-    <div class="container">
-        <div class="row" style="width: 50%;">
-            <div class="d-flex flex-column m-3" style="width: 100%;">
+<div class="recipe_detail">
+    <div class="container mt-3" style="width:50%">
+        <div class="row">
+            <div class="d-flex flex-wrap flex-column justify-content-center" style="width: 100%;">
                 <h2 class="">You Need To Make My Mom’s 15-Minutes Creamed Tacos for Dinner</h2>
                 <p class="">It’s a family favorite, passed down from Mrs. Hays in the 1960s.</p>
                 <div class="author-info d-flex align-items-center">
@@ -17,7 +17,7 @@
                     class="meal-img card-img-top" 
                     alt="Picture of meal" 
                     style=" 
-                    width: 100%; aspec-ratio: 3/4;"
+                    width: 100%; aspect-ratio: 3/4;"
                 >
                 <div class="table-info">
                     <div class="title-table">RECIPE</div>
@@ -49,13 +49,6 @@
                 </div>        
             </div>
         </div>
-    </div>
-    <div class="trend-video-container">
-        <h4>Video Cooking ASMR</h4>
-        <iframe width="450" height="315" src="https://www.youtube.com/embed/INDUn1xc7WM?si=cKMYhkQiwPSHz9Sm"
-             title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; 
-             encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
-        </iframe>
     </div>
 </div>
 

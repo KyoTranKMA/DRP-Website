@@ -19,7 +19,7 @@
     <div class="header-space"></div>
     <div class="container">
         <div class="row" style="width: 100%;">
-            <div class="d-flex flex-wrap justify-content-between" id="recipeContainer">
+            <div class="d-flex flex-wrap justify-content-start" id="recipeContainer">
             </div>
         </div>
     </div>
