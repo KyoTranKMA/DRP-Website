@@ -3,12 +3,7 @@
 use App\Controllers\UserController;
 
     if(UserController::isLoggedIn()){
-        if ($_SESSION['level'] == 1){
-            header("Location: /manager/user");
-        } else {
-            header("Location: /index");
-        }
-        exit();
+        header("Location: /index");
     }
 ?>
 

@@ -2,7 +2,7 @@
 
 // homepage router
 $router->get('/', 'HomeController@homePage');
-$router->get('/index', 'HomeController@homePage');
+$router->get('/index', 'HomeController@index');
 $router->get('/homepage', 'HomeController@homePage');
 
 // user router
@@ -16,8 +16,11 @@ $router->get('/logout','UserController@logout');
 // $router->post('/user/edit','UserController@edit');
   
 // admin router
-$router->get('/manager/user', 'AdminController@userAccount');
-$router->post('/manager/user/setLevel', 'AdminController@setLevel');
+$router->get('/manager', 'AdminController@index');
+$router->get('/manager/user', 'AdminController@userManager');
+$router->post('/manager/user', 'AdminController@setLevel');
+$router->get('/manager/user/update', 'AdminController@userManagerUpdateUI');
+$router->post('/manager/user/update', 'AdminController@userManagerUpdate');
 $router->get('/manager/recipe', 'AdminController@recipeManager');
 $router->get('/manager/ingredient', 'AdminController@ingredientsManager');
 $router->get('/manager/recipe/add', 'AdminController@addRecipeUI');
@@ -36,6 +39,7 @@ $router->get('/ingredient/delete','IngredientController@delete');
 // recipe router
 
 $router->get('/recipe','RecipeController@index');
+$router->get('/recipe/{page}','RecipeController@getPaging');
 $router->get('/recipe/list','RecipeController@list_all');
 $router->get('/recipe/add','RecipeController@addUI');
 $router->post('/recipe/add','RecipeController@add');
