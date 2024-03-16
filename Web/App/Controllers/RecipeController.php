@@ -15,6 +15,9 @@ class RecipeController extends BaseController
         $recipe = RecipeReadOperation::getAllObjects();
         $this->loadView('recipe.recipe', $recipe);
     }
+    public function viewDetail(){
+        return $this->loadView('recipe.recipe_detail');
+    } 
     public function findByID()
     {
         $id = $_GET('id');  
