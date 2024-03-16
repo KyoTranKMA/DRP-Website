@@ -1,6 +1,9 @@
 <?php
 
 // homepage router
+
+use App\Controllers\AdminController;
+
 $router->get('/', 'HomeController@homePage');
 $router->get('/index', 'HomeController@index');
 $router->get('/homepage', 'HomeController@homePage');
@@ -21,6 +24,7 @@ $router->get('/manager/user', 'AdminController@userManager');
 $router->post('/manager/user', 'AdminController@setLevel');
 $router->get('/manager/user/update', 'AdminController@userManagerUpdateUI');
 $router->post('/manager/user/update', 'AdminController@userManagerUpdate');
+$router->post('/manager/user/add', 'AdminController@userManagerAdd');
 $router->get('/manager/recipe', 'AdminController@recipeManager');
 $router->get('/manager/ingredient', 'AdminController@ingredientsManager');
 $router->get('/manager/recipe/add', 'AdminController@addRecipeUI');

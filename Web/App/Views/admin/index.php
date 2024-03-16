@@ -1,3 +1,4 @@
+<? require($_SERVER['DOCUMENT_ROOT'] . "/Public/inc/header.php")?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +8,7 @@
     <title>Admin</title>
 </head>
 <body>
-    <div class="container">
+    <div class="container py-3">
       <div class="row">
         <div class="col-md-4">
           <div class="advert">
@@ -36,7 +37,9 @@
       </div>
     </div>
 
-    <a href="/logout" class="btn btn-primary" tabindex="-1" role="button">Logout</a>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <footer class="fixed-bottom">
+      <? require($_SERVER['DOCUMENT_ROOT'] . "/Public/inc/footer.php")?>  
+    </footer>    
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>

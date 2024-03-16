@@ -31,6 +31,12 @@ class AdminController extends BaseController{
         header("Location: /manager/user");
     }
 
+    public function userManagerAdd(){
+        $data = $_POST;
+        UserModel::addUser($data);
+        header("Location: /manager/user");
+    }
+
     public function setLevel(){
         if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['id'])){
             $data = $_POST;
