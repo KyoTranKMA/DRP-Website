@@ -31,6 +31,12 @@ class UserController extends BaseController
             $userModel = UserModel::authenticate($data);
             if($userModel){   
                 $_SESSION['logged_in'] = true;
+                if ($_SESSION['level'] == 4){
+                    echo '<script>
+                    alert("You are banning!, please try again or contact admin!");
+                    window.location.href = "/login";
+                    </script>';
+                }
                 header("Location: /index");
                 exit();
             } else {
@@ -57,15 +63,12 @@ class UserController extends BaseController
             alert("email already exist!");
             window.location.href = "/registery";
             </script>';
-        }
-        if ($userModel->checkUserName($data['username'])){
+        }else if ($userModel->checkUserName($data['username'])){
             echo '<script>
             alert("Username Already Existed");
             window.location.href = "/registery";
             </script>';
-        }
-
-        if(UserModel::addUser($data)){
+        }else if(UserModel::addUser($data)){
             echo '<script>
                 alert("Register Success!");
                 window.location.href = "/login";

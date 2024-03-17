@@ -8,21 +8,20 @@ class HomeController extends BaseController
     public function index()
     {
         if ($_SESSION['level'] == 1){
-            return $this->adminUser();
-        } else {
-            return $this->homePage();
+            return $this->admin();
         }
+        header("Location: /homepage");
     }
     public static function homePage()
     {
-        $ingredients = RecipeReadOperation::getObjectWithOffset(0,10);
+        $recipes = RecipeReadOperation::getObjectWithOffset(0,10);
 
-        return parent::loadView('pages.homepage', $ingredients);
+        return parent::loadView('pages.homepage', $recipes);
     }
 
-    public static function adminUser()
+    public static function admin()
     {
-        header("Location: /manager/user");
+        header("Location: /manager");
     }
 }
 

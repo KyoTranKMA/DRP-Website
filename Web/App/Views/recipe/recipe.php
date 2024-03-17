@@ -1,26 +1,48 @@
-<? require_once($_SERVER['DOCUMENT_ROOT'] . '/Public/inc/header.php'); ?>
-<div class="recipe">
+<?php require_once($_SERVER['DOCUMENT_ROOT'] . '/Public/inc/header.php'); ?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .header-space {
+            height: 40px;
+        }
+    </style>
+    <title>Recipes</title>
+</head>
+
+
+<body>
+    <div class="header-space"></div>
     <div class="container">
         <div class="row" style="width: 100%;">
-            <div class="d-flex flex-wrap justify-content-start m-3" style="width: 100%;">
-                <? foreach ($data as $recipe):?>
-                <a href="#" class="card col-md-8" style="width: 22.5%; height: 25rem; margin: 1rem 1.25%">
-                        <img src="<? echo ($recipe->getImgUrl()) ? "/Public/uploads/recipes/" . $recipe->getImgUrl() : "/Public/images/image_not_found.png"?>" 
-                        class="card-img-top" 
-                        alt="Picture of meal" 
-                        style="object-fit: cover; 
-                        height:12rem">
-                    <div class="card-body">
-                        <div class="card-content" style="height:10rem">
-                            <h4 class="card-title"><? echo htmlspecialchars($recipe->getName());?></h4>
-                            <p class="card-text"><? echo $recipe->getDescription()?></p> 
-                         </div>
-                        <p class="card-text"><small class="text-muted">Date: <? echo $recipe->getTimestamp() ?></small></p>
-                    </div>
-                </a>
-                <?endforeach;?>                
+            <div class="d-flex flex-wrap justify-content-start" id="recipeContainer">
             </div>
         </div>
     </div>
-</div>
-<? require_once($_SERVER['DOCUMENT_ROOT'] . '/Public/inc/footer.php'); ?>
+    <div class="row">
+        <button id="show" class="btn">OK</button>
+    </div>
+    <script src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="/Public/js/ajax.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Thêm sự kiện click cho thẻ .card
+            $('#recipeContainer').on('click', '.card', function() {
+                // Lấy mô tả từ thuộc tính data-description của thẻ .card
+                var description = $(this).data('description');
+
+                // Hiển thị mô tả đầy đủ
+                alert(description);
+            });
+        });
+    </script>
+
+</body>
+
+
+
+<?php require_once($_SERVER['DOCUMENT_ROOT'] . '/Public/inc/footer.php'); ?>

@@ -22,3 +22,53 @@ color: #666;
     background-color: rgb(230, 239, 239);
     border-style:groove;
 }
+
+/* recipe-detail.php */
+.trend-video-container {
+    position: fixed;
+    bottom: 4.8rem;
+    right: 0;
+}
+
+.table-info {
+    margin-top: 60px;
+    position: relative;
+    background: linear-gradient(to bottom,#ebf8f8 0,#fefefe 100%);
+}
+
+.title-table {
+    font-weight: 600;
+    font-size: 1.25rem;
+    border: dotted 1px red;
+    transform: translate(50%, -50%);
+    width: fit-content;
+    padding: 8px 12px;
+}
+
+.recipe-name {
+    font-weight: 500;
+    font-size: 1.5rem;
+    margin: -10px 1rem 10px;
+}
+
+.time-title {
+    font-weight: 700;
+    color: gray;
+    text-transform: uppercase;
+}
+
+.intruction > p {
+    text-align: justify;
+    margin-top: 20px;
+}
+
+.author-info {
+    margin: 12px 0;
+}
+
+.author-info > img {
+    height: 3rem;
+    border-radius: 50%;
+    aspect-ratio: 1/1;
+    margin-right: 12px;
+}

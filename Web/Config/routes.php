@@ -1,9 +1,15 @@
 <?php
 
 // homepage router
+
+use App\Controllers\AdminController;
+
 $router->get('/', 'HomeController@homePage');
-$router->get('/index', 'HomeController@homePage');
+$router->get('/index', 'HomeController@index');
 $router->get('/homepage', 'HomeController@homePage');
+
+// bmi router
+$router->get('/check-bmi', 'BmiController@index');
 
 // user router
 $router->get('/login','UserController@loginUI');
@@ -16,8 +22,12 @@ $router->get('/logout','UserController@logout');
 // $router->post('/user/edit','UserController@edit');
   
 // admin router
-$router->get('/manager/user', 'AdminController@userAccount');
-$router->post('/manager/user/setLevel', 'AdminController@setLevel');
+$router->get('/manager', 'AdminController@index');
+$router->get('/manager/user', 'AdminController@userManager');
+$router->post('/manager/user', 'AdminController@setLevel');
+$router->get('/manager/user/update', 'AdminController@userManagerUpdateUI');
+$router->post('/manager/user/update', 'AdminController@userManagerUpdate');
+$router->post('/manager/user/add', 'AdminController@userManagerAdd');
 $router->get('/manager/recipe', 'AdminController@recipeManager');
 $router->get('/manager/ingredient', 'AdminController@ingredientsManager');
 $router->get('/manager/recipe/add', 'AdminController@addRecipeUI');
@@ -37,14 +47,14 @@ $router->get('/ingredient/delete','IngredientController@delete');
 // recipe router
 
 $router->get('/recipe','RecipeController@index');
+$router->get('/recipes/{page}','PaginationController@getPagingRecipe');
 $router->get('/recipe/find-by-id','RecipeController@findByID');
 $router->get('/recipe/list','RecipeController@listByName');
 $router->get('/recipe/list-by-category','RecipeController@listByCategory');
 $router->get('/recipe/add','RecipeController@addUI');
 $router->post('/recipe/add','RecipeController@add');
-// $router->get('/recipe/add','RecipeController@addUI');
-// $router->post('/recipe/add','RecipeController@add');
-// $router->get('/recipe/edit','RecipeController@editUI');
-// $router->post('/recipe/edit','RecipeController@edit');
-// $router->post('/recipe/delete','RecipeController@delete');
+$router->get('/recipe/edit','RecipeController@editUI');
+$router->post('/recipe/edit','RecipeController@edit');
+$router->get('/recipe/delete','RecipeController@delete');
+$router->get('/recipe/show','RecipeController@viewDetail');
 $router->get('/recipe/search','RecipeController@search');

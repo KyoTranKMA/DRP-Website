@@ -28,7 +28,7 @@
                     </a>                    
                 </div>
                 <div class="mb-md-0">
-                    <a href="https://hebekery.vn/cong-cu-tinh-bmi-online" target="blank">
+                    <a href="/check-bmi" target="blank">
                         <p>Check BMI</p>
                     </a>
                     <a href="/ingredient/list" target="blank">
@@ -39,10 +39,8 @@
 
             <!-- Email nhóm -->
             <div>
-                <p>Liên hệ</p>
-                <a href="#!" class="mb-md-0">
-                    <p>abc@gmail.com</p>
-                </a>
+                <p style="font-weight: 700">Email</p>
+                <a href="mailto:drpkma@dailyrecipes.tech" style="font-weight: 700;">drpkma@dailyrecipes.tech</a>
             </div>
         </div>
     </div>

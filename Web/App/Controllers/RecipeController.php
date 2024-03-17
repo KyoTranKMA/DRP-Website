@@ -15,6 +15,10 @@ require($_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php');
 
 class RecipeController extends BaseController
 {
+
+    public function viewDetail(){
+        return $this->loadView('recipe.recipe_detail');
+    } 
     public function index()
     {
         $recipes = RecipeReadOperation::getAllObjects();
@@ -61,6 +65,8 @@ class RecipeController extends BaseController
     }
     public function editUI()
     {
+    public function editUI()
+    {
         $id = $_GET['id'];
         $recipe = RecipeReadOperation::getSingleObjectById($id);
         $this->loadView('recipe.edit', $recipe);
@@ -71,8 +77,13 @@ class RecipeController extends BaseController
         RecipeUpdateOperation::execute($data);
         header("Location: /recipe/edit?id=" . $data['id']);
     }
-    public function delete()
-    {
+    public function deleteUI() {
+        $id = $_GET['id'];
+        $recipe = RecipeReadOperation::getSingleObjectById($id);
+        $this->loadView('recipe.delete', $recipe);
+    }
+
+    public function delete() {
         $id = $_GET['id'];
         RecipeDeleteOperation::deleteById($id);
         header("Location: /recipe");
