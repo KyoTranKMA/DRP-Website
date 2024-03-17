@@ -8,6 +8,9 @@ $router->get('/', 'HomeController@homePage');
 $router->get('/index', 'HomeController@index');
 $router->get('/homepage', 'HomeController@homePage');
 
+// bmi router
+$router->get('/check-bmi', 'BmiController@index');
+
 // user router
 $router->get('/login','UserController@loginUI');
 $router->post('/login','UserController@login');
