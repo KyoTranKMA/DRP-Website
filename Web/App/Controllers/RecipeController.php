@@ -42,29 +42,14 @@ class RecipeController extends BaseController
         $this->loadView('recipe.add', $data);
     }
     public function add()
-    {
-
-        die();
-
-        // Duyệt qua từng phần tử và lưu vào mảng kết quả
-        $ingredients = [];
-        for ($i = 0; $i < count($ingredient_ids); $i++) {
-            $ingredient = [
-                'id' => $ingredient_ids[$i],
-                'quantity' => $quantities[$i],
-                'unit' => $units[$i]
-            ];
-            array_push($ingredients, $ingredient);
-        }
-
-        $uploadedImage = UploadImageOperation::process();
-        echo $uploadedImage;
-
+    {   
+        $data = $_POST;
+        $data['image_url'] = $_FILES['image'];
+        UploadImageOperation::process();
         RecipeCreateOperation::execute($data);
         header("Location: /recipe/add");
     }
-    public function editUI()
-    {
+
     public function editUI()
     {
         $id = $_GET['id'];
