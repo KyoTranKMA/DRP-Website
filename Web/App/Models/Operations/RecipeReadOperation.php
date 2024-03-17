@@ -93,8 +93,7 @@ class RecipeReadOperation extends DatabaseRelatedOperation implements I_ReadOper
       handleError($throwable->getCode(), $throwable->getMessage(), $throwable->getFile(), $throwable->getLine());
     }
   }
-  static public function getSingleObjectById(int $id)
-  {
+  static public function getSingleObjectById(int $id) {
     try{ 
       $model = new static();
       $conn = $model->DB_CONNECTION;

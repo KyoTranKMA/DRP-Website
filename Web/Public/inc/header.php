@@ -17,6 +17,11 @@ use App\Controllers\UserController;
   <link rel="icon" type="image/x-icon" href="/Public/images/logo.png">
   <title>PaPals-Enjoy your meals</title>
   <style>
+    body {
+      background-color: #CCD8FF;
+      background: linear-gradient(to right, #E2E2E2, #CCD8FF);
+    }
+
     p {
       margin: 0.25rem;
     }

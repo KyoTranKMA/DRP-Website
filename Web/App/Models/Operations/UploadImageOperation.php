@@ -16,13 +16,12 @@ class UploadImageOperation {
       // Limit the file size to 2MB
       $filemaxsize = FILE_MAX_SIZE;
       if ($_FILES['file']['size'] > $filemaxsize) {
-        //throw new Exception('kích thước tập tin phải <=' .$filesize);
-        Dialog::show('The image size is exceed  the limit <=' . $filemaxsize);
+        Dialog::show('The image size exceeds the limit of ' . $filemaxsize . ' bytes');
         return null;
       }
       // Limit the file type to image
       $mine_type = FILE_TYPE;
-      // Check to make sure the file is image 
+      // Check to make sure the file is an image 
       $fileinfo = finfo_open(FILEINFO_MIME_TYPE);
       // upload file to temp name
       $file_mine_type = finfo_file($fileinfo, $_FILES['file']['tmp_name']);
@@ -31,16 +30,7 @@ class UploadImageOperation {
         return null;
       }
 
-
-      /*
-      *
-      *
-      upload process
-      *
-      *
-      */
-
-      // standarlize file name before upload 
+      // standardize file name before upload 
       $pathinfo = pathinfo($_FILES['file']['name']);
       $filename = $pathinfo['filename'];
       $filename = preg_replace('/[^a-zA-Z0-9_-]/', '_', $filename);
@@ -48,11 +38,11 @@ class UploadImageOperation {
       // handle overwriting file name exception
       $fullname = $filename . '.' . $pathinfo['extension'];
       // create the path to store the file
-      $fileToHost = "Public/uploads/{$fullname}";
+      $fileToHost = "/Public/uploads/{$fullname}";
       $i = 1;
       while (file_exists($fileToHost)) {
         $fullname = $filename . "-$i." . $pathinfo['extension'];
-        $fileToHost = "Public/uploads/{$fullname}";
+        $fileToHost = "/Public/uploads/{$fullname}";
         $i++;
       }
       // move the file from temp memory to the host

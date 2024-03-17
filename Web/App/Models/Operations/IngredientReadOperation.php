@@ -109,6 +109,7 @@ class IngredientReadOperation extends DatabaseRelatedOperation implements I_Read
       *  
       * Make sure the connection to the database is established
       */
+
       if ($limit === null) {
         $limit = $offset + 5;
       }
@@ -262,4 +263,37 @@ class IngredientReadOperation extends DatabaseRelatedOperation implements I_Read
     return;
   }
 
+  static public function getIdAndNameAllObject(){
+    try {
+      $model = new static;
+      $conn = $model->DB_CONNECTION;
+      if ($conn == false)
+        throw new \PDOException(self::MSG_CONNECT_PDO_EXCEPTION . __METHOD__ . '. ');
+    } catch (\PDOException $PDOException) {
+      handlePDOException($PDOException);
+      echo \App\Views\ViewRender::errorViewRender('500');
+      return;
+    }
+
+    $sql = "select id, name from ingredients";
+    $stmt = $conn->prepare($sql);
+    try {
+      if ($stmt->execute()) {
+        $pairs = [];
+        while ($row = $stmt->fetch(\PDO::FETCH_ASSOC)) {
+          $pairs[] = [
+            'id' => $row['id'],
+            'name' => $row['name']
+          ];
+        }
+        return $pairs;
+      } else throw new \Exception(self::MSG_EXECUTE_PDO_LOG . __METHOD__ . '. ');
+    } catch (\Exception $exception) {
+      handleException($exception);
+    } catch (\Throwable $throwable) {
+      handleError($throwable->getCode(), $throwable->getMessage(), $throwable->getFile(), $throwable->getLine());
+    }
+    echo \App\Views\ViewRender::errorViewRender('500');
+    return;
+  }
 }
