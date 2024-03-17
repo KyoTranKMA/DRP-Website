@@ -64,29 +64,7 @@ function viewRecipes(data) {
     }
   });
 
-  // Thêm sự kiện click cho các thẻ để hiển thị thông tin chi tiết khi người dùng nhấp vào
-  $(".card").click(function () {
-    // Lấy thông tin chi tiết của công thức từ data attribute
-    var details = $(this).find(".card-details").data("details");
-    // Hiển thị thông tin chi tiết của công thức
-    $(this).find(".card-text").text(details.description);
-    // Ẩn ảnh để làm cho công thức hiển thị đẹp hơn
-    $(this).find(".card-img-top").hide();
-    // Ẩn nút chi tiết để tránh người dùng nhấp nhiều lần
-    $(this).find(".card").hide();
-  });
 
-  // Thêm sự kiện click cho các thẻ để hiển thị thông tin chi tiết khi người dùng nhấp vào
-  $(".card").click(function () {
-    // Lấy thông tin chi tiết của công thức từ data attribute
-    var details = $(this).find(".card-details").data("details");
-    // Hiển thị thông tin chi tiết của công thức
-    $(this).find(".card-text").text(details.description);
-    // Ẩn ảnh để làm cho công thức hiển thị đẹp hơn
-    $(this).find(".card-img-top").hide();
-    // Ẩn nút chi tiết để tránh người dùng nhấp nhiều lần
-    $(this).find(".card").hide();
-  });
 }
 
 var page = 1;
@@ -109,7 +87,7 @@ function getRecipes(page = 1) {
     success: function (recipes) {
       // Hiển thị công thức
       viewRecipes(recipes);
-      var recipesPerPage = 15; // Số lượng công thức hiển thị trên mỗi trang
+      var recipesPerPage = 12; // Số lượng công thức hiển thị trên mỗi trang
 
       // Trong hàm getRecipes:
       if (recipes.length < recipesPerPage) {

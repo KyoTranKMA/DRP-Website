@@ -29,15 +29,11 @@
     <script src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="/Public/js/ajax.js"></script>
     <script>
-        $(document).ready(function() {
-            // Thêm sự kiện click cho thẻ .card
-            $('#recipeContainer').on('click', '.card', function() {
-                // Lấy mô tả từ thuộc tính data-description của thẻ .card
-                var description = $(this).data('description');
-
-                // Hiển thị mô tả đầy đủ
-                alert(description);
-            });
+        recipeDiv.click(function() {
+            // Lấy slug của công thức từ object recipe
+            var slug = recipe.slug;
+            // Chuyển hướng đến trang chi tiết công thức với slug tương ứng
+            window.location.href = "/recipe/show?slug=" + slug;
         });
     </script>
 
