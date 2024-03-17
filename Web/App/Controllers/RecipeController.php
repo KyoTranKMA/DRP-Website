@@ -78,4 +78,23 @@ class RecipeController extends BaseController
         $recipes = RecipeReadOperation::getAllObjectsByFieldAndValue('name', $_POST['name']);
         $this->loadView('recipe.recipe', $recipes,);
     }
+
+    public function getPaging($page = 1)
+    {
+        $page = isset($_GET['page']) ? intval($_GET['page']) : 1;
+        if ($page <= 0) {
+            $page = 1;
+        }
+        $limit = 15;
+        $offset = ($page - 1) * $limit;
+        $recipes = RecipeReadOperation::getPaging($limit, $offset);
+        // Return Recipes as JSON to Ajax request 
+        echo json_encode($recipes);
+    }
+
+    public function getLoadMore()
+    {
+        $this->loadView('recipe.load_more');
+    }
+
 }

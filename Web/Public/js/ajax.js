@@ -104,7 +104,7 @@ function getRecipes(page = 1) {
   $("#show").text("Next...");
   $.ajax({
     type: "GET",
-    url: "/recipes/?page=" + page,
+    url: "/recipe/?page=" + page,
     dataType: "json",
     success: function (recipes) {
       // Hiển thị công thức
