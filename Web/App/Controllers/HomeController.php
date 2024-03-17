@@ -10,7 +10,7 @@ class HomeController extends BaseController
         if ($_SESSION['level'] == 1){
             return $this->admin();
         }
-        return $this->homePage();
+        header("Location: /homepage");
     }
     public static function homePage()
     {

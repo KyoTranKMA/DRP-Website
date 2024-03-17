@@ -113,7 +113,7 @@ class UserModel extends BaseModel
     }
 
     public static function addUser($data) {
-        $models = UserModel::getUserById($data['id']);
+        $models = new static;
         $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
 
         try{
@@ -148,13 +148,13 @@ class UserModel extends BaseModel
             $stmt = $models->getConnect()->prepare($sql);
             // Bind parameters
             $stmt->bindValue(':id', $data['id'], \PDO::PARAM_INT);
-            $stmt->bindValue(':username', $data['username'] ?? $models['username'], \PDO::PARAM_STR);
-            $stmt->bindValue(':password', $data['password'] ?? $models['password'], \PDO::PARAM_STR);
-            $stmt->bindValue(':first_name', $data['first_name'] ?? $models['first_name'], \PDO::PARAM_STR);
-            $stmt->bindValue(':last_name', $data['last_name'] ?? $models['last_name'], \PDO::PARAM_STR);
-            $stmt->bindValue(':date_of_birth', $data['date_of_birth'] ?? $models['date_of_birth'], \PDO::PARAM_STR);
-            $stmt->bindValue(':email', $data['email'] ?? $models['email'], \PDO::PARAM_STR);
-            $stmt->bindValue(':gender', $data['gender'] ?? $models['gender'], \PDO::PARAM_STR);
+            $stmt->bindValue(':username', $data['username'] != '' ? $data['username'] : $models->getUsername(), \PDO::PARAM_STR);
+            $stmt->bindValue(':password', $data['password'] != '' ? $data['password'] : $models->getPassword(), \PDO::PARAM_STR);
+            $stmt->bindValue(':first_name', $data['first_name'], \PDO::PARAM_STR);
+            $stmt->bindValue(':last_name', $data['last_name'], \PDO::PARAM_STR);
+            $stmt->bindValue(':date_of_birth', $data['date_of_birth'], \PDO::PARAM_STR);
+            $stmt->bindValue(':email', $data['email'] != '' ? $data['email'] : $models->getEmail(), \PDO::PARAM_STR);
+            $stmt->bindValue(':gender', $data['gender'], \PDO::PARAM_STR);
             return $stmt->execute();
         } catch(PDOException $e){
             echo $e->getMessage();

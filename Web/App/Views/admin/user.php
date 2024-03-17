@@ -87,16 +87,15 @@
                     <?php endforeach; ?>
                 </table>
             </div>
-            <div class="col-md-auto">
+            <div class="col-md-auto sign-up">
                 <h4 class="d-flex justify-content-between align-items-center mb-3">
                   <span>Add new user</span>
                 </h4>
-                <form action="/manager/user/add" method="POST" class="row g-3">
-                    <input type="hidden" class="form-control" id="id" name="id" value="<?= $user->getId()?>">
+                <form id="sign-up-form" action="/manager/user/add" method="POST" class="row g-3">
                     <div class="col-auto">
                         <label for="username" class="col-sm-auto col-form-label">Username</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control w-200" id="username" name="username" value="<?= $user->getUsername()?>">
+                            <input type="text" class="form-control w-200" id="username" name="username">
                         </div>
                     </div>
                     <div class="col-auto">
@@ -121,9 +120,10 @@
             </div>
         </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <footer class="site-footer">
-      <? require($_SERVER['DOCUMENT_ROOT'] . "/Public/inc/footer.php")?>  
+        <? require($_SERVER['DOCUMENT_ROOT'] . "/Public/inc/footer.php")?>  
     </footer>    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="/Public/js/validate-signup.js"></script>
 </body>
 </html>

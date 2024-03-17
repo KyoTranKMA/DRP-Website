@@ -33,7 +33,32 @@ class AdminController extends BaseController{
 
     public function userManagerAdd(){
         $data = $_POST;
-        UserModel::addUser($data);
+        $userModel = new UserModel;
+        
+        if ($userModel->checkEmail($data['email'])) {
+            echo '<script>
+            alert("Email already exist!");
+            window.location.href = "/manager/user";
+            </script>';
+        }else if ($userModel->checkUserName($data['username'])){
+            echo '<script>
+            alert("Username Already Existed");
+            window.location.href = "/manager/user";
+            </script>';
+        }else if(UserModel::addUser($data)){
+            echo '<script>
+                alert("Register Success!");
+                window.location.href = "/manager/user";
+            </script>';
+            exit();
+        } else {
+            echo '<script>
+                alert("Register Fail!, Please try again!");
+                window.location.href = "/manager/user";
+            </script>';
+            exit();
+        }
+
         header("Location: /manager/user");
     }
 
