@@ -11,8 +11,8 @@ function viewRecipes(data) {
     // Tạo thẻ div chứa thông tin của mỗi công thức
     var recipeDiv = $(
         '<div class="card col-md-8" style="width: 22.5%; height: 25rem; margin: 1rem 1.25%">' +
-          '<img src="/Public/uploads/recipes/' +
-          (recipe.image_url ? recipe.image_url : "image_not_found.png") +
+          '<img src="' +
+          (recipe.image_url ? "/Public/uploads/recipes/" + recipe.image_url : "/Public/images/" + "image_not_found.png") +
           '" class="card-img-top" alt="Picture of meal" style="object-fit: cover; height:12rem">' +
           '<div class="card-content" style="height:10rem">'+
             '<div class="card-body">' +
