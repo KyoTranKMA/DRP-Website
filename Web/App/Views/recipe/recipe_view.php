@@ -3,7 +3,7 @@
         <div class="flip-card">
             <div class="flip-card-inner">
                 <div class="flip-card-front">
-                    <img src="uploads/<?php echo $recipe->getImageUrl(); ?>" alt="<?php echo $recipe->getName(); ?>">
+                    <img src="/Public/uploads/recipes/<?echo $mainRecipe->getImgUrl() ?? "image_not_found.png" ; ?>" alt="<?php echo $recipe->getName(); ?>">
                 </div>
                 <div class="flip-card-back">
                     <h2><?php echo $recipe->getName(); ?></h2>
