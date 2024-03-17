@@ -1,12 +1,17 @@
 <?php
+
 namespace App\Operations;
+
 use App\Models\IngredientModel;
 
-class IngredientReadOperation extends DatabaseRelatedOperation implements I_ReadOperation {
-  public function __construct() {
+class IngredientReadOperation extends DatabaseRelatedOperation implements I_ReadOperation
+{
+  public function __construct()
+  {
     parent::__construct();
   }
-  static public function getSingleObjectById($id) {
+  static public function getSingleObjectById($id)
+  {
 
     /** 
      * @var \PDO $conn
@@ -54,13 +59,14 @@ class IngredientReadOperation extends DatabaseRelatedOperation implements I_Read
     echo \App\Views\ViewRender::errorViewRender('500');
     return;
   }
-  static public function getAllObjects() {
+  static public function getAllObjects()
+  {
 
     /** 
      * @var \PDO $conn
      *  
      * Make sure the connection to the database is established
-     */ 
+     */
     try {
       $model = new static;
       $conn = $model->DB_CONNECTION;
@@ -102,65 +108,66 @@ class IngredientReadOperation extends DatabaseRelatedOperation implements I_Read
     return;
   }
 
-  public static function getObjectWithOffset(int $offset = 0, int $limit = null) {
-      
-      /** 
-      * @var \PDO $conn
-      *  
-      * Make sure the connection to the database is established
-      */
+  public static function getObjectWithOffset(int $offset = 0, int $limit = null)
+  {
 
-      if ($limit === null) {
-        $limit = $offset + 5;
-      }
+    /** 
+     * @var \PDO $conn
+     *  
+     * Make sure the connection to the database is established
+     */
 
-      try {
-        $model = new static;
-        $conn = $model->DB_CONNECTION;
-        if ($conn == false)
-          throw new \PDOException(self::MSG_CONNECT_PDO_EXCEPTION . __METHOD__ . '. ');
-      } catch (\PDOException $PDOException) {
-        handlePDOException($PDOException);
-        echo \App\Views\ViewRender::errorViewRender('500');
-        return;
-      }
-  
-      /**
-      * @var int $offset
-      * @var int $limit
-      *
-      * Prepare the SQL statement and execute it
-      */
-  
-      $sql = "select * from ingredients limit :limit offset :offset";
-      $stmt = $conn->prepare($sql);
-      $stmt->bindValue(':offset', $offset, \PDO::PARAM_INT);
-      $stmt->bindValue(':limit', $limit, \PDO::PARAM_INT);
-  
-      /**
-      * Execute the statement and return the value
-      */
-  
-      try {
-        if ($stmt->execute()) {
-          $ingredients = [];
-          while ($row = $stmt->fetch(\PDO::FETCH_ASSOC)) {
-            $ingredient = IngredientModel::createObjectByRawArray($row);
-            $ingredients[] = $ingredient;
-          }
-          return $ingredients;
-        } else throw new \Exception(self::MSG_EXECUTE_PDO_LOG . __METHOD__ . '. ');
-      } catch (\Exception $exception) {
-        handleException($exception);
-      } catch (\Throwable $throwable) {
-        handleError($throwable->getCode(), $throwable->getMessage(), $throwable->getFile(), $throwable->getLine());
-      }
+    if ($limit === null) {
+      $limit = $offset + 5;
+    }
+
+    try {
+      $model = new static;
+      $conn = $model->DB_CONNECTION;
+      if ($conn == false)
+        throw new \PDOException(self::MSG_CONNECT_PDO_EXCEPTION . __METHOD__ . '. ');
+    } catch (\PDOException $PDOException) {
+      handlePDOException($PDOException);
       echo \App\Views\ViewRender::errorViewRender('500');
       return;
+    }
 
+    /**
+     * @var int $offset
+     * @var int $limit
+     *
+     * Prepare the SQL statement and execute it
+     */
+
+    $sql = "select * from ingredients limit :limit offset :offset";
+    $stmt = $conn->prepare($sql);
+    $stmt->bindValue(':offset', $offset, \PDO::PARAM_INT);
+    $stmt->bindValue(':limit', $limit, \PDO::PARAM_INT);
+
+    /**
+     * Execute the statement and return the value
+     */
+
+    try {
+      if ($stmt->execute()) {
+        $ingredients = [];
+        while ($row = $stmt->fetch(\PDO::FETCH_ASSOC)) {
+          $ingredient = IngredientModel::createObjectByRawArray($row);
+          $ingredients[] = $ingredient;
+        }
+        return $ingredients;
+      } else throw new \Exception(self::MSG_EXECUTE_PDO_LOG . __METHOD__ . '. ');
+    } catch (\Exception $exception) {
+      handleException($exception);
+    } catch (\Throwable $throwable) {
+      handleError($throwable->getCode(), $throwable->getMessage(), $throwable->getFile(), $throwable->getLine());
+    }
+    echo \App\Views\ViewRender::errorViewRender('500');
+    return;
   }
 
-  static public function getAllObjectsByFieldAndValue(string $columnName, $value) {
+  static public function getAllObjectsByFieldAndValue(string $columnName, $value)
+  {
 
     /** 
      * @var \PDO $conn
@@ -172,7 +179,7 @@ class IngredientReadOperation extends DatabaseRelatedOperation implements I_Read
       $conn = $model->DB_CONNECTION;
       if ($conn == false)
         throw new \PDOException(self::MSG_CONNECT_PDO_EXCEPTION . __METHOD__ . '. ');
-    } catch (\PDOException $PDOException)  {
+    } catch (\PDOException $PDOException) {
       handlePDOException($PDOException);
       echo \App\Views\ViewRender::errorViewRender('500');
       return;
@@ -203,7 +210,8 @@ class IngredientReadOperation extends DatabaseRelatedOperation implements I_Read
     echo \App\Views\ViewRender::errorViewRender('500');
     return;
   }
-  static public function getObjectWithOffsetByFielAndValue(string $name, $value, int $offset = 0, int $limit = null) {
+  static public function getObjectWithOffsetByFielAndValue(string $name, $value, int $offset = 0, int $limit = null)
+  {
 
     /** 
      * @var \PDO $conn
@@ -263,7 +271,8 @@ class IngredientReadOperation extends DatabaseRelatedOperation implements I_Read
     return;
   }
 
-  static public function getIdAndNameAllObject(){
+  static public function getIdAndNameAllObject()
+  {
     try {
       $model = new static;
       $conn = $model->DB_CONNECTION;
@@ -295,5 +304,9 @@ class IngredientReadOperation extends DatabaseRelatedOperation implements I_Read
     }
     echo \App\Views\ViewRender::errorViewRender('500');
     return;
+  }
+
+  static public function getPaging(int $limit, int $offset)
+  {
   }
 }

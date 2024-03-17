@@ -82,7 +82,7 @@ function getRecipes(page = 1) {
   $("#show").text("Next...");
   $.ajax({
     type: "GET",
-    url: "/recipe/?page=" + page,
+    url: "/recipes/?page=" + page,
     dataType: "json",
     success: function (recipes) {
       // Hiển thị công thức
