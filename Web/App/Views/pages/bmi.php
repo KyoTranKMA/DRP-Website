@@ -5,17 +5,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>BMI Calculator</title>
-	<style>
+    <style>
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
-            margin: 0; 
-            padding: 0; 
+            margin: 0;
+            padding: 0;
         }
 
         .container {
             width: 400px;
-            margin: 50px auto; 
+            margin: 50px auto;
             padding: 20px;
             background-color: #064E3B;
             border: 1px solid #ddd;
@@ -23,16 +23,16 @@
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             text-align: center;
             position: relative;
-			
+
         }
 
         .container img {
             width: 90px;
             margin-bottom: 20px;
-            position: absolute; 
-            top: -50px; 
-            left: 50%; 
-            transform: translateX(-50%); 
+            position: absolute;
+            top: -50px;
+            left: 50%;
+            transform: translateX(-50%);
         }
 
         h1 {
@@ -54,9 +54,10 @@
             margin-bottom: 15px;
             border: 1px solid #ddd;
             border-radius: 5px;
+            -moz-appearance: textfield;
+            -webkit-appearance: textfield;
             box-sizing: border-box;
         }
-
         button {
             background-color: #4CAF50;
             color: #fff;
