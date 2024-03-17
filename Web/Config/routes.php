@@ -46,7 +46,7 @@ $router->get('/ingredient/delete','IngredientController@delete');
 // recipe router
 
 $router->get('/recipe','RecipeController@index');
-$router->get('/recipe/{page}','RecipeController@getPaging');
+$router->get('/recipes/{page}','PaginationController@getPagingRecipe');
 $router->get('/recipe/list','RecipeController@list_all');
 $router->get('/recipe/add','RecipeController@addUI');
 $router->post('/recipe/add','RecipeController@add');

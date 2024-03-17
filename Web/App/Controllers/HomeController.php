@@ -14,9 +14,9 @@ class HomeController extends BaseController
     }
     public static function homePage()
     {
-        $ingredients = RecipeReadOperation::getObjectWithOffset(0,10);
+        $recipes = RecipeReadOperation::getObjectWithOffset(0,10);
 
-        return parent::loadView('pages.homepage', $ingredients);
+        return parent::loadView('pages.homepage', $recipes);
     }
 
     public static function admin()
