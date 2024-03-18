@@ -123,6 +123,7 @@
     var select = document.createElement('select');
     select.classList.add('form-select', 'form-select');
     select.placeholder = 'Select ingredient';
+    select.id = 'ingredient_id';
 
     // Add placeholder option
     var placeholderOption = document.createElement('option');
@@ -146,6 +147,7 @@
     quantityInput.classList.add('form-control');
     quantityInput.type = 'number';
     quantityInput.placeholder = 'Quantity';
+    quantityInput.id = 'quantity';
 
     // Create remove button
     var removeButton = document.createElement('button');
@@ -193,6 +195,7 @@
     var unitSelect = document.createElement('select');
     unitSelect.classList.add('form-select');
     unitSelect.placeholder = 'Select unit';
+    unitSelect.id = 'unit';
     unitOptions.forEach(function(option) {
       var unitOption = document.createElement('option');
       unitOption.value = option.value;
