@@ -26,7 +26,7 @@ use App\Controllers\UserController;
   input[type="number"] {
     -moz-appearance: textfield;
     -webkit-appearance: textfield;
-  }
+  } 
 
     p {
       margin: 0.25rem;

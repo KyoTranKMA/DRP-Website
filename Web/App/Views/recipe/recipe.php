@@ -23,8 +23,8 @@
             </div>
         </div>
     </div>
-    <div class="row">
-        <button id="show" class="btn">OK</button>
+    <div class="form" style="margin-left:50%">
+        <button id="show" class="btn btn-primary">OK</button>
     </div>
     <script src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="/Public/js/ajax.js"></script>

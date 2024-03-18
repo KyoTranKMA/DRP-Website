@@ -19,7 +19,6 @@ class RecipeCreateOperation extends DatabaseRelatedOperation implements I_Create
     }
     if (empty($data['name']) || !preg_match('/^[a-zA-Z0-9\s.,]+$/', $data['name']) ||
         empty($data['description']) || 
-        empty($data['image_url']) || 
         empty($data['preparation_time']) || 
         empty($data['cooking_time']) || 
         empty($data['direction']) || 
@@ -42,7 +41,7 @@ class RecipeCreateOperation extends DatabaseRelatedOperation implements I_Create
     $params = [
       'name' => $data['name'],
       'description' => $data['description'],
-      'image_url' => $data['image_url'],
+      'image_url' => $data['image_url'] ?? "",
       'preparation_time' => $data['preparation_time'],
       'cooking_time' => $data['cooking_time'],
       'direction' => $data['direction'],

@@ -17,6 +17,8 @@ class RecipeController extends BaseController
 {
 
     public function viewDetail(){
+        // $recipe = $_GET['id']; 
+        // $data = RecipeReadOperation::getSingleObjectById($recipe);
         return $this->loadView('recipe.recipe_detail');
     } 
     public function index()
@@ -41,11 +43,13 @@ class RecipeController extends BaseController
         $data = IngredientReadOperation::getIdAndNameAllObject();
         $this->loadView('recipe.add', $data);
     }
-    public function add()
-    {   
+    public function add() {   
         $data = $_POST;
-        $data['image_url'] = $_FILES['image'];
-        UploadImageOperation::process();
+        
+        echo "<pr> data: ";
+        var_dump($data);
+        echo "</pre>";
+        $data['image_url'] = UploadImageOperation::process();
         RecipeCreateOperation::execute($data);
         header("Location: /recipe/add");
     }
