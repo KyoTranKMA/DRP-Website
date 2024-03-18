@@ -10,7 +10,7 @@ function viewRecipes(data) {
   $.each(recipes, function (index, recipe) {
     // Tạo thẻ div chứa thông tin của mỗi công thức
     var recipeDiv = $(
-        '<div class="card col-md-8" style="width: 22.5%; height: 25rem; margin: 1rem 1.25%">' +
+        '<div class="card col-md-8" style="width: 22.5%; height: 25rem; margin: 1rem 1.25%; cursor: pointer;">' +
           '<img src="' +
           
           (recipe.image_url ? "/Public/uploads/recipes/" + recipe.image_url : "/Public/images/" + "image_not_found.png") +
@@ -32,11 +32,11 @@ function viewRecipes(data) {
           '<i class="fa-solid fa-clock-rotate-left"></i>' +
           '<p style="margin: 0;padding-left: 8px;">' +
           recipe.preparation_time_min +
-          " mins</p>" +
-          "</div>" +
+          '"mins"</p>' +
+          '</div>' +
           '<div class="rating"></div>' + // Thẻ div để chứa rating
-          "</div>" +
-          "</div>"+
+          '</div>' +
+          '</div>'+
         '</div>'
     );
 

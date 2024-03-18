@@ -39,5 +39,54 @@
         </div>
     </div>
 </div>
+<body>
+    <div class="aboutus m-3">
+        <div class="container bg mb-3 mt-3">
+            <h3 class="p-2 pt-3" >ABOUT TEAM 3</h3>
+            <div class="content d-flex flex-column text-center align-items-center flex-md-row text-center text-md-start justify-content-around py-0 px-4 px-xl-5">
+                <div class="mb-md-0 m-3 d-flex align-items-center flex-column">
+                    <img class="contribute-img" src="https://i.pinimg.com/564x/8f/1a/b1/8f1ab1e2ef48c2a26de7df6e977930bd.jpg" alt="Contribute">
+                    <h5>Mạch Tiến Duy</h5>
+                    <p>Admin system</p>
+                </div>
+                <div class="mb-md-0 m-3 d-flex align-items-center flex-column">
+                    <img class="contribute-img" src="https://i.pinimg.com/564x/8f/1a/b1/8f1ab1e2ef48c2a26de7df6e977930bd.jpg" alt="Contribute">
+                    <h5>Võ Thị Bích Tuyền</h5>
+                    <p>Contribute writer</p>
+                </div>
+                <div class="mb-md-0 m-3 d-flex align-items-center flex-column">
+                    <img class="contribute-img" src="https://i.pinimg.com/564x/8f/1a/b1/8f1ab1e2ef48c2a26de7df6e977930bd.jpg" alt="Contribute">
+                    <h5>Trần Quang Diệu</h5>
+                    <p>Leader</p>
+                </div>
+                <div class="mb-md-0 m-3 d-flex align-items-center flex-column">
+                    <img class="contribute-img" src="https://i.pinimg.com/564x/8f/1a/b1/8f1ab1e2ef48c2a26de7df6e977930bd.jpg" alt="Contribute">
+                    <h5>Lê Thanh Yên</h5>
+                    <p>Contribute writer</p>
+                </div>
+                <div class="mb-md-0 m-3 d-flex align-items-center flex-column">
+                    <img class="contribute-img" src="https://i.pinimg.com/564x/8f/1a/b1/8f1ab1e2ef48c2a26de7df6e977930bd.jpg" alt="Contribute">
+                    <h5>Ngô Nguyễn Hạnh Phúc</h5>
+                    <p>Database</p>
+                </div>
+            </div>
+        </div>
+    </div>    
+</body>
+
+<style>
+.bg {
+    display: block;
+    width: 100%;
+    height: 230px;
+    background-color: #ffff;
+    border-radius: 10px
+}
+.contribute-img{
+    width: 50px;
+    height: 50px;
+    border-radius:50%;
+}
+</style>
 
 <?php require($_SERVER['DOCUMENT_ROOT'] . "/Public/inc/footer.php"); ?>
