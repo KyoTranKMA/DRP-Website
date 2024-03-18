@@ -44,10 +44,16 @@ class RecipeController extends BaseController
     public function add()
     {   
         $data = $_POST;
-        $data['image_url'] = $_FILES['image'];
-        UploadImageOperation::process();
+        if($data['image_url'])
+        {
+            $data['image_url'] = $_FILES['image'];
+            UploadImageOperation::process();
+        }
         RecipeCreateOperation::execute($data);
-        header("Location: /recipe/add");
+        echo '<script>
+        alert("Update Recipe Succesful!");
+        window.location.href = "/recipe";
+        </script>';
     }
 
     public function editUI()

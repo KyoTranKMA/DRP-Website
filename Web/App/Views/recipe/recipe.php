@@ -24,7 +24,7 @@
     <div class="row">
         <button id="show" class="btn">Load More</button>
     </div>
-    <script src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="/Public/js/libs/jquery/jquery-3.6.0.min.js"></script>
     <script src="/Public/js/ajax-recipe.js"></script>
     <script>
         $(document).ready(function() {
