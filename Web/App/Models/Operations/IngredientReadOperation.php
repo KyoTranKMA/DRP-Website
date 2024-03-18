@@ -308,5 +308,30 @@ class IngredientReadOperation extends DatabaseRelatedOperation implements I_Read
 
   static public function getPaging(int $limit, int $offset)
   {
+    try {
+      $model = new static();
+      $conn = $model->DB_CONNECTION;
+      if ($conn == null) {
+        throw new \PDOException(self::MSG_CONNECT_PDO_EXCEPTION . __METHOD__ . '. ');
+      }
+
+
+      $stmt = $conn->prepare("select * from ingredients limit :limit offset :offset");
+      $stmt->bindParam(':limit', $limit, \PDO::PARAM_INT);
+      $stmt->bindParam(':offset', $offset, \PDO::PARAM_INT);
+      $stmt->execute();
+
+      // Fetch Data
+      $data = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+
+      // Response data JSON
+      return json_encode($data);
+    } catch (\PDOException $PDOException) {
+      handlePDOException($PDOException);
+      return json_encode(["error" => "Database error: " . $PDOException->getMessage()]);
+    } catch (\Exception $exception) {
+      handleException($exception);
+      return json_encode(["error" => "Internal server error: " . $exception->getMessage()]);
+    }
   }
 }
