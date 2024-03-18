@@ -31,11 +31,11 @@ function viewRecipes(data) {
           '<i class="fa-solid fa-clock-rotate-left"></i>' +
           '<p style="margin: 0;padding-left: 8px;">' +
           recipe.preparation_time_min +
-          " mins</p>" +
-          "</div>" +
+          '"mins"</p>' +
+          '</div>' +
           '<div class="rating"></div>' + // Thẻ div để chứa rating
-          "</div>" +
-          "</div>"+
+          '</div>' +
+          '</div>'+
         '</div>'
     );
 
