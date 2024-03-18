@@ -57,5 +57,5 @@ $router->post('/recipe/add','RecipeController@add');
 $router->get('/recipe/edit','RecipeController@editUI');
 $router->post('/recipe/edit','RecipeController@edit');
 $router->get('/recipe/delete','RecipeController@delete');
-$router->get('/recipe/show','RecipeController@viewDetail');
+$router->get('/recipe/detail','RecipeController@viewDetail');
 $router->get('/recipe/search','RecipeController@search');

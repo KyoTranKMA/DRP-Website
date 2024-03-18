@@ -28,9 +28,11 @@
     <script src="/Public/js/ajax-recipe.js"></script>
     <script>
         $(document).ready(function() {
-            // Thêm sự kiện click cho thẻ .card
             $('#recipeContainer').on('click', '.card', function() {
-                window.location.href = "/recipe/show";
+                // Lấy dữ liệu từ thuộc tính data-details của thẻ card được bấm vào
+                var recipeDetails = $(this).find('.card-details').data('details');
+
+                window.location.href = "/recipe/detail?details=" + encodeURIComponent(JSON.stringify(recipeDetails));
             });
         });
     </script>
