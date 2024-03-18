@@ -1,4 +1,11 @@
 <?php require_once($_SERVER['DOCUMENT_ROOT'] . '/Public/inc/header.php'); ?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipes</title>
     <style>
         .header-space {
             height: 40px;
@@ -15,12 +22,12 @@
         </div>
     </div>
     <div class="row">
-        <button id="show" class="btn">OK</button>
+        <button id="show" class="btn">Load More</button>
     </div>
     <script src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="/Public/js/ajax-recipe.js"></script>
     <script>
-          $(document).ready(function() {
+        $(document).ready(function() {
             // Thêm sự kiện click cho thẻ .card
             $('#recipeContainer').on('click', '.card', function() {
                 window.location.href = "/recipe/show";
@@ -28,7 +35,7 @@
         });
     </script>
 
-
+</html>
 
 
 <?php require_once($_SERVER['DOCUMENT_ROOT'] . '/Public/inc/footer.php'); ?>

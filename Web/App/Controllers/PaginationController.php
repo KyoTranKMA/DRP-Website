@@ -23,7 +23,7 @@ class PaginationController {
         if ($page <= 0) {
             $page = 1;
         }
-        $limit = 12;
+        $limit = 20;
         $offset = ($page - 1) * $limit;
         $ingredients = IngredientReadOperation::getPaging($limit, $offset);
         // Return ingredients as JSON to Ajax request 

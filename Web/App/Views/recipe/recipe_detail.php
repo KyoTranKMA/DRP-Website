@@ -10,7 +10,7 @@
                     <img src="https://i.pinimg.com/564x/8f/1a/b1/8f1ab1e2ef48c2a26de7df6e977930bd.jpg" alt="">
                     <div class="des">
                         <h5>By Mary Maris</h5>
-                        <span>Uapdate March 13, 2024</span>
+                        <span>Updated March 13, 2024</span>
                     </div>
                 </div>
                 <img src="/Public/uploads/recipes/d2gol6y5.jpg" 
