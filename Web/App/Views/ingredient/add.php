@@ -76,9 +76,9 @@
   <button type="submit" name="login">Upload</button>
 </form> 
     <!-- Include jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="/Public/js/libs/jquery/jquery-3.5.1.min.js"></script>
     <!-- Include jQuery Validate plugin -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
+    <script src="/Public/js/libs/jquery/jquery-1.19.2.min.js"></script>
     <script src="/Public/js/validate-ingredients.js"></script>
 </body>
 </html>
