@@ -43,7 +43,7 @@
 
   <div class="input-group mb-2">
 
-    <select class="form-select" id="meal_recipe_1" name="meal_recipe_1" aria-label="Select meal type">
+    <select class="form-select" id="meal_type_1" name="meal_type_1" aria-label="Select meal type">
       <option value="" selected disabled hidden>Select meal recipe for</option>
       <option value="Breakfast">Breakfast</option>
       <option value="Lunch">Lunch</option>
@@ -71,13 +71,13 @@
   </div>
 
   <div class="input-group input-group-sm mb-3">
-    <span class="input-group-text" id="directions" name="directions">Direction</span>
-    <textarea class="form-control" aria-label="With textarea"></textarea>
+    <span class="input-group-text">Direction</span>
+    <textarea class="form-control" id="directions" name="directions" aria-label="With textarea"></textarea>
   </div>
 
   <div class="input-group input-group-sm mb-3">
-    <span class="input-group-text" id="description" name="description">Description</span>
-    <textarea class="form-control" aria-label="With textarea"></textarea>
+    <span class="input-group-text">Description</span>
+    <textarea class="form-control" id="description" name="description" aria-label="With textarea"></textarea>
   </div>
 
   <div class="input-group mb-3">
@@ -214,6 +214,8 @@
     container.appendChild(quantityInput);
     container.appendChild(removeButton);
 
+
+
     // Add container to ingredient container
     document.getElementById('ingredient_container').appendChild(container);
   }
@@ -223,5 +225,4 @@
     addIngredientSelect();
   });
 </script>
-
 <? require_once($_SERVER['DOCUMENT_ROOT'] . "/Public/inc/footer.php"); ?>
