@@ -36,14 +36,16 @@ class RecipeCreateOperation extends DatabaseRelatedOperation implements I_Create
     $validCategories3 = ['Baked', 'Salad and Salad Dressing', 'Sauce and Condiment', 'Snack', 'Beverage', 'Soup', 'Other'];
 
     if (
-      empty($data['name']) || !preg_match('/^[a-zA-Z0-9\s.,]+$/', $data['name']) ||
+      empty($data['name']) || 
+      !preg_match('/^[a-zA-Z0-9\s.,]+$/', $data['name']) ||
       empty($data['cooking_time_min']) ||
       empty($data['preparation_time_min']) ||
       empty($data['meal_type_1']) ||
       empty($data['meal_type_2']) ||
-      empty($data['meal_type_3']) ||
       empty($data['directions']) ||
       empty($data['description']) ||
+      empty($data['meal_type_3'])){ echo "hello";}
+      if(
       empty($data['ingredientComponents'])) {
       throw new \Exception("Invalid data provided in " . __METHOD__ . ".");
     }

@@ -6,8 +6,7 @@ use App\Models\IngredientModel;
 
 class IngredientReadOperation extends DatabaseRelatedOperation implements I_ReadOperation
 {
-  public function __construct()
-  {
+  public function __construct() {
     parent::__construct();
   }
 
@@ -20,7 +19,6 @@ class IngredientReadOperation extends DatabaseRelatedOperation implements I_Read
    * @throws \PDOException If there is an error connecting to the database.
    * @throws \Exception If there is an error executing the database query.
    */
-
   static public function getSingleObjectById(int $id) : ?IngredientModel{
 
     $model = new static;

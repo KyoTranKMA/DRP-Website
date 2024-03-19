@@ -64,7 +64,7 @@ class RecipeModel extends BaseModel {
     public function setTimestamp($timestamp) { $this->timestamp = $timestamp; }
     public function getIngredientComponets() { return $this->ingredientComponets; }
     public function setIngredientComponets($ingredientComponets) { 
-        $this->ingredientComponets = $ingredientComponets; 
+        $this->ingredientComponets = self::addIngredient($ingredientComponets); 
     }
 
     public static function addIngredient($data) {
@@ -95,7 +95,7 @@ class RecipeModel extends BaseModel {
         $object->setMealType2($data['meal_type_2'] ?? "Unknown");
         $object->setMealType3($data['meal_type_3'] ?? "Unknown");
         $object->setTimestamp($data['timestamp'] ?? "Unknown");
-        $object->setIngredientComponets(self::addIngredient($data['ingredientComponents']));
+        $object->setIngredientComponets(($data['ingredientComponents']));
         return $object;
     }
 }
