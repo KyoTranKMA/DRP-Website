@@ -69,11 +69,12 @@ class RecipeModel extends BaseModel {
 
     public static function addIngredient($data) {
         if(isset($data)){
-            $ingredientComponets [] = array();
+            $ingredientComponets = [];
             foreach ($data as $ingredient) {
-                $ingredientComponets[$ingredient['ingredient_id']] = array(
-                    'quantity' => $ingredient['quantity'],
-                    'unit' => $ingredient['unit']
+                $ingredientComponets[] = array(
+                    'ingredient_name'=> $ingredient['name'],
+                    'quantity' => $ingredient['number_of_unit'],
+                    'unit' => $ingredient['measurement_description']
                 );
             }
         } else {
