@@ -95,7 +95,8 @@ class RecipeModel extends BaseModel {
         $object->setMealType2($data['meal_type_2'] ?? "Unknown");
         $object->setMealType3($data['meal_type_3'] ?? "Unknown");
         $object->setTimestamp($data['timestamp'] ?? "Unknown");
-        $object->setIngredientComponets(($data['ingredientComponents']));
+        if (isset($data['ingredientComponents']))
+            $object->setIngredientComponets(($data['ingredientComponents']));
         return $object;
     }
 }

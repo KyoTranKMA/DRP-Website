@@ -17,9 +17,7 @@ class DatabaseRelatedOperation {
     if (!empty($params))
       foreach ($params as $key => $value)
         $stmt->bindValue($key, $value);
-    /**
-     * execute the statement
-     */
+
     if ($stmt->execute()) {
       $stmt->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, get_called_class());
       return $stmt->fetchAll($fetchMode);

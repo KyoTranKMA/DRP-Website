@@ -34,7 +34,7 @@
                     echo '</div>';
                     echo '<div class="total-time">';
                     echo '<div class="time-title">Total time</div>';
-                    echo '<div class="time-detail">' . ($recipeDetails['preparation_time_min'] + $recipeDetails['cook_time_min']) . ' mins</div>';
+                    echo '<div class="time-detail">' . ($recipeDetails['preparation_time_min'] + $recipeDetails['cooking_time_min']) . ' mins</div>';
                     echo '</div>';
                     echo '</div>';
                     echo '</div>';
