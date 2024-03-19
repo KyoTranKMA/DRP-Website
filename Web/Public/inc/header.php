@@ -91,7 +91,7 @@ use App\Controllers\UserController;
       transform: translate(-3px, -3px);
       box-shadow: 3px 3px 4px 2px #b9b9b9; 
     }
-    .container{
+    .minspace{
       min-height: 560px;
     }
   </style>
