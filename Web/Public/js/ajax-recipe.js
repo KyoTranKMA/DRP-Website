@@ -35,7 +35,8 @@ function viewRecipes(data) {
         '</div>' +
         '<div class="rating"></div>' + // Thẻ div để chứa rating
         '</div>' +
-        '</div>'
+        '</div>' +
+      '</div>'
     );
 
     // Xuất thông tin chi tiết của công thức thành chuỗi JSON

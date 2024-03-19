@@ -3,18 +3,10 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recipes</title>
-    <style>
-        .header-space {
-            height: 40px;
-        }
-    </style>
-
+</head>
 <body>
-    <div class="header-space"></div>
-    <div class="container">
+    <div class="container mt-3">
         <div class="row" style="width: 100%;">
             <h3 class="d-flex justify-content-center">Easy recipes for your meal</h3>
             <div class="d-flex flex-wrap justify-content-start" id="recipeContainer">

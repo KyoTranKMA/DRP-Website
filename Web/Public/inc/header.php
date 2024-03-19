@@ -1,5 +1,4 @@
 <?
-
 use App\Controllers\UserController;
 ?>
 
@@ -84,6 +83,17 @@ use App\Controllers\UserController;
     .navbar-nav .nav-link {
       font-size: 15px
     }
+
+    a.card, div.card{
+      transition: all linear 0.24s;
+    }
+    a.card:hover, div.card:hover{
+      transform: translate(-3px, -3px);
+      box-shadow: 3px 3px 4px 2px #b9b9b9; 
+    }
+    .container{
+      min-height: 560px;
+    }
   </style>
 
 </head>
@@ -96,12 +106,12 @@ use App\Controllers\UserController;
         <!-- Collapsible wrapper -->
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <!-- Navbar brand -->
-          <div class="d-flex justify-content-center align-items-center">
-            <a class="navbar-brand mt-2 mt-lg-0" href="/homepage">
+          <a class="d-flex justify-content-center align-items-center">
+            <a class= "navbar-brand mt-2 mt-lg-0" href="/homepage">
               <img src="/Public/images/logo.png" height="50" alt="PaPals" loading="lazy" />
               <h3>PaPals</h3>
             </a>
-          </div>
+          </a>
           <!-- Left links -->
           <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="font-size:16px">
             <li class="nav-item">
@@ -128,7 +138,7 @@ use App\Controllers\UserController;
           <div class="d-flex align-items-center">
             <img src="/Public/images/account.png" id="user" class="rounded-circle me-3 account hide" height="30" alt="Black and White Portrait of a Man" />
             <div class="d-flex align-items-center">
-              <a href="/logout" class="btn btn-primary btn-xs " tabindex="-1" role="button" aria-disabled="true">Logout</a>
+              <a href="/logout" class="btn btn-primary btn-xs" tabindex="-1" role="button" aria-disabled="true">Logout</a>
             </div>
           </div>
         <?php else : // Nếu chưa đăng nhập, hiển thị nút login
