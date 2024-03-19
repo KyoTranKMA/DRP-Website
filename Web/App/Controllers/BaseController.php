@@ -11,6 +11,7 @@ class BaseController {
     protected static function loadView($viewPath, $data = []) {
         try {
             extract($data);
+
             $viewFile = VIEWS_PATH . str_replace('.', '/', $viewPath) . '.php';
             if (file_exists($viewFile) && is_readable($viewFile)) {
                 require $viewFile;
@@ -29,6 +30,23 @@ class BaseController {
         echo \App\Views\ViewRender::errorViewRender($code);
         die();
     }
+
+    protected static function loadViewWithOtherExtract($viewPath, $data = []) {
+        try {
+            $viewFile = VIEWS_PATH . str_replace('.', '/', $viewPath) . '.php';
+            if (file_exists($viewFile) && is_readable($viewFile)) {
+                // Truyền dữ liệu trực tiếp vào view
+                require $viewFile;
+            } else {
+                throw new \Exception("View file not found: $viewFile");
+            } 
+        } catch (\Exception $e) {
+            handleException($e);
+            echo \App\Views\ViewRender::errorViewRender('404');
+        } 
+    }
+    
+    
 }
 
 ?>

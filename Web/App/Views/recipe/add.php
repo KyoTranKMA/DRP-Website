@@ -39,7 +39,7 @@
 
   <h2 style="text-align: center; margin-top: 50px;">Add Your Creative Recipe</h2>
 
-  <form action="/recipe/add" method="post" enctype="multipart/form-data" style="width: 50vw; margin: 0 auto; padding: 20px; border: 1px solid #e1ebfa; border-radius: 10px; box-shadow: 0 0 10px 0 #e1ebfa; margin-top: 50px; margin-bottom: 50px;">
+  <form id ="recipe-form" action="/recipe/add" method="post" enctype="multipart/form-data" style="width: 50vw; margin: 0 auto; padding: 20px; border: 1px solid #e1ebfa; border-radius: 10px; box-shadow: 0 0 10px 0 #e1ebfa; margin-top: 50px; margin-bottom: 50px;">
     <div class="form-floating mb-3">
       <input type="text" class="form-control" id="name" name="name" placeholder="Enter name of recipe">
       <label for="name">Recipe name</label>

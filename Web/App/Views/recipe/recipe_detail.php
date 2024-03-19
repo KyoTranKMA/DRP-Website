@@ -13,54 +13,28 @@
                         <span>Updated March 13, 2024</span>
                     </div>
                 </div>
-                <?php
-                // Lấy thông tin chi tiết từ URL
-                if (isset($_GET['details'])) {
-                    $recipeDetails = json_decode($_GET['details'], true);
 
-                    // Hiển thị thông tin chi tiết của công thức
-                    echo '<img src="/Public/uploads/recipes/' . $recipeDetails['image_url'] . '" class="meal-img card-img-top" alt="Picture of meal" style="width: 100%; aspect-ratio: 3/4;">';
-                    echo '<div class="table-info">';
-                    echo '<div class="title-table">RECIPE</div>';
-                    echo '<div class="recipe-name">' . $recipeDetails['name'] . '</div>';
-                    echo '<div class="time d-flex justify-content-between m-3">';
-                    echo '<div class="pre-time">';
-                    echo '<div class="time-title">Prep time</div>';
-                    echo '<div class="time-detail">' . $recipeDetails['preparation_time_min'] . ' mins</div>';
-                    echo '</div>';
-                    echo '<div class="cook-time">';
-                    echo '<div class="time-title">Cook time</div>';
-                    echo '<div class="time-detail">' . $recipeDetails['cooking_time_min'] . ' mins</div>';
-                    echo '</div>';
-                    echo '<div class="total-time">';
-                    echo '<div class="time-title">Total time</div>';
-                    echo '<div class="time-detail">' . ($recipeDetails['preparation_time_min'] + $recipeDetails['cooking_time_min']) . ' mins</div>';
-                    echo '</div>';
-                    echo '</div>';
-                    echo '</div>';
-                } else {
-                    // Hiển thị một hình ảnh và thông tin mẫu nếu không có thông tin chi tiết nào được truyền vào
-                    echo '<img src="/Public/uploads/recipes/d2gol6y5.jpg" class="meal-img card-img-top" alt="Picture of meal" style="width: 100%; aspect-ratio: 3/4;">';
-                    echo '<div class="table-info">';
-                    echo '<div class="title-table">RECIPE</div>';
-                    echo '<div class="recipe-name">Creamed Tacos</div>';
-                    echo '<div class="time d-flex justify-content-between m-3">';
-                    echo '<div class="pre-time">';
-                    echo '<div class="time-title">Prep time</div>';
-                    echo '<div class="time-detail">10 mins</div>';
-                    echo '</div>';
-                    echo '<div class="cook-time">';
-                    echo '<div class="time-title">Cook time</div>';
-                    echo '<div class="time-detail">15 mins</div>';
-                    echo '</div>';
-                    echo '<div class="total-time">';
-                    echo '<div class="time-title">Total time</div>';
-                    echo '<div class="time-detail">25 mins</div>';
-                    echo '</div>';
-                    echo '</div>';
-                    echo '</div>';
-                }
-                ?>
+                <img src="/Public/uploads/recipes/<?echo $data->getImgUrl() ?? "image_not_found.png" ?>" alt="<?php echo $data->getName() ?>" style="width: 100%; aspect-ratio: 3/4;">
+                <div class="table-info">
+                    <div class="title-table">RECIPE</div>
+                    <div class="recipe-name"> <?php echo $data->getName() ?> </div>
+                    <div class="time d-flex justify-content-between m-3">
+                        <div class="pre-time">
+                            <div class="time-title">Prep time</div>
+                            <div class="time-detail"> <?php echo $data->getPreparationTime() ?> mins</div>
+                        </div>
+                        <div class="cook-time">
+                            <div class="time-title">Cook time</div>
+                            <div class="time-detail"> <?php echo $data->getCookingTime() ?>   mins</div>
+                        </div>
+                        <div class="total-time">
+                            <div class="time-title">Total time</div>
+                            <div class="time-detail">  <?php echo $data->getPreparationTime() + $data->getCookingTime() ?>   mins</div>
+                        </div>
+                    </div>
+                </div>
+
+
                 <div class="intruction">
                     <h3>How to make it</h3>
                     <p>

@@ -71,9 +71,10 @@
   <input type="number" id="vitamin_c" name="vitamin_c" step="0.01"><br>
   <button type="submit" name="login">Upload</button>
 </form>
-<!-- Include jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<!-- Include jQuery Validate plugin -->
+  <!-- Include jQuery library -->
+  <script src="/Public/js/libs/jquery/jquery-3.5.1.min.js"></script>
+  <!-- Include jQuery Validate plugin -->
+  <script src="/Public/js/libs/jquery/jquery-1.19.2.min.js"></script>
 <script src="/Public/js/validate-ingredients.js"></script>
 
 <? require_once($_SERVER['DOCUMENT_ROOT'] . "/Public/inc/footer.php"); ?>

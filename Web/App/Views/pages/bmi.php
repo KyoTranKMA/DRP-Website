@@ -1,3 +1,5 @@
+<? require_once($_SERVER['DOCUMENT_ROOT'] . "/Public/inc/header.php"); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,9 +16,10 @@
         }
 
         .container {
-            width: 400px;
-            margin: 50px auto;
-            padding: 20px;
+            width: 500px;
+            height: 450px;
+            margin: 45px auto;
+            padding: 40px;
             background-color: #064E3B;
             border: 1px solid #ddd;
             border-radius: 5px;
@@ -58,6 +61,7 @@
             -webkit-appearance: textfield;
             box-sizing: border-box;
         }
+
         button {
             background-color: #4CAF50;
             color: #fff;
@@ -70,7 +74,7 @@
             margin-top: 15px;
         }
 
-        p {
+        .unit {
             color: #FFFFFF;
         }
 
@@ -81,8 +85,16 @@
         #result {
             margin-top: 20px;
             text-align: center;
-            color: red;
+            color: #ffffff; 
+            background-color: #4CAF50; 
+            padding: 10px;
+            border-radius: 5px;
+            font-family: Arial, sans-serif; 
+            font-size: 18px;
+            font-weight: bold; 
         }
+
+  
     </style>
 </head>
 
@@ -91,9 +103,9 @@
         <img src="/Public/images/logo.png" alt="">
         <h1>BMI Calculator</h1>
 
-        <p>Height (in cm)</p>
+        <p class="unit">Height (in cm)</p>
         <input type="number" id="height" name="height" step="1" required><br>
-        <p>Weight (in kg)</p>
+        <p class="unit">Weight (in kg)</p>
         <input type="number" id="weight" name="weight" step="1" required><br>
         <button id="btn">Calculate</button>
 
@@ -103,3 +115,6 @@
 </body>
 
 </html>
+
+
+<?php require($_SERVER['DOCUMENT_ROOT'] . "/Public/inc/footer.php"); ?>
