@@ -16,19 +16,21 @@ require($_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php');
 class RecipeController extends BaseController
 {
 
-    public function viewDetail(){
-        // $recipe = $_GET['id']; 
-        // $data = RecipeReadOperation::getSingleObjectById($recipe);
-        return $this->loadView('recipe.recipe_detail');
-    } 
     public function index()
     {
-        $recipes = RecipeReadOperation::getAllObjects();
-        $this->loadView('recipe.recipe', $recipes);
+        $this->loadView('recipe.recipe');
     }
+
+    public function viewDetail()
+    {
+        $id = $_GET['id'];
+        $recipe = RecipeReadOperation::getSingleObjectById($id);
+        $this->loadViewWithOtherExtract('recipe.recipe_detail', $recipe);
+    }
+
     public function findByID()
     {
-        $id = $_GET('id');
+        $id = $_GET['id'];
         $recipe = RecipeReadOperation::getSingleObjectById($id);
         $this->loadView('recipe.recipe_view', $recipe);
     }
@@ -49,15 +51,17 @@ class RecipeController extends BaseController
         $data = IngredientReadOperation::getIdAndNameAllObject();
         $this->loadView('recipe.add', $data);
     }
-    public function add() {   
+    public function add()
+    {
         $data = $_POST;
 
+
         $ingredientComponents = [];
-        for ($index = 0; $index < count($data['ingredient_id']); $index++){
+        for ($index = 0; $index < count($data['ingredient_id']); $index++) {
             $component = [
                 'ingredient_id' => $data['ingredient_id'][$index],
                 'unit' => $data['unit'][$index],
-                'quantity'=> $data['quantity'][$index]
+                'quantity' => $data['quantity'][$index]
             ];
             $ingredientComponents[] = $component;
         }
@@ -69,10 +73,10 @@ class RecipeController extends BaseController
 
 
         $data['image_url'] = UploadImageOperation::process();
-        if($data['image_url'] == null){
+        if ($data['image_url'] == null) {
             die();
         }
-        if(RecipeCreateOperation::execute($data))
+        if (RecipeCreateOperation::execute($data))
             header("Location: /recipe/add");
     }
 
@@ -88,13 +92,15 @@ class RecipeController extends BaseController
         RecipeUpdateOperation::execute($data);
         header("Location: /recipe/edit?id=" . $data['id']);
     }
-    public function deleteUI() {
+    public function deleteUI()
+    {
         $id = $_GET['id'];
         $recipe = RecipeReadOperation::getSingleObjectById($id);
         $this->loadView('recipe.delete', $recipe);
     }
 
-    public function delete() {
+    public function delete()
+    {
         $id = $_GET['id'];
         RecipeDeleteOperation::deleteById($id);
         header("Location: /recipe");

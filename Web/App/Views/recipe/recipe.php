@@ -3,10 +3,18 @@
 <html lang="en">
 
 <head>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recipes</title>
-</head>
+<style>
+        .header-space {
+            height: 40px;
+        }
+    </style>
+
 <body>
-    <div class="container mt-3">
+    <div class="header-space"></div>
+    <div class="container">
         <div class="row" style="width: 100%;">
             <h3 class="d-flex justify-content-center">Easy recipes for your meal</h3>
             <div class="d-flex flex-wrap justify-content-start" id="recipeContainer">
@@ -14,7 +22,7 @@
         </div>
     </div>
     <div class="form" style="margin-left:50%">
-        <button id="show" class="btn btn-primary">OK</button>
+        <button id="show" class="btn btn-primary">Load More</button>
     </div>
     <script src="/Public/js/libs/jquery/jquery-3.6.0.min.js"></script>
     <script src="/Public/js/ajax-recipe.js"></script>
@@ -22,9 +30,9 @@
         $(document).ready(function() {
             $('#recipeContainer').on('click', '.card', function() {
                 // Lấy dữ liệu từ thuộc tính data-details của thẻ card được bấm vào
-                var recipeDetails = $(this).find('.card-details').data('details');
+                var idDetails = $(this).find('.card-details').data('details');
 
-                window.location.href = "/recipe/detail?details=" + encodeURIComponent(JSON.stringify(recipeDetails));
+                window.location.href = "/recipe/detail?id=" + idDetails;
             });
         });
     </script>

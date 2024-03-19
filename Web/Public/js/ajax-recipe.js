@@ -40,10 +40,10 @@ function viewRecipes(data) {
     );
 
     // Xuất thông tin chi tiết của công thức thành chuỗi JSON
-    var recipeDetails = JSON.stringify(recipe);
+    var idDetails = JSON.stringify(recipe.id);
 
     // Thêm dữ liệu vào thuộc tính data-details của thẻ card
-    recipeDiv.find(".card-details").attr("data-details", recipeDetails);
+    recipeDiv.find(".card-details").attr("data-details", idDetails);
     // Thêm thẻ div vào container
     recipeContainer.append(recipeDiv);
 
