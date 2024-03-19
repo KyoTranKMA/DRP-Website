@@ -80,4 +80,5 @@ class IngredientController extends BaseController
         IngredientUpdateOperation::execute($data);
         header("Location: /ingredient/edit");
     }
+
 }
