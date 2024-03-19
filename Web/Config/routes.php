@@ -8,6 +8,9 @@ $router->get('/', 'HomeController@homePage');
 $router->get('/index', 'HomeController@index');
 $router->get('/homepage', 'HomeController@homePage');
 
+// bmi router
+$router->get('/check-bmi', 'BmiController@index');
+
 // user router
 $router->get('/login','UserController@loginUI');
 $router->post('/login','UserController@login');
@@ -31,6 +34,8 @@ $router->get('/manager/recipe/add', 'AdminController@addRecipeUI');
 
 // ingredient router
 $router->get('/ingredient','IngredientController@index');
+$router->get('/ingredients/{page}','PaginationController@getPagingIngredient');
+$router->get('/ingredient/find-by-id','IngredientController@findByID');
 $router->get('/ingredient/list','IngredientController@listAll');
 $router->get('/ingredient/list-by-category','IngredientController@listByCategory');
 $router->get('/ingredient/add','IngredientController@addUI');
@@ -43,12 +48,14 @@ $router->get('/ingredient/delete','IngredientController@delete');
 // recipe router
 
 $router->get('/recipe','RecipeController@index');
-$router->get('/recipe/{page}','RecipeController@getPaging');
-$router->get('/recipe/list','RecipeController@list_all');
+$router->get('/recipes/{page}','PaginationController@getPagingRecipe');
+$router->get('/recipe/find-by-id','RecipeController@findByID');
+$router->get('/recipe/list','RecipeController@listByName');
+$router->get('/recipe/list-by-category','RecipeController@listByCategory');
 $router->get('/recipe/add','RecipeController@addUI');
 $router->post('/recipe/add','RecipeController@add');
 $router->get('/recipe/edit','RecipeController@editUI');
 $router->post('/recipe/edit','RecipeController@edit');
 $router->get('/recipe/delete','RecipeController@delete');
-$router->get('/recipe/show','RecipeController@viewDetail');
+$router->get('/recipe/detail','RecipeController@viewDetail');
 $router->get('/recipe/search','RecipeController@search');

@@ -14,7 +14,7 @@ class ViewRender {
         $errorMsg = self::ERROR_MESSAGES[$errorCode] ?? self::ERROR_MESSAGES[000];
         $vars = compact('errorCode', 'errorMsg');
         ob_start();
-        include($_SERVER['DOCUMENT_ROOT'] . '/App/Views/errors/error_template.php');
+        include($_SERVER['DOCUMENT_ROOT'] . '/App/Views/pages/error_template.php');
         return ob_get_clean();
     }
 }

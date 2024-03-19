@@ -16,10 +16,11 @@ class RecipeModel extends BaseModel {
     private $meal_type_2;
     private $meal_type_3;
     private $timestamp;
+    private $ingredientComponets = [];
 
     public function __construct($id = null, $name = null, $description = null, $image_url = null, 
             $preparation_time = null, $cooking_time = null, $direction = null, $meal_type_1 = null, 
-            $meal_type_2 = null, $meal_type_3 = null, $timestamp = null) {
+            $meal_type_2 = null, $meal_type_3 = null, $timestamp = null, $ingredientComponets = null) {
         $this->id = $id;
         $this->name = $name;
         $this->description = $description;
@@ -31,6 +32,7 @@ class RecipeModel extends BaseModel {
         $this->meal_type_2 = $meal_type_2;
         $this->meal_type_3 = $meal_type_3;
         $this->timestamp = $timestamp;
+        $this->ingredientComponets = $ingredientComponets; 
     }
 
     // get and set 
@@ -60,20 +62,40 @@ class RecipeModel extends BaseModel {
     public function setMealType3($meal_type_3) { $this->meal_type_3 = $meal_type_3; }
     public function getTimestamp() { return $this->timestamp; }
     public function setTimestamp($timestamp) { $this->timestamp = $timestamp; }
+    public function getIngredientComponets() { return $this->ingredientComponets; }
+    public function setIngredientComponets($ingredientComponets) { 
+        $this->ingredientComponets = self::addIngredient($ingredientComponets); 
+    }
+
+    public static function addIngredient($data) {
+        if(isset($data)){
+            $ingredientComponets [] = array();
+            foreach ($data as $ingredient) {
+                $ingredientComponets[$ingredient['ingredient_id']] = array(
+                    'quantity' => $ingredient['quantity'],
+                    'unit' => $ingredient['unit']
+                );
+            }
+        } else {
+            $ingredientComponets [] = null;
+        }
+        return $ingredientComponets;
+    }
 
     public static function createObjectByRawArray($data){
         $object = new self();
         $object->setId($data['id']);
         $object->setName($data['name']);
-        $object->setDescription($data['description']);
-        $object->setImgUrl($data['image_url'] ?? "image_not_found.png");
-        $object->setPreparationTime($data['preparation_time_min']);
-        $object->setCookingTime($data['cooking_time_min']);
-        $object->setDirection($data['directions']);
-        $object->setMealType1($data['meal_type_1']);
-        $object->setMealType2($data['meal_type_2']);
-        $object->setMealType3($data['meal_type_3']);
-        $object->setTimestamp($data['timestamp']);
+        $object->setDescription($data['description'] ?? "Unknown");
+        $object->setImgUrl($data['image_url'] ?? null);
+        $object->setPreparationTime($data['preparation_time_min'] ?? "Unknown");
+        $object->setCookingTime($data['cooking_time_min'] ?? "Unknown");
+        $object->setDirection($data['directions'] ?? "Unknown");
+        $object->setMealType1($data['meal_type_1'] ?? "Unknown");
+        $object->setMealType2($data['meal_type_2'] ?? "Unknown");
+        $object->setMealType3($data['meal_type_3'] ?? "Unknown");
+        $object->setTimestamp($data['timestamp'] ?? "Unknown");
+        $object->setIngredientComponets(($data['ingredientComponents']));
         return $object;
     }
 }

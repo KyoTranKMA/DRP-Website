@@ -19,6 +19,9 @@ RUN docker-php-ext-install pdo pdo_mysql mysqli zip \
     && pecl install redis \
     && docker-php-ext-enable redis pdo pdo_mysql mysqli
 
+# Grant permission to apache user to write to the uploads directory
+RUN chown -R www-data:www-data /var/www/html/Public/uploads
+
 
 # Using composer for autoloading 
 # Allow composer as superuser 

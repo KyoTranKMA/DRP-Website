@@ -16,6 +16,16 @@ class IngredientModel extends BaseModel {
   const MSG_CONNECT_PDO_EXCEPTION = "Error: Unable to establish database connection - ";
 
 
+
+  /**
+   * Class constructor for IngredientModel.
+   *
+   * @param int|null $id The ingredient ID (optional, default is null).
+   * @param string|null $name The ingredient name (optional, default is null).
+   * @param string|null $category The ingredient category (optional, default is null).
+   * @param string|null $measurementDescription The ingredient measurement description (optional, default is null).
+   * @param array|null $nutritionComponents The ingredient nutrition components (optional, default is null).
+   */
   public function __construct($id = null, $name = null, $category = null, $measurementDescription = null, $nutritionComponents = null) {
     parent::__construct();
     $this->id = $id ?? 0;
@@ -23,24 +33,25 @@ class IngredientModel extends BaseModel {
     $this->category = $category ?? '';
     $this->measurementDescription = $measurementDescription ?? '';
     $this->nutritionComponents = $nutritionComponents ?? [
-      'calcium' => null,
-      'calories' => null,
-      'carbohydrate' => null,
-      'cholesterol' => null,
-      'fiber' => null,
-      'iron' => null,
-      'fat' => null,
-      'monounsaturated_fat' => null,
-      'polyunsaturated_fat' => null,
-      'saturated_fat' => null,
-      'potassium' => null,
-      'protein' => null,
-      'sodium' => null,
-      'sugar' => null,
-      'vitamin_a' => null,
-      'vitamin_c' => null
+      'calcium' => 0,
+      'calories' => 0,
+      'carbohydrate' => 0,
+      'cholesterol' => 0,
+      'fiber' => 0,
+      'iron' => 0,
+      'fat' => 0,
+      'monounsaturated_fat' => 0,
+      'polyunsaturated_fat' => 0,
+      'saturated_fat' => 0,
+      'potassium' => 0,
+      'protein' => 0,
+      'sodium' => 0,
+      'sugar' => 0,
+      'vitamin_a' => 0,
+      'vitamin_c' => 0
     ];
   }
+  
   public function getId() { return $this->id; }
   public function getName() { return $this->name; }
   public function getCategory() { return $this->category; }
@@ -55,6 +66,15 @@ class IngredientModel extends BaseModel {
   public function setNutritionComponents($nutritionComponents) {
     $this->nutritionComponents = $nutritionComponents;
   }
+
+
+  
+  /**
+   * Creates an IngredientModel object from a raw array of data.
+   *
+   * @param array $data The raw array of data containing ingredient information.
+   * @return IngredientModel The created IngredientModel object.
+   */
   static public function createObjectByRawArray($data) {
     $ingredient = new self();
     $ingredient->setID($data['id']);

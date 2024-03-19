@@ -58,7 +58,7 @@ class Router
                     $params = array_slice($matches, 1);
                     call_user_func_array([$controller_instance, $action], $params);
 
-                    return;
+                    return null;
                 }
             }
         }

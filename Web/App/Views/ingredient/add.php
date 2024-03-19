@@ -1,20 +1,16 @@
-<!DOCTYPE html>
-<html>
+<? require_once($_SERVER['DOCUMENT_ROOT'] . "/Public/inc/header.php"); ?>
+<style>
+  .error-message {
+    color: #ff4d4d;
+    font-size: 14px;
+  }
 
+</style>
+</style>
 
-<head>
-  <style>
-      .error-message {
-      color: #ff4d4d;
-      font-size: 14px;
-      }
-  </style>
-</head>
-<body>
+<h2 style="margin-left: 40%; margin-top: 30px">Ingredient Form</h2>
 
-<h2>Ingredient Form</h2>
-
-<form id="ingredient-form" action="/ingredient/add" method="post">
+<form id="ingredient-form" action="/ingredient/add" method="post" style="width: 30%; margin-left: 40%; margin-bottom: 40px; align-items: center;">
   <label for="id">ID:</label><br>
   <input type="number" id="id" name="id"><br>
   <label for="category">Category:</label><br>
@@ -74,11 +70,10 @@
   <label for="vitamin_c">Vitamin C:</label><br>
   <input type="number" id="vitamin_c" name="vitamin_c" step="0.01"><br>
   <button type="submit" name="login">Upload</button>
-</form> 
-    <!-- Include jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <!-- Include jQuery Validate plugin -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
-    <script src="/Public/js/validate-ingredients.js"></script>
-</body>
-</html>
+</form>
+<!-- Include jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- Include jQuery Validate plugin -->
+<script src="/Public/js/validate-ingredients.js"></script>
+
+<? require_once($_SERVER['DOCUMENT_ROOT'] . "/Public/inc/footer.php"); ?>

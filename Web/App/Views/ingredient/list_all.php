@@ -1,4 +1,11 @@
 <? require_once($_SERVER['DOCUMENT_ROOT'] . '/Public/inc/header.php'); ?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ingredients</title>
   <style>
     .container {
       margin-top: 20px;
@@ -21,52 +28,39 @@
       color: white;
     }
 
-    td, th {
+    td,
+    th {
       text-align: center;
       vertical-align: middle;
     }
   </style>
-  <div class="container">
-    <h4 class="text-center">Ingredient manager</h4>
+</head>
+
+<body>
+  <div class="container minspace">
+    <h3 class="text-center">Ingredient manager</h3>
     <table class="table">
       <thead>
         <tr>
-          <th scope="col">#</th>
           <th scope="col">ID</th>
           <th scope="col">Name</th>
           <th scope="col">Category</th>
-          <th scope="col">Calcium</th>
-          <th scope="col">Calories</th>
-          <th scope="col">Carbohydrate</th>
-          <th scope="col">Cholesterol</th>
-          <th scope="col">Fiber</th>
-          <th scope="col">Iron</th>
-          <th scope="col">Fat</th>
-          <th scope="col">Monounsaturated fat</th>
-          <th scope="col">Polyunsaturated fat</th>
-          <th scope="col">Saturated fat</th>
-          <th scope="col">Potassium</th>
-          <th scope="col">Protein</th>
-          <th scope="col">Sodium</th>
-          <th scope="col">Sugar</th>
-          <th scope="col">Vitamin A</th>
-          <th scope="col">Vitamin C</th>
+          <th scope="col">Measurement unit</th>
         </tr>
       </thead>
-      <tbody>
-        <?php static $i=1; foreach ($data as $ingredient) : ?>
-          <tr>
-            <th scope="row"><?echo $i++?></th>
-            <td><?= $ingredient->getId() ?></td>
-            <td><?= $ingredient->getName() ?></td>
-            <td><?= $ingredient->getCategory() ?></td>
-            <td><?= $ingredient->getMeasurementDescription() ?></td>
-            <?php foreach ($ingredient->getNutritionComponents() as $nutrition): ?>
-              <td><?= $nutrition ?></td>
-            <?php endforeach; ?>
-          </tr>
-        <?php endforeach; ?>
+      <tbody class="ingredientTableBody">
       </tbody>
     </table>
+    <div class="row">
+        <button id="show" class="btn">Load More</button>
+    </div>
   </div>
+  <script src="/Public/js/libs/jquery/jquery-3.6.0.min.js"></script>
+  <script src="/Public/js/ajax-ingredient.js"></script>
+
+</body>
+
+</html>
+
+
 <? require_once($_SERVER['DOCUMENT_ROOT'] . '/Public/inc/footer.php'); ?>

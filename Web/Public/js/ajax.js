@@ -10,9 +10,10 @@ function viewRecipes(data) {
   $.each(recipes, function (index, recipe) {
     // Tạo thẻ div chứa thông tin của mỗi công thức
     var recipeDiv = $(
-        '<div class="card col-md-8" style="width: 22.5%; height: 25rem; margin: 1rem 1.25%">' +
-          '<img src="/Public/uploads/recipes/' +
-          (recipe.image_url ? recipe.image_url : "image_not_found.png") +
+        '<div class="card col-md-8" style="width: 22.5%; height: 25rem; margin: 1rem 1.25%; cursor: pointer;">' +
+          '<img src="' +
+          
+          (recipe.image_url ? "/Public/uploads/recipes/" + recipe.image_url : "/Public/images/" + "image_not_found.png") +
           '" class="card-img-top" alt="Picture of meal" style="object-fit: cover; height:12rem">' +
           '<div class="card-content" style="height:10rem">'+
             '<div class="card-body">' +
@@ -31,11 +32,11 @@ function viewRecipes(data) {
           '<i class="fa-solid fa-clock-rotate-left"></i>' +
           '<p style="margin: 0;padding-left: 8px;">' +
           recipe.preparation_time_min +
-          " mins</p>" +
-          "</div>" +
+          '"mins"</p>' +
+          '</div>' +
           '<div class="rating"></div>' + // Thẻ div để chứa rating
-          "</div>" +
-          "</div>"+
+          '</div>' +
+          '</div>'+
         '</div>'
     );
 
@@ -64,29 +65,7 @@ function viewRecipes(data) {
     }
   });
 
-  // Thêm sự kiện click cho các thẻ để hiển thị thông tin chi tiết khi người dùng nhấp vào
-  $(".card").click(function () {
-    // Lấy thông tin chi tiết của công thức từ data attribute
-    var details = $(this).find(".card-details").data("details");
-    // Hiển thị thông tin chi tiết của công thức
-    $(this).find(".card-text").text(details.description);
-    // Ẩn ảnh để làm cho công thức hiển thị đẹp hơn
-    $(this).find(".card-img-top").hide();
-    // Ẩn nút chi tiết để tránh người dùng nhấp nhiều lần
-    $(this).find(".card").hide();
-  });
 
-  // Thêm sự kiện click cho các thẻ để hiển thị thông tin chi tiết khi người dùng nhấp vào
-  $(".card").click(function () {
-    // Lấy thông tin chi tiết của công thức từ data attribute
-    var details = $(this).find(".card-details").data("details");
-    // Hiển thị thông tin chi tiết của công thức
-    $(this).find(".card-text").text(details.description);
-    // Ẩn ảnh để làm cho công thức hiển thị đẹp hơn
-    $(this).find(".card-img-top").hide();
-    // Ẩn nút chi tiết để tránh người dùng nhấp nhiều lần
-    $(this).find(".card").hide();
-  });
 }
 
 var page = 1;
@@ -104,12 +83,12 @@ function getRecipes(page = 1) {
   $("#show").text("Next...");
   $.ajax({
     type: "GET",
-    url: "/recipe/?page=" + page,
+    url: "/recipes/?page=" + page,
     dataType: "json",
     success: function (recipes) {
       // Hiển thị công thức
       viewRecipes(recipes);
-      var recipesPerPage = 15; // Số lượng công thức hiển thị trên mỗi trang
+      var recipesPerPage = 12; // Số lượng công thức hiển thị trên mỗi trang
 
       // Trong hàm getRecipes:
       if (recipes.length < recipesPerPage) {

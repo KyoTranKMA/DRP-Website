@@ -1,5 +1,9 @@
 {
-  "name": "web/app",
+  "name": "web/drp",
+  "version": "1.0.0",
+  "description": "A small web app project for managing recipe",
+  "type": "project",
+  "license": "MIT",
   "require": {
     "php": "^8.2",
     "ext-pdo": "*",

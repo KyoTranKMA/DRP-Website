@@ -2,82 +2,100 @@
 
 namespace App\Controllers;
 
-use App\Models\RecipeModel;
 use App\Operations\RecipeReadOperation;
 use App\Operations\RecipeCreateOperation;
 use App\Operations\RecipeUpdateOperation;
 use App\Operations\RecipeDeleteOperation;
+use App\Operations\IngredientReadOperation;
+use App\Operations\UploadImageOperation;
+
 
 // use autoload from composer
 require($_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php');
 
 class RecipeController extends BaseController
 {
-    public function index()
-    {
-        $this->loadView('recipe.recipe');
-    }
+
     public function viewDetail(){
+        // $recipe = $_GET['id']; 
+        // $data = RecipeReadOperation::getSingleObjectById($recipe);
         return $this->loadView('recipe.recipe_detail');
     } 
+    public function index()
+    {
+        $recipes = RecipeReadOperation::getAllObjects();
+        $this->loadView('recipe.recipe', $recipes);
+    }
     public function findByID()
     {
         $id = $_GET('id');
-        $this->loadView('recipe.recipe_view', $id);
+        $recipe = RecipeReadOperation::getSingleObjectById($id);
+        $this->loadView('recipe.recipe_view', $recipe);
+    }
+    public function listByCategory()
+    {
+        $category = $_GET['category'];
+        $recipes = RecipeReadOperation::getAllObjectsByFieldAndValue('category', $category);
+        $this->loadView('recipe.recipe', $recipes);
     }
     public function addUI()
     {
-        $this->loadView('recipe.add');
+        $data = IngredientReadOperation::getIdAndNameAllObject();
+        $this->loadView('recipe.add', $data);
     }
-    public function add()
-    {
+    public function add() {   
         $data = $_POST;
-        RecipeCreateOperation::execute($data);
-        header("Location: /recipe/add");
+
+        $ingredientComponents = [];
+        for ($index = 0; $index < count($data['ingredient_id']); $index++){
+            $component = [
+                'ingredient_id' => $data['ingredient_id'][$index],
+                'unit' => $data['unit'][$index],
+                'quantity'=> $data['quantity'][$index]
+            ];
+            $ingredientComponents[] = $component;
+        }
+        $data['ingredientComponents'] = $ingredientComponents;
+        // release the ingredient_id, unit, and quantity from the data
+        unset($data['ingredient_id']);
+        unset($data['unit']);
+        unset($data['quantity']);
+
+
+        $data['image_url'] = UploadImageOperation::process();
+        if($data['image_url'] == null){
+            die();
+        }
+        if(RecipeCreateOperation::execute($data))
+            header("Location: /recipe/add");
     }
+
     public function editUI()
     {
         $id = $_GET['id'];
         $recipe = RecipeReadOperation::getSingleObjectById($id);
         $this->loadView('recipe.edit', $recipe);
     }
-
     public function edit()
     {
         $data = $_POST;
         RecipeUpdateOperation::execute($data);
         header("Location: /recipe/edit?id=" . $data['id']);
     }
-    public function deleteUI()
-    {
+    public function deleteUI() {
         $id = $_GET['id'];
         $recipe = RecipeReadOperation::getSingleObjectById($id);
         $this->loadView('recipe.delete', $recipe);
     }
 
-    public function delete()
-    {
+    public function delete() {
         $id = $_GET['id'];
         RecipeDeleteOperation::deleteById($id);
         header("Location: /recipe");
     }
-
-    public function getPaging($page = 1)
+    public function search()
     {
-        $page = isset($_GET['page']) ? intval($_GET['page']) : 1;
-        if ($page <= 0) {
-            $page = 1;
-        }
-        $limit = 15;
-        $offset = ($page - 1) * $limit;
-        $recipes = RecipeReadOperation::getPaging($limit, $offset);
-        // Return Recipes as JSON to Ajax request 
-        echo json_encode($recipes);
+        $recipes = RecipeReadOperation::getAllObjectsByFieldAndValue('name', $_POST['name']);
+        $this->loadView('recipe.recipe', $recipes,);
     }
-
-    public function getLoadMore()
-    {
-        $this->loadView('recipe.load_more');
-    }
-
 }

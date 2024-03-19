@@ -10,7 +10,7 @@ services:
     ports:
       - "80:80"
     volumes:
-      - ./Web:/var/www/html/
+      - ./Web:/var/www/html/:rw
     networks:
       - DRP
     depends_on:
