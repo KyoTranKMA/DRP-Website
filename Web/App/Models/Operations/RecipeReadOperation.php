@@ -24,7 +24,7 @@ class RecipeReadOperation extends DatabaseRelatedOperation implements I_ReadOper
       if ($conn == false) {
         throw new \PDOException(parent::MSG_CONNECT_PDO_EXCEPTION . __METHOD__ . '. ');
       }
-      $sql = "select * from recipes inner";
+      $sql = "select * from recipes";
       $data = self::query($sql, $conn, \PDO::FETCH_ASSOC);
       $recipes = [];
       foreach($data as $recipe){
