@@ -132,7 +132,7 @@ class RecipeReadOperation extends DatabaseRelatedOperation implements I_ReadOper
         throw new \PDOException(parent::MSG_CONNECT_PDO_EXCEPTION . __METHOD__ . '. ');
       }
       $sql = "select * from recipes where id = :id";
-      $recipe = RecipeModel::createObjectByRawArray(self::query($sql, $conn, \PDO::FETCH_ASSOC, ['id' => $id]));
+      $recipe = RecipeModel::createObjectByRawArray(self::query($sql, $conn, \PDO::FETCH_ASSOC, ['id' => $id])[0]);
       return $recipe;
     } catch (\PDOException $PDOException) {
       handlePDOException($PDOException);
@@ -142,6 +142,7 @@ class RecipeReadOperation extends DatabaseRelatedOperation implements I_ReadOper
     } catch (\Throwable $throwable) {
       handleError($throwable->getCode(), $throwable->getMessage(), $throwable->getFile(), $throwable->getLine());
     }
+    return null;
   }
 
 
