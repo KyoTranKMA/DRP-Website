@@ -16,6 +16,16 @@ class IngredientModel extends BaseModel {
   const MSG_CONNECT_PDO_EXCEPTION = "Error: Unable to establish database connection - ";
 
 
+
+  /**
+   * Class constructor for IngredientModel.
+   *
+   * @param int|null $id The ingredient ID (optional, default is null).
+   * @param string|null $name The ingredient name (optional, default is null).
+   * @param string|null $category The ingredient category (optional, default is null).
+   * @param string|null $measurementDescription The ingredient measurement description (optional, default is null).
+   * @param array|null $nutritionComponents The ingredient nutrition components (optional, default is null).
+   */
   public function __construct($id = null, $name = null, $category = null, $measurementDescription = null, $nutritionComponents = null) {
     parent::__construct();
     $this->id = $id ?? 0;
@@ -41,6 +51,7 @@ class IngredientModel extends BaseModel {
       'vitamin_c' => 0
     ];
   }
+  
   public function getId() { return $this->id; }
   public function getName() { return $this->name; }
   public function getCategory() { return $this->category; }
@@ -55,6 +66,15 @@ class IngredientModel extends BaseModel {
   public function setNutritionComponents($nutritionComponents) {
     $this->nutritionComponents = $nutritionComponents;
   }
+
+
+  
+  /**
+   * Creates an IngredientModel object from a raw array of data.
+   *
+   * @param array $data The raw array of data containing ingredient information.
+   * @return IngredientModel The created IngredientModel object.
+   */
   static public function createObjectByRawArray($data) {
     $ingredient = new self();
     $ingredient->setID($data['id']);

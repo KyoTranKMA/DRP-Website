@@ -23,11 +23,10 @@ use App\Controllers\UserController;
       background: linear-gradient(to right, #E2E2E2, #CCD8FF);
     }
 
-  input[type="number"] {
-    -moz-appearance: textfield;
-    -webkit-appearance: textfield;
-  } 
-
+    input[type="number"] {
+      -moz-appearance: textfield;
+      -webkit-appearance: textfield;
+    } 
     p {
       margin: 0.25rem;
     }

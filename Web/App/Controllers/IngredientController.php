@@ -72,7 +72,7 @@ class IngredientController extends BaseController
             handleError($throwable->getCode(), $throwable->getMessage(), $throwable->getFile(), $throwable->getLine());
         }
         echo \App\Views\ViewRender::errorViewRender('404');
-        return;
+        return null;
     }
 
     public function edit() {

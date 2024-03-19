@@ -1,16 +1,27 @@
 <?
 
 namespace App\Operations;
+use App\Controllers\Dialog;
 
 class IngredientCreateOperation extends DatabaseRelatedOperation implements I_CreateAndUpdateOperation {
   public function __construct() {
     parent::__construct();
   }
-  static public function notify($message) {
-    echo "<script>alert('$message')</script>";
+
+
+  static public function notify(string $message) : void {
+    Dialog::show($message);
   }
-  static public function validateData($data)
-  {
+
+
+  /**
+   * Validates the ingredient data with specific rules.
+   *
+   * @param array $data The ingredient data to be validated.
+   * @return void
+   * @throws \InvalidArgumentException If the data is invalid.
+   */
+  static public function validateData(array $data) : void {
     /**
      * Validate the data with specific rules
      * name: required, only letters and numbers
@@ -21,7 +32,7 @@ class IngredientCreateOperation extends DatabaseRelatedOperation implements I_Cr
      */
   
     if($data == null) 
-      throw new \InvalidArgumentException(self::MSG_DATA_ERROR . __METHOD__ . '. ');
+      throw new \InvalidArgumentException(parent::MSG_DATA_ERROR . __METHOD__ . '. ');
     $validCategories = array('EMMP', 'FAO', 'FRU', 'GNBK', 'HRBS', 'MSF', 'OTHR', 'PRP', 'VEGI');
     $validMeasurements = array('tsp', 'cup', 'tbsp', 'g', 'lb', 'can', 'oz', 'unit');
 
@@ -31,33 +42,35 @@ class IngredientCreateOperation extends DatabaseRelatedOperation implements I_Cr
 
     foreach ($requiredFields as $field) {
       if (empty($data[$field])) {
-        throw new \InvalidArgumentException(self::MSG_DATA_ERROR . __METHOD__ . '. ');
+        throw new \InvalidArgumentException(parent::MSG_DATA_ERROR . __METHOD__ . '. ');
       }
     }
 
     foreach ($numericFields as $field) {
       if (!empty($data[$field]) && !is_numeric($data[$field])) {
-        throw new \InvalidArgumentException(self::MSG_DATA_ERROR . __METHOD__ . '. ');
+        throw new \InvalidArgumentException(parent::MSG_DATA_ERROR . __METHOD__ . '. ');
       }
     }
 
-    if (!preg_match('/^[a-zA-Z0-9\s.,]+$/', $data['name'])) {
-      throw new \InvalidArgumentException(self::MSG_DATA_ERROR . __METHOD__ . '. ');
-    }
-
-    if (!in_array($data['category'], $validCategories)) {
-      throw new \InvalidArgumentException(self::MSG_DATA_ERROR . __METHOD__ . '. ');
-    }
-
-    if (!in_array($data['measurement_description'], $validMeasurements)) {
-      throw new \InvalidArgumentException(self::MSG_DATA_ERROR . __METHOD__ . '. ');
-    }
+    if (!preg_match('/^[a-zA-Z0-9\s.,]+$/', $data['name']) ||
+        !in_array($data['category'], $validCategories) ||
+        !in_array($data['measurement_description'], $validMeasurements)) {
+      throw new \InvalidArgumentException(parent::MSG_DATA_ERROR . __METHOD__ . '. ');
+    } 
   }
-  static public function saveToDatabase($data) {
+
+
+  /**
+   * Save the data to the database
+   *
+   * @param array $data The data to be saved
+   * @throws \PDOException If the data cannot be saved
+   */
+  static public function saveToDatabase(array $data) : void{
     $model = new static();
     $conn = $model->DB_CONNECTION;
-    if ($conn == null) {
-      throw new \PDOException(self::MSG_CONNECT_PDO_EXCEPTION . __METHOD__ . '. ');
+    if ($conn == false) {
+      throw new \PDOException(parent::MSG_CONNECT_PDO_EXCEPTION . __METHOD__ . '. ');
     }
 
 
@@ -94,8 +107,14 @@ class IngredientCreateOperation extends DatabaseRelatedOperation implements I_Cr
     ]);
   }
 
-  static public function execute($data)
-  {
+
+  /**
+   * Execute the operation
+   *
+   * @param array $data The data to be executed
+   * @return bool True if the operation is successful, false otherwise
+   */
+  static public function execute(array $data) : bool{
     /**
      * Validate the data before saving to the database
      */

@@ -38,13 +38,14 @@ class UploadImageOperation {
       // handle overwriting file name exception
       $fullname = $filename . '.' . $pathinfo['extension'];
       // create the path to store the file
-      $fileToHost = "/Public/uploads/{$fullname}";
+      $fileToHost = "./Public/uploads/recipes/{$fullname}";
       $i = 1;
       while (file_exists($fileToHost)) {
         $fullname = $filename . "-$i." . $pathinfo['extension'];
-        $fileToHost = "/Public/uploads/{$fullname}";
+        $fileToHost =  "./Public/uploads/recipes/{$fullname}";
         $i++;
       }
+
       // move the file from temp memory to the host
       $fileTmp = $_FILES['file']['tmp_name'];
       if (move_uploaded_file($fileTmp, $fileToHost)) {

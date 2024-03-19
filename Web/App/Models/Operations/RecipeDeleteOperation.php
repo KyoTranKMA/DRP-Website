@@ -7,7 +7,7 @@ class RecipeDeleteOperation extends DatabaseRelatedOperation implements I_Delete
     try {
       $model = new static();
       $conn = $model->DB_CONNECTION;
-      if ($conn == null) {
+      if ($conn == false) {
         throw new \PDOException(self::MSG_CONNECT_PDO_EXCEPTION . __METHOD__ . '. ');
       }
 
@@ -28,7 +28,7 @@ class RecipeDeleteOperation extends DatabaseRelatedOperation implements I_Delete
     try {
       $model = new static();
       $conn = $model->DB_CONNECTION;
-      if ($conn == null) {
+      if ($conn == false) {
         throw new \PDOException(self::MSG_CONNECT_PDO_EXCEPTION . __METHOD__ . '. ');
       }
       $sql = "delete from ingredient_recipe where recipe_id = (select id from recipes where {$fieldName} = :value); delete from recipes where {$fieldName} = :value";
@@ -48,7 +48,7 @@ class RecipeDeleteOperation extends DatabaseRelatedOperation implements I_Delete
     try {
       $model = new static();
       $conn = $model->DB_CONNECTION;
-      if ($conn == null) {
+      if ($conn == false) {
         throw new \PDOException(self::MSG_CONNECT_PDO_EXCEPTION . __METHOD__ . '. ');
       }
       $sql = "delete from ingredient_recipe where ingredient_id = (select id from ingredients where name = :ingredientName); 

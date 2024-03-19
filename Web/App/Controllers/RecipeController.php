@@ -45,13 +45,30 @@ class RecipeController extends BaseController
     }
     public function add() {   
         $data = $_POST;
-        
-        echo "<pr> data: ";
-        var_dump($data);
-        echo "</pre>";
+
+
+        $ingredientComponents = [];
+        for ($index = 0; $index < count($data['ingredient_id']); $index++){
+            $component = [
+                'ingredient_id' => $data['ingredient_id'][$index],
+                'unit' => $data['unit'][$index],
+                'quantity'=> $data['quantity'][$index]
+            ];
+            $ingredientComponents[] = $component;
+        }
+        $data['ingredientComponents'] = $ingredientComponents;
+        // release the ingredient_id, unit, and quantity from the data
+        unset($data['ingredient_id']);
+        unset($data['unit']);
+        unset($data['quantity']);
+
+
         $data['image_url'] = UploadImageOperation::process();
-        RecipeCreateOperation::execute($data);
-        header("Location: /recipe/add");
+        if($data['image_url'] == null){
+            die();
+        }
+        if(RecipeCreateOperation::execute($data))
+            header("Location: /recipe/add");
     }
 
     public function editUI()
@@ -82,7 +99,4 @@ class RecipeController extends BaseController
         $recipes = RecipeReadOperation::getAllObjectsByFieldAndValue('name', $_POST['name']);
         $this->loadView('recipe.recipe', $recipes,);
     }
-
-
-
 }

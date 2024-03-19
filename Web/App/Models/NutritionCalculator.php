@@ -53,6 +53,8 @@ class NutritionCalculator
           throw new \Exception("Thành phần không tồn tại");
         }
 
+        
+
         foreach ($totalNutrition as $key => $value) {
           if ($ingredient[$key] !== null && $row['number_of_unit'] !== null) {
             $totalNutrition[$key] += $ingredient[$key] * $row['number_of_unit'];

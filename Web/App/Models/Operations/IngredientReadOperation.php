@@ -112,8 +112,7 @@ class IngredientReadOperation extends DatabaseRelatedOperation implements I_Read
    * @return array|null An array of IngredientModel objects representing the retrieved ingredients, or null if an error occurs.
    */
 
-  public static function getObjectWithOffset(int $offset = 0, int $limit = null) : ?array
-  {
+  public static function getObjectWithOffset(int $offset = 0, int $limit = null) : ?array {
 
     if ($limit === null) {
       $limit = $offset + 5;
@@ -127,7 +126,7 @@ class IngredientReadOperation extends DatabaseRelatedOperation implements I_Read
     } catch (\PDOException $PDOException) {
       handlePDOException($PDOException);
       echo \App\Views\ViewRender::errorViewRender('500');
-      return;
+      return null;
     }
 
 
@@ -158,7 +157,7 @@ class IngredientReadOperation extends DatabaseRelatedOperation implements I_Read
       handleError($throwable->getCode(), $throwable->getMessage(), $throwable->getFile(), $throwable->getLine());
     }
     echo \App\Views\ViewRender::errorViewRender('500');
-    return;
+    return null;
   }
 
 
@@ -179,7 +178,7 @@ class IngredientReadOperation extends DatabaseRelatedOperation implements I_Read
     } catch (\PDOException $PDOException) {
       handlePDOException($PDOException);
       echo \App\Views\ViewRender::errorViewRender('500');
-      return;
+      return null;
     }
 
 
@@ -203,7 +202,7 @@ class IngredientReadOperation extends DatabaseRelatedOperation implements I_Read
       handleError($throwable->getCode(), $throwable->getMessage(), $throwable->getFile(), $throwable->getLine());
     }
     echo \App\Views\ViewRender::errorViewRender('500');
-    return;
+    return null;
   }
 
 
@@ -232,7 +231,7 @@ class IngredientReadOperation extends DatabaseRelatedOperation implements I_Read
     } catch (\PDOException $PDOException) {
       handlePDOException($PDOException);
       echo \App\Views\ViewRender::errorViewRender('500');
-      return;
+      return null;
     }
 
 
@@ -286,7 +285,7 @@ class IngredientReadOperation extends DatabaseRelatedOperation implements I_Read
     } catch (\PDOException $PDOException) {
       handlePDOException($PDOException);
       echo \App\Views\ViewRender::errorViewRender('500');
-      return;
+      return null;
     }
 
     $sql = "select id, name from ingredients";
@@ -308,10 +307,18 @@ class IngredientReadOperation extends DatabaseRelatedOperation implements I_Read
       handleError($throwable->getCode(), $throwable->getMessage(), $throwable->getFile(), $throwable->getLine());
     }
     echo \App\Views\ViewRender::errorViewRender('500');
-    return;
+    return null;
   }
 
-  static public function getPaging(int $limit, int $offset)
-  {
+
+
+  /**
+   * Retrieves the ID and name of all ingredients from the database with pagination.
+   *
+   * @param int $offset The starting offset for retrieving ingredients.
+   * @param int|null $limit The maximum number of ingredients to retrieve. If not provided, defaults to offset + 5.
+   */
+  static public function getPaging(int $limit, int $offset) {
+    return null;
   }
 }
