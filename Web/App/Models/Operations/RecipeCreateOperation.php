@@ -44,8 +44,7 @@ class RecipeCreateOperation extends DatabaseRelatedOperation implements I_Create
       empty($data['meal_type_2']) ||
       empty($data['directions']) ||
       empty($data['description']) ||
-      empty($data['meal_type_3'])){ echo "hello";}
-      if(
+      empty($data['meal_type_3']) ||
       empty($data['ingredientComponents'])) {
       throw new \Exception("Invalid data provided in " . __METHOD__ . ".");
     }
