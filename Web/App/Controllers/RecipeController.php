@@ -46,7 +46,6 @@ class RecipeController extends BaseController
     public function add() {   
         $data = $_POST;
 
-
         $ingredientComponents = [];
         for ($index = 0; $index < count($data['ingredient_id']); $index++){
             $component = [

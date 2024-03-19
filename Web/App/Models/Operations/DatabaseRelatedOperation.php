@@ -14,10 +14,6 @@ class DatabaseRelatedOperation {
   static protected function query($sql, $conn, $fetchMode = \PDO::FETCH_ASSOC, $params = []){
     $stmt = $conn->prepare($sql);
 
-    /** 
-     * bind the parameters if there are any 
-     */
-
     if (!empty($params))
       foreach ($params as $key => $value)
         $stmt->bindValue($key, $value);
