@@ -54,6 +54,12 @@ $router->get('/recipe/list','RecipeController@listByName');
 $router->get('/recipe/list-by-category','RecipeController@listByCategory');
 $router->get('/recipe/add','RecipeController@addUI');
 $router->post('/recipe/add','RecipeController@add');
+
+
+$router->get('/recipe/find-result','RecipeController@findResult');
+$router->get('/recipe/find','RecipeController@find');
+
+
 $router->get('/recipe/edit','RecipeController@editUI');
 $router->post('/recipe/edit','RecipeController@edit');
 $router->get('/recipe/delete','RecipeController@delete');

@@ -32,6 +32,12 @@ class RecipeController extends BaseController
         $recipe = RecipeReadOperation::getSingleObjectById($id);
         $this->loadView('recipe.recipe_view', $recipe);
     }
+    public function search(){
+        $recipes = RecipeReadOperation::getAllObjectsByFieldAndValue('name', $_GET['id']);
+        $this->loadView('recipe.recipe', $recipes);
+
+    }
+
     public function listByCategory()
     {
         $category = $_GET['category'];
@@ -93,9 +99,15 @@ class RecipeController extends BaseController
         RecipeDeleteOperation::deleteById($id);
         header("Location: /recipe");
     }
-    public function search()
-    {
-        $recipes = RecipeReadOperation::getAllObjectsByFieldAndValue('name', $_POST['name']);
-        $this->loadView('recipe.recipe', $recipes,);
+    public function find() {    
+        $this->loadView('recipe.find');
+    }
+
+    public function findResult(){
+        $name = $_GET['name'] ?? null;
+
+        $recipe = RecipeReadOperation::getAllObjectsByFieldAndValue('name', $name);
+        
+
     }
 }
