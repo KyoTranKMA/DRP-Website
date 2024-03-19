@@ -1,7 +1,7 @@
 <? require($_SERVER['DOCUMENT_ROOT'] . "/Public/inc/header.php") ?>
 
 <div class="homepage">
-    <div class="container mb-3">
+    <div class="container minspace mb-3">
         <div class="content d-flex align-items-start mt-3">
             <? $mainRecipe = $data[0]; ?>
             <div class="main-content flex-fill" style="position: sticky; top: 1rem">

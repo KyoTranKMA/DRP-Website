@@ -37,8 +37,8 @@
 </head>
 
 <body>
-  <div class="container">
-    <h4 class="text-center">Ingredient manager</h4>
+  <div class="container minspace">
+    <h3 class="text-center">Ingredient manager</h3>
     <table class="table">
       <thead>
         <tr>

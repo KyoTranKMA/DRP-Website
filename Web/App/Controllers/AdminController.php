@@ -5,6 +5,9 @@ use App\Models\UserModel;
 
 class AdminController extends BaseController{
     public function index(){
+        if(!$this->isAdmin()){
+            return parent::loadError('404');
+        }
         return $this->loadView('admin.index');
     }
 
@@ -26,12 +29,18 @@ class AdminController extends BaseController{
     }
 
     public function userManagerUpdate(){
+        if(!$this->isAdmin()){
+            return parent::loadError('404');
+        }
         $data = $_POST;
         UserModel::update($data);
         header("Location: /manager/user");
     }
 
     public function userManagerAdd(){
+        if(!$this->isAdmin()){
+            return parent::loadError('404');
+        }
         $data = $_POST;
         $userModel = new UserModel;
         
@@ -63,6 +72,9 @@ class AdminController extends BaseController{
     }
 
     public function setLevel(){
+        if(!$this->isAdmin()){
+            return parent::loadError('404');
+        }
         if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['id'])){
             $data = $_POST;
             UserModel::setLevel($data);
