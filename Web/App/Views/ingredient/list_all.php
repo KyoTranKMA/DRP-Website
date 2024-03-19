@@ -52,7 +52,7 @@
       </tbody>
     </table>
     <div class="row">
-        <button id="show" class="btn">Load More</button>
+      <div id="pagination" class="row justify-content-center mt-3"></div>
     </div>
   </div>
   <script src="/Public/js/libs/jquery/jquery-3.6.0.min.js"></script>
