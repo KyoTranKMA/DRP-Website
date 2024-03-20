@@ -129,12 +129,14 @@ use App\Controllers\UserController;
               <a class="m-2" href="/ingredient">Ingredients</a>
             </li>
           </ul>
+
           <div class=" d-flex justify-content-center align-items-center input-group me-3" style="width:300px">
-            <input type="text" class="form-control" placeholder="Search" aria-label="Search">
+            <input type="text" class="form-control" id="search" name="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-primary" type="button">
               <i class="fa-solid fa-magnifying-glass"></i>
             </button>
           </div>
+
         </div>
 
         <?php
