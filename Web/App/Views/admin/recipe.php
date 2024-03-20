@@ -18,8 +18,10 @@
             <h4 class="d-flex justify-content-between align-items-center mb-3">
               <span>List recipe</span>
             </h4>
+
+            <!-- SEARCH -->
             <div class="col-md-auto sign-up">
-                <form action="/manager/user" method="GET" class="row g-3">
+                <form action="/manager/recipe" method="GET" class="row g-3">
                     <div class="col-auto">
                         <div class="col-sm-10">
                             <input type="text" class="form-control" id="s_id" name="s_id" placeholder="ID...">
@@ -28,16 +30,6 @@
                     <div class="col-auto">
                         <div class="col-sm-10">
                             <input type="text" class="form-control" id="s_name" name="s_name" placeholder="Name...">
-                        </div>
-                    </div>
-                    <div class="col-auto">
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="s_preparation_time_min" name="s_preparation_time_min" placeholder="Preparation time...">
-                        </div>
-                    </div>
-                    <div class="col-auto">
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control w-200" id="s_cooking_time_min" name="s_cooking_time_min" placeholder="Cooking time...">
                         </div>
                     </div>
                     <div class="col-auto">
@@ -53,11 +45,25 @@
                     <div class="col-auto">
                         <div class="col-sm-10">
                             <select class="form-select" id="s_meal_type_2" name="s_meal_type_2" aria-label="Select meal type">
-                                <option value="" selected disabled hidden></option>
+                                <option value="" selected disabled hidden>Select meal type</option>
                                 <option value="Appetizer">Appetizer</option>
                                 <option value="Main Dish">Main Dish</option>
                                 <option value="Side Dish">Side Dish</option>
                                 <option value="Dessert">Dessert</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <div class="col-sm-10">
+                            <select class="form-select" id="s_meal_type_3" name="s_meal_type_3" aria-label="Select meal type">
+                                <option value="" selected disabled hidden>Select meal category</option>
+                                <option value="Baked">Baked</option>
+                                <option value="Beverage">Beverage</option>
+                                <option value="Salad and Salad Dressing">Salad and Salad Dressing</option>
+                                <option value="Soup">Soup</option>
+                                <option value="Sauce and Condiment">Sauce and Condiment</option>
+                                <option value="Snack">Snack</option>
+                                <option value="Other">Other</option>
                             </select>
                         </div>
                     </div>
@@ -67,6 +73,7 @@
                 </form>
             </div>
 
+            <!-- TABLE -->
             <div class="col-md-auto">
                 <table class="table table-bordered nav">
                     <tr>

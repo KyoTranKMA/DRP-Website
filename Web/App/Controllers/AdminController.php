@@ -107,6 +107,22 @@ class AdminController extends BaseController{
             return parent::loadError('404');
         }
 
+        if($_GET['s_id'] != ''){ 
+            $recipes = RecipeReadOperation::getSingleObjectById($_GET['s_id']);
+        } else if($_GET['s_name'] != ''){
+            $recipes = RecipeReadOperation::getAllObjectsByFieldAndValue('name', $_GET['s_name']);
+        } else if ($_GET['s_meal_type_1'] != ''){
+            $recipes = RecipeReadOperation::getAllObjectsByFieldAndValue('meal_type_1', $_GET['s_meal_type_1']);
+        } else if ($_GET['s_meal_type_2'] != ''){
+            $recipes = RecipeReadOperation::getAllObjectsByFieldAndValue('meal_type_2', $_GET['s_meal_type_2']);
+        } else if ($_GET['s_meal_type_3'] != ''){
+            $recipes = RecipeReadOperation::getAllObjectsByFieldAndValue('meal_type_3', $_GET['s_meal_type_3']);
+        }
+        
+        if(!$recipes){
+            $recipes = UserOperation::getAllUser();
+        }
+
         $recipes = RecipeReadOperation::getAllObjects();
         return $this->loadView('admin.recipe', ['recipes' => $recipes]);
     }
@@ -127,8 +143,11 @@ class AdminController extends BaseController{
         $data = $_POST;
         if(isset($_FILES))
             $data['image_url'] = UploadImageOperation::process();
-        RecipeUpdateOperation::execute($data);
-        header("Location: /manager/recipe");
+        if(RecipeUpdateOperation::execute($data)){
+            echo '<script>
+            window.location.href = "/manager/recipe";
+            </script>';
+        }
     }
 
     /*
