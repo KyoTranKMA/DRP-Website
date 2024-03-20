@@ -124,14 +124,14 @@ class RecipeUpdateOperation extends DatabaseRelatedOperation implements I_Create
     } catch (\InvalidArgumentException $InvalidArgumentException) {
       handleException($InvalidArgumentException);
       self::notify("Update recipe failed casued by: " . htmlspecialchars($InvalidArgumentException->getMessage()));
-      return false;
+      header("Location: /manager/recipe/update?id=" . $data['id']);
     }
     try {
       self::saveToDatabase($data);
     } catch (\PDOException $PDOException) {
       handlePDOException($PDOException);
       self::notify("Update recipe failed casued by: " . htmlspecialchars($PDOException->getMessage()));
-      return false;
+      header("Location: /manager/recipe/update?id=" . $data['id']);
     }
 
     self::notify("Update recipe successfully! ");

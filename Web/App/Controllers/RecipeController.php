@@ -52,8 +52,8 @@ class RecipeController extends BaseController
         $this->loadView('recipe.add', $data);
     }
     public function add() {
+        try {
         $data = $_POST;
-
 
         $ingredientComponents = [];
         for ($index = 0; $index < count($data['ingredient_id']); $index++) {
@@ -64,19 +64,26 @@ class RecipeController extends BaseController
             ];
             $ingredientComponents[] = $component;
         }
+        
         $data['ingredientComponents'] = $ingredientComponents;
-        // release the ingredient_id, unit, and quantity from the data
         unset($data['ingredient_id']);
         unset($data['unit']);
         unset($data['quantity']);
 
-
         $data['image_url'] = UploadImageOperation::process();
         if ($data['image_url'] == null) {
-            die();
+            echo "<script>alert('Failed to upload image.');</script>";
+            header("Location: /recipe/add");
+            exit();
         }
+        
         if (RecipeCreateOperation::execute($data))
             header("Location: /recipe/add");
+    } catch (\PDOException $PDOException) {
+        handlePDOException($PDOException);
+        header("Location: /recipe/add");
+        echo "<script>alert('Failed to add recipe.');</script>";
+    }
     }
 
     public function editUI()

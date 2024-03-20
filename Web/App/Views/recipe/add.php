@@ -99,12 +99,12 @@
       <textarea class="form-control" id="description" name="description" aria-label="With textarea"></textarea>
     </div>
 
+    <div id="ingredientComponents"></div>
+
     <div class="input-group mb-3">
       <label class="input-group-text" for="image">Upload your image</label>
       <input type="file" class="form-control" id="file" name="file">
     </div>
-
-    <div id="ingredientComponents"></div>
     
     <button type="button" class="btn btn-outline-secondary" id="addIngredientBtn" style="padding: 10px; margin-top: 10px; margin-bottom:15px">Add Ingredient</button>
 

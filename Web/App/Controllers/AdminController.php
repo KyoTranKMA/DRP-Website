@@ -153,8 +153,11 @@ class AdminController extends BaseController{
             return parent::loadError('404');
         }
         $data = $_POST;
-        if(isset($_FILES))
+        // var_dump($_FILES['file']['name']);
+        // die();
+        if($_FILES['file']['name'] != null)
             $data['image_url'] = UploadImageOperation::process();
+
         if(RecipeUpdateOperation::execute($data)){
             echo '<script>
             window.location.href = "/manager/recipe";
@@ -175,11 +178,11 @@ class AdminController extends BaseController{
         } else if($_GET['s_name'] != ''){
             $ingredients = IngredientReadOperation::getAllObjectsByFieldAndValue('name', $_GET['s_name']);
         } else if ($_GET['s_category'] != ''){
-            $ingredients = IngredientReadOperation::getAllObjectsByFieldAndValue('s_category', $_GET['s_category']);
+            $ingredients = IngredientReadOperation::getAllObjectsByFieldAndValue('category', $_GET['s_category']);
         } else if ($_GET['s_measurement_desciption'] != ''){
             $ingredients = IngredientReadOperation::getAllObjectsByFieldAndValue('measurement_description', $_GET['s_measurement_desciption']);
         } else if ($_GET['s_name'] != ''){
-            $ingredients = IngredientReadOperation::getAllObjectsByFieldAndValue('s_name', $_GET['s_name']);
+            $ingredients = IngredientReadOperation::getAllObjectsByFieldAndValue('name', $_GET['s_name']);
         }
 
         if(!$ingredients){
