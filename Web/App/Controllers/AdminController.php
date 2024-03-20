@@ -145,7 +145,7 @@ class AdminController extends BaseController{
             return parent::loadError('404');
         }
 
-        $recipe = RecipeReadOperation::getSingleObjectByIdForAdmin($_GET['id']);
+        $recipe = RecipeReadOperation::getSingleObjectById($_GET['id']);
         return $this->loadView('admin.recipeUpdate', ['recipe' => $recipe]);
     }
 
