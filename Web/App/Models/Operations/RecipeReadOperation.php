@@ -141,6 +141,7 @@ class RecipeReadOperation extends DatabaseRelatedOperation implements I_ReadOper
 
       $sql2 = "select ingredients.name, number_of_unit, ingredient_recipe.measurement_description 
                 from ingredient_recipe 
+                join recipes on ingredient_recipe.recipe_id = recipes.id
                 join ingredients on ingredient_recipe.ingredient_id = ingredients.id
                 where recipe_id = :id and ingredients.isActive = 1 and recipes.isActive = 1";
       $stmt = $conn->prepare($sql2);
