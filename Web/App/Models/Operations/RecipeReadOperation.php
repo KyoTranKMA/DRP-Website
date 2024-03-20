@@ -20,8 +20,7 @@ class RecipeReadOperation extends DatabaseRelatedOperation implements I_ReadOper
    * @throws \PDOException If there is an error connecting to the database.
    * @throws \Exception If there is any other exception thrown during the execution of the method.
    */
-  static public function getAllObjects(): ?array
-  {
+  static public function getAllObjects(): ?array {
     try {
       $model = new static();
       $conn = $model->DB_CONNECTION;
@@ -43,6 +42,7 @@ class RecipeReadOperation extends DatabaseRelatedOperation implements I_ReadOper
     } catch (\Throwable $throwable) {
       handleError($throwable->getCode(), $throwable->getMessage(), $throwable->getFile(), $throwable->getLine());
     }
+    return null;
   }
 
   /**
@@ -52,13 +52,10 @@ class RecipeReadOperation extends DatabaseRelatedOperation implements I_ReadOper
    * @param int|null $limit The limit value for retrieving recipes. If not provided, default limit is set to offset + 5.
    * @return array|null An array of recipe objects or null if an error occurs.
    */
-  static public function getObjectWithOffset(int $offset = 0, int $limit = null): ?array
-  {
-
+  static public function getObjectWithOffset(int $offset = 0, int $limit = null): ?array {
     if ($limit == null) {
       $limit = $offset + 5;
     }
-
 
     /** 
      * @var \PDO $conn
@@ -88,6 +85,7 @@ class RecipeReadOperation extends DatabaseRelatedOperation implements I_ReadOper
     } catch (\Throwable $throwable) {
       handleError($throwable->getCode(), $throwable->getMessage(), $throwable->getFile(), $throwable->getLine());
     }
+    return null;
   }
 
 
@@ -121,6 +119,7 @@ class RecipeReadOperation extends DatabaseRelatedOperation implements I_ReadOper
     } catch (\Throwable $throwable) {
       handleError($throwable->getCode(), $throwable->getMessage(), $throwable->getFile(), $throwable->getLine());
     }
+    return null;
   }
 
 
@@ -287,7 +286,7 @@ class RecipeReadOperation extends DatabaseRelatedOperation implements I_ReadOper
       handleException($exception);
       return json_encode(["error" => "Internal server error: " . $exception->getMessage()]);
     }
-  }
+  } 
 
   /**
    * Retrieves a list of recipes from the database based on the given field and value.
@@ -320,6 +319,7 @@ class RecipeReadOperation extends DatabaseRelatedOperation implements I_ReadOper
     } catch (\Throwable $throwable) {
       handleError($throwable->getCode(), $throwable->getMessage(), $throwable->getFile(), $throwable->getLine());
     }
+    return null;
   }
 
 }
