@@ -108,8 +108,9 @@
     
     <button type="button" class="btn btn-outline-secondary" id="addIngredientBtn" style="padding: 10px; margin-top: 10px; margin-bottom:15px">Add Ingredient</button>
 
-
-    <button type="submit" class="btn btn-outline-primary btn-lg" style="padding: 10px; margin-top: 20px">Submit</button>
+    <div>
+      <button type="submit" class="btn btn-outline-primary btn-lg" style="padding: 10px; margin-top: 20px">Submit</button>
+    </div>
   </form>
 
   <!-- Include jQuery library -->
