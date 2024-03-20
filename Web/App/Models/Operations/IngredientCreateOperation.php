@@ -74,10 +74,10 @@ class IngredientCreateOperation extends DatabaseRelatedOperation implements I_Cr
     }
 
 
-    $sql = "INSERT INTO ingredients (name, category, calcium, calories, carbohydrate, 
+    $sql = "INSERT INTO ingredients (isActive, name, category, calcium, calories, carbohydrate, 
     cholesterol, fiber, iron, fat, monounsaturated_fat, polyunsaturated_fat, 
     saturated_fat, potassium, protein, sodium, sugar, vitamin_a, vitamin_c) 
-    VALUES (:name, :category, :calcium, :calories, :carbohydrate, :cholesterol, 
+    VALUES (1, :name, :category, :calcium, :calories, :carbohydrate, :cholesterol, 
     :fiber, :iron, :fat, :monounsaturated_fat, :polyunsaturated_fat, :saturated_fat, 
     :potassium, :protein, :sodium, :sugar, :vitamin_a, :vitamin_c)";
 

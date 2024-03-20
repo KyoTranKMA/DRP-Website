@@ -76,9 +76,9 @@ class RecipeCreateOperation extends DatabaseRelatedOperation implements I_Create
     $conn->beginTransaction();
     try{
       // Prepare the SQL query for the recipes table
-      $sql = "INSERT INTO recipes (name, description, image_url, preparation_time_min, 
+      $sql = "INSERT INTO recipes (name, description, isActive, image_url, preparation_time_min, 
                 cooking_time_min, directions, meal_type_1, meal_type_2, meal_type_3) 
-              values (:name, :description, :image_url, :preparation_time_min, 
+              values (:name, :description, 1, :image_url, :preparation_time_min, 
                 :cooking_time_min, :directions, :meal_type_1, :meal_type_2, :meal_type_3);";
       
       $params = [
@@ -135,8 +135,11 @@ class RecipeCreateOperation extends DatabaseRelatedOperation implements I_Create
       self::saveToDatabase($data);
     } catch (\PDOException $PDOException) {
       handlePDOException($PDOException);
-
       self::notify("Add recipe failed caused by: " . $PDOException->getMessage());
+      return false;
+    } catch (\Throwable $throwable) {
+      handleError($throwable->getCode(), $throwable->getMessage(), $throwable->getFile(), $throwable->getLine());
+      self::notify("Add recipe failed caused by: " . $throwable->getMessage());
       return false;
     }
     return true;

@@ -59,6 +59,7 @@
                     if(!is_array($users)){
                         $users = [$users];
                     }
+
                     foreach ($users as $user): 
                         if ($user->getLevel() > 1):
                             $count++;

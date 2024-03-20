@@ -1,4 +1,5 @@
 <div class="content">
+    
     <?php foreach($data as $recipe): ?>
         <div class="flip-card">
             <div class="flip-card-inner">

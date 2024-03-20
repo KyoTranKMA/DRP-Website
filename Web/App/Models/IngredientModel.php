@@ -53,11 +53,13 @@ class IngredientModel extends BaseModel {
   }
   
   public function getId() { return $this->id; }
+  public function getActive() { return $this->isActive; }
   public function getName() { return $this->name; }
   public function getCategory() { return $this->category; }
   public function getMeasurementDescription() { return $this->measurementDescription; }
   public function getNutritionComponents() { return $this->nutritionComponents; }
   public function setId($id) { $this->id = $id; }
+  public function setActive($condition = 1) { $this->isActive = $condition; }
   public function setName($name) { $this->name = $name; }
   public function setCategory($category) { $this->category = $category; }
   public function setMeasurementDescription($measurementDescription) { 
@@ -78,6 +80,7 @@ class IngredientModel extends BaseModel {
   static public function createObjectByRawArray($data) {
     $ingredient = new self();
     $ingredient->setID($data['id']);
+    $ingredient->setActive($data['isActive'] ?? 1);
     $ingredient->setName($data['name']);
     $ingredient->setCategory($data['category']);
     $ingredient->setMeasurementDescription($data['measurement_description']);

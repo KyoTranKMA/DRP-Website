@@ -1,6 +1,6 @@
-<? require_once($_SERVER['DOCUMENT_ROOT'] . "Public/inc/header.php"); ?>
-    <div class="content">
-        <form method="post" id="frmUPDATEingredient">
+<? require_once($_SERVER['DOCUMENT_ROOT'] . "/Public/inc/header.php"); ?>
+    <div class="form">
+        <form method="post" id="frmUPDATEingredient" action="/ingredient/edit">
             <fieldset>
             <? $ingredient = $data[0]; ?>
             <legend>Update ingredient</legend>
@@ -156,4 +156,4 @@
         </fieldset>
     </form>
 </div>
-<? require_once($_SERVER['DOCUMENT_ROOT'] . "Public/inc/footer.php"); ?>
+<? require_once($_SERVER['DOCUMENT_ROOT'] . "/Public/inc/footer.php"); ?>
