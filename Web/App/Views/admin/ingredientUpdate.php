@@ -35,7 +35,7 @@
                 <div class="mb-3">
                     <label for="description" class="col-sm-5 col-form-label">Measurement Description (Last: <?= $ingredient->getMeasurementDescription()?>)</label>
                     <div class="col-sm-15">
-                    <select class="form-select" id="measurement_description" name="measurement_description">
+                    <select class="form-select" id="descriptions" name="descriptions">
                           <option value="tsp">tsp</option>
                           <option value="cup">cup</option>
                           <option value="tbsp">tbsp</option>
