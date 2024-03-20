@@ -23,7 +23,6 @@ class  IngredientUpdateOperation extends DatabaseRelatedOperation implements I_C
      * calcium, calories, carbohydrate, cholesterol, fiber, iron, fat, monounsaturated_fat, polyunsaturated_fat,
      * saturated_fat, potassium, protein, sodium, sugar, vitamin_a, vitamin_c: optional, must be a number
      */
-  
     if($data == null) 
       throw new \InvalidArgumentException(parent::MSG_DATA_ERROR . __METHOD__ . '. ');
     $validCategories = array('EMMP', 'FAO', 'FRU', 'GNBK', 'HRBS', 'MSF', 'OTHR', 'PRP', 'VEGI');
@@ -132,5 +131,15 @@ class  IngredientUpdateOperation extends DatabaseRelatedOperation implements I_C
     }
     self::notify("Ingredient created successfully!");
     return true;
+  }
+
+  public static function setIngredientActive($data){
+    $models = new static;
+    $conn = $models->DB_CONNECTION;
+    $sql = "UPDATE ingredients SET isActive =:isActive WHERE id=:id";
+    $stmt = $conn->prepare($sql);
+    $stmt->bindValue(':isActive', $data['isActive'], \PDO::PARAM_INT);
+    $stmt->bindValue(':id', $data['id'], \PDO::PARAM_INT);
+    $stmt->execute();
   }
 }

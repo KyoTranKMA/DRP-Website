@@ -56,7 +56,7 @@
     </div>
   </div>
   <script src="/Public/js/libs/jquery/jquery-3.6.0.min.js"></script>
-  <script src="/Public/js/ajax-ingredient.js"></script>
+  <script src="/Public/js/ajax-ingredients.js"></script>
 
 </body>
 

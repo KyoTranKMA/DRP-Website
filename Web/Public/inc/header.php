@@ -118,7 +118,7 @@ use App\Controllers\UserController;
               <a class="m-2" href="/homepage">Home</a>
             </li>
             <li class="nav-item">
-              <a class="m-2" href="/recipe">Recipe</a>
+              <a class="m-2" href="/recipe">Recipes</a>
             </li>
             <li class="nav-item">
               <a class="m-2" href="/ingredient">Ingredients</a>

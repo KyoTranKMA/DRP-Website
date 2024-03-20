@@ -1,5 +1,29 @@
 <?php require_once($_SERVER['DOCUMENT_ROOT'] . '/Public/inc/header.php'); ?>
-
+<?
+function getUnitText($value)
+{
+    switch ($value) {
+        case 'tsp':
+            return 'Teaspoon';
+        case 'cup':
+            return 'Cup';
+        case 'tbsp':
+            return 'Tablespoon';
+        case 'g':
+            return 'Gram';
+        case 'lb':
+            return 'Pound';
+        case 'can':
+            return 'Can';
+        case 'oz':
+            return 'Ounce';
+        case 'unit':
+            return 'Unit';
+        default:
+            return '';
+    }
+}
+?>
 <div class="recipe_detail">
     <div class="container mt-3" style="width:50%">
         <div class="row p-3 mb-3" style="background-color: white; border-radius: 4px;>
@@ -15,7 +39,7 @@
                 </div>
 
                 <img src="/Public/uploads/recipes/<?echo $data->getImgUrl() ?? "image_not_found.png" ?>" alt="<?php echo $data->getName() ?>" style="width: 100%; aspect-ratio: 4/3; object-fit: cover">
-                <div class="table-info">
+                <div class="table-info mb-3">
                     <div class="title-table">RECIPE</div>
                     <div class="recipe-name"> <?php echo $data->getName() ?> </div>
                     <div class="time d-flex justify-content-between m-3">
@@ -25,11 +49,11 @@
                         </div>
                         <div class="cook-time">
                             <div class="time-title">Cook time</div>
-                            <div class="time-detail"> <?php echo $data->getCookingTime() ?>   mins</div>
+                            <div class="time-detail"> <?php echo $data->getCookingTime() ?> mins</div>
                         </div>
                         <div class="total-time">
                             <div class="time-title">Total time</div>
-                            <div class="time-detail">  <?php echo $data->getPreparationTime() + $data->getCookingTime() ?>   mins</div>
+                            <div class="time-detail"> <?php echo $data->getPreparationTime() + $data->getCookingTime() ?> mins</div>
                         </div>
                         <div class="ingredients">
                             <div class="title">Ingredients</div>
@@ -37,17 +61,22 @@
                         </div>
                         
                     </div>
+
+                    <h4 class="section__title section__title--bold-underline" data-title-tag="">Ingredients</h4>
+                    <div class=" m-3">
+                        <? $index = 1;?>
+                        <? foreach ($data->getIngredientComponets() as $ingredient) : ?>
+                            <p><?php echo $index++ . ". " . $ingredient['ingredient_name'] . " - " .  $ingredient['quantity'] . " " . getUnitText($ingredient['unit']); ?></p>
+                        <? endforeach; ?>
+                    </div>
+
                 </div>
 
 
-                <div class="intruction">
+                <div class="intruction mb-3">
                     <h3>How to make it</h3>
                     <p>
-                        I always run into bran muffins while traveling. They’re usually the only muffin flavor that’s still left in the case when I’m dashing through the train station or airport at odd hours of the day. Ever hopeful, I quickly purchase one to bring along and regret it as soon as I settle in my seat and take a bite.
-
-                        Let’s face it. Most people wouldn’t notice if you changed the name of bran muffins to bland muffins. But they don't have to be dense and tasteless! It turns out they can be 5malty, nutty, and sweet, like a honey graham cracker—but even better because they’re moist and fluffy.
-
-                        With tangy buttermilk, applesauce or mashed banana (you get to choose), floral honey, and rich butter, every ingredient in this recipe works double duty—function and flavor—to make bran muffins a breakfast or snack you’ll look forward to.
+                        <?php echo $data->getDirection() ?>
                     </p>
                 </div>
             </div>

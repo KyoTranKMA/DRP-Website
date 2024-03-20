@@ -1,6 +1,12 @@
 <?php namespace App\Controllers;
+
+use App\Models\RecipeModel;
+use App\Operations\IngredientReadOperation;
+use App\Operations\IngredientUpdateOperation;
 use App\Operations\UserOperation;
 use App\Operations\RecipeReadOperation;
+use App\Operations\RecipeUpdateOperation;
+use App\Operations\UploadImageOperation;
 
 class AdminController extends BaseController{
     public function index(){
@@ -23,9 +29,6 @@ class AdminController extends BaseController{
         } else if ($_GET['s_email'] != ''){
             $users = UserOperation::getUserByEmail($_GET['s_email']);
         }
-        echo '<pre>';
-        var_dump($users);
-        echo '</pre>';
         if(!$users){
             $users = UserOperation::getAllUser();
         }
@@ -83,7 +86,7 @@ class AdminController extends BaseController{
         header("Location: /manager/user");
     }
 
-    public function setLevel(){
+    public function setUserLevel(){
         if(!$this->isAdmin()){
             return parent::loadError('404');
         }
@@ -99,15 +102,126 @@ class AdminController extends BaseController{
     }
     
     /*
-    Quản lý recipe
+        Quản lý recipe
     */
     public function recipeManager(){
         if(!$this->isAdmin()){
             return parent::loadError('404');
         }
 
-        $recipes = RecipeReadOperation::getAllObjects();
+        if($_GET['s_id'] != ''){ 
+            $recipes = RecipeReadOperation::getSingleObjectByIdForAdmin($_GET['s_id']);
+        } else if($_GET['s_name'] != ''){
+            $recipes = RecipeReadOperation::getAllObjectsByFieldAndValue('name', $_GET['s_name']);
+        } else if ($_GET['s_meal_type_1'] != ''){
+            $recipes = RecipeReadOperation::getAllObjectsByFieldAndValue('meal_type_1', $_GET['s_meal_type_1']);
+        } else if ($_GET['s_meal_type_2'] != ''){
+            $recipes = RecipeReadOperation::getAllObjectsByFieldAndValue('meal_type_2', $_GET['s_meal_type_2']);
+        } else if ($_GET['s_meal_type_3'] != ''){
+            $recipes = RecipeReadOperation::getAllObjectsByFieldAndValue('meal_type_3', $_GET['s_meal_type_3']);
+        }
+
+        if(!$recipes){
+            $recipes = RecipeReadOperation::getAllObjectsForAdmin();
+        }
+
         return $this->loadView('admin.recipe', ['recipes' => $recipes]);
+    }
+
+    public function setRecipeActive(){
+        if(!$this->isAdmin()){
+            return parent::loadError('404');
+        }
+
+        $data = $_POST;
+        RecipeUpdateOperation::setRecipeActive($data);
+
+        header("Location: /manager/recipe");
+    }
+
+    public function recipeManagerUpdateUI(){
+        if(!$this->isAdmin()){
+            return parent::loadError('404');
+        }
+
+        $recipe = RecipeReadOperation::getSingleObjectByIdForAdmin($_GET['id']);
+        return $this->loadView('admin.recipeUpdate', ['recipe' => $recipe]);
+    }
+
+    public function recipeManagerUpdate(){
+        if(!$this->isAdmin()){
+            return parent::loadError('404');
+        }
+        $data = $_POST;
+        if(isset($_FILES))
+            $data['image_url'] = UploadImageOperation::process();
+        if(RecipeUpdateOperation::execute($data)){
+            echo '<script>
+            window.location.href = "/manager/recipe";
+            </script>';
+        }
+    }
+
+    /*
+        Quản lý ingredient
+    */
+    public function ingredientManager(){
+        if(!$this->isAdmin()){
+            return parent::loadError('404');
+        }
+
+        if($_GET['s_id'] != ''){ 
+            $ingredients = IngredientReadOperation::getSingleObjectById($_GET['s_id']);
+        } else if($_GET['s_name'] != ''){
+            $ingredients = IngredientReadOperation::getAllObjectsByFieldAndValue('name', $_GET['s_name']);
+        } else if ($_GET['s_category'] != ''){
+            $ingredients = IngredientReadOperation::getAllObjectsByFieldAndValue('s_category', $_GET['s_category']);
+        } else if ($_GET['s_measurement_desciption'] != ''){
+            $ingredients = IngredientReadOperation::getAllObjectsByFieldAndValue('s_measurement_desciption', $_GET['s_measurement_desciption']);
+        } else if ($_GET['s_name'] != ''){
+            $ingredients = IngredientReadOperation::getAllObjectsByFieldAndValue('s_name', $_GET['s_name']);
+        }
+
+        if(!$ingredients){
+            $ingredients = IngredientReadOperation::getAllObjects();
+        }
+
+        return $this->loadView('admin.ingredient', ['ingredients' => $ingredients]);
+    }
+
+    public function setIngredientActive(){
+        if(!$this->isAdmin()){
+            return parent::loadError('404');
+        }
+
+        $data = $_POST;
+        IngredientUpdateOperation::setIngredientActive($data);
+
+        header("Location: /manager/ingredient");
+    }
+
+    public function ingredientManagerUpdateUI(){
+        if(!$this->isAdmin()){
+            return parent::loadError('404');
+        }
+
+        $data = $_GET;
+        $ingredient = IngredientReadOperation::getSingleObjectById($data['id']);
+        return $this->loadView('admin.ingredientUpdate', ['ingredient' => $ingredient]);
+    }
+
+    public function ingredientManagerUpdate(){
+        if(!$this->isAdmin()){
+            return parent::loadError('404');
+        }
+
+        $data = $_POST;
+        var_dump($data);
+        if(IngredientUpdateOperation::execute($data)){
+            echo '<script>
+            window.location.href = "/manager/ingredient";
+            </script>';
+        }
     }
 }
 ?>

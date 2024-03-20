@@ -19,5 +19,4 @@ abstract class BaseModel {
     }
 
     static abstract public function createObjectByRawArray($data);
-
 }  
