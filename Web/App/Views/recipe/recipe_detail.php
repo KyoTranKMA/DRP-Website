@@ -26,10 +26,10 @@ function getUnitText($value)
 ?>
 <div class="recipe_detail">
     <div class="container mt-3" style="width:50%">
-        <div class="row p-3 mb-3" style="background-color: white; border-radius: 4px;>
+        <div class="row p-3 mb-3" style="background-color: white; border-radius: 4px;">
             <div class="d-flex flex-wrap flex-column justify-content-center" style="width: 100%;">
-                <h2 class="">You Need To Make My Mom’s 15-Minutes Creamed Tacos for Dinner</h2>
-                <p class="">It’s a family favorite, passed down from Mrs. Hays in the 1960s.</p>
+                <h2 class=""><?php echo $data->getName() ?></h2>
+                <p class=""><?php echo $data->getDescription() ?></p>
                 <div class="author-info d-flex align-items-center">
                     <img src="https://i.pinimg.com/564x/8f/1a/b1/8f1ab1e2ef48c2a26de7df6e977930bd.jpg" alt="">
                     <div class="des">

@@ -144,7 +144,7 @@ class AdminController extends BaseController{
             return parent::loadError('404');
         }
 
-        $recipe = RecipeReadOperation::getSingleObjectById($_GET['id']);
+        $recipe = RecipeReadOperation::getSingleObjectByIdForAdmin($_GET['id']);
         return $this->loadView('admin.recipeUpdate', ['recipe' => $recipe]);
     }
 
@@ -170,15 +170,17 @@ class AdminController extends BaseController{
             return parent::loadError('404');
         }
 
-        if($_GET['id'] != ''){ 
-            $ingredients = IngredientReadOperation::getSingleObjectById($_GET['id']);
-        } else if($_GET['name'] != ''){
-            $ingredients = IngredientReadOperation::getAllObjectsByFieldAndValue('name', $_GET['name']);
-        } else if ($_GET['category'] != ''){
-            $ingredients = IngredientReadOperation::getAllObjectsByFieldAndValue('category', $_GET['category']);
-        } else if ($_GET['measurement_desciption'] != ''){
-            $ingredients = IngredientReadOperation::getAllObjectsByFieldAndValue('measurement_description', $_GET['measurement_desciption']);
-        } 
+        if($_GET['s_id'] != ''){ 
+            $ingredients = IngredientReadOperation::getSingleObjectById($_GET['s_id']);
+        } else if($_GET['s_name'] != ''){
+            $ingredients = IngredientReadOperation::getAllObjectsByFieldAndValue('name', $_GET['s_name']);
+        } else if ($_GET['s_category'] != ''){
+            $ingredients = IngredientReadOperation::getAllObjectsByFieldAndValue('s_category', $_GET['s_category']);
+        } else if ($_GET['s_measurement_desciption'] != ''){
+            $ingredients = IngredientReadOperation::getAllObjectsByFieldAndValue('measurement_description', $_GET['s_measurement_desciption']);
+        } else if ($_GET['s_name'] != ''){
+            $ingredients = IngredientReadOperation::getAllObjectsByFieldAndValue('s_name', $_GET['s_name']);
+        }
 
         if(!$ingredients){
             $ingredients = IngredientReadOperation::getAllObjects();
@@ -214,7 +216,6 @@ class AdminController extends BaseController{
         }
 
         $data = $_POST;
-        var_dump($data);
         if(IngredientUpdateOperation::execute($data)){
             echo '<script>
             window.location.href = "/manager/ingredient";
