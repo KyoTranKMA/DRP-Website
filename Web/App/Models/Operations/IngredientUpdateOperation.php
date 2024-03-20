@@ -132,4 +132,14 @@ class  IngredientUpdateOperation extends DatabaseRelatedOperation implements I_C
     self::notify("Ingredient created successfully!");
     return true;
   }
+
+  public static function setIngredientActive($data){
+    $models = new static;
+    $conn = $models->DB_CONNECTION;
+    $sql = "UPDATE ingredients SET isActive =:isActive WHERE id=:id";
+    $stmt = $conn->prepare($sql);
+    $stmt->bindValue(':isActive', $data['isActive'], \PDO::PARAM_INT);
+    $stmt->bindValue(':id', $data['id'], \PDO::PARAM_INT);
+    $stmt->execute();
+  }
 }

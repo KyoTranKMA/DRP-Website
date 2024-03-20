@@ -187,6 +187,39 @@ class RecipeReadOperation extends DatabaseRelatedOperation implements I_ReadOper
     return null;
   }
 
+  static public function getSingleObjectByIdForAdmin(int $id): ?RecipeModel {
+    try {
+      $model = new static();
+      $conn = $model->DB_CONNECTION;
+      if ($conn == false) {
+        throw new \PDOException(parent::MSG_CONNECT_PDO_EXCEPTION . __METHOD__ . '. ');
+      }
+      $sql = "select * from recipes";
+      $recipe = RecipeModel::createObjectByRawArray(self::query($sql, $conn, \PDO::FETCH_ASSOC, ['id' => $id])[0]);
+
+      $sql2 = "select ingredients.name, number_of_unit, ingredient_recipe.measurement_description 
+                from ingredient_recipe 
+                join recipes on ingredient_recipe.recipe_id = recipes.id
+                join ingredients on ingredient_recipe.ingredient_id = ingredients.id
+                where recipe_id = :id";
+      $stmt = $conn->prepare($sql2);
+      $stmt->bindParam(':id', $id, \PDO::PARAM_INT);
+      if ($stmt->execute()) {
+        $data = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+        $recipe->setIngredientComponets($data);
+      }
+      return $recipe;
+    } catch (\PDOException $PDOException) {
+      handlePDOException($PDOException);
+      echo \App\Views\ViewRender::errorViewRender('500');
+    } catch (\Exception $exception) {
+      handleException($exception);
+    } catch (\Throwable $throwable) {
+      handleError($throwable->getCode(), $throwable->getMessage(), $throwable->getFile(), $throwable->getLine());
+    }
+    return null;
+  }
+
   /**
    * Retrieves an array of recipe objects from the database based on the given field name and value, with optional offset and limit.
    *

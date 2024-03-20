@@ -2,6 +2,7 @@
 
 use App\Models\RecipeModel;
 use App\Operations\IngredientReadOperation;
+use App\Operations\IngredientUpdateOperation;
 use App\Operations\UserOperation;
 use App\Operations\RecipeReadOperation;
 use App\Operations\RecipeUpdateOperation;
@@ -169,8 +170,58 @@ class AdminController extends BaseController{
             return parent::loadError('404');
         }
 
-        $ingredients = IngredientReadOperation::getAllObjects();
+        if($_GET['s_id'] != ''){ 
+            $ingredients = IngredientReadOperation::getSingleObjectById($_GET['s_id']);
+        } else if($_GET['s_name'] != ''){
+            $ingredients = IngredientReadOperation::getAllObjectsByFieldAndValue('name', $_GET['s_name']);
+        } else if ($_GET['s_category'] != ''){
+            $ingredients = IngredientReadOperation::getAllObjectsByFieldAndValue('s_category', $_GET['s_category']);
+        } else if ($_GET['s_measurement_desciption'] != ''){
+            $ingredients = IngredientReadOperation::getAllObjectsByFieldAndValue('s_measurement_desciption', $_GET['s_measurement_desciption']);
+        } else if ($_GET['s_name'] != ''){
+            $ingredients = IngredientReadOperation::getAllObjectsByFieldAndValue('s_name', $_GET['s_name']);
+        }
+
+        if(!$ingredients){
+            $ingredients = IngredientReadOperation::getAllObjects();
+        }
+
         return $this->loadView('admin.ingredient', ['ingredients' => $ingredients]);
+    }
+
+    public function setIngredientActive(){
+        if(!$this->isAdmin()){
+            return parent::loadError('404');
+        }
+
+        $data = $_POST;
+        IngredientUpdateOperation::setIngredientActive($data);
+
+        header("Location: /manager/ingredient");
+    }
+
+    public function ingredientManagerUpdateUI(){
+        if(!$this->isAdmin()){
+            return parent::loadError('404');
+        }
+
+        $data = $_GET;
+        $ingredient = IngredientReadOperation::getSingleObjectById($data['id']);
+        return $this->loadView('admin.ingredientUpdate', ['ingredient' => $ingredient]);
+    }
+
+    public function ingredientManagerUpdate(){
+        if(!$this->isAdmin()){
+            return parent::loadError('404');
+        }
+
+        $data = $_POST;
+        var_dump($data);
+        if(IngredientUpdateOperation::execute($data)){
+            echo '<script>
+            window.location.href = "/manager/ingredient";
+            </script>';
+        }
     }
 }
 ?>

@@ -20,7 +20,7 @@
             </h4>
             <!-- SEARCH -->
             <div class="col-md-auto sign-up">
-                <form action="/manager/user" method="GET" class="row g-3">
+                <form action="/manager/ingredient" method="GET" class="row g-3">
                     <div class="col-auto">
                         <div class="col-sm-10">
                             <input type="text" class="form-control" id="s_id" name="s_id" placeholder="ID...">
@@ -72,6 +72,19 @@
                             <td><?= $ingredient->getMeasurementDescription()?></td>
                             <td><?= $ingredient->getName()?></td>
                             <td>
+                                <?if($ingredient->getActive()):?>
+                                    <form class="d-inline-block" action="/manager/ingredient" method="POST">
+                                        <input type="hidden" name="id" value="<?= $ingredient->getId() ?>">
+                                        <input type="hidden" name="isActive" value="0">
+                                        <button class="btn btn-danger" style="width: 150px" type="submit">Unset Active</button>
+                                    </form>
+                                <?else:?>
+                                    <form class="d-inline-block" action="/manager/ingredient" method="POST">
+                                        <input type="hidden" name="id" value="<?= $ingredient->getId() ?>">
+                                        <input type="hidden" name="isActive" value="1">
+                                        <button class="btn btn-success" style="width: 150px" type="submit">Set Active</button>
+                                    </form>
+                                <?endif;?>
                                 <a href="/manager/ingredient/update?id=<?= $ingredient->getId() ?>" class="btn btn-secondary d-inline-block" role="button">Edit</a>
                             </td>
                         </tr>
