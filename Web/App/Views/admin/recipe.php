@@ -27,12 +27,38 @@
                     </div>
                     <div class="col-auto">
                         <div class="col-sm-10">
-                            <input type="text" class="form-control w-200" id="s_username" name="s_username" placeholder="Username...">
+                            <input type="text" class="form-control" id="s_name" name="s_name" placeholder="Name...">
                         </div>
                     </div>
                     <div class="col-auto">
                         <div class="col-sm-10">
-                            <input type="email" class="form-control" id="s_email" name="s_email" placeholder="Email...">
+                            <input type="text" class="form-control" id="s_preparation_time_min" name="s_preparation_time_min" placeholder="Preparation time...">
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control w-200" id="s_cooking_time_min" name="s_cooking_time_min" placeholder="Cooking time...">
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <div class="col-sm-10">
+                            <select class="form-select" id="s_meal_type_1" name="s_meal_type_1">
+                                <option value="" selected disabled hidden>Select meal recipe for</option>
+                                <option value="Breakfast">Breakfast</option>
+                                <option value="Lunch">Lunch</option>
+                                <option value="Dinner">Dinner</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <div class="col-sm-10">
+                            <select class="form-select" id="s_meal_type_2" name="s_meal_type_2" aria-label="Select meal type">
+                                <option value="" selected disabled hidden></option>
+                                <option value="Appetizer">Appetizer</option>
+                                <option value="Main Dish">Main Dish</option>
+                                <option value="Side Dish">Side Dish</option>
+                                <option value="Dessert">Dessert</option>
+                            </select>
                         </div>
                     </div>
                     <div class="col-auto">
