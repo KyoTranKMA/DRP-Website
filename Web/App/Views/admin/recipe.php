@@ -111,7 +111,7 @@
                             <td><?= $recipe->getMealType1()?></td>
                             <td><?= $recipe->getMealType2()?></td>
                             <td><?= $recipe->getMealType3()?></td>
-                            <td>
+                            <td class="d-flex">
                                 <?if($recipe->getActive()):?>
                                     <form class="d-inline-block" action="/manager/recipe" method="POST">
                                         <input type="hidden" name="id" value="<?= $recipe->getId() ?>">

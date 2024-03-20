@@ -42,37 +42,32 @@ function getUnitText($value)
                 <div class="table-info mb-3">
                     <div class="title-table">RECIPE</div>
                     <div class="recipe-name"> <?php echo $data->getName() ?> </div>
-                    <div class="time d-flex justify-content-between m-3">
-                        <div class="pre-time">
-                            <div class="time-title">Prep time</div>
-                            <div class="time-detail"> <?php echo $data->getPreparationTime() ?> mins</div>
+                    <div class="d-flex">
+                        <div class="time d-flex flex-column justify-content-between m-3" style="width: 25%">
+                            <div class="pre-time">
+                                <div class="time-title">Prep time</div>
+                                <div class="time-detail"> <?php echo $data->getPreparationTime() ?> mins</div>
+                            </div>
+                            <div class="cook-time">
+                                <div class="time-title">Cook time</div>
+                                <div class="time-detail"> <?php echo $data->getCookingTime() ?> mins</div>
+                            </div>
+                            <div class="total-time">
+                                <div class="time-title">Total time</div>
+                                <div class="time-detail"> <?php echo $data->getPreparationTime() + $data->getCookingTime() ?> mins</div>
+                            </div>
                         </div>
-                        <div class="cook-time">
-                            <div class="time-title">Cook time</div>
-                            <div class="time-detail"> <?php echo $data->getCookingTime() ?> mins</div>
+                        <div class="ingredients" style="height: auto;">
+                            <h5 class="time-title ms-3 mt-3">Ingredients</h5>
+                            <div class=" m-3">
+                                <? $index = 1;?>
+                                <? foreach ($data->getIngredientComponets() as $ingredient) : ?>
+                                    <p><?php echo $index++ . ". " . $ingredient['ingredient_name'] . " - " .  $ingredient['quantity'] . " " . getUnitText($ingredient['unit']); ?></p>
+                                <? endforeach; ?>
+                            </div>
                         </div>
-                        <div class="total-time">
-                            <div class="time-title">Total time</div>
-                            <div class="time-detail"> <?php echo $data->getPreparationTime() + $data->getCookingTime() ?> mins</div>
-                        </div>
-                        <div class="ingredients">
-                            <div class="title">Ingredients</div>
-                            
-                        </div>
-                        
                     </div>
-
-                    <h4 class="section__title section__title--bold-underline" data-title-tag="">Ingredients</h4>
-                    <div class=" m-3">
-                        <? $index = 1;?>
-                        <? foreach ($data->getIngredientComponets() as $ingredient) : ?>
-                            <p><?php echo $index++ . ". " . $ingredient['ingredient_name'] . " - " .  $ingredient['quantity'] . " " . getUnitText($ingredient['unit']); ?></p>
-                        <? endforeach; ?>
-                    </div>
-
                 </div>
-
-
                 <div class="intruction mb-3">
                     <h3>How to make it</h3>
                     <p>

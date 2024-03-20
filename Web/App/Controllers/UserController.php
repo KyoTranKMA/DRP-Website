@@ -114,4 +114,8 @@ class UserController extends BaseController
     public static function isContributer(){
         return isset($_SESSION['level']) && $_SESSION['level'] == 2;
     }
+
+    public static function isAdmin(){
+        return isset($_SESSION['level']) && $_SESSION['level'] == 1;
+    }
 }

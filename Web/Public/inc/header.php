@@ -149,12 +149,12 @@ use App\Controllers\UserController;
                     <li><a class="dropdown-item" href="/manager/recipe">Manage recipe<i class="fa-regular fa-plus"></i></a></li>
                     <li><a class="dropdown-item" href="/ingredient/add">Add ingredient<i class="fa-regular fa-plus"></i></a></li>
                     <li><a class="dropdown-item" href="/manager/ingredient">Manage ingredient<i class="fa-regular fa-plus"></i></a></li>
+                    <?elseif (UserController::isAdmin()) : 
+                  ?>
+                    <li><a class="dropdown-item" href="/manager">Admin page<i class="fa-regular fa-plus"></i></a></li>
+                  <?php endif; ?>
                     <li><a href="/logout" class="ms-3 mt-3 btn btn-primary btn-xs" tabindex="-1" role="button" aria-disabled="true">Logout</a></li>
-                    <?php else : // Nếu chưa đăng nhập, hiển thị nút login
-                    ?>
-                      <li><a href="/logout" class="ms-3 mt-3 btn btn-primary btn-xs" tabindex="-1" role="button" aria-disabled="true">Logout</a></li>
-                    <?php endif; ?>
-                </ul>
+                  </ul>
               </div>
             </div>
           </div>
