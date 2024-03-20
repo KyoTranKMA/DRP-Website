@@ -152,7 +152,7 @@ class UserModel extends BaseModel
             $stmt->bindValue(':password', $data['password'] != '' ? $data['password'] : $models->getPassword(), \PDO::PARAM_STR);
             $stmt->bindValue(':first_name', $data['first_name'], \PDO::PARAM_STR);
             $stmt->bindValue(':last_name', $data['last_name'], \PDO::PARAM_STR);
-            $stmt->bindValue(':date_of_birth', $data['date_of_birth'], \PDO::PARAM_STR);
+            $stmt->bindValue(':date_of_birth', $data['date_of_birth'] != '' ? $data['date_of_birth'] : NULL, \PDO::PARAM_STR);
             $stmt->bindValue(':email', $data['email'] != '' ? $data['email'] : $models->getEmail(), \PDO::PARAM_STR);
             $stmt->bindValue(':gender', $data['gender'], \PDO::PARAM_STR);
             return $stmt->execute();
@@ -164,7 +164,7 @@ class UserModel extends BaseModel
 
     public static function getAllUser(){
         $models = new static;
-        $sql = "SELECT * FROM users";
+        $sql = "SELECT * FROM users WHERE level != 1";
         $stmt = $models->getConnect()->prepare($sql);
         $stmt->setFetchMode(\PDO::FETCH_CLASS, 'App\Models\UserModel');
         $stmt->execute();
@@ -176,6 +176,26 @@ class UserModel extends BaseModel
         $sql = "SELECT * FROM users WHERE id=:id";
         $stmt = $models->getConnect()->prepare($sql);
         $stmt->bindValue(':id', $id, \PDO::PARAM_INT);
+        $stmt->setFetchMode(\PDO::FETCH_CLASS, 'App\Models\UserModel');
+        $stmt->execute();
+        return $stmt->fetch();
+    }
+
+    public static function getUserByUsername($username){
+        $models = new static;
+        $sql = "SELECT * FROM users WHERE username=:username";
+        $stmt = $models->getConnect()->prepare($sql);
+        $stmt->bindValue(':username', $username, \PDO::PARAM_STR);
+        $stmt->setFetchMode(\PDO::FETCH_CLASS, 'App\Models\UserModel');
+        $stmt->execute();
+        return $stmt->fetch();
+    }
+
+    public static function getUserByEmail($email){
+        $models = new static;
+        $sql = "SELECT * FROM users WHERE email=:email";
+        $stmt = $models->getConnect()->prepare($sql);
+        $stmt->bindValue(':email', $email, \PDO::PARAM_STR);
         $stmt->setFetchMode(\PDO::FETCH_CLASS, 'App\Models\UserModel');
         $stmt->execute();
         return $stmt->fetch();

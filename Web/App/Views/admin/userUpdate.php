@@ -8,53 +8,60 @@
     <title>Manager Update User</title>
 </head>
 <body>
+    <style>
+          .form-select {
+          width: 100%;
+          padding: 10px;
+          margin: 10px 0;
+        }
+    </style>
     <div class="container py-5">
         <div class="py-3 text-center">
             <h1 class="display-1">Manager Update User</h1>
         </div>
         
-        <div class="row g-5">       
-            <form action="/manager/user/update" method="POST">
+        <div class="row g-5">
+            <form action="/manager/user/update" method="POST" enctype="multipart/form-data" style="width: 50vw; margin: 0 auto; padding: 20px; border: 1px solid #e1ebfa; border-radius: 10px; box-shadow: 0 0 10px 0 #e1ebfa; margin-top: 50px; margin-bottom: 50px;">
                 <input type="hidden" class="form-control" id="id" name="id" value="<?= $user->getId()?>">
                 <div class="mb-3">
                     <label for="username" class="col-sm-2 col-form-label">Username</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control w-200" id="username" name="username" value="<?= $user->getUsername()?>">
+                    <div class="col-sm-15">
+                        <input type="text" class="form-control" id="username" name="username" value="<?= $user->getUsername()?>">
                     </div>
                 </div>
                 <div class="mb-3">
                     <label for="password" class="col-sm-2 col-form-label">Password</label>
-                    <div class="col-sm-10">
+                    <div class="col-sm-15">
                         <input type="password" class="form-control" id="password" name="password">
                     </div>
                 </div>
                 <div class="mb-3">
                     <label for="first_name" class="col-sm-2 col-form-label">First Name</label>
-                    <div class="col-sm-10">
+                    <div class="col-sm-15">
                         <input type="text" class="form-control" id="first_name" name="first_name" value="<?= $user->getFirstName() ?? ''?>">
                     </div>
                 </div>
                 <div class="mb-3">
                     <label for="last_name" class="col-sm-2 col-form-label">Last Name</label>
-                    <div class="col-sm-10">
+                    <div class="col-sm-15">
                         <input type="text" class="form-control" id="last_name" name="last_name" value="<?= $user->getLastName() ?? ''?>">
                     </div>
                 </div>
                 <div class="mb-3">
                     <label for="date_of_birth" class="col-sm-2 col-form-label">Date Of Birth</label>
-                    <div class="col-sm-10">
+                    <div class="col-sm-15">
                         <input type="date" class="form-control" id="date_of_birth" name="date_of_birth" value="<?= !empty($user->getDateOfBirth()) ? date('Y-m-d', strtotime($user->getDateOfBirth())) : '' ?>">
                     </div>
                 </div>
                 <div class="mb-3">
                     <label for="email" class="col-sm-2 col-form-label">Email</label>
-                    <div class="col-sm-10">
+                    <div class="col-sm-15">
                         <input type="email" class="form-control" id="email" name="email" value="<?= $user->getEmail()?>">
                     </div>
                 </div>
                 <div class="mb-3">
                     <label for="date_of_birth" class="col-sm-2 col-form-label">Gender</label>
-                    <div class="col-sm-10">
+                    <div class="col-sm-15">
                         <select class="form-control" id="gender" name="gender" value="<?= $user->getGender() ?? ''?>">
                             <option value="Male">Male</option>
                             <option value="Female">Female</option>
@@ -64,9 +71,11 @@
                 </div>
                 <div class="d-grid gap-2">
                     <button class="btn btn-success" name="update" type="submit">Update</button>
-                    <a href="/manager/user" class="btn btn-secondary" tabindex="-1" role="button">Back</a>
                 </div>
             </form>
+            <div class="d-md-flex justify-content-md-end py-3">
+                    <a href="/manager/user" class="btn btn-secondary me-md-2" tabindex="-1" role="button">Back</a>
+            </div>
         </div>
     </div>
     
