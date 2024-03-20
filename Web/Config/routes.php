@@ -33,11 +33,15 @@ $router->post('/manager/user/update', 'AdminController@userManagerUpdate');
 $router->post('/manager/user/add', 'AdminController@userManagerAdd');
 //Recipe
 $router->get('/manager/recipe', 'AdminController@recipeManager');
+$router->post('/manager/recipe', 'AdminController@setRecipeActive');
 $router->get('/manager/recipe/update', 'AdminController@recipeManagerUpdateUI');
 $router->post('/manager/recipe/update', 'AdminController@recipeManagerUpdate');
 $router->get('/manager/recipe/add', 'AdminController@addRecipeUI');
 //Ingredient
 $router->get('/manager/ingredient', 'AdminController@ingredientManager');
+$router->post('/manager/ingredient', 'AdminController@setIngredientActive');
+$router->get('/manager/ingredient/update', 'AdminController@ingredientManagerUpdateUI');
+$router->post('/manager/ingredient/update', 'AdminController@ingredientManagerUpdate');
 
 // ingredient router
 $router->get('/ingredient','IngredientController@index');
