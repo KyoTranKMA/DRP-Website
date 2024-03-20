@@ -67,7 +67,6 @@
         <div class="col-md-auto">
             <table class="table table-bordered nav">
                 <tr>
-                    <th scope="col">#</th>
                     <th scope="col">ID</th>
                     <th scope="col">Name</th>
                     <th scope="col">Description</th>
@@ -90,7 +89,6 @@
                         break;
                     endif;?>
                     <tr>
-                        <td><?= $count?></td>
                         <td><?= $recipe->getId()?></td>
                         <td><?= $recipe->getName()?></td>
                         <td><?= $recipe->getDescription()?></td>
