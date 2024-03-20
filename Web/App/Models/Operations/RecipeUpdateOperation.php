@@ -41,7 +41,7 @@ class RecipeUpdateOperation extends DatabaseRelatedOperation implements I_Create
       empty($data['directions']) ||
       empty($data['description'])) {
       throw new \Exception("Invalid data provided in " . __METHOD__ . ".");
-    }
+      }
     if(  (!in_array($data['meal_type_1'], $validCategories1)) ||
       (!in_array($data['meal_type_2'], $validCategories2)) ||
       (!in_array($data['meal_type_3'], $validCategories3))
@@ -67,8 +67,8 @@ class RecipeUpdateOperation extends DatabaseRelatedOperation implements I_Create
     }
 
 
-    $sql = "UPDATE recipes set name = :name, description = :description, mej
-            preparation_time = :preparation_time, cooking_time = :cooking_time, direction = :direction, 
+    $sql = "UPDATE recipes set name = :name, description = :description,
+            preparation_time = :preparation_time, cooking_time = :cooking_time, directions = :directions, 
             meal_type_1 = :meal_type_1, meal_type_2 = :meal_type_2, meal_type_3 = :meal_type_3 where id = :id";
 
 

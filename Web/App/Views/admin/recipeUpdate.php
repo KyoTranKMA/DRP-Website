@@ -14,6 +14,7 @@
         </div>
         <div class="row g-5">
             <form action="/manager/recipe/update" method="POST" enctype="multipart/form-data" style="width: 50vw; margin: 0 auto; padding: 20px; border: 1px solid #e1ebfa; border-radius: 10px; box-shadow: 0 0 10px 0 #e1ebfa; margin-top: 50px; margin-bottom: 50px;">
+                <input type="hidden" class="form-control" id="id" name="id" value="<?= $recipe->getId()?>">    
                 <div class="mb-3">
                     <label for="name" class="col-sm-2 col-form-label">Name</label>
                     <div class="col-sm-15">
@@ -23,32 +24,32 @@
                 <div class="mb-3">
                     <label for="description" class="col-sm-2 col-form-label">Description</label>
                     <div class="col-sm-15">
-                        <input type="text" class="form-control" id="description" name="description" value="<?= $recipe->getDescription()?>">
+                        <textarea class="form-control" id="description" name="description"> <?= $recipe->getDescription()?></textarea>
                     </div>
                 </div>
                 <div class="mb-3">
                     <label for="preparation_time_min" class="col-sm-2 col-form-label">Preparation Time Min</label>
                     <div class="col-sm-15">
-                        <input type="text" class="form-control" id="preparation_time_min" name="preparation_time_min" value="<?= $recipe->getPreparationTime()?>">
+                        <input type="number" class="form-control" id="preparation_time_min" name="preparation_time_min" value="<?= $recipe->getPreparationTime()?>">
                     </div>
                 </div>
                 <div class="mb-3">
                     <label for="cooking_time_min" class="col-sm-2 col-form-label">Cooking Time Min</label>
                     <div class="col-sm-15">
-                        <input type="text" class="form-control" id="cooking_time_min" name="cooking_time_min" value="<?= $recipe->getCookingTime()?>">
+                        <input type="number" class="form-control" id="cooking_time_min" name="cooking_time_min" value="<?= $recipe->getCookingTime()?>">
                     </div>
                 </div>
                 <div class="mb-3">
                     <label for="directions" class="col-sm-2 col-form-label">Directions</label>
                     <div class="col-sm-15">
-                        <input type="text" class="form-control" id="directions" name="directions" value="<?= $recipe->getDirection()?>">
+                        <textarea class="form-control" id="directions" name="directions"><?= $recipe->getDirection()?></textarea>
                     </div>
                 </div>
                 <div class="mb-3">
                     <label for="meal_type_1" class="col-sm-2 col-form-label">Meal Type 1</label>
                     <div class="col-sm-15">
                         <select class="form-select" id="meal_type_1" name="meal_type_1">
-                            <option value="<?= $recipe->getMealType1() ?>" selected disabled hidden><?echo $recipe->getMealType1()?> </option>
+                            <option value="" selected disabled hidden>Select meal recipe for</option>
                             <option value="Breakfast">Breakfast</option>
                             <option value="Lunch">Lunch</option>
                             <option value="Dinner">Dinner</option>
@@ -59,7 +60,7 @@
                     <label for="meal_type_2" class="col-sm-2 col-form-label">Meal Type 2</label>
                     <div class="col-sm-15">
                         <select class="form-select" id="meal_type_2" name="meal_type_2" aria-label="Select meal type">
-                            <option value="<?= $recipe->getMealType2() ?>" selected disabled hidden><?echo $recipe->getMealType2()?> </option>
+                            <option value="" selected disabled hidden>Select meal type</option>
                             <option value="Appetizer">Appetizer</option>
                             <option value="Main Dish">Main Dish</option>
                             <option value="Side Dish">Side Dish</option>
@@ -71,7 +72,7 @@
                     <label for="meal_type_3" class="col-sm-2 col-form-label">Meal Type 1</label>
                     <div class="col-sm-15">
                         <select class="form-select" id="meal_type_3" name="meal_type_3" aria-label="Select meal type">
-                            <option value="<?= $recipe->getMealType3() ?>" selected disabled hidden><?echo $recipe->getMealType3()?> </option>
+                            <option value="" selected disabled hidden>Select meal category</option>
                             <option value="Baked">Baked</option>
                             <option value="Beverage">Beverage</option>
                             <option value="Salad and Salad Dressing">Salad and Salad Dressing</option>
