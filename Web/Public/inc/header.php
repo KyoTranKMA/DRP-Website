@@ -92,7 +92,7 @@ use App\Controllers\UserController;
       box-shadow: 3px 3px 4px 2px #b9b9b9; 
     }
     .minspace{
-      min-height: 560px;
+      min-height: 580px;
     }
   </style>
 
