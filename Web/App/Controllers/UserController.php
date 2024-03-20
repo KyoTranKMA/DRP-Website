@@ -110,5 +110,8 @@ class UserController extends BaseController
     public static function isLoggedIn(){
         return isset($_SESSION) && isset($_SESSION['logged_in']);
     }
-}
 
+    public static function isContributer(){
+        return isset($_SESSION['level']) && $_SESSION['level'] == 2;
+    }
+}

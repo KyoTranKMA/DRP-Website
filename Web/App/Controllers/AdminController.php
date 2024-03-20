@@ -1,5 +1,7 @@
 <?php namespace App\Controllers;
-use App\Operations\UserOperation;
+
+use App\Core\Router;
+use App\Models\UserModel;
 
 class AdminController extends BaseController{
     public function index(){
@@ -14,7 +16,19 @@ class AdminController extends BaseController{
         if(!$this->isAdmin()){
             return parent::loadError('404');
         }
-        $users = UserOperation::getAllUser();
+        
+        if($_GET['s_id'] != ''){ 
+            $users = UserModel::getUserById($_GET['s_id']);
+        } else if($_GET['s_username'] != ''){
+            $users = UserModel::getUserByUsername($_GET['s_username']);
+        } else if ($_GET['s_email'] != ''){
+            $users = UserModel::getUserByEmail($_GET['s_email']);
+        }
+        
+        if(!$users){
+            $users = UserModel::getAllUser();
+        }
+        $users = UserModel::getAllUser();
         return $this->loadView('admin.user', ['users' => $users]);
     }    
     
@@ -81,6 +95,18 @@ class AdminController extends BaseController{
 
     private function isAdmin(){
         return isset($_SESSION['level']) && $_SESSION['level'] == 1;
+    }
+    
+    /*
+    Quản lý recipe
+    */
+    public function recipeManager(){
+        if(!$this->isAdmin()){
+            return parent::loadError('404');
+        }
+
+        $recipes = RecipeReadOperation::getAllObjects();
+        return $this->loadView('admin.recipe', ['recipes' => $recipes]);
     }
 }
 ?>

@@ -8,7 +8,7 @@
     <title>Manager User</title>
 </head>
 <body>
-    <div class="container">
+    <div class="container py-3" style="width: 100vw; margin: 0 auto; padding: 20px; border: 1px solid #e1ebfa; border-radius: 10px; box-shadow: 0 0 10px 0 #e1ebfa; margin-top: 50px; margin-bottom: 50px;">
         <div class="container py-2">
             <div class="py-3 text-center">
                 <h1 class="display-1">Manager User</h1>
@@ -18,6 +18,29 @@
             <h4 class="d-flex justify-content-between align-items-center mb-3">
               <span>List user</span>
             </h4>
+            <div class="col-md-auto sign-up">
+                <form action="/manager/user" method="GET" class="row g-3">
+                    <div class="col-auto">
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="s_id" name="s_id" placeholder="ID...">
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control w-200" id="s_username" name="s_username" placeholder="Username...">
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <div class="col-sm-10">
+                            <input type="email" class="form-control" id="s_email" name="s_email" placeholder="Email...">
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <button class="btn btn-success" name="search" type="submit">Search</button>
+                    </div>
+                </form>
+            </div>
+
             <div class="col-md-auto">
                 <table class="table table-bordered nav">
                     <tr>
@@ -33,9 +56,15 @@
                         <th scope="col">Actions</th>
                     </tr>
                     <?php $count = 0; 
+                    if(!is_array($users)){
+                        $users = [$users];
+                    }
                     foreach ($users as $user): 
                         if ($user->getLevel() > 1):
-                            $count++;?>
+                            $count++;
+                            if ($count > 10):
+                                break;
+                            endif;?>
                         <tr>
                             <td><?= $count?></td>
                             <td><?= $user->getId() ?></td>
@@ -131,9 +160,9 @@
                         <button class="btn btn-success" name="update" type="submit">Add</button>
                     </div>
                 </form>
-                <div class="d-md-flex justify-content-md-end py-3">
+            </div>
+            <div class="d-md-flex justify-content-md-end py-3">
                     <a href="/manager" class="btn btn-secondary me-md-2" tabindex="-1" role="button">Back</a>
-                </div>
             </div>
         </div>
     </div>
