@@ -14,17 +14,17 @@
             <form action="/manager/user" method="GET" class="row g-3 d-flex justify-content-between flex-fill">
                 <div class="col-auto">
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="s_id" name="s_id" placeholder="ID...">
+                        <input type="text" class="form-control" id="id" name="id" placeholder="ID...">
                     </div>
                 </div>
                 <div class="col-auto">
                     <div class="col-sm-10">
-                        <input type="text" class="form-control w-200" id="s_username" name="s_username" placeholder="Username...">
+                        <input type="text" class="form-control w-200" id="username" name="username" placeholder="Username...">
                     </div>
                 </div>
                 <div class="col-auto">
                     <div class="col-sm-10">
-                        <input type="email" class="form-control" id="s_email" name="s_email" placeholder="Email...">
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Email...">
                     </div>
                 </div>
                 <div class="col-auto">
