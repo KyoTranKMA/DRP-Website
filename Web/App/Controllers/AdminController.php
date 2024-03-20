@@ -23,7 +23,9 @@ class AdminController extends BaseController{
         } else if ($_GET['s_email'] != ''){
             $users = UserOperation::getUserByEmail($_GET['s_email']);
         }
-
+        echo '<pre>';
+        var_dump($users);
+        echo '</pre>';
         if(!$users){
             $users = UserOperation::getAllUser();
         }

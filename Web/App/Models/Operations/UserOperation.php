@@ -161,8 +161,9 @@ class UserOperation extends DatabaseRelatedOperation {
     $sql = "SELECT * FROM users WHERE email=:email";
     $stmt = $conn->prepare($sql);
     $stmt->bindValue(':email', $email, \PDO::PARAM_STR);
+    $stmt->setFetchMode(\PDO::FETCH_CLASS, self::CLASSMODEL);
     $stmt->execute();
-    return $stmt->fetch();
+    return $stmt->fetch();  
   }
 }
 
