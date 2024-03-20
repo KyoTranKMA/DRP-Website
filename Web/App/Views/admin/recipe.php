@@ -8,33 +8,33 @@
     <title>Manager Recipe</title>
 </head>
 <body>
-    <div class="container py-3" style="width: auto; margin: 0 auto; padding: 10px; border: 1px solid #e1ebfa; border-radius: 10px; box-shadow: 0 0 10px 0 #e1ebfa; margin-top: 50px; margin-bottom: 50px;">
-        <div class="m-3 py-2">
-            <div class="py-3 text-center">
-                <h4 class="display-1">Manager recipe</h4>
+    <div class="container" style="width: auto; margin: 0 auto; padding: 10px; border: 1px solid #e1ebfa; border-radius: 10px; box-shadow: 0 0 10px 0 #e1ebfa; margin-top: 50px; margin-bottom: 50px;">
+        <div class="m-3">
+            <div class="text-center">
+                <h1>Manager recipe</h1>
             </div>
         </div>
-        <div class="row g-3 m-4" style="border-radius: 4px">    
-            <h4 class="d-flex justify-content-between align-items-center mb-3">
+        <div class="row g-3 m-3" style="border-radius: 4px">    
+            <h4 class="mb-3 ps-2">
               <span>List recipe</span>
             </h4>
 
             <!-- SEARCH -->
-            <div class="col-md-auto sign-up">
-                <form action="/manager/recipe" method="GET" class="row g-3">
+            <div class="col-md-auto sign-up" style="width: 100%">
+                <form action="/manager/recipe" method="GET" class="row g-3 d-flex justify-content-between">
                     <div class="col-auto">
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="s_id" name="s_id" placeholder="ID...">
+                            <input type="text" class="form-control" id="id" name="id" placeholder="ID...">
                         </div>
                     </div>
                     <div class="col-auto">
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="s_name" name="s_name" placeholder="Name...">
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Name...">
                         </div>
                     </div>
                     <div class="col-auto">
                         <div class="col-sm-10">
-                            <select class="form-select" id="s_meal_type_1" name="s_meal_type_1">
+                            <select class="form-select" id="meal_type_1" name="meal_type_1">
                                 <option value="" selected disabled hidden>Select meal recipe for</option>
                                 <option value="Breakfast">Breakfast</option>
                                 <option value="Lunch">Lunch</option>
@@ -44,7 +44,7 @@
                     </div>
                     <div class="col-auto">
                         <div class="col-sm-10">
-                            <select class="form-select" id="s_meal_type_2" name="s_meal_type_2" aria-label="Select meal type">
+                            <select class="form-select" id="meal_type_2" name="meal_type_2" aria-label="Select meal type">
                                 <option value="" selected disabled hidden>Select meal type</option>
                                 <option value="Appetizer">Appetizer</option>
                                 <option value="Main Dish">Main Dish</option>
@@ -55,7 +55,7 @@
                     </div>
                     <div class="col-auto">
                         <div class="col-sm-10">
-                            <select class="form-select" id="s_meal_type_3" name="s_meal_type_3" aria-label="Select meal type">
+                            <select class="form-select" id="meal_type_3" name="meal_type_3" aria-label="Select meal type">
                                 <option value="" selected disabled hidden>Select meal category</option>
                                 <option value="Baked">Baked</option>
                                 <option value="Beverage">Beverage</option>
@@ -111,7 +111,7 @@
                             <td><?= $recipe->getMealType1()?></td>
                             <td><?= $recipe->getMealType2()?></td>
                             <td><?= $recipe->getMealType3()?></td>
-                            <td class="d-flex">
+                            <td class="">
                                 <?if($recipe->getActive()):?>
                                     <form class="d-inline-block" action="/manager/recipe" method="POST">
                                         <input type="hidden" name="id" value="<?= $recipe->getId() ?>">
@@ -125,7 +125,7 @@
                                         <button class="btn btn-success" style="width: 100px" type="submit">Set Active</button>
                                     </form>
                                 <?endif;?>
-                                <a href="/manager/recipe/update?id=<?= $recipe->getId() ?>" class="btn btn-secondary d-inline-block" role="button">Edit</a>
+                                <a href="/manager/recipe/update?id=<?= $recipe->getId() ?>" class="btn btn-secondary d-inline-block mt-2" role="button">Edit</a>
                             </td>
                         </tr>
                     <?php endforeach; ?>
