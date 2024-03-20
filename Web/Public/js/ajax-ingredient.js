@@ -91,19 +91,57 @@ page++;
 getIngredient(page);
 });
 
-function getIngredient(page = 1) {
-$("#show").text("Next...");
-$.ajax({
-  type: "GET",
-  url: "/ingredients/?page=" + page,
-  dataType: "json",
-  success: function (ingredients) {
-    viewIngredient(ingredients);
-    var ingredientPerPage = 20; 
-
-    if (ingredients.length < ingredientPerPage) {
-      $("#show").fadeOut(1000);
-    }
-  },
+$("#previous").click(function () {
+  if (page > 1) {
+      page--;
+      getIngredient(page);
+  }
 });
+
+
+function getIngredient(page = 1) {
+  $.ajax({
+      type: "GET",
+      url: "/ingredients/?page=" + page,
+      dataType: "json",
+      success: function (ingredients) {
+          let limitPage = 20;
+          var totalPages = Math.ceil(ingredients.length / limitPage);
+
+          viewIngredient(ingredients);
+
+          // Hiển thị các nút trang
+          showPagination(totalPages, page);
+      }
+  });
+}
+
+function showPagination(totalPages, currentPage) {
+  var paginationHtml = "<nav aria-label='Page navigation'><ul class='pagination'>";
+
+  // Tính số trang bắt đầu và kết thúc
+  var startPage = Math.max(1, currentPage - 2); 
+  var endPage = Math.min(totalPages, startPage + 4); 
+  var startPageAdjustment = Math.max(1, endPage - 4); 
+
+  // Nút Previous
+  paginationHtml += "<li class='page-item'><a class='page-link' href='#' onclick='changePage(" + (currentPage - 1) + ")'>Previous</a></li>";
+
+  // Các nút trang
+  for (var i = startPageAdjustment; i <= endPage; i++) {
+      paginationHtml += "<li class='page-item " + (i === currentPage ? 'active' : '') + "'><a class='page-link' href='#' onclick='changePage(" + i + ")'>" + i + "</a></li>";
+  }
+
+  // Nút Next
+  paginationHtml += "<li class='page-item'><a class='page-link' href='#' onclick='changePage(" + (currentPage + 1) + ")'>Next</a></li>";
+
+  paginationHtml += "</ul></nav>";
+
+  $('#pagination').html(paginationHtml);
+}
+
+
+// Đổi trang khi người dùng chọn trang khác
+function changePage(page) {
+  getIngredient(page);
 }
