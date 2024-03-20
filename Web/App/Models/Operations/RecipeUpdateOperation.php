@@ -3,6 +3,11 @@ namespace App\Operations;
 use App\Controllers\Dialog;
 
 class RecipeUpdateOperation extends DatabaseRelatedOperation implements I_CreateAndUpdateOperation {
+
+  public function __construct() {
+    parent::__construct();
+  }
+
   static public function notify(string $message) : void {
     Dialog::show($message);
   }

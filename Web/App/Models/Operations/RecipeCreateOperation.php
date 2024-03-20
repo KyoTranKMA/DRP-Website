@@ -4,16 +4,13 @@ use App\Controllers\Dialog;
 
 class RecipeCreateOperation extends DatabaseRelatedOperation implements I_CreateAndUpdateOperation
 {
-  public function __construct()
-  {
+  public function __construct() {
     parent::__construct();
   }
-
 
   static public function notify(string $message) : void {
     Dialog::show($message);
   }
-
 
 
   /**
