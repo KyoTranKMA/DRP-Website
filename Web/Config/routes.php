@@ -35,8 +35,9 @@ $router->post('/manager/user/add', 'AdminController@userManagerAdd');
 $router->get('/manager/recipe', 'AdminController@recipeManager');
 $router->get('/manager/recipe/update', 'AdminController@recipeManagerUpdateUI');
 $router->post('/manager/recipe/update', 'AdminController@recipeManagerUpdate');
-$router->get('/manager/ingredient', 'AdminController@ingredientsManager');
 $router->get('/manager/recipe/add', 'AdminController@addRecipeUI');
+//Ingredient
+$router->get('/manager/ingredient', 'AdminController@ingredientManager');
 
 // ingredient router
 $router->get('/ingredient','IngredientController@index');

@@ -1,4 +1,6 @@
 <?php namespace App\Controllers;
+
+use App\Operations\IngredientReadOperation;
 use App\Operations\UserOperation;
 use App\Operations\RecipeReadOperation;
 use App\Operations\RecipeUpdateOperation;
@@ -97,7 +99,7 @@ class AdminController extends BaseController{
     }
     
     /*
-    Quản lý recipe
+        Quản lý recipe
     */
     public function recipeManager(){
         if(!$this->isAdmin()){
@@ -124,6 +126,18 @@ class AdminController extends BaseController{
         $data = $_POST;
         RecipeUpdateOperation::execute($data);
         header("Location: /manager/recipe");
+    }
+
+    /*
+        Quản lý ingredient
+    */
+    public function ingredientManager(){
+        if(!$this->isAdmin()){
+            return parent::loadError('404');
+        }
+
+        $ingredients = IngredientReadOperation::getAllObjects();
+        return $this->loadView('admin.ingredient', ['ingredients' => $ingredients]);
     }
 }
 ?>
