@@ -74,8 +74,8 @@ class  IngredientUpdateOperation extends DatabaseRelatedOperation implements I_C
       throw new \InvalidArgumentException("Invalid 'id' value in data array.");
     }
 
-    $sql = "UPDATE ingredients SET name = :name, category = :category, calcium = :calcium, 
-            calories = :calories, carbohydrate = :carbohydrate, cholesterol = :cholesterol, 
+    $sql = "UPDATE ingredients SET name = :name, category = :category, measurement_description = :measurement_description,  
+            calcium = :calcium, calories = :calories, carbohydrate = :carbohydrate, cholesterol = :cholesterol, 
             fiber = :fiber, iron = :iron, fat = :fat, monounsaturated_fat = :monounsaturated_fat, 
             polyunsaturated_fat = :polyunsaturated_fat, saturated_fat = :saturated_fat, 
             potassium = :potassium, protein = :protein, sodium = :sodium, sugar = :sugar, 
@@ -85,6 +85,7 @@ class  IngredientUpdateOperation extends DatabaseRelatedOperation implements I_C
       'id' => $data['id'],
       'name' => $data['name'],
       'category' => $data['category'],
+      'measurement_description' => $data['measurement_description'],
       'calcium' => $data['calcium'] ?? 0,
       'calories' => $data['calories'] ?? 0,
       'carbohydrate' => $data['carbohydrate'] ?? 0,
