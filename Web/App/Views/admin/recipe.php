@@ -8,8 +8,8 @@
     <title>Manager Recipe</title>
 </head>
 <body>
-    <div class="container py-3" style="width: 100vw; margin: 0 auto; padding: 20px; border: 1px solid #e1ebfa; border-radius: 10px; box-shadow: 0 0 10px 0 #e1ebfa; margin-top: 50px; margin-bottom: 50px;">
-        <div class="container py-2">
+    <div class="container py-3" style="width: auto; margin: 0 auto; padding: 10px; border: 1px solid #e1ebfa; border-radius: 10px; box-shadow: 0 0 10px 0 #e1ebfa; margin-top: 50px; margin-bottom: 50px;">
+        <div class="m-3 py-2">
             <div class="py-3 text-center">
                 <h1 class="display-1">Manager recipe</h1>
             </div>
@@ -88,7 +88,7 @@
                         <th scope="col">Meal Type 1</th>
                         <th scope="col">Meal Type 2</th>
                         <th scope="col">Meal Type 3</th>
-                        <th scope="col">Action</th>
+                        <th scope="col">Actions</th>
                     </tr>
                     <?php $count = 0; 
                     if(!is_array($recipes)){
@@ -112,6 +112,19 @@
                             <td><?= $recipe->getMealType2()?></td>
                             <td><?= $recipe->getMealType3()?></td>
                             <td>
+                                <?if($recipe->getActive()):?>
+                                    <form class="d-inline-block" action="/manager/recipe" method="POST">
+                                        <input type="hidden" name="id" value="<?= $recipe->getId() ?>">
+                                        <input type="hidden" name="isActive" value="0">
+                                        <button class="btn btn-danger" style="width: 100px" type="submit">Unset Active</button>
+                                    </form>
+                                <?else:?>
+                                    <form class="d-inline-block" action="/manager/recipe" method="POST">
+                                        <input type="hidden" name="id" value="<?= $recipe->getId() ?>">
+                                        <input type="hidden" name="isActive" value="1">
+                                        <button class="btn btn-success" style="width: 100px" type="submit">Set Active</button>
+                                    </form>
+                                <?endif;?>
                                 <a href="/manager/recipe/update?id=<?= $recipe->getId() ?>" class="btn btn-secondary d-inline-block" role="button">Edit</a>
                             </td>
                         </tr>

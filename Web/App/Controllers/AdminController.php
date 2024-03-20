@@ -1,5 +1,6 @@
 <?php namespace App\Controllers;
 
+use App\Models\RecipeModel;
 use App\Operations\IngredientReadOperation;
 use App\Operations\UserOperation;
 use App\Operations\RecipeReadOperation;
@@ -118,13 +119,23 @@ class AdminController extends BaseController{
         } else if ($_GET['s_meal_type_3'] != ''){
             $recipes = RecipeReadOperation::getAllObjectsByFieldAndValue('meal_type_3', $_GET['s_meal_type_3']);
         }
-        
+
         if(!$recipes){
-            $recipes = UserOperation::getAllUser();
+            $recipes = RecipeReadOperation::getAllObjectsForAdmin();
         }
 
-        $recipes = RecipeReadOperation::getAllObjects();
         return $this->loadView('admin.recipe', ['recipes' => $recipes]);
+    }
+
+    public function setRecipeActive(){
+        if(!$this->isAdmin()){
+            return parent::loadError('404');
+        }
+
+        $data = $_POST;
+        RecipeUpdateOperation::setRecipeActive($data);
+
+        header("Location: /manager/recipe");
     }
 
     public function recipeManagerUpdateUI(){

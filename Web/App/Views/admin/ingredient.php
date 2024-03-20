@@ -28,38 +28,17 @@
                     </div>
                     <div class="col-auto">
                         <div class="col-sm-10">
+                            <input type="text" class="form-control" id="s_category" name="s_category" placeholder="Category...">
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="s_measurement_desciption" name="s_measurement_desciption" placeholder="Measurement Desciption...">
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <div class="col-sm-10">
                             <input type="text" class="form-control" id="s_name" name="s_name" placeholder="Name...">
-                        </div>
-                    </div>
-                    <div class="col-auto">
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="s_preparation_time_min" name="s_preparation_time_min" placeholder="Preparation time...">
-                        </div>
-                    </div>
-                    <div class="col-auto">
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control w-200" id="s_cooking_time_min" name="s_cooking_time_min" placeholder="Cooking time...">
-                        </div>
-                    </div>
-                    <div class="col-auto">
-                        <div class="col-sm-10">
-                            <select class="form-select" id="s_meal_type_1" name="s_meal_type_1">
-                                <option value="" selected disabled hidden>Select meal recipe for</option>
-                                <option value="Breakfast">Breakfast</option>
-                                <option value="Lunch">Lunch</option>
-                                <option value="Dinner">Dinner</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-auto">
-                        <div class="col-sm-10">
-                            <select class="form-select" id="s_meal_type_2" name="s_meal_type_2" aria-label="Select meal type">
-                                <option value="" selected disabled hidden></option>
-                                <option value="Appetizer">Appetizer</option>
-                                <option value="Main Dish">Main Dish</option>
-                                <option value="Side Dish">Side Dish</option>
-                                <option value="Dessert">Dessert</option>
-                            </select>
                         </div>
                     </div>
                     <div class="col-auto">
@@ -76,6 +55,7 @@
                         <th scope="col">Category</th>
                         <th scope="col">Measurement Desciption</th>
                         <th scope="col">Name</th>
+                        <th scope="col">Actions</th>
                     </tr>
                     <?php $count = 0; 
                     if(!is_array($ingredients)){
@@ -91,12 +71,15 @@
                             <td><?= $ingredient->getCategory()?></td>
                             <td><?= $ingredient->getMeasurementDescription()?></td>
                             <td><?= $ingredient->getName()?></td>
+                            <td>
+                                <a href="/manager/ingredient/update?id=<?= $ingredient->getId() ?>" class="btn btn-secondary d-inline-block" role="button">Edit</a>
+                            </td>
                         </tr>
                     <?php endforeach; ?>
                 </table>
             </div>
             <div class="d-grid gap-2">
-                <a href="/recipe/add" class="btn btn-success" tabindex="-1" role="button">Add recipe</a>
+                <a href="/ingredient/add" class="btn btn-success" tabindex="-1" role="button">Add ingredient</a>
             </div>
             <div class="d-md-flex justify-content-md-end py-3">
                     <a href="/manager" class="btn btn-secondary me-md-2" tabindex="-1" role="button">Back</a>

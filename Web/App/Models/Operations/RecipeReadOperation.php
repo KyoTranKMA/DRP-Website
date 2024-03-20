@@ -45,6 +45,31 @@ class RecipeReadOperation extends DatabaseRelatedOperation implements I_ReadOper
     return null;
   }
 
+  static public function getAllObjectsForAdmin(): ?array {
+    try {
+      $model = new static();
+      $conn = $model->DB_CONNECTION;
+      if ($conn == false) {
+        throw new \PDOException(parent::MSG_CONNECT_PDO_EXCEPTION . __METHOD__ . '. ');
+      }
+      $sql = "select * from recipes";
+      $data = self::query($sql, $conn, \PDO::FETCH_ASSOC);
+      $recipes = [];
+      foreach ($data as $recipe) {
+        $recipes[] = RecipeModel::createObjectByRawArray($recipe);
+      }
+      return $recipes;
+    } catch (\PDOException $PDOException) {
+      handlePDOException($PDOException);
+      echo \App\Views\ViewRender::errorViewRender('500');
+    } catch (\Exception $exception) {
+      handleException($exception);
+    } catch (\Throwable $throwable) {
+      handleError($throwable->getCode(), $throwable->getMessage(), $throwable->getFile(), $throwable->getLine());
+    }
+    return null;
+  }
+
   /**
    * Retrieve an array of recipe objects with an offset and limit.
    *
