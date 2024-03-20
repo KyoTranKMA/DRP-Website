@@ -21,14 +21,20 @@ $router->get('/logout','UserController@logout');
 // $router->get('/user/edit','UserController@editUI');
 // $router->post('/user/edit','UserController@edit');
   
-// admin router
+/*
+    Admin
+*/
+//User
 $router->get('/manager', 'AdminController@index');
 $router->get('/manager/user', 'AdminController@userManager');
-$router->post('/manager/user', 'AdminController@setLevel');
+$router->post('/manager/user', 'AdminController@setUserLevel');
 $router->get('/manager/user/update', 'AdminController@userManagerUpdateUI');
 $router->post('/manager/user/update', 'AdminController@userManagerUpdate');
 $router->post('/manager/user/add', 'AdminController@userManagerAdd');
+//Recipe
 $router->get('/manager/recipe', 'AdminController@recipeManager');
+$router->get('/manager/recipe/update', 'AdminController@recipeManagerUpdateUI');
+$router->post('/manager/recipe/update', 'AdminController@recipeManagerUpdate');
 $router->get('/manager/ingredient', 'AdminController@ingredientsManager');
 $router->get('/manager/recipe/add', 'AdminController@addRecipeUI');
 

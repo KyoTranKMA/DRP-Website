@@ -3,6 +3,7 @@
 use App\Core\Router;
 use App\Models\UserModel;
 use App\Operations\RecipeReadOperation;
+use App\Operations\RecipeUpdateOperation;
 
 class AdminController extends BaseController{
     public function index(){
@@ -84,7 +85,7 @@ class AdminController extends BaseController{
         header("Location: /manager/user");
     }
 
-    public function setLevel(){
+    public function setUserLevel(){
         if(!$this->isAdmin()){
             return parent::loadError('404');
         }
@@ -109,6 +110,24 @@ class AdminController extends BaseController{
 
         $recipes = RecipeReadOperation::getAllObjects();
         return $this->loadView('admin.recipe', ['recipes' => $recipes]);
+    }
+
+    public function recipeManagerUpdateUI(){
+        if(!$this->isAdmin()){
+            return parent::loadError('404');
+        }
+
+        $recipe = RecipeReadOperation::getSingleObjectById($_GET['id']);
+        return $this->loadView('admin.recipeUpdate', ['recipe' => $recipe]);
+    }
+
+    public function recipeManagerUpdate(){
+        if(!$this->isAdmin()){
+            return parent::loadError('404');
+        }
+        $data = $_POST;
+        RecipeUpdateOperation::execute($data);
+        header("Location: /manager/recipe");
     }
 }
 ?>

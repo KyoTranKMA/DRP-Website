@@ -55,6 +55,7 @@
                         <th scope="col">Meal Type 1</th>
                         <th scope="col">Meal Type 2</th>
                         <th scope="col">Meal Type 3</th>
+                        <th scope="col">Action</th>
                     </tr>
                     <?php $count = 0; 
                     if(!is_array($recipes)){
@@ -77,6 +78,9 @@
                             <td><?= $recipe->getMealType1()?></td>
                             <td><?= $recipe->getMealType2()?></td>
                             <td><?= $recipe->getMealType3()?></td>
+                            <td>
+                                <a href="/manager/recipe/update?id=<?= $recipe->getId() ?>" class="btn btn-secondary d-inline-block" role="button">Edit</a>
+                            </td>
                         </tr>
                     <?php endforeach; ?>
                 </table>
