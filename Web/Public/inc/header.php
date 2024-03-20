@@ -124,11 +124,13 @@ use App\Controllers\UserController;
               <a class="m-2" href="/ingredient">Ingredients</a>
             </li>
           </ul>
-          <!-- Left links -->
+          <div class=" d-flex justify-content-center align-items-center input-group me-3" style="width:300px">
+            <input type="text" class="form-control" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-primary" type="button">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+          </div>
         </div>
-        <!-- Collapsible wrapper -->
-
-        <!-- Right elements -->
 
         <?php
         // Kiểm tra xem đã đăng nhập chưa            
@@ -136,9 +138,15 @@ use App\Controllers\UserController;
           // Nếu đã đăng nhập, hiển thị nút logout và account
         ?>
           <div class="d-flex align-items-center">
-            <img src="/Public/images/account.png" id="user" class="rounded-circle me-3 account hide" height="30" alt="Black and White Portrait of a Man" />
-            <div class="d-flex align-items-center">
-              <a href="/logout" class="btn btn-primary btn-xs" tabindex="-1" role="button" aria-disabled="true">Logout</a>
+            <div class="btn-group dropstart">
+              <div class="btn-group dropstart">
+                <img src="/Public/images/account.png" id="user" class="rounded-circle me-3 account hide"  data-bs-toggle="dropdown" aria-expanded="false" height="30" alt="account" style="cursor: pointer;" />
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Add recipe <i class="fa-regular fa-plus"></i></a></li>
+                  <li><a class="dropdown-item" href="#">Add ingredient <i class="fa-regular fa-plus"></i></a></li>
+                  <li><a href="/logout" class="ms-3 mt-3 btn btn-primary btn-xs" tabindex="-1" role="button" aria-disabled="true">Logout</a></li>
+                </ul>
+              </div>
             </div>
           </div>
         <?php else : // Nếu chưa đăng nhập, hiển thị nút login
