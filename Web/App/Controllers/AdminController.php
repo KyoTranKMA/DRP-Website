@@ -120,7 +120,6 @@ class AdminController extends BaseController{
         } else if ($_GET['meal_type_3'] != ''){
             $recipes = RecipeReadOperation::getAllObjectsByFieldAndValue('meal_type_3', $_GET['meal_type_3']);
         }
-        var_dump($recipes);
 
         if(!$recipes){
             $recipes = RecipeReadOperation::getAllObjectsForAdmin();
@@ -145,7 +144,7 @@ class AdminController extends BaseController{
             return parent::loadError('404');
         }
 
-        $recipe = RecipeReadOperation::getSingleObjectByIdForAdmin($_GET['id']);
+        $recipe = RecipeReadOperation::getSingleObjectById($_GET['id']);
         return $this->loadView('admin.recipeUpdate', ['recipe' => $recipe]);
     }
 
