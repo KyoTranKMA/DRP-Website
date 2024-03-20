@@ -3,8 +3,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php');
 // use autoload from composer
 use PDOException;
 
-class UserModel extends BaseModel
-{
+class UserModel extends BaseModel {
     const CLASSNAME = 'App\\Model\\UserModel';
     const TABLE = 'users';
 
@@ -17,14 +16,6 @@ class UserModel extends BaseModel
     protected $email;
     protected $gender;
     protected $level;
-
-    // Support Function
-    public function checkEmail($email) {
-        return $this->check(self::TABLE, 'email', $email);
-    }
-    public function checkUserName($username) {
-        return $this->check(self::TABLE, 'username', $username);
-    }
 
     //Getter
     public function getId() {
@@ -77,14 +68,7 @@ class UserModel extends BaseModel
     public function setDateOfBirth($date_of_birth) {
         $this->date_of_birth = $date_of_birth;
     }
-    public static function setLevel($data){
-        $models = new static;
-        $sql = "UPDATE users SET level =:level WHERE id=:id";
-        $stmt = $models->getConnect()->prepare($sql);
-        $stmt->bindValue(':level', $data['level'], \PDO::PARAM_INT);
-        $stmt->bindValue(':id', $data['id'], \PDO::PARAM_INT);
-        $stmt->execute();
-    }
+
     public function setGender($gender) {
         $this->gender = $gender;
     } 
@@ -152,7 +136,7 @@ class UserModel extends BaseModel
             $stmt->bindValue(':password', $data['password'] != '' ? $data['password'] : $models->getPassword(), \PDO::PARAM_STR);
             $stmt->bindValue(':first_name', $data['first_name'], \PDO::PARAM_STR);
             $stmt->bindValue(':last_name', $data['last_name'], \PDO::PARAM_STR);
-            $stmt->bindValue(':date_of_birth', $data['date_of_birth'] != '' ? $data['date_of_birth'] : NULL, \PDO::PARAM_STR);
+            $stmt->bindValue(':date_of_birth', $data['date_of_birth'], \PDO::PARAM_STR);
             $stmt->bindValue(':email', $data['email'] != '' ? $data['email'] : $models->getEmail(), \PDO::PARAM_STR);
             $stmt->bindValue(':gender', $data['gender'], \PDO::PARAM_STR);
             return $stmt->execute();
@@ -164,7 +148,7 @@ class UserModel extends BaseModel
 
     public static function getAllUser(){
         $models = new static;
-        $sql = "SELECT * FROM users WHERE level != 1";
+        $sql = "SELECT * FROM users";
         $stmt = $models->getConnect()->prepare($sql);
         $stmt->setFetchMode(\PDO::FETCH_CLASS, 'App\Models\UserModel');
         $stmt->execute();
@@ -176,26 +160,6 @@ class UserModel extends BaseModel
         $sql = "SELECT * FROM users WHERE id=:id";
         $stmt = $models->getConnect()->prepare($sql);
         $stmt->bindValue(':id', $id, \PDO::PARAM_INT);
-        $stmt->setFetchMode(\PDO::FETCH_CLASS, 'App\Models\UserModel');
-        $stmt->execute();
-        return $stmt->fetch();
-    }
-
-    public static function getUserByUsername($username){
-        $models = new static;
-        $sql = "SELECT * FROM users WHERE username=:username";
-        $stmt = $models->getConnect()->prepare($sql);
-        $stmt->bindValue(':username', $username, \PDO::PARAM_STR);
-        $stmt->setFetchMode(\PDO::FETCH_CLASS, 'App\Models\UserModel');
-        $stmt->execute();
-        return $stmt->fetch();
-    }
-
-    public static function getUserByEmail($email){
-        $models = new static;
-        $sql = "SELECT * FROM users WHERE email=:email";
-        $stmt = $models->getConnect()->prepare($sql);
-        $stmt->bindValue(':email', $email, \PDO::PARAM_STR);
         $stmt->setFetchMode(\PDO::FETCH_CLASS, 'App\Models\UserModel');
         $stmt->execute();
         return $stmt->fetch();

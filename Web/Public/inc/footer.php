@@ -31,7 +31,7 @@
                     <a href="/check-bmi" target="blank">
                         <p>Check BMI</p>
                     </a>
-                    <a href="/ingredient/list" target="blank">
+                    <a href="/ingredient" target="blank">
                         <p>Check Ingredient</p>
                     </a>
                 </div>

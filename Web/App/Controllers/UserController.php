@@ -1,9 +1,9 @@
 <?php 
 namespace App\Controllers;
 require_once($_SERVER['DOCUMENT_ROOT'] . '/App/Core/init.php');
+
 use App\Controllers\BaseController;
-use App\Controllers\HomeController;
-use App\Models\UserModel;
+use App\Operations\UserOperation;
 
 class UserController extends BaseController
 {
@@ -28,7 +28,7 @@ class UserController extends BaseController
         }
 
         if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])){
-            $userModel = UserModel::authenticate($data);
+            $userModel = UserOperation::authenticate($data);
             if($userModel){   
                 $_SESSION['logged_in'] = true;
                 if ($_SESSION['level'] == 4){
@@ -55,20 +55,19 @@ class UserController extends BaseController
     }
 
     public function registery(){
-        $userModel = new UserModel;
         $data = $_POST;
 
-        if ($userModel->checkEmail($data['email'])) {
+        if (UserOperation::checkEmail($data['email'])) {
             echo '<script>
             alert("email already exist!");
             window.location.href = "/registery";
             </script>';
-        }else if ($userModel->checkUserName($data['username'])){
+        }else if (UserOperation::checkUserName($data['username'])){
             echo '<script>
             alert("Username Already Existed");
             window.location.href = "/registery";
             </script>';
-        }else if(UserModel::addUser($data)){
+        }else if(UserOperation::addUser($data)){
             echo '<script>
                 alert("Register Success!");
                 window.location.href = "/login";

@@ -36,7 +36,6 @@ $router->get('/manager/recipe/add', 'AdminController@addRecipeUI');
 $router->get('/ingredient','IngredientController@index');
 $router->get('/ingredients/{page}','PaginationController@getPagingIngredient');
 $router->get('/ingredient/find-by-id','IngredientController@findByID');
-$router->get('/ingredient/list','IngredientController@listAll');
 $router->get('/ingredient/list-by-category','IngredientController@listByCategory');
 $router->get('/ingredient/add','IngredientController@addUI');
 $router->post('/ingredient/add','IngredientController@add');

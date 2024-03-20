@@ -1,11 +1,14 @@
 <?
+
 namespace App\Operations;
 
 use App\Models\RecipeModel;
 
-class RecipeReadOperation extends DatabaseRelatedOperation implements I_ReadOperation {
+class RecipeReadOperation extends DatabaseRelatedOperation implements I_ReadOperation
+{
 
-  public function __construct() {
+  public function __construct()
+  {
     parent::__construct();
   }
 
@@ -17,8 +20,8 @@ class RecipeReadOperation extends DatabaseRelatedOperation implements I_ReadOper
    * @throws \PDOException If there is an error connecting to the database.
    * @throws \Exception If there is any other exception thrown during the execution of the method.
    */
-  static public function getAllObjects() : ?array{
-    try{
+  static public function getAllObjects(): ?array {
+    try {
       $model = new static();
       $conn = $model->DB_CONNECTION;
       if ($conn == false) {
@@ -27,7 +30,7 @@ class RecipeReadOperation extends DatabaseRelatedOperation implements I_ReadOper
       $sql = "select * from recipes";
       $data = self::query($sql, $conn, \PDO::FETCH_ASSOC);
       $recipes = [];
-      foreach($data as $recipe){
+      foreach ($data as $recipe) {
         $recipes[] = RecipeModel::createObjectByRawArray($recipe);
       }
       return $recipes;
@@ -39,6 +42,7 @@ class RecipeReadOperation extends DatabaseRelatedOperation implements I_ReadOper
     } catch (\Throwable $throwable) {
       handleError($throwable->getCode(), $throwable->getMessage(), $throwable->getFile(), $throwable->getLine());
     }
+    return null;
   }
 
   /**
@@ -48,12 +52,10 @@ class RecipeReadOperation extends DatabaseRelatedOperation implements I_ReadOper
    * @param int|null $limit The limit value for retrieving recipes. If not provided, default limit is set to offset + 5.
    * @return array|null An array of recipe objects or null if an error occurs.
    */
-  static public function getObjectWithOffset(int $offset = 0, int $limit = null) : ?array {
-
-    if($limit == null) {
+  static public function getObjectWithOffset(int $offset = 0, int $limit = null): ?array {
+    if ($limit == null) {
       $limit = $offset + 5;
     }
-
 
     /** 
      * @var \PDO $conn
@@ -68,72 +70,13 @@ class RecipeReadOperation extends DatabaseRelatedOperation implements I_ReadOper
         throw new \PDOException(parent::MSG_CONNECT_PDO_EXCEPTION . __METHOD__ . '. ');
       }
       $sql = "select * from recipes limit {$limit} offset {$offset}";
-      
+
       $data = self::query($sql, $conn, \PDO::FETCH_ASSOC);
       $recipes = [];
-      foreach($data as $recipe){
+      foreach ($data as $recipe) {
         $recipes[] = RecipeModel::createObjectByRawArray($recipe);
       }
       return $recipes;
-    } catch (\PDOException $PDOException) {
-      handlePDOException($PDOException);
-      echo \App\Views\ViewRender::errorViewRender('500');
-    } catch (\Exception $exception) {
-      handleException($exception);
-    } catch (\Throwable $throwable) {
-      handleError($throwable->getCode(), $throwable->getMessage(), $throwable->getFile(), $throwable->getLine());
-    }
-  } 
-
-
-  /**
-   * Retrieves all objects from the database table 'recipes' that match the given field and value.
-   *
-   * @param string $fieldName The name of the field to search for.
-   * @param mixed $value The value to match against the field.
-   * @return array|null An array of RecipeModel objects representing the matching recipes, or null if no matches found.
-   */
-  static public function getAllObjectsByFieldAndValue(string $fieldName, $value) :?array{
-    try {
-      $model = new static();
-      $conn = $model->DB_CONNECTION;
-      if ($conn == false) {
-        throw new \PDOException(parent::MSG_CONNECT_PDO_EXCEPTION . __METHOD__ . '. ');
-      }
-      $sql = "select * from recipes where {$fieldName} = {$value}";
-      $data = self::query($sql, $conn, \PDO::FETCH_ASSOC);
-      $recipes = [];
-      foreach($data as $recipe){
-        $recipes[] = RecipeModel::createObjectByRawArray($recipe);
-      }
-      return $recipes;
-    } catch (\PDOException $PDOException) {
-      handlePDOException($PDOException);
-      echo \App\Views\ViewRender::errorViewRender('500');
-    } catch (\Exception $exception) {
-      handleException($exception);
-    } catch (\Throwable $throwable) {
-      handleError($throwable->getCode(), $throwable->getMessage(), $throwable->getFile(), $throwable->getLine());
-    }
-  }
-
-  
-  /**
-   * Retrieves a single RecipeModel object by its ID.
-   *
-   * @param int $id The ID of the recipe to retrieve.
-   * @return RecipeModel|null The RecipeModel object if found, or null if not found.
-   */
-  static public function getSingleObjectById(int $id) : ?RecipeModel{
-    try{ 
-      $model = new static();
-      $conn = $model->DB_CONNECTION;
-      if ($conn == false) {
-        throw new \PDOException(parent::MSG_CONNECT_PDO_EXCEPTION . __METHOD__ . '. ');
-      }
-      $sql = "select * from recipes where id = :id";
-      $recipe = RecipeModel::createObjectByRawArray(self::query($sql, $conn, \PDO::FETCH_ASSOC, ['id' => $id])[0]);
-      return $recipe;
     } catch (\PDOException $PDOException) {
       handlePDOException($PDOException);
       echo \App\Views\ViewRender::errorViewRender('500');
@@ -147,6 +90,79 @@ class RecipeReadOperation extends DatabaseRelatedOperation implements I_ReadOper
 
 
   /**
+   * Retrieves all objects from the database table 'recipes' that match the given field and value.
+   *
+   * @param string $fieldName The name of the field to search for.
+   * @param mixed $value The value to match against the field.
+   * @return array|null An array of RecipeModel objects representing the matching recipes, or null if no matches found.
+   */
+  static public function getAllObjectsByFieldAndValue(string $fieldName, $value): ?array
+  {
+    try {
+      $model = new static();
+      $conn = $model->DB_CONNECTION;
+      if ($conn == false) {
+        throw new \PDOException(parent::MSG_CONNECT_PDO_EXCEPTION . __METHOD__ . '. ');
+      }
+      $sql = "select * from recipes where {$fieldName} = {$value}";
+      $data = self::query($sql, $conn, \PDO::FETCH_ASSOC);
+      $recipes = [];
+      foreach ($data as $recipe) {
+        $recipes[] = RecipeModel::createObjectByRawArray($recipe);
+      }
+      return $recipes;
+    } catch (\PDOException $PDOException) {
+      handlePDOException($PDOException);
+      echo \App\Views\ViewRender::errorViewRender('500');
+    } catch (\Exception $exception) {
+      handleException($exception);
+    } catch (\Throwable $throwable) {
+      handleError($throwable->getCode(), $throwable->getMessage(), $throwable->getFile(), $throwable->getLine());
+    }
+    return null;
+  }
+
+
+  /**
+   * Retrieves a single RecipeModel object by its ID.
+   *
+   * @param int $id The ID of the recipe to retrieve.
+   * @return RecipeModel|null The RecipeModel object if found, or null if not found.
+   */
+  static public function getSingleObjectById(int $id): ?RecipeModel {
+    try {
+      $model = new static();
+      $conn = $model->DB_CONNECTION;
+      if ($conn == false) {
+        throw new \PDOException(parent::MSG_CONNECT_PDO_EXCEPTION . __METHOD__ . '. ');
+      }
+      $sql = "select * from recipes where id = :id";
+      $recipe = RecipeModel::createObjectByRawArray(self::query($sql, $conn, \PDO::FETCH_ASSOC, ['id' => $id])[0]);
+
+      $sql2 = "select ingredients.name, number_of_unit, ingredient_recipe.measurement_description 
+                from ingredient_recipe 
+                join ingredients on ingredient_recipe.ingredient_id = ingredients.id
+                where recipe_id = :id";
+      $stmt = $conn->prepare($sql2);
+      $stmt->bindParam(':id', $id, \PDO::PARAM_INT);
+      if ($stmt->execute()) {
+        $data = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+        $recipe->setIngredientComponets($data);
+      }
+
+      return $recipe;
+    } catch (\PDOException $PDOException) {
+      handlePDOException($PDOException);
+      echo \App\Views\ViewRender::errorViewRender('500');
+    } catch (\Exception $exception) {
+      handleException($exception);
+    } catch (\Throwable $throwable) {
+      handleError($throwable->getCode(), $throwable->getMessage(), $throwable->getFile(), $throwable->getLine());
+    }
+    return null;
+  }
+
+  /**
    * Retrieves an array of recipe objects from the database based on the given field name and value, with optional offset and limit.
    *
    * @param string $fieldName The name of the field to search for.
@@ -158,7 +174,8 @@ class RecipeReadOperation extends DatabaseRelatedOperation implements I_ReadOper
    * @throws \Exception If there is an unhandled exception.
    * @throws \Throwable If there is a throwable error.
    */
-  static public function getObjectWithOffsetByFielAndValue(string $fieldName, $value, int $offset = 0, int $limit = null) :?array {
+  static public function getObjectWithOffsetByFielAndValue(string $fieldName, $value, int $offset = 0, int $limit = null): ?array
+  {
 
     if ($limit == null) {
       $limit = $offset + 5;
@@ -179,7 +196,7 @@ class RecipeReadOperation extends DatabaseRelatedOperation implements I_ReadOper
       $sql = "select * from recipes where {$fieldName} = {$value} limit {$limit} offset {$offset}";
       $data = self::query($sql, $conn, \PDO::FETCH_ASSOC);
       $recipes = [];
-      foreach($data as $recipe){
+      foreach ($data as $recipe) {
         $recipes[] = RecipeModel::createObjectByRawArray($recipe);
       }
       return $recipes;
@@ -201,23 +218,27 @@ class RecipeReadOperation extends DatabaseRelatedOperation implements I_ReadOper
    * @param int $recipeId The ID of the recipe.
    * @return array|null An array of RecipeModel objects representing the ingredient details, or null if an error occurs.
    */
-  static public function getIngredientDetailsByRecipeId(int $recipeId) :?array {
+  static public function getIngredientDetailsByRecipeId(int $recipeId): ?array
+  {
     try {
       $model = new static();
       $conn = $model->DB_CONNECTION;
       if ($conn == false) {
         throw new \PDOException(parent::MSG_CONNECT_PDO_EXCEPTION . __METHOD__ . '. ');
       }
-      $sql = "select * from recipe_ingredients where recipe_id = :recipe_id";
 
-      $data = self::query($sql, $conn, \PDO::FETCH_ASSOC, ['recipe_id' => $recipeId]);
-      $recipes = [];
-      foreach($data as $recipe){
-        $recipes[] = RecipeModel::createObjectByRawArray($recipe);
-      }
-      return $recipes;
-    }
-    catch (\PDOException $PDOException) {
+      $sql = "select ingredients.name, number_of_unit, ingredient_recipe.measurement_description 
+                from ingredient_recipe 
+                join ingredients on ingredient_recipe.ingredient_id = ingredients.id
+                where recipe_id = :id";
+      $stmt = $conn->prepare($sql);
+      $stmt->bindParam(':id', $recipeId, \PDO::PARAM_INT);
+
+
+      if ($stmt->execute()) {
+        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+      } throw new \Exception("Error: Unable to execute the query in " . __METHOD__ . '. ');
+    } catch (\PDOException $PDOException) {
       handlePDOException($PDOException);
       echo \App\Views\ViewRender::errorViewRender('500');
     } catch (\Exception $exception) {
@@ -238,33 +259,67 @@ class RecipeReadOperation extends DatabaseRelatedOperation implements I_ReadOper
    * @throws \PDOException If there is an error connecting to the database.
    * @throws \Exception If there is an internal server error.
    */
-  static public function getPaging(int $limit, int $offset) {
+  static public function getPaging(int $limit, int $offset)
+  {
     try {
-        $model = new static();
-        $conn = $model->DB_CONNECTION;
-        if ($conn == false) {
-            throw new \PDOException(parent::MSG_CONNECT_PDO_EXCEPTION . __METHOD__ . '. ');
-        }
+      $model = new static();
+      $conn = $model->DB_CONNECTION;
+      if ($conn == false) {
+        throw new \PDOException(parent::MSG_CONNECT_PDO_EXCEPTION . __METHOD__ . '. ');
+      }
 
-        
-        $stmt = $conn->prepare("select * from recipes limit :limit offset :offset");
-        $stmt->bindParam(':limit', $limit, \PDO::PARAM_INT);
-        $stmt->bindParam(':offset', $offset, \PDO::PARAM_INT);
-        $stmt->execute();
 
-        // Fetch Data
-        $data = $stmt->fetchAll(\PDO::FETCH_ASSOC);
-        
-        // Response data JSON
-        return json_encode($data);
+      $stmt = $conn->prepare("select * from recipes limit :limit offset :offset");
+      $stmt->bindParam(':limit', $limit, \PDO::PARAM_INT);
+      $stmt->bindParam(':offset', $offset, \PDO::PARAM_INT);
+      $stmt->execute();
+
+      // Fetch Data
+      $data = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+
+      // Response data JSON
+      return json_encode($data);
     } catch (\PDOException $PDOException) {
-        handlePDOException($PDOException);
-        return json_encode(["error" => "Database error: " . $PDOException->getMessage()]);
+      handlePDOException($PDOException);
+      return json_encode(["error" => "Database error: " . $PDOException->getMessage()]);
     } catch (\Exception $exception) {
-        handleException($exception);
-        return json_encode(["error" => "Internal server error: " . $exception->getMessage()]);
+      handleException($exception);
+      return json_encode(["error" => "Internal server error: " . $exception->getMessage()]);
     }
   } 
 
+  /**
+   * Retrieves a list of recipes from the database based on the given field and value.
+   *
+   * @param string $field The name of the field to search for.
+   * @param mixed $value The value to match against the field.
+   * @return string The JSON-encoded response containing the retrieved recipes.
+   * @throws \PDOException If there is an error connecting to the database.
+   * @throws \Exception If there is an internal server error.
+   */
+  static public function getRecipeByIngredientId(string $field, $value) : ?array{
+    try {
+      $model = new static();
+      $conn = $model->DB_CONNECTION;
+      if ($conn == false) {
+        throw new \PDOException(parent::MSG_CONNECT_PDO_EXCEPTION . __METHOD__ . '. ');
+      }
+      $sql = "select * from recipes where id in (select recipe_id from ingredient_recipe where {$field} = {$value})";
+      $data = self::query($sql, $conn, \PDO::FETCH_ASSOC);
+      $recipes = [];
+      foreach ($data as $recipe) {
+        $recipes[] = RecipeModel::createObjectByRawArray($recipe);
+      }
+      return $recipes;
+    } catch (\PDOException $PDOException) {
+      handlePDOException($PDOException);
+      echo \App\Views\ViewRender::errorViewRender('500');
+    } catch (\Exception $exception) {
+      handleException($exception);
+    } catch (\Throwable $throwable) {
+      handleError($throwable->getCode(), $throwable->getMessage(), $throwable->getFile(), $throwable->getLine());
+    }
+    return null;
+  }
 
 }

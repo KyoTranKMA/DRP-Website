@@ -14,10 +14,10 @@
       <div class="row">
         <label for="name">Name:</label>
         <span class="error">*</span>
-        <input name="name" id="name" type="text" placeholder="Enter name of ingredient you find for.">
+        <input name="id" id="id" type="text" placeholder="Enter id of ingredient you find for.">
       </div>
       <div class="row">
-        <input type="submit" value="Find" placeholder="Enter name of recipe." />
+        <input type="submit" value="Find" placeholder="Enter id of recipe." />
       </div>
     </fieldset>
   </form>

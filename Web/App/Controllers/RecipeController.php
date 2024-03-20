@@ -110,10 +110,9 @@ class RecipeController extends BaseController
     }
 
     public function findResult(){
-        $name = $_GET['name'] ?? null;
+        $id = $_GET['id'] ?? null;
 
-        $recipe = RecipeReadOperation::getAllObjectsByFieldAndValue('name', $name);
-        
-
+        $recipe = RecipeReadOperation::getSingleObjectById($id);
+        $this->loadView('recipe.recipe', $recipe);
     }
 }
