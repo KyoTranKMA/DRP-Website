@@ -29,6 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `ingredients` (
   `id` int NOT NULL,
+  `isActive` tinyint(1) NOT NULL DEFAULT '1',
   `category` enum('EMMP','FAO','FRU','GNBK','HRBS','MSF','OTHR','PRP','VEGI') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT 'Eggs, milk and milk products: EMMP;  Fats and oils: FAO; Fruits: FRU; Grain, nuts and baking products: GNBK; Herbs and spices: HRBS ; Meat, sausages and fish: MSF; Others: OTHR; Pasta, rice and pulses: PRP; Vegetables: VEGI;',
   `measurement_description` enum('tsp','cup','tbsp','g','lb','can','oz','unit') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,

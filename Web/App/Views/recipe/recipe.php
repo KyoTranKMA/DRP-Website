@@ -25,7 +25,7 @@
         <button id="show" class="btn btn-primary">Load More</button>
     </div>
     <script src="/Public/js/libs/jquery/jquery-3.6.0.min.js"></script>
-    <script src="/Public/js/ajax-recipe.js"></script>
+    <script src="/Public/js/ajax-recipes.js"></script>
     <script>
         $(document).ready(function() {
             $('#recipeContainer').on('click', '.card', function() {
