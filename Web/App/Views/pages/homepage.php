@@ -1,44 +1,46 @@
 <? require($_SERVER['DOCUMENT_ROOT'] . "/Public/inc/header.php") ?>
-
-<div class="homepage">
-    <div class="container minspace mb-3">
-        <div class="content d-flex align-items-start mt-3">
-            <? $mainRecipe = $data[0]; ?>
-            <div class="main-content flex-fill" style="position: sticky; top: 1rem">
-                <div class="card" style="width: 45vw; height:83.5vh">
-                    <a> 
-                     <img src="<?php echo ($mainRecipe->getImgUrl()) ? '/Public/uploads/recipes/' . $mainRecipe->getImgUrl() : '/Public/images/image_not_found.png' ?>" 
-                        alt="Recipe Image" class="card-img-top" alt="Picture of meal" style="object-fit: cover; height:30rem">
-                    </a>
-                    <div class="card-body">
-                        <h5 class="card-title"><? echo $mainRecipe->getName() ?></h5>
-                        <p class="card-text"><? echo $mainRecipe->getDescription() ?></p>
-                        <a href="/recipe" class="btn btn-primary">Get recipe</a>
+<body>
+    
+    <div class="homepage">
+        <div class="container minspace mb-3">
+            <div class="content d-flex align-items-start mt-3">
+                <? $mainRecipe = $data[0]; ?>
+                <div class="main-content flex-fill" style="position: sticky; top: 1rem">
+                    <div class="card" style="width: 45vw;">
+                        <a> 
+                         <img src="<?php echo ($mainRecipe->getImgUrl()) ? '/Public/uploads/recipes/' . $mainRecipe->getImgUrl() : '/Public/images/image_not_found.png' ?>" 
+                            alt="Recipe Image" class="card-img-top" alt="Picture of meal" style="object-fit: cover; height:30rem">
+                        </a>
+                        <div class="card-body">
+                            <h4 class="card-title"><? echo $mainRecipe->getName() ?></h4>
+                            <p class="card-text" style="height:9rem; overflow: hidden"><? echo $mainRecipe->getDescription() ?></p>
+                            <a href="/recipe" class="btn btn-primary">Get recipe</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <?php array_shift($data); ?>
-            <div class="nav-content flex-fill ms-3">
-                <? foreach ($data as $recipe) : ?>
-                    <a href="#" class="card mb-3">
-                        <div class="row g-0">
-                            <div class="col-md-4">
-                                <img src="<?php echo ($recipe->getImgUrl()) ? '/Public/uploads/recipes/' . $recipe->getImgUrl() : '/Public/images/image_not_found.png' ?>" class="card-img-bottom" alt="Picture of meal" style="object-fit: cover; height:12rem">
-                            </div>
-                            <div class="col-md-8">
-                                <div class="card-body">
-                                    <h5 class="card-title"><? echo htmlspecialchars($recipe->getName()); ?></h5>
-                                    <p class="card-text"><? echo $recipe->getDescription() ?></p>
-                                    <p class="card-text"><small class="text-muted">Date: <? echo $recipe->getTimestamp() ?></small></p>
+                <?php array_shift($data); ?>
+                <div class="nav-content flex-fill ms-3">
+                    <? foreach ($data as $recipe) : ?>
+                        <a href="#" class="card mb-3">
+                            <div class="row g-0">
+                                <div class="col-md-4">
+                                    <img src="<?php echo ($recipe->getImgUrl()) ? '/Public/uploads/recipes/' . $recipe->getImgUrl() : '/Public/images/image_not_found.png' ?>" class="card-img-bottom" alt="Picture of meal" style="object-fit: cover; height:12rem">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h5 class="card-title"><? echo htmlspecialchars($recipe->getName()); ?></h5>
+                                        <p class="card-text"><? echo $recipe->getDescription() ?></p>
+                                        <p class="card-text"><small class="text-muted">Date: <? echo $recipe->getTimestamp() ?></small></p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </a>
-                <? endforeach; ?>
+                        </a>
+                    <? endforeach; ?>
+                </div>
             </div>
         </div>
     </div>
-</div>
+</body>
 <body>
     <div class="aboutus m-3">
         <div class="container bg mb-3 mt-3">
@@ -50,29 +52,28 @@
                     <p>Admin system</p>
                 </div>
                 <div class="mb-md-0 m-3 d-flex align-items-center flex-column">
-                    <img class="contribute-img" src="https://i.pinimg.com/564x/8f/1a/b1/8f1ab1e2ef48c2a26de7df6e977930bd.jpg" alt="Contribute">
+                    <img class="contribute-img" src="https://i.pinimg.com/564x/81/aa/e4/81aae4c00d5e30f0210d855e05be11ac.jpg" alt="Contribute">
                     <h5>Võ Thị Bích Tuyền</h5>
                     <p>Contribute writer</p>
                 </div>
                 <div class="mb-md-0 m-3 d-flex align-items-center flex-column">
-                    <img class="contribute-img" src="https://i.pinimg.com/564x/8f/1a/b1/8f1ab1e2ef48c2a26de7df6e977930bd.jpg" alt="Contribute">
+                    <img class="contribute-img" src="https://i.pinimg.com/564x/d7/a5/eb/d7a5eb7de8524da196dda005d47386b2.jpg" alt="Contribute">
                     <h5>Trần Quang Diệu</h5>
                     <p>Leader</p>
                 </div>
                 <div class="mb-md-0 m-3 d-flex align-items-center flex-column">
-                    <img class="contribute-img" src="https://i.pinimg.com/564x/8f/1a/b1/8f1ab1e2ef48c2a26de7df6e977930bd.jpg" alt="Contribute">
+                    <img class="contribute-img" src="https://i.pinimg.com/564x/36/b5/6d/36b56d1a4c5f2350d23661dff439f6bb.jpg" alt="Contribute">
                     <h5>Lê Thanh Yên</h5>
                     <p>Contribute writer</p>
                 </div>
                 <div class="mb-md-0 m-3 d-flex align-items-center flex-column">
-                    <img class="contribute-img" src="https://i.pinimg.com/564x/8f/1a/b1/8f1ab1e2ef48c2a26de7df6e977930bd.jpg" alt="Contribute">
+                    <img class="contribute-img" src="https://i.pinimg.com/736x/21/f9/6e/21f96e2bf0e2fee80bbf91a3ecf7a987.jpg" alt="Contribute">
                     <h5>Ngô Nguyễn Hạnh Phúc</h5>
                     <p>Database</p>
                 </div>
             </div>
         </div>
     </div>    
-</body>
 
 <style>
 .bg {
