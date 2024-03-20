@@ -117,8 +117,7 @@ class RecipeUpdateOperation extends DatabaseRelatedOperation implements I_Create
    * @param array $data The data to update the recipe.
    * @return bool Returns true if the recipe update was successful, false otherwise.
    */
-  static public function execute($data): bool
-  {
+  static public function execute($data): bool {
     try {
       self::validateData($data);
     } catch (\InvalidArgumentException $InvalidArgumentException) {
@@ -138,7 +137,6 @@ class RecipeUpdateOperation extends DatabaseRelatedOperation implements I_Create
     return true;
   }
 
-  
   public static function setRecipeActive($data){
     $models = new static;
     $conn = $models->DB_CONNECTION;

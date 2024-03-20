@@ -51,8 +51,7 @@ class RecipeController extends BaseController
         $data = IngredientReadOperation::getIdAndNameAllObject();
         $this->loadView('recipe.add', $data);
     }
-    public function add()
-    {
+    public function add() {
         $data = $_POST;
 
         $ingredientComponents = [];
@@ -69,19 +68,16 @@ class RecipeController extends BaseController
         unset($data['ingredient_id']);
         unset($data['unit']);
         unset($data['quantity']);
-
         $data['image_url'] = UploadImageOperation::process();
         if ($data['image_url'] == null) {
             echo "<script>alert('Failed to upload image.');</script>";
-            header("Location: /recipe/add");
-            exit();
         }
         
-        if (RecipeCreateOperation::execute($data))
-            echo '<script>
-            alert("Upload recipe Succesful!");
-            window.location.href = "/recipe";
-            </script>';
+        if(RecipeCreateOperation::execute($data)){
+            header("Location: /recipe");
+        }
+        else header("Location: /recipe/add");
+
     }
 
     public function editUI()

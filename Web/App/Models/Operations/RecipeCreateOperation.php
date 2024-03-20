@@ -125,20 +125,19 @@ class RecipeCreateOperation extends DatabaseRelatedOperation implements I_Create
       self::validateData($data);
     } catch (\InvalidArgumentException $InvalidArgumentException) {
       handleException($InvalidArgumentException);
-      header("Location: /recipe/add");
       self::notify("Add recipe failed caused by: " . $InvalidArgumentException->getMessage());
+      return false;
     }
     try {
       self::saveToDatabase($data);
     } catch (\PDOException $PDOException) {
       handlePDOException($PDOException);
-      header("Location: /recipe/add");
       self::notify("Add recipe failed caused by: " . $PDOException->getMessage());
     } catch (\Throwable $throwable) {
       handleError($throwable->getCode(), $throwable->getMessage(), $throwable->getFile(), $throwable->getLine());
-      header("Location: /recipe/add");
       self::notify("Add recipe failed caused by: " . $throwable->getMessage());
     }
+    self::notify("Add recipe successfully! ");
     return true;
   }
 }
