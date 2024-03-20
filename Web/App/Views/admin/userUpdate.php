@@ -8,13 +8,6 @@
     <title>Manager Update User</title>
 </head>
 <body>
-    <style>
-          .form-select {
-          width: 100%;
-          padding: 10px;
-          margin: 10px 0;
-        }
-    </style>
     <div class="container py-5">
         <div class="py-3 text-center">
             <h1 class="display-1">Manager Update User</h1>
