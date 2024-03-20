@@ -129,7 +129,7 @@ class RecipeReadOperation extends DatabaseRelatedOperation implements I_ReadOper
       if ($conn == false) {
         throw new \PDOException(parent::MSG_CONNECT_PDO_EXCEPTION . __METHOD__ . '. ');
       }
-      $sql = "select * from recipes where {$fieldName} = '{$value}' AND isActive = 1";
+      $sql = "select * from recipes where {$fieldName} xlike '%{$value}%' AND isActive = 1";
       $data = self::query($sql, $conn, \PDO::FETCH_ASSOC);
       $recipes = [];
       foreach ($data as $recipe) {
