@@ -21,6 +21,7 @@ class RecipeModel extends BaseModel {
     public function __construct($id = null, $name = null, $description = null, $image_url = null, 
             $preparation_time = null, $cooking_time = null, $direction = null, $meal_type_1 = null, 
             $meal_type_2 = null, $meal_type_3 = null, $timestamp = null, $ingredientComponets = null) {
+        parent::__construct();
         $this->id = $id;
         $this->name = $name;
         $this->description = $description;
@@ -38,6 +39,8 @@ class RecipeModel extends BaseModel {
     // get and set 
     public function getId() { return $this->id;  }
     public function setId($id) { $this->id = $id; }
+    public function getActive() { return $this->isActive; }
+    public function setActive($condition = 1) { $this->isActive = $condition; }
     public function getName() { return $this->name; }
     public function setName($name) { $this->name = $name; }
     public function getDescription() { return $this->description; }
@@ -86,6 +89,7 @@ class RecipeModel extends BaseModel {
     public static function createObjectByRawArray($data){
         $object = new self();
         $object->setId($data['id']);
+        $object->setActive($data['isActive'] ?? 1);
         $object->setName($data['name']);
         $object->setDescription($data['description'] ?? "Unknown");
         $object->setImgUrl($data['image_url'] ?? null);

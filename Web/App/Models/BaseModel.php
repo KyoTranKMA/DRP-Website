@@ -8,10 +8,10 @@ abstract class BaseModel {
     protected $isActive;
 
     public function __construct() {
-        $this->isActive = true;
+        $this->isActive = 1;
     }
 
-    protected function setActive(bool $condition = true){
+    protected function setActive(int $condition = 1){
         $this->isActive = $condition;
     }
     protected function getActive(){

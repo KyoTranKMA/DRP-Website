@@ -27,7 +27,7 @@ class RecipeReadOperation extends DatabaseRelatedOperation implements I_ReadOper
       if ($conn == false) {
         throw new \PDOException(parent::MSG_CONNECT_PDO_EXCEPTION . __METHOD__ . '. ');
       }
-      $sql = "select * from recipes";
+      $sql = "select * from recipes where isActive = 1";
       $data = self::query($sql, $conn, \PDO::FETCH_ASSOC);
       $recipes = [];
       foreach ($data as $recipe) {
@@ -69,7 +69,7 @@ class RecipeReadOperation extends DatabaseRelatedOperation implements I_ReadOper
       if ($conn == false) {
         throw new \PDOException(parent::MSG_CONNECT_PDO_EXCEPTION . __METHOD__ . '. ');
       }
-      $sql = "select * from recipes limit {$limit} offset {$offset}";
+      $sql = "select * from recipes where isActive = 1 limit {$limit} offset {$offset} ";
 
       $data = self::query($sql, $conn, \PDO::FETCH_ASSOC);
       $recipes = [];
@@ -104,7 +104,7 @@ class RecipeReadOperation extends DatabaseRelatedOperation implements I_ReadOper
       if ($conn == false) {
         throw new \PDOException(parent::MSG_CONNECT_PDO_EXCEPTION . __METHOD__ . '. ');
       }
-      $sql = "select * from recipes where {$fieldName} = {$value}";
+      $sql = "select * from recipes where {$fieldName} = {$value} AND isActive = 1";
       $data = self::query($sql, $conn, \PDO::FETCH_ASSOC);
       $recipes = [];
       foreach ($data as $recipe) {
@@ -136,13 +136,13 @@ class RecipeReadOperation extends DatabaseRelatedOperation implements I_ReadOper
       if ($conn == false) {
         throw new \PDOException(parent::MSG_CONNECT_PDO_EXCEPTION . __METHOD__ . '. ');
       }
-      $sql = "select * from recipes where id = :id";
+      $sql = "select * from recipes where id = :id AND isActive = 1";
       $recipe = RecipeModel::createObjectByRawArray(self::query($sql, $conn, \PDO::FETCH_ASSOC, ['id' => $id])[0]);
 
       $sql2 = "select ingredients.name, number_of_unit, ingredient_recipe.measurement_description 
                 from ingredient_recipe 
                 join ingredients on ingredient_recipe.ingredient_id = ingredients.id
-                where recipe_id = :id";
+                where recipe_id = :id and ingredients.isActive = 1 and recipes.isActive = 1";
       $stmt = $conn->prepare($sql2);
       $stmt->bindParam(':id', $id, \PDO::PARAM_INT);
       if ($stmt->execute()) {
@@ -193,7 +193,7 @@ class RecipeReadOperation extends DatabaseRelatedOperation implements I_ReadOper
       if ($conn == false) {
         throw new \PDOException(parent::MSG_CONNECT_PDO_EXCEPTION . __METHOD__ . '. ');
       }
-      $sql = "select * from recipes where {$fieldName} = {$value} limit {$limit} offset {$offset}";
+      $sql = "select * from recipes where {$fieldName} = {$value} and isActive = 1 limit {$limit} offset {$offset}";
       $data = self::query($sql, $conn, \PDO::FETCH_ASSOC);
       $recipes = [];
       foreach ($data as $recipe) {
@@ -230,7 +230,7 @@ class RecipeReadOperation extends DatabaseRelatedOperation implements I_ReadOper
       $sql = "select ingredients.name, number_of_unit, ingredient_recipe.measurement_description 
                 from ingredient_recipe 
                 join ingredients on ingredient_recipe.ingredient_id = ingredients.id
-                where recipe_id = :id";
+                where recipe_id = :id and ingredients.isActive = 1 and recipes.isActive = 1";
       $stmt = $conn->prepare($sql);
       $stmt->bindParam(':id', $recipeId, \PDO::PARAM_INT);
 
@@ -269,7 +269,7 @@ class RecipeReadOperation extends DatabaseRelatedOperation implements I_ReadOper
       }
 
 
-      $stmt = $conn->prepare("select * from recipes limit :limit offset :offset");
+      $stmt = $conn->prepare("select * from recipes where isActive = 1 limit :limit offset :offset");
       $stmt->bindParam(':limit', $limit, \PDO::PARAM_INT);
       $stmt->bindParam(':offset', $offset, \PDO::PARAM_INT);
       $stmt->execute();
@@ -304,7 +304,7 @@ class RecipeReadOperation extends DatabaseRelatedOperation implements I_ReadOper
       if ($conn == false) {
         throw new \PDOException(parent::MSG_CONNECT_PDO_EXCEPTION . __METHOD__ . '. ');
       }
-      $sql = "select * from recipes where id in (select recipe_id from ingredient_recipe where {$field} = {$value})";
+      $sql = "select * from recipes where id in (select recipe_id from ingredient_recipe where {$field} = {$value}) and isActive = 1";
       $data = self::query($sql, $conn, \PDO::FETCH_ASSOC);
       $recipes = [];
       foreach ($data as $recipe) {

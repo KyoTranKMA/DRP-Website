@@ -68,14 +68,13 @@ class UserModel extends BaseModel {
     public function setDateOfBirth($date_of_birth) {
         $this->date_of_birth = $date_of_birth;
     }
-
     public function setGender($gender) {
         $this->gender = $gender;
     } 
-    
     static public function createObjectByRawArray($data){
         $object = new self();
         $object->setId($data['id']);
+        $object->setActive($data['isActive']) ?? 1;
         $object->setUsername($data['username']);
         $object->setPassword($data['password']);
         $object->setFirstName($data['first_name']);
