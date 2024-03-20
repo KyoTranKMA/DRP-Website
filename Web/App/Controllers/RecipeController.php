@@ -34,10 +34,10 @@ class RecipeController extends BaseController
         $recipe = RecipeReadOperation::getSingleObjectById($id);
         $this->loadView('recipe.recipe_view', $recipe);
     }
-    public function search(){
+    public function search()
+    {
         $recipes = RecipeReadOperation::getAllObjectsByFieldAndValue('name', $_GET['id']);
         $this->loadView('recipe.recipe', $recipes);
-
     }
 
     public function listByCategory()
@@ -51,8 +51,8 @@ class RecipeController extends BaseController
         $data = IngredientReadOperation::getIdAndNameAllObject();
         $this->loadView('recipe.add', $data);
     }
-    public function add() {
-        try {
+    public function add()
+    {
         $data = $_POST;
 
         $ingredientComponents = [];
@@ -78,12 +78,10 @@ class RecipeController extends BaseController
         }
         
         if (RecipeCreateOperation::execute($data))
-            header("Location: /recipe/add");
-    } catch (\PDOException $PDOException) {
-        handlePDOException($PDOException);
-        header("Location: /recipe/add");
-        echo "<script>alert('Failed to add recipe.');</script>";
-    }
+            echo '<script>
+            alert("Upload recipe Succesful!");
+            window.location.href = "/recipe";
+            </script>';
     }
 
     public function editUI()
@@ -111,11 +109,13 @@ class RecipeController extends BaseController
         RecipeDeleteOperation::deleteById($id);
         header("Location: /recipe");
     }
-    public function find() {    
+    public function find()
+    {
         $this->loadView('recipe.find');
     }
 
-    public function findResult(){
+    public function findResult()
+    {
         $id = $_GET['id'] ?? null;
 
         $recipe = RecipeReadOperation::getSingleObjectById($id);
