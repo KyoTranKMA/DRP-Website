@@ -1,7 +1,6 @@
 <?php namespace App\Controllers;
-
-use App\Core\Router;
-use App\Models\UserModel;
+use App\Operations\UserOperation;
+use App\Operations\RecipeReadOperation;
 
 class AdminController extends BaseController{
     public function index(){
@@ -18,17 +17,17 @@ class AdminController extends BaseController{
         }
         
         if($_GET['s_id'] != ''){ 
-            $users = UserModel::getUserById($_GET['s_id']);
+            $users = UserOperation::getUserById($_GET['s_id']);
         } else if($_GET['s_username'] != ''){
-            $users = UserModel::getUserByUsername($_GET['s_username']);
+            $users = UserOperation::getUserByUsername($_GET['s_username']);
         } else if ($_GET['s_email'] != ''){
-            $users = UserModel::getUserByEmail($_GET['s_email']);
+            $users = UserOperation::getUserByEmail($_GET['s_email']);
         }
-        
+
         if(!$users){
-            $users = UserModel::getAllUser();
+            $users = UserOperation::getAllUser();
         }
-        $users = UserModel::getAllUser();
+
         return $this->loadView('admin.user', ['users' => $users]);
     }    
     
