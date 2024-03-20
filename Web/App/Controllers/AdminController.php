@@ -1,7 +1,5 @@
 <?php namespace App\Controllers;
-
-use App\Core\Router;
-use App\Models\UserModel;
+use App\Operations\UserOperation;
 
 class AdminController extends BaseController{
     public function index(){
@@ -16,7 +14,7 @@ class AdminController extends BaseController{
         if(!$this->isAdmin()){
             return parent::loadError('404');
         }
-        $users = UserModel::getAllUser();
+        $users = UserOperation::getAllUser();
         return $this->loadView('admin.user', ['users' => $users]);
     }    
     
@@ -24,7 +22,7 @@ class AdminController extends BaseController{
         if(!$this->isAdmin()){
             return parent::loadError('404');
         }
-        $users = UserModel::getUserById($_GET['id']);
+        $users = UserOperation::getUserById($_GET['id']);
         return $this->loadView('admin.userUpdate', ['user' => $users]);
     }
 
@@ -33,7 +31,7 @@ class AdminController extends BaseController{
             return parent::loadError('404');
         }
         $data = $_POST;
-        UserModel::update($data);
+        UserOperation::update($data);
         header("Location: /manager/user");
     }
 
@@ -42,19 +40,18 @@ class AdminController extends BaseController{
             return parent::loadError('404');
         }
         $data = $_POST;
-        $userModel = new UserModel;
         
-        if ($userModel->checkEmail($data['email'])) {
+        if (UserOperation::checkEmail($data['email'])) {
             echo '<script>
             alert("Email already exist!");
             window.location.href = "/manager/user";
             </script>';
-        }else if ($userModel->checkUserName($data['username'])){
+        }else if (UserOperation::checkUserName($data['username'])){
             echo '<script>
             alert("Username Already Existed");
             window.location.href = "/manager/user";
             </script>';
-        }else if(UserModel::addUser($data)){
+        }else if(UserOperation::addUser($data)){
             echo '<script>
                 alert("Register Success!");
                 window.location.href = "/manager/user";
@@ -77,7 +74,7 @@ class AdminController extends BaseController{
         }
         if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['id'])){
             $data = $_POST;
-            UserModel::setLevel($data);
+            UserOperation::setLevel($data);
             header("Location: /manager/user");
         }
     }

@@ -21,7 +21,7 @@
             </div>
         </div>
     </div>
-    <div class="form" style="margin-left:50%">
+    <div class="form" style="margin-left:48%">
         <button id="show" class="btn btn-primary">Load More</button>
     </div>
     <script src="/Public/js/libs/jquery/jquery-3.6.0.min.js"></script>

@@ -11,8 +11,19 @@ class DatabaseRelatedOperation {
     $this->DB_CONNECTION = $db->getConnection();
   }
 
-  static protected function query($sql, $conn, $fetchMode = \PDO::FETCH_ASSOC, $params = []){
-    $stmt = $conn->prepare($sql);
+
+  /**
+   * Executes a database query and returns the result set.
+   *
+   * @param string $sql The SQL query to execute.
+   * @param \PDO $connection The database connection object.
+   * @param int $fetchMode The fetch mode for the result set. Default is PDO::FETCH_ASSOC.
+   * @param array $params The parameters to bind to the query. Default is an empty array.
+   * @return array The result set as an array of objects of the calling class.
+   * @throws \Exception If the query execution fails.
+   */
+  static protected function query($sql, $connnection, $fetchMode = \PDO::FETCH_ASSOC, $params = []){
+    $stmt = $connnection->prepare($sql);
 
     if (!empty($params))
       foreach ($params as $key => $value)
