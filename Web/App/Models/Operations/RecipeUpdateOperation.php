@@ -22,7 +22,7 @@ class RecipeUpdateOperation extends DatabaseRelatedOperation implements I_Create
    * @throws \Exception If the data is missing or does not meet the validation rules.
    */
   static public function validateData(array $data) : void {
-    // Validate data
+    // Validate data2
     if ($data == null) {
       throw new \InvalidArgumentException("Invalid data provided in " . __METHOD__ . ".");
     }
