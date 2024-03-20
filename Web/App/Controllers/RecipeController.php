@@ -51,8 +51,7 @@ class RecipeController extends BaseController
         $data = IngredientReadOperation::getIdAndNameAllObject();
         $this->loadView('recipe.add', $data);
     }
-    public function add()
-    {
+    public function add() {
         $data = $_POST;
 
 

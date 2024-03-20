@@ -23,7 +23,6 @@ class  IngredientUpdateOperation extends DatabaseRelatedOperation implements I_C
      * calcium, calories, carbohydrate, cholesterol, fiber, iron, fat, monounsaturated_fat, polyunsaturated_fat,
      * saturated_fat, potassium, protein, sodium, sugar, vitamin_a, vitamin_c: optional, must be a number
      */
-  
     if($data == null) 
       throw new \InvalidArgumentException(parent::MSG_DATA_ERROR . __METHOD__ . '. ');
     $validCategories = array('EMMP', 'FAO', 'FRU', 'GNBK', 'HRBS', 'MSF', 'OTHR', 'PRP', 'VEGI');

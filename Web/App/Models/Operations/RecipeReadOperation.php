@@ -150,7 +150,6 @@ class RecipeReadOperation extends DatabaseRelatedOperation implements I_ReadOper
         $data = $stmt->fetchAll(\PDO::FETCH_ASSOC);
         $recipe->setIngredientComponets($data);
       }
-
       return $recipe;
     } catch (\PDOException $PDOException) {
       handlePDOException($PDOException);

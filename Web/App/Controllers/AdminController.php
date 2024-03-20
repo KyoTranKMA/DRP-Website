@@ -4,6 +4,7 @@ use App\Operations\IngredientReadOperation;
 use App\Operations\UserOperation;
 use App\Operations\RecipeReadOperation;
 use App\Operations\RecipeUpdateOperation;
+use App\Operations\UploadImageOperation;
 
 class AdminController extends BaseController{
     public function index(){
@@ -124,6 +125,8 @@ class AdminController extends BaseController{
             return parent::loadError('404');
         }
         $data = $_POST;
+        if(isset($_FILES))
+            $data['image_url'] = UploadImageOperation::process();
         RecipeUpdateOperation::execute($data);
         header("Location: /manager/recipe");
     }
