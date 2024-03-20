@@ -11,7 +11,7 @@ class NutritionCalculator
   public function calculateNutritionForRecipe($recipeId)
   {
     try {
-      $sql = "SELECT ir.ingredient_id, ir.number_of_unit
+      $sql = "SELECT ir.ingredient_id, ir.number_of_unit,ir.measurement_description
                 FROM ingredient_recipe ir
                 WHERE ir.recipe_id = :recipeId";
 
@@ -57,7 +57,9 @@ class NutritionCalculator
 
         foreach ($totalNutrition as $key => $value) {
           if ($ingredient[$key] !== null && $row['number_of_unit'] !== null) {
-            $totalNutrition[$key] += $ingredient[$key] * $row['number_of_unit'];
+              if ($row['measurement_description'] == 'g') {
+                  $totalNutrition[$key] += $ingredient[$key] * $row['number_of_unit'] / 100;         
+          }else{ $totalNutrition[$key] += $ingredient[$key] * $row['number_of_unit'];}
           }
         }
       }
