@@ -194,7 +194,7 @@ class RecipeReadOperation extends DatabaseRelatedOperation implements I_ReadOper
       if ($conn == false) {
         throw new \PDOException(parent::MSG_CONNECT_PDO_EXCEPTION . __METHOD__ . '. ');
       }
-      $sql = "select * from recipes";
+      $sql = "select * from recipes where id = :id";
       $recipe = RecipeModel::createObjectByRawArray(self::query($sql, $conn, \PDO::FETCH_ASSOC, ['id' => $id])[0]);
 
       $sql2 = "select ingredients.name, number_of_unit, ingredient_recipe.measurement_description 

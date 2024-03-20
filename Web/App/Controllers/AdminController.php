@@ -110,7 +110,7 @@ class AdminController extends BaseController{
         }
 
         if($_GET['s_id'] != ''){ 
-            $recipes = RecipeReadOperation::getSingleObjectById($_GET['s_id']);
+            $recipes = RecipeReadOperation::getSingleObjectByIdForAdmin($_GET['s_id']);
         } else if($_GET['s_name'] != ''){
             $recipes = RecipeReadOperation::getAllObjectsByFieldAndValue('name', $_GET['s_name']);
         } else if ($_GET['s_meal_type_1'] != ''){
