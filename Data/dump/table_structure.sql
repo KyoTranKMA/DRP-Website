@@ -2,14 +2,14 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: db-mysql:3306
--- Generation Time: Mar 07, 2024 at 05:50 PM
--- Server version: 8.3.0
--- PHP Version: 8.2.16
+-- Máy chủ: localhost
+-- Thời gian đã tạo: Th3 20, 2024 lúc 03:01 AM
+-- Phiên bản máy phục vụ: 8.0.31
+-- Phiên bản PHP: 7.4.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
-SET time_zone = "+07:00";
+SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -18,22 +18,19 @@ SET time_zone = "+07:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `ct07_db`
+-- Cơ sở dữ liệu: `test10`
 --
-CREATE DATABASE IF NOT EXISTS `ct07_db` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;
-USE `ct07_db`;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ingredients`
+-- Cấu trúc bảng cho bảng `ingredients`
 --
 
-DROP TABLE IF EXISTS `ingredients`;
 CREATE TABLE `ingredients` (
   `id` int NOT NULL,
-  `category` ENUM('EMMP','FAO','FRU','GNBK','HRBS','MSF','OTHR','PRP','VEGI') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT 'Eggs, milk and milk products: EMMP;  Fats and oils: FAO; Fruits: FRU; Grain, nuts and baking products: GNBK; Herbs and spices: HRBS ; Meat, sausages and fish: MSF; Others: OTHR; Pasta, rice and pulses: PRP; Vegetables: VEGI;',
-  `measurement_description` enum('tsp','cup','tbsp','g','lb','can','oz','unit') COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `category` enum('EMMP','FAO','FRU','GNBK','HRBS','MSF','OTHR','PRP','VEGI') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT 'Eggs, milk and milk products: EMMP;  Fats and oils: FAO; Fruits: FRU; Grain, nuts and baking products: GNBK; Herbs and spices: HRBS ; Meat, sausages and fish: MSF; Others: OTHR; Pasta, rice and pulses: PRP; Vegetables: VEGI;',
+  `measurement_description` enum('tsp','cup','tbsp','g','lb','can','oz','unit') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `calcium` float DEFAULT NULL,
   `calories` float DEFAULT NULL,
@@ -54,159 +51,8 @@ CREATE TABLE `ingredients` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
-
-
-DROP TABLE IF EXISTS `ingredient_recipe`;
-CREATE TABLE `ingredient_recipe` (
-  `ingredient_id` int NOT NULL,
-  `recipe_id` int NOT NULL,
-  `number_of_unit` int DEFAULT NULL,
-  `measurement_description` enum('tsp','cup','tbsp','g','lb','can','oz','unit') COLLATE utf8mb4_general_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
+-- Đang đổ dữ liệu cho bảng `ingredients`
 --
--- Table structure for table `recipes`
---
-
-DROP TABLE IF EXISTS `recipes`;
-CREATE TABLE `recipes` (
-  `id` int NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `description` text COLLATE utf8mb4_general_ci,
-  `image_url` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `preparation_time_min` int DEFAULT NULL,
-  `cooking_time_min` int DEFAULT NULL,
-  `directions` text COLLATE utf8mb4_general_ci,
-  `meal_type_1` set('Breakfast','Lunch','Dinner') COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `meal_type_2` enum('Appetizer','Main Dish','Side Dish','Dessert') COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `meal_type_3` enum('Baked','Salad and Salad Dressing','Sauce and Condiment','Snack','Beverage','Soup','Other') COLLATE utf8mb4_general_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `users`
---
-
-DROP TABLE IF EXISTS `users`;
-CREATE TABLE `users` (
-  `id` int NOT NULL,
-  `username` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `first_Name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `last_Name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `date_of_birth` date DEFAULT NULL,
-  `email` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `gender` enum('Male','Female','Other') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `level` enum('1','2','3','4') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `ingredients`
---
-ALTER TABLE `ingredients`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `idx_category` (`category`);
-ALTER TABLE `ingredients` ADD FULLTEXT KEY `name` (`name`);
-
---
--- Indexes for table `ingredient_recipe`
---
-ALTER TABLE `ingredient_recipe`
-  ADD PRIMARY KEY (`ingredient_id`,`recipe_id`),
-  ADD KEY `recipe_id` (`recipe_id`);
-
---
--- Indexes for table `recipes`
---
-ALTER TABLE `recipes`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `idx_meal_type_1` (`meal_type_1`),
-  ADD KEY `idx_meal_type_2` (`meal_type_2`),
-  ADD KEY `idx_meal_type_3` (`meal_type_3`);
-ALTER TABLE `recipes` ADD FULLTEXT KEY `name` (`name`);
-
---
--- Indexes for table `users`
---
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `idx_username` (`username`);
-ALTER TABLE `users` ADD FULLTEXT KEY `last_Name` (`last_Name`,`first_Name`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `ingredients`
---
-ALTER TABLE `ingredients`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
-
---
--- AUTO_INCREMENT for table `users`
---
-ALTER TABLE `users`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12312315;
-  
-  
-  
-  
-  
- --
--- Đang đổ dữ liệu cho bảng `recipes`
---
-
-
-INSERT INTO `recipes` (`id`, `name`, `description`, `image_url`, `preparation_time_min`, `cooking_time_min`, `directions`, `meal_type_1`, `meal_type_2`, `meal_type_3`) VALUES
-(1, 'Chicken Stir Fry', 'Delicious chicken stir fry with mixed vegetables and soy sauce.', 'huyzh3gb.png', 15, 20, '1. Marinate chicken with soy sauce and cornstarch.\n2. Stir fry chicken until cooked.\n3. Add mixed vegetables and stir fry until tender.\n4. Serve hot with rice.', 'Dinner', 'Main Dish', 'Other'),
-(2, 'Cucumber and Shrimp Aguachile', 'Refreshing and spicy shrimp dish with cucumber and lime juice.', '07thgnst.jpg', 15, 0, '1. Clean and devein shrimp.\n2. Slice cucumbers thinly.\n3. Mix shrimp, cucumber slices, lime juice, and chili peppers in a bowl.\n4. Let marinate in the refrigerator for 15 minutes.\n5. Serve chilled.', 'Lunch', 'Main Dish', 'Other'),
-(4, 'Baba Ganoush', 'Roasted eggplant mash with tahini, lemon juice, olive oil, and garlic.', 'yzpvtzq8.png', 30, 15, '1. Roast eggplant in the oven until tender and blackened.\n2. Scoop out the flesh and mash it with tahini, lemon juice, olive oil, and garlic.\n3. Season with salt and pepper to taste.\n4. Serve with pita bread or vegetables.', 'Breakfast', 'Side Dish', 'Other'),
-(5, 'Crispy Cajun Pickle Chips', 'Delicious crispy Cajun-flavored pickle chips, perfect as a snack or side dish.', '09aa3u2j.jpg', 10, 20, '1. Preheat the oven to 400°F (200°C).\n2. Slice the pickles into thin chips.\n3. In a bowl, mix flour, Cajun seasoning, and breadcrumbs.\n4. Dip pickle chips in beaten egg, then coat with breadcrumb mixture.\n5. Place coated pickle chips on a baking sheet.\n6. Bake in the preheated oven until golden brown and crispy, about 15-20 minutes.\n7. Serve hot and enjoy!', NULL, NULL, 'Snack'),
-(6, 'Black Bean and Corn Salad', 'A refreshing salad featuring black beans and sweet corn, perfect for a healthy side dish or light meal.', '7volhb7v.jpg', 15, 0, '1. In a large bowl, combine black beans, corn, diced tomatoes, diced red onion, chopped cilantro, and avocado.\n2. In a small bowl, whisk together olive oil, lime juice, minced garlic, cumin, salt, and pepper to make the dressing.\n3. Pour the dressing over the salad ingredients and toss gently to coat.\n4. Chill the salad in the refrigerator for at least 30 minutes before serving.\n5. Serve cold and enjoy!', NULL, 'Side Dish', 'Salad and Salad Dressing'),
-(7, 'Salmon Patties', 'Delicious and flavorful salmon patties, perfect for a light meal or appetizer.', '4cm7v3yn.png', 15, 15, '1. Drain and flake the canned salmon.\n2. In a mixing bowl, combine flaked salmon, beaten eggs, breadcrumbs, diced onion, chopped parsley, lemon juice, Dijon mustard, salt, and pepper.\n3. Mix well until thoroughly combined.\n4. Form the mixture into patties of desired size.\n5. Heat oil in a skillet over medium heat.\n6. Fry the salmon patties until golden brown and cooked through, about 3-4 minutes per side.\n7. Remove from the skillet and drain on paper towels.\n8. Serve hot with your favorite dipping sauce or side dishes.', NULL, 'Appetizer', NULL),
-(9, 'Egg Salad', 'A simple and tasty egg salad, perfect for sandwiches or as a side dish.', 'ojyw9t2p.jpg', 10, 0, '1. Boil the eggs until hard-cooked, then peel and chop them.\n2. In a mixing bowl, combine the chopped eggs, mayonnaise, mustard, diced celery, chopped chives, salt, and pepper.\n3. Mix well until all ingredients are evenly distributed.\n4. Refrigerate the egg salad for at least 30 minutes before serving to allow the flavors to meld.\n5. Serve as a sandwich filling, on crackers, or as a side dish. Enjoy!', 'Lunch', NULL, 'Salad and Salad Dressing'),
-(11, 'Triangles with Potato and Beef', 'Delicious triangles filled with a savory mixture of potatoes and beef, perfect as a snack or appetizer.', '3z66ao3w.jpg', 30, 40, '1. Boil the potatoes until tender, then mash them.\n2. In a skillet, cook the ground beef until browned. Drain excess fat.\n3. Add onion, garlic, and spices to the skillet with the beef. Cook until onion is softened.\n4. Combine the mashed potatoes with the cooked beef mixture.\n5. Lay out the phyllo pastry sheets and cut them into triangles.\n6. Place a spoonful of the potato and beef mixture onto each triangle.\n7. Fold the pastry over the filling to form a triangle shape.\n8. Brush the triangles with melted butter.\n9. Bake in a preheated oven at 375°F (190°C) until golden brown, about 20-25 minutes.\n10. Serve hot and enjoy!', NULL, 'Appetizer', NULL),
-(12, 'Cheese Sticks', 'Delicious crispy cheese sticks, perfect as an appetizer or snack.', 'd2gol6y5.jpg', 15, 20, '1. Preheat the oven to 375°F (190°C).\n2. Cut the cheese into sticks.\n3. In a bowl, whisk together breadcrumbs, grated Parmesan cheese, and Italian seasoning.\n4. Dip each cheese stick in beaten egg, then coat with breadcrumb mixture.\n5. Place coated cheese sticks on a baking sheet lined with parchment paper.\n6. Bake in the preheated oven until golden brown and crispy, about 15-20 minutes.\n7. Serve hot with marinara sauce for dipping, if desired.', NULL, 'Appetizer', NULL),
-(13, 'Jalapeno Bites', 'Spicy jalapeno bites stuffed with cheese, perfect as an appetizer or snack.', 'sc6daczv.jpg', 20, 15, '1. Preheat the oven to 375°F (190°C).\n2. Cut jalapenos in half lengthwise and remove seeds.\n3. Fill each jalapeno half with cream cheese.\n4. Wrap each jalapeno with a slice of bacon.\n5. Place jalapeno bites on a baking sheet lined with parchment paper.\n6. Bake in the preheated oven until bacon is crispy and jalapenos are tender, about 15 minutes.\n7. Serve hot and enjoy!', NULL, 'Appetizer', NULL),
-(14, 'Turkey Chili', 'Hearty and flavorful chili made with ground turkey, beans, and spices.', 'jthgyiwv.png', 15, 30, '1. Heat olive oil in a large pot over medium heat.\n2. Add diced onions and garlic, cook until softened.\n3. Add ground turkey, cook until browned.\n4. Stir in chili powder, cumin, and paprika.\n5. Add diced tomatoes, tomato sauce, and kidney beans.\n6. Season with salt and pepper to taste.\n7. Simmer for 20-25 minutes, stirring occasionally.\n8. Serve hot with your favorite toppings and enjoy!', NULL, 'Main Dish', 'Soup'),
-(15, 'Chicken Lettuce Cups', 'Delicious and light chicken lettuce cups filled with seasoned chicken, vegetables, and sauces.', 'tcoq4nha.png', 20, 15, '1. Heat olive oil in a pan over medium heat.\n2. Add minced chicken and cook until no longer pink.\n3. Stir in diced onions, carrots, and water chestnuts. Cook until vegetables are tender.\n4. Add soy sauce, hoisin sauce, and sesame oil. Stir to combine.\n5. Season with salt and pepper to taste.\n6. Spoon chicken mixture into lettuce leaves.\n7. Garnish with chopped green onions and serve.\n8. Enjoy!', NULL, 'Appetizer', NULL),
-(16, 'Couscous Cranberry Orange Salad', 'A refreshing and colorful salad made with couscous, cranberries, oranges, and a citrus dressing.', 'zwgwp0gk.png', 15, 10, '1. Cook couscous according to package instructions. Let it cool.\n2. In a large bowl, combine cooked couscous, dried cranberries, orange segments, and chopped parsley.\n3. In a small bowl, whisk together olive oil, orange juice, lemon juice, honey, salt, and pepper to make the dressing.\n4. Pour the dressing over the salad and toss gently to combine.\n5. Chill in the refrigerator for at least 30 minutes before serving.\n6. Serve chilled and enjoy!', NULL, 'Side Dish', 'Salad and Salad Dressing'),
-(18, 'Turkey Meatloaf', 'A healthier version of classic meatloaf made with lean ground turkey, breadcrumbs, and savory seasonings.', '4p4tb5jj.png', 15, 60, '1. Preheat the oven to 350°F (175°C). Grease a loaf pan.\n2. In a large bowl, mix together ground turkey, breadcrumbs, chopped onion, minced garlic, ketchup, Worcestershire sauce, egg, salt, and pepper until well combined.\n3. Transfer the mixture into the prepared loaf pan, and shape it into a loaf.\n4. Bake in the preheated oven for 45-50 minutes, or until the internal temperature reaches 165°F (75°C).\n5. Let the meatloaf rest for a few minutes before slicing.\n6. Serve slices of meatloaf with your favorite side dishes and enjoy!', 'Dinner', 'Main Dish', 'Baked'),
-(20, 'Chicken Salad', 'A refreshing salad made with cooked chicken, fresh vegetables, and a creamy dressing.', '3qbxni96.png', 15, NULL, '1. In a large bowl, combine cooked chicken, diced celery, diced red onion, chopped fresh parsley, and halved grapes.\n2. In a separate small bowl, mix together mayonnaise, Greek yogurt, lemon juice, Dijon mustard, salt, and pepper to make the dressing.\n3. Pour the dressing over the chicken mixture and toss until well coated.\n4. Serve the chicken salad chilled over a bed of lettuce or in sandwiches, wraps, or on crackers.', 'Lunch', 'Main Dish', 'Salad and Salad Dressing'),
-(21, 'Lentil Garbanzo Salad', 'A nutritious salad made with lentils, garbanzo beans, fresh vegetables, and a tangy vinaigrette dressing.', '406g4sbo.png', 20, NULL, '1. In a large bowl, combine cooked lentils, drained and rinsed garbanzo beans, diced cucumber, diced red bell pepper, chopped fresh cilantro, and sliced green onions.\n2. In a separate small bowl, whisk together olive oil, lemon juice, Dijon mustard, minced garlic, salt, and pepper to make the dressing.\n3. Pour the dressing over the lentil mixture and toss until well coated.\n4. Serve the salad chilled or at room temperature.', 'Lunch', 'Main Dish', 'Salad and Salad Dressing'),
-(22, 'Chickpea and Quinoa Salad', 'A nutritious and delicious salad made with chickpeas, quinoa, and fresh vegetables.', '1l44ovlv.png', 20, 15, '1. Cook quinoa according to package instructions and let it cool.\n2. In a large bowl, combine cooked quinoa, chickpeas, diced cucumber, cherry tomatoes, diced red onion, chopped parsley, and crumbled feta cheese.\n3. In a small bowl, whisk together olive oil, lemon juice, garlic, salt, and pepper to make the dressing.\n4. Pour the dressing over the salad and toss until well combined.\n5. Serve chilled or at room temperature and enjoy!', 'Lunch', 'Side Dish', 'Salad and Salad Dressing'),
-(23, 'Cajun Shrimp Pasta', 'Spicy and flavorful pasta dish with Cajun-seasoned shrimp and vegetables.', '2mn2lz7t.png', 20, 20, '1. Cook pasta according to package instructions.\n2. In a large skillet, heat olive oil over medium heat.\n3. Add shrimp and Cajun seasoning, cook until shrimp are pink and cooked through.\n4. Remove shrimp from skillet and set aside.\n5. In the same skillet, add bell peppers, onions, and garlic, cook until softened.\n6. Stir in diced tomatoes, tomato sauce, and cooked pasta.\n7. Add cooked shrimp back to the skillet and toss everything together.\n8. Serve hot and garnish with chopped parsley if desired.', NULL, 'Main Dish', NULL),
-(24, 'Ziti with Chicken and Asparagus', 'Delicious pasta dish with tender chicken, fresh asparagus, and ziti pasta.', '732bxaw4.png', 15, 25, '1. Cook pasta according to package instructions.\n2. In a large skillet, heat olive oil over medium heat.\n3. Add diced chicken breast, cook until browned and cooked through.\n4. Remove chicken from skillet and set aside.\n5. In the same skillet, add asparagus spears and cook until tender.\n6. Stir in cooked pasta, chicken, and Alfredo sauce.\n7. Season with salt and pepper to taste.\n8. Serve hot and garnish with grated Parmesan cheese if desired.', NULL, 'Main Dish', NULL),
-(27, 'Marinara Mac & Cheese', 'Creamy macaroni and cheese with marinara sauce.', 'xwhgnizp.png', 15, 30, '1. Cook macaroni according to package instructions. Drain and set aside.\n2. In a saucepan, melt butter over medium heat. Stir in flour until smooth. Gradually add milk, stirring constantly until thickened.\n3. Add shredded cheese and stir until melted and smooth.\n4. Mix in cooked macaroni until well coated.\n5. Serve hot topped with marinara sauce and enjoy!', NULL, 'Main Dish', 'Baked'),
-(28, 'Vegetable Salad with White Beans', 'A refreshing salad made with fresh vegetables and white beans, tossed in a tangy vinaigrette dressing.', 'yhzfq39e.png', 10, 0, '1. In a large mixing bowl, combine white beans, cherry tomatoes, sliced cucumber, diced red bell pepper, and sliced red onion.\n2. In a small bowl, whisk together olive oil, red wine vinegar, Dijon mustard, honey, and chopped fresh parsley to make the dressing.\n3. Pour the dressing over the salad ingredients and toss gently to coat.\n4. Season with salt and pepper to taste.\n5. Serve chilled.\n6. Enjoy!', 'Lunch', 'Side Dish', NULL),
-(29, 'Vegetarian Stuffed Peppers', 'Delicious vegetarian dish with bell peppers stuffed with a flavorful quinoa and vegetable mixture.', '7toae0nn.png', 10, 20, '1. Preheat the oven to 375°F (190°C).\n2. Cut the tops off the bell peppers and remove the seeds and membranes.\n3. In a large bowl, mix together cooked quinoa, black beans, corn kernels, and chopped cilantro.\n4. Stuff each bell pepper with the quinoa mixture.\n5. Place the stuffed peppers in a baking dish.\n6. Cover the baking dish with aluminum foil and bake for 25-30 minutes, or until the peppers are tender.\n7. Remove the foil and bake for an additional 5 minutes to brown the tops.\n8. Serve hot and enjoy!', 'Dinner', 'Main Dish', NULL),
-(30, 'Vegetarian Tacos', 'Delicious vegetarian tacos filled with black beans, corn, and bell peppers.', 'ij0zi3nq.png', 15, 20, '1. Heat olive oil in a skillet over medium heat.\n2. Add diced onions, bell peppers, and minced garlic. Cook until softened.\n3. Stir in black beans, corn, diced tomatoes, and taco seasoning. Cook for 5-7 minutes.\n4. Warm tortillas in a separate skillet.\n5. Spoon the bean mixture onto each tortilla.\n6. Top with shredded lettuce.\n7. Serve hot and enjoy!', 'Dinner', 'Main Dish', NULL),
-(31, 'Vegetarian Waldorf Salad', 'A refreshing and crunchy salad with apples, celery, walnuts, and a creamy dressing.', 'ol58rjg6.png', 15, 0, '1. In a large bowl, combine diced apples, sliced celery, chopped walnuts, and raisins.\n2. In a separate bowl, mix together Greek yogurt, honey, and lemon juice to make the dressing.\n3. Pour the dressing over the salad ingredients and toss until evenly coated.\n4. Serve chilled and enjoy!', 'Lunch', 'Side Dish', 'Salad and Salad Dressing'),
-(32, 'Lentil Bolognese', 'A hearty and flavorful vegetarian version of the classic Bolognese sauce made with lentils and tomatoes.', '6mvjq4pk.png', 15, 30, '1. Heat olive oil in a large skillet over medium heat.\n2. Add diced onions, carrots, and celery. Cook until softened.\n3. Stir in minced garlic and cook for another minute.\n4. Add dried lentils, crushed tomatoes, vegetable broth, and Italian seasoning. Bring to a simmer.\n5. Cover and cook for about 20 minutes, or until lentils are tender.\n6. Serve over cooked pasta of your choice.\n7. Garnish with fresh parsley and grated Parmesan cheese if desired.\n8. Enjoy!', 'Dinner', 'Main Dish', NULL),
-(33, 'Picadillo', 'A traditional Latin American dish made with ground beef, tomatoes, and spices, often served with rice.', '2x1l3hjm.png', 15, 25, '1. Heat olive oil in a skillet over medium heat.\n2. Add diced onions, bell peppers, and minced garlic. Cook until softened.\n3. Add ground beef and cook until browned.\n4. Stir in diced tomatoes, tomato sauce, olives, raisins, and spices.\n5. Simmer for about 15 minutes, or until the flavors meld together.\n6. Serve hot with rice or as desired.\n7. Enjoy!', 'Dinner', 'Main Dish', NULL),
-(34, 'Mediterranean Lentil Salad', 'A refreshing and nutritious salad featuring lentils, tomatoes, cucumbers, and feta cheese, dressed with a tangy vinaigrette.', 'rjxi9tip.png', 20, 15, '1. Cook lentils according to package instructions. Drain and let cool.\n2. In a large mixing bowl, combine cooked lentils, diced tomatoes, diced cucumbers, chopped red onion, crumbled feta cheese, and chopped parsley.\n3. In a small bowl, whisk together olive oil, lemon juice, red wine vinegar, minced garlic, dried oregano, salt, and black pepper to make the dressing.\n4. Pour the dressing over the salad and toss gently to coat.\n5. Serve immediately or refrigerate for later.\n6. Enjoy!', NULL, NULL, 'Salad and Salad Dressing'),
-(35, 'Spring Tortellini Salad', 'A vibrant salad featuring cheese tortellini, cherry tomatoes, baby spinach, and a lemon vinaigrette.', 'sltvrsun.png', 15, 10, '1. Cook tortellini according to package instructions. Drain and let cool.\n2. In a large mixing bowl, combine cooked tortellini, halved cherry tomatoes, baby spinach leaves, and sliced red onions.\n3. In a small bowl, whisk together olive oil, lemon juice, minced garlic, salt, and black pepper to make the dressing.\n4. Pour the dressing over the salad and toss gently to coat.\n5. Serve immediately or refrigerate for later.\n6. Enjoy!', NULL, NULL, 'Salad and Salad Dressing'),
-(36, 'Turkey Cutlets with Zucchini', 'Juicy turkey cutlets served with sautéed zucchini, perfect for a quick and healthy dinner.', 'b32b2i8s.png', 15, 15, '1. Season turkey cutlets with salt, pepper, and Italian seasoning.\n2. Heat olive oil in a skillet over medium-high heat.\n3. Cook turkey cutlets for 3-4 minutes per side, or until cooked through.\n4. Remove turkey cutlets from skillet and set aside.\n5. In the same skillet, add sliced zucchini and cook until tender.\n6. Serve turkey cutlets with sautéed zucchini.\n7. Enjoy!', 'Dinner', 'Main Dish', NULL),
-(37, 'Pasta Salad', 'A refreshing pasta salad packed with veggies, perfect for picnics and gatherings.', '3697vtqo.png', 20, 10, '1. Cook pasta according to package instructions.\n2. In a large bowl, combine cooked pasta, cherry tomatoes, cucumber, bell pepper, olives, and feta cheese.\n3. In a small bowl, whisk together olive oil, lemon juice, garlic, salt, and pepper to make the dressing.\n4. Pour dressing over pasta salad and toss to coat.\n5. Refrigerate for at least 30 minutes before serving.\n6. Enjoy!', NULL, 'Side Dish', 'Salad and Salad Dressing'),
-(38, 'Carrot Tortilla with Tuna Spread', 'A flavorful tortilla wrap filled with tuna spread and shredded carrots.', '8ni9iwg3.png', 10, 0, '1. In a bowl, mix together canned tuna, mayonnaise, chopped celery, and diced onions to make the tuna spread.\n2. Place a tortilla on a flat surface and spread the tuna mixture evenly on top.\n3. Sprinkle shredded carrots over the tuna spread.\n4. Roll up the tortilla tightly.\n5. Slice the rolled tortilla into halves or quarters.\n6. Serve and enjoy!', 'Lunch', 'Appetizer', NULL),
-(39, 'Bang Bang Shrimp Salad', 'A delicious salad featuring crispy shrimp tossed in a spicy mayo-based dressing.', 'fytwb94c.png', 20, 10, '1. In a bowl, mix together mayonnaise, sweet chili sauce, and Sriracha to make the dressing.\n2. Heat oil in a skillet over medium heat. Season shrimp with salt and pepper, then cook until golden brown and crispy, about 2-3 minutes per side.\n3. In a large bowl, toss mixed greens, sliced cucumbers, shredded carrots, and chopped green onions.\n4. Add cooked shrimp to the salad and drizzle with the prepared dressing.\n5. Toss everything together until evenly coated.\n6. Serve immediately and enjoy!', 'Lunch', 'Main Dish', 'Salad and Salad Dressing'),
-(40, 'Penne with Turkey', 'Delicious penne pasta served with seasoned turkey in a savory sauce.', 'o61vl6ja.png', 15, 20, '1. Cook penne pasta according to package instructions until al dente. Drain and set aside.\n2. In a skillet, heat olive oil over medium heat. Add minced garlic and cook until fragrant.\n3. Add ground turkey to the skillet and cook until browned.\n4. Season turkey with salt, pepper, and Italian seasoning.\n5. Pour marinara sauce over the turkey and let simmer for 5 minutes.\n6. Add cooked penne to the skillet and toss until pasta is evenly coated with the sauce.\n7. Serve hot and enjoy!', 'Dinner', 'Main Dish', NULL),
-(41, 'Beef and Beans Stir Fry', 'A flavorful stir-fry dish made with tender beef and crisp beans, perfect for a quick and satisfying dinner.', '24ks0fis.png', 15, 20, '1. In a bowl, marinate beef slices with soy sauce, sesame oil, and cornstarch for 15 minutes.\n2. Heat oil in a wok or skillet over high heat.\n3. Add marinated beef and stir-fry until browned. Remove beef from the wok and set aside.\n4. In the same wok, add sliced onions and cook until softened.\n5. Add green beans and stir-fry until tender-crisp.\n6. Return beef to the wok and stir to combine with the vegetables.\n7. Season with salt, pepper, and any additional soy sauce if needed.\n8. Serve hot and enjoy!', 'Dinner', 'Main Dish', NULL),
-(42, 'Air Fryer Fajitas', 'Quick and easy fajitas made in the air fryer, packed with flavor and perfect for a weeknight dinner.', 'ngsd8sgb.png', 15, 20, '1. Preheat the air fryer to 400°F (200°C).\n2. Slice bell peppers and onions into strips.\n3. In a bowl, toss sliced bell peppers and onions with olive oil, chili powder, cumin, garlic powder, salt, and black pepper.\n4. Place the seasoned vegetables in the air fryer basket.\n5. Cook in the air fryer for 10-12 minutes, shaking the basket halfway through, until vegetables are tender and slightly charred.\n6. While vegetables are cooking, slice chicken breasts into strips.\n7. In another bowl, toss chicken strips with olive oil, chili powder, cumin, garlic powder, salt, and black pepper.\n8. Once the vegetables are done, remove them from the air fryer and set aside.\n9. Place the seasoned chicken strips in the air fryer basket.\n10. Cook in the air fryer for 8-10 minutes, shaking the basket halfway through, until chicken is cooked through.\n11. Serve the cooked chicken and vegetables in warm tortillas.\n12. Garnish with toppings such as salsa, sour cream, guacamole, and cilantro.\n13. Enjoy your air fryer fajitas!', 'Dinner', 'Main Dish', NULL);
-
---
--- Chỉ mục cho các bảng đã đổ
---
-
 
 INSERT INTO `ingredients` (`id`, `category`, `measurement_description`, `name`, `calcium`, `calories`, `carbohydrate`, `cholesterol`, `fiber`, `iron`, `fat`, `monounsaturated_fat`, `polyunsaturated_fat`, `saturated_fat`, `potassium`, `protein`, `sodium`, `sugar`, `vitamin_a`, `vitamin_c`) VALUES
 (1, 'MSF', 'g', 'Chicken Breast', 12.5, 165, 0, 75, 0, 1.2, 3.6, 1, 0.5, 1.2, 250, 31, 75, 0, 0, 0),
@@ -503,7 +349,15 @@ INSERT INTO `ingredients` (`id`, `category`, `measurement_description`, `name`, 
 -- Cấu trúc bảng cho bảng `ingredient_recipe`
 --
 
+CREATE TABLE `ingredient_recipe` (
+  `ingredient_id` int NOT NULL,
+  `recipe_id` int NOT NULL,
+  `number_of_unit` int DEFAULT NULL,
+  `measurement_description` enum('tsp','cup','tbsp','g','lb','can','oz','unit') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Đang đổ dữ liệu cho bảng `ingredient_recipe`
 --
 
 INSERT INTO `ingredient_recipe` (`ingredient_id`, `recipe_id`, `number_of_unit`, `measurement_description`) VALUES
@@ -515,13 +369,6 @@ INSERT INTO `ingredient_recipe` (`ingredient_id`, `recipe_id`, `number_of_unit`,
 (6, 2, 1, 'unit'),
 (7, 2, 2, 'tbsp'),
 (8, 2, 1, 'unit'),
-(9, 3, 1, 'can'),
-(10, 3, 1, 'cup'),
-(11, 3, 2, 'unit'),
-(12, 3, 1, 'cup'),
-(13, 3, 1, 'unit'),
-(14, 3, 2, 'tbsp'),
-(15, 3, 2, 'tbsp'),
 (16, 4, 2, 'unit'),
 (17, 4, 2, 'tbsp'),
 (18, 4, 2, 'unit'),
@@ -800,10 +647,132 @@ INSERT INTO `ingredient_recipe` (`ingredient_id`, `recipe_id`, `number_of_unit`,
 
 -- --------------------------------------------------------
 
+--
+-- Cấu trúc bảng cho bảng `recipes`
+--
+
+CREATE TABLE `recipes` (
+  `id` int NOT NULL,
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
+  `image_url` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `preparation_time_min` int DEFAULT NULL,
+  `cooking_time_min` int DEFAULT NULL,
+  `directions` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
+  `meal_type_1` set('Breakfast','Lunch','Dinner') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `meal_type_2` enum('Appetizer','Main Dish','Side Dish','Dessert') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `meal_type_3` enum('Baked','Salad and Salad Dressing','Sauce and Condiment','Snack','Beverage','Soup','Other') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `recipes`
+--
+
+INSERT INTO `recipes` (`id`, `name`, `description`, `image_url`, `preparation_time_min`, `cooking_time_min`, `directions`, `meal_type_1`, `meal_type_2`, `meal_type_3`) VALUES
+(1, 'Chicken Stir Fry', 'Delicious chicken stir fry with mixed vegetables and soy sauce.', 'huyzh3gb.png', 15, 20, '1. Marinate chicken with soy sauce and cornstarch.\n2. Stir fry chicken until cooked.\n3. Add mixed vegetables and stir fry until tender.\n4. Serve hot with rice.', 'Dinner', 'Main Dish', 'Other'),
+(2, 'Cucumber and Shrimp Aguachile', 'Refreshing and spicy shrimp dish with cucumber and lime juice.', '07thgnst.jpg', 15, 0, '1. Clean and devein shrimp.\n2. Slice cucumbers thinly.\n3. Mix shrimp, cucumber slices, lime juice, and chili peppers in a bowl.\n4. Let marinate in the refrigerator for 15 minutes.\n5. Serve chilled.', 'Lunch', 'Main Dish', 'Other'),
+(4, 'Baba Ganoush', 'Roasted eggplant mash with tahini, lemon juice, olive oil, and garlic.', 'yzpvtzq8.png', 30, 15, '1. Roast eggplant in the oven until tender and blackened.\n2. Scoop out the flesh and mash it with tahini, lemon juice, olive oil, and garlic.\n3. Season with salt and pepper to taste.\n4. Serve with pita bread or vegetables.', 'Breakfast', 'Side Dish', 'Other'),
+(5, 'Crispy Cajun Pickle Chips', 'Delicious crispy Cajun-flavored pickle chips, perfect as a snack or side dish.', '09aa3u2j.jpg', 10, 20, '1. Preheat the oven to 400°F (200°C).\n2. Slice the pickles into thin chips.\n3. In a bowl, mix flour, Cajun seasoning, and breadcrumbs.\n4. Dip pickle chips in beaten egg, then coat with breadcrumb mixture.\n5. Place coated pickle chips on a baking sheet.\n6. Bake in the preheated oven until golden brown and crispy, about 15-20 minutes.\n7. Serve hot and enjoy!', NULL, NULL, 'Snack'),
+(6, 'Black Bean and Corn Salad', 'A refreshing salad featuring black beans and sweet corn, perfect for a healthy side dish or light meal.', '7volhb7v.jpg', 15, 0, '1. In a large bowl, combine black beans, corn, diced tomatoes, diced red onion, chopped cilantro, and avocado.\n2. In a small bowl, whisk together olive oil, lime juice, minced garlic, cumin, salt, and pepper to make the dressing.\n3. Pour the dressing over the salad ingredients and toss gently to coat.\n4. Chill the salad in the refrigerator for at least 30 minutes before serving.\n5. Serve cold and enjoy!', NULL, 'Side Dish', 'Salad and Salad Dressing'),
+(7, 'Salmon Patties', 'Delicious and flavorful salmon patties, perfect for a light meal or appetizer.', '4cm7v3yn.png', 15, 15, '1. Drain and flake the canned salmon.\n2. In a mixing bowl, combine flaked salmon, beaten eggs, breadcrumbs, diced onion, chopped parsley, lemon juice, Dijon mustard, salt, and pepper.\n3. Mix well until thoroughly combined.\n4. Form the mixture into patties of desired size.\n5. Heat oil in a skillet over medium heat.\n6. Fry the salmon patties until golden brown and cooked through, about 3-4 minutes per side.\n7. Remove from the skillet and drain on paper towels.\n8. Serve hot with your favorite dipping sauce or side dishes.', NULL, 'Appetizer', NULL),
+(9, 'Egg Salad', 'A simple and tasty egg salad, perfect for sandwiches or as a side dish.', 'ojyw9t2p.jpg', 10, 0, '1. Boil the eggs until hard-cooked, then peel and chop them.\n2. In a mixing bowl, combine the chopped eggs, mayonnaise, mustard, diced celery, chopped chives, salt, and pepper.\n3. Mix well until all ingredients are evenly distributed.\n4. Refrigerate the egg salad for at least 30 minutes before serving to allow the flavors to meld.\n5. Serve as a sandwich filling, on crackers, or as a side dish. Enjoy!', 'Lunch', NULL, 'Salad and Salad Dressing'),
+(11, 'Triangles with Potato and Beef', 'Delicious triangles filled with a savory mixture of potatoes and beef, perfect as a snack or appetizer.', '3z66ao3w.jpg', 30, 40, '1. Boil the potatoes until tender, then mash them.\n2. In a skillet, cook the ground beef until browned. Drain excess fat.\n3. Add onion, garlic, and spices to the skillet with the beef. Cook until onion is softened.\n4. Combine the mashed potatoes with the cooked beef mixture.\n5. Lay out the phyllo pastry sheets and cut them into triangles.\n6. Place a spoonful of the potato and beef mixture onto each triangle.\n7. Fold the pastry over the filling to form a triangle shape.\n8. Brush the triangles with melted butter.\n9. Bake in a preheated oven at 375°F (190°C) until golden brown, about 20-25 minutes.\n10. Serve hot and enjoy!', NULL, 'Appetizer', NULL),
+(12, 'Cheese Sticks', 'Delicious crispy cheese sticks, perfect as an appetizer or snack.', 'd2gol6y5.jpg', 15, 20, '1. Preheat the oven to 375°F (190°C).\n2. Cut the cheese into sticks.\n3. In a bowl, whisk together breadcrumbs, grated Parmesan cheese, and Italian seasoning.\n4. Dip each cheese stick in beaten egg, then coat with breadcrumb mixture.\n5. Place coated cheese sticks on a baking sheet lined with parchment paper.\n6. Bake in the preheated oven until golden brown and crispy, about 15-20 minutes.\n7. Serve hot with marinara sauce for dipping, if desired.', NULL, 'Appetizer', NULL),
+(13, 'Jalapeno Bites', 'Spicy jalapeno bites stuffed with cheese, perfect as an appetizer or snack.', 'sc6daczv.jpg', 20, 15, '1. Preheat the oven to 375°F (190°C).\n2. Cut jalapenos in half lengthwise and remove seeds.\n3. Fill each jalapeno half with cream cheese.\n4. Wrap each jalapeno with a slice of bacon.\n5. Place jalapeno bites on a baking sheet lined with parchment paper.\n6. Bake in the preheated oven until bacon is crispy and jalapenos are tender, about 15 minutes.\n7. Serve hot and enjoy!', NULL, 'Appetizer', NULL),
+(14, 'Turkey Chili', 'Hearty and flavorful chili made with ground turkey, beans, and spices.', 'jthgyiwv.png', 15, 30, '1. Heat olive oil in a large pot over medium heat.\n2. Add diced onions and garlic, cook until softened.\n3. Add ground turkey, cook until browned.\n4. Stir in chili powder, cumin, and paprika.\n5. Add diced tomatoes, tomato sauce, and kidney beans.\n6. Season with salt and pepper to taste.\n7. Simmer for 20-25 minutes, stirring occasionally.\n8. Serve hot with your favorite toppings and enjoy!', NULL, 'Main Dish', 'Soup'),
+(15, 'Chicken Lettuce Cups', 'Delicious and light chicken lettuce cups filled with seasoned chicken, vegetables, and sauces.', 'tcoq4nha.png', 20, 15, '1. Heat olive oil in a pan over medium heat.\n2. Add minced chicken and cook until no longer pink.\n3. Stir in diced onions, carrots, and water chestnuts. Cook until vegetables are tender.\n4. Add soy sauce, hoisin sauce, and sesame oil. Stir to combine.\n5. Season with salt and pepper to taste.\n6. Spoon chicken mixture into lettuce leaves.\n7. Garnish with chopped green onions and serve.\n8. Enjoy!', NULL, 'Appetizer', NULL),
+(16, 'Couscous Cranberry Orange Salad', 'A refreshing and colorful salad made with couscous, cranberries, oranges, and a citrus dressing.', 'zwgwp0gk.png', 15, 10, '1. Cook couscous according to package instructions. Let it cool.\n2. In a large bowl, combine cooked couscous, dried cranberries, orange segments, and chopped parsley.\n3. In a small bowl, whisk together olive oil, orange juice, lemon juice, honey, salt, and pepper to make the dressing.\n4. Pour the dressing over the salad and toss gently to combine.\n5. Chill in the refrigerator for at least 30 minutes before serving.\n6. Serve chilled and enjoy!', NULL, 'Side Dish', 'Salad and Salad Dressing'),
+(18, 'Turkey Meatloaf', 'A healthier version of classic meatloaf made with lean ground turkey, breadcrumbs, and savory seasonings.', '4p4tb5jj.png', 15, 60, '1. Preheat the oven to 350°F (175°C). Grease a loaf pan.\n2. In a large bowl, mix together ground turkey, breadcrumbs, chopped onion, minced garlic, ketchup, Worcestershire sauce, egg, salt, and pepper until well combined.\n3. Transfer the mixture into the prepared loaf pan, and shape it into a loaf.\n4. Bake in the preheated oven for 45-50 minutes, or until the internal temperature reaches 165°F (75°C).\n5. Let the meatloaf rest for a few minutes before slicing.\n6. Serve slices of meatloaf with your favorite side dishes and enjoy!', 'Dinner', 'Main Dish', 'Baked'),
+(20, 'Chicken Salad', 'A refreshing salad made with cooked chicken, fresh vegetables, and a creamy dressing.', '3qbxni96.png', 15, NULL, '1. In a large bowl, combine cooked chicken, diced celery, diced red onion, chopped fresh parsley, and halved grapes.\n2. In a separate small bowl, mix together mayonnaise, Greek yogurt, lemon juice, Dijon mustard, salt, and pepper to make the dressing.\n3. Pour the dressing over the chicken mixture and toss until well coated.\n4. Serve the chicken salad chilled over a bed of lettuce or in sandwiches, wraps, or on crackers.', 'Lunch', 'Main Dish', 'Salad and Salad Dressing'),
+(21, 'Lentil Garbanzo Salad', 'A nutritious salad made with lentils, garbanzo beans, fresh vegetables, and a tangy vinaigrette dressing.', '406g4sbo.png', 20, NULL, '1. In a large bowl, combine cooked lentils, drained and rinsed garbanzo beans, diced cucumber, diced red bell pepper, chopped fresh cilantro, and sliced green onions.\n2. In a separate small bowl, whisk together olive oil, lemon juice, Dijon mustard, minced garlic, salt, and pepper to make the dressing.\n3. Pour the dressing over the lentil mixture and toss until well coated.\n4. Serve the salad chilled or at room temperature.', 'Lunch', 'Main Dish', 'Salad and Salad Dressing'),
+(22, 'Chickpea and Quinoa Salad', 'A nutritious and delicious salad made with chickpeas, quinoa, and fresh vegetables.', '1l44ovlv.png', 20, 15, '1. Cook quinoa according to package instructions and let it cool.\n2. In a large bowl, combine cooked quinoa, chickpeas, diced cucumber, cherry tomatoes, diced red onion, chopped parsley, and crumbled feta cheese.\n3. In a small bowl, whisk together olive oil, lemon juice, garlic, salt, and pepper to make the dressing.\n4. Pour the dressing over the salad and toss until well combined.\n5. Serve chilled or at room temperature and enjoy!', 'Lunch', 'Side Dish', 'Salad and Salad Dressing'),
+(23, 'Cajun Shrimp Pasta', 'Spicy and flavorful pasta dish with Cajun-seasoned shrimp and vegetables.', '2mn2lz7t.png', 20, 20, '1. Cook pasta according to package instructions.\n2. In a large skillet, heat olive oil over medium heat.\n3. Add shrimp and Cajun seasoning, cook until shrimp are pink and cooked through.\n4. Remove shrimp from skillet and set aside.\n5. In the same skillet, add bell peppers, onions, and garlic, cook until softened.\n6. Stir in diced tomatoes, tomato sauce, and cooked pasta.\n7. Add cooked shrimp back to the skillet and toss everything together.\n8. Serve hot and garnish with chopped parsley if desired.', NULL, 'Main Dish', NULL),
+(24, 'Ziti with Chicken and Asparagus', 'Delicious pasta dish with tender chicken, fresh asparagus, and ziti pasta.', '732bxaw4.png', 15, 25, '1. Cook pasta according to package instructions.\n2. In a large skillet, heat olive oil over medium heat.\n3. Add diced chicken breast, cook until browned and cooked through.\n4. Remove chicken from skillet and set aside.\n5. In the same skillet, add asparagus spears and cook until tender.\n6. Stir in cooked pasta, chicken, and Alfredo sauce.\n7. Season with salt and pepper to taste.\n8. Serve hot and garnish with grated Parmesan cheese if desired.', NULL, 'Main Dish', NULL),
+(27, 'Marinara Mac & Cheese', 'Creamy macaroni and cheese with marinara sauce.', 'xwhgnizp.png', 15, 30, '1. Cook macaroni according to package instructions. Drain and set aside.\n2. In a saucepan, melt butter over medium heat. Stir in flour until smooth. Gradually add milk, stirring constantly until thickened.\n3. Add shredded cheese and stir until melted and smooth.\n4. Mix in cooked macaroni until well coated.\n5. Serve hot topped with marinara sauce and enjoy!', NULL, 'Main Dish', 'Baked'),
+(28, 'Vegetable Salad with White Beans', 'A refreshing salad made with fresh vegetables and white beans, tossed in a tangy vinaigrette dressing.', 'yhzfq39e.png', 10, 0, '1. In a large mixing bowl, combine white beans, cherry tomatoes, sliced cucumber, diced red bell pepper, and sliced red onion.\n2. In a small bowl, whisk together olive oil, red wine vinegar, Dijon mustard, honey, and chopped fresh parsley to make the dressing.\n3. Pour the dressing over the salad ingredients and toss gently to coat.\n4. Season with salt and pepper to taste.\n5. Serve chilled.\n6. Enjoy!', 'Lunch', 'Side Dish', NULL),
+(29, 'Vegetarian Stuffed Peppers', 'Delicious vegetarian dish with bell peppers stuffed with a flavorful quinoa and vegetable mixture.', '7toae0nn.png', 10, 20, '1. Preheat the oven to 375°F (190°C).\n2. Cut the tops off the bell peppers and remove the seeds and membranes.\n3. In a large bowl, mix together cooked quinoa, black beans, corn kernels, and chopped cilantro.\n4. Stuff each bell pepper with the quinoa mixture.\n5. Place the stuffed peppers in a baking dish.\n6. Cover the baking dish with aluminum foil and bake for 25-30 minutes, or until the peppers are tender.\n7. Remove the foil and bake for an additional 5 minutes to brown the tops.\n8. Serve hot and enjoy!', 'Dinner', 'Main Dish', NULL),
+(30, 'Vegetarian Tacos', 'Delicious vegetarian tacos filled with black beans, corn, and bell peppers.', 'ij0zi3nq.png', 15, 20, '1. Heat olive oil in a skillet over medium heat.\n2. Add diced onions, bell peppers, and minced garlic. Cook until softened.\n3. Stir in black beans, corn, diced tomatoes, and taco seasoning. Cook for 5-7 minutes.\n4. Warm tortillas in a separate skillet.\n5. Spoon the bean mixture onto each tortilla.\n6. Top with shredded lettuce.\n7. Serve hot and enjoy!', 'Dinner', 'Main Dish', NULL),
+(31, 'Vegetarian Waldorf Salad', 'A refreshing and crunchy salad with apples, celery, walnuts, and a creamy dressing.', 'ol58rjg6.png', 15, 0, '1. In a large bowl, combine diced apples, sliced celery, chopped walnuts, and raisins.\n2. In a separate bowl, mix together Greek yogurt, honey, and lemon juice to make the dressing.\n3. Pour the dressing over the salad ingredients and toss until evenly coated.\n4. Serve chilled and enjoy!', 'Lunch', 'Side Dish', 'Salad and Salad Dressing'),
+(32, 'Lentil Bolognese', 'A hearty and flavorful vegetarian version of the classic Bolognese sauce made with lentils and tomatoes.', '6mvjq4pk.png', 15, 30, '1. Heat olive oil in a large skillet over medium heat.\n2. Add diced onions, carrots, and celery. Cook until softened.\n3. Stir in minced garlic and cook for another minute.\n4. Add dried lentils, crushed tomatoes, vegetable broth, and Italian seasoning. Bring to a simmer.\n5. Cover and cook for about 20 minutes, or until lentils are tender.\n6. Serve over cooked pasta of your choice.\n7. Garnish with fresh parsley and grated Parmesan cheese if desired.\n8. Enjoy!', 'Dinner', 'Main Dish', NULL),
+(33, 'Picadillo', 'A traditional Latin American dish made with ground beef, tomatoes, and spices, often served with rice.', '2x1l3hjm.png', 15, 25, '1. Heat olive oil in a skillet over medium heat.\n2. Add diced onions, bell peppers, and minced garlic. Cook until softened.\n3. Add ground beef and cook until browned.\n4. Stir in diced tomatoes, tomato sauce, olives, raisins, and spices.\n5. Simmer for about 15 minutes, or until the flavors meld together.\n6. Serve hot with rice or as desired.\n7. Enjoy!', 'Dinner', 'Main Dish', NULL),
+(34, 'Mediterranean Lentil Salad', 'A refreshing and nutritious salad featuring lentils, tomatoes, cucumbers, and feta cheese, dressed with a tangy vinaigrette.', 'rjxi9tip.png', 20, 15, '1. Cook lentils according to package instructions. Drain and let cool.\n2. In a large mixing bowl, combine cooked lentils, diced tomatoes, diced cucumbers, chopped red onion, crumbled feta cheese, and chopped parsley.\n3. In a small bowl, whisk together olive oil, lemon juice, red wine vinegar, minced garlic, dried oregano, salt, and black pepper to make the dressing.\n4. Pour the dressing over the salad and toss gently to coat.\n5. Serve immediately or refrigerate for later.\n6. Enjoy!', NULL, NULL, 'Salad and Salad Dressing'),
+(35, 'Spring Tortellini Salad', 'A vibrant salad featuring cheese tortellini, cherry tomatoes, baby spinach, and a lemon vinaigrette.', 'sltvrsun.png', 15, 10, '1. Cook tortellini according to package instructions. Drain and let cool.\n2. In a large mixing bowl, combine cooked tortellini, halved cherry tomatoes, baby spinach leaves, and sliced red onions.\n3. In a small bowl, whisk together olive oil, lemon juice, minced garlic, salt, and black pepper to make the dressing.\n4. Pour the dressing over the salad and toss gently to coat.\n5. Serve immediately or refrigerate for later.\n6. Enjoy!', NULL, NULL, 'Salad and Salad Dressing'),
+(36, 'Turkey Cutlets with Zucchini', 'Juicy turkey cutlets served with sautéed zucchini, perfect for a quick and healthy dinner.', 'b32b2i8s.png', 15, 15, '1. Season turkey cutlets with salt, pepper, and Italian seasoning.\n2. Heat olive oil in a skillet over medium-high heat.\n3. Cook turkey cutlets for 3-4 minutes per side, or until cooked through.\n4. Remove turkey cutlets from skillet and set aside.\n5. In the same skillet, add sliced zucchini and cook until tender.\n6. Serve turkey cutlets with sautéed zucchini.\n7. Enjoy!', 'Dinner', 'Main Dish', NULL),
+(37, 'Pasta Salad', 'A refreshing pasta salad packed with veggies, perfect for picnics and gatherings.', '3697vtqo.png', 20, 10, '1. Cook pasta according to package instructions.\n2. In a large bowl, combine cooked pasta, cherry tomatoes, cucumber, bell pepper, olives, and feta cheese.\n3. In a small bowl, whisk together olive oil, lemon juice, garlic, salt, and pepper to make the dressing.\n4. Pour dressing over pasta salad and toss to coat.\n5. Refrigerate for at least 30 minutes before serving.\n6. Enjoy!', NULL, 'Side Dish', 'Salad and Salad Dressing'),
+(38, 'Carrot Tortilla with Tuna Spread', 'A flavorful tortilla wrap filled with tuna spread and shredded carrots.', '8ni9iwg3.png', 10, 0, '1. In a bowl, mix together canned tuna, mayonnaise, chopped celery, and diced onions to make the tuna spread.\n2. Place a tortilla on a flat surface and spread the tuna mixture evenly on top.\n3. Sprinkle shredded carrots over the tuna spread.\n4. Roll up the tortilla tightly.\n5. Slice the rolled tortilla into halves or quarters.\n6. Serve and enjoy!', 'Lunch', 'Appetizer', NULL),
+(39, 'Bang Bang Shrimp Salad', 'A delicious salad featuring crispy shrimp tossed in a spicy mayo-based dressing.', 'fytwb94c.png', 20, 10, '1. In a bowl, mix together mayonnaise, sweet chili sauce, and Sriracha to make the dressing.\n2. Heat oil in a skillet over medium heat. Season shrimp with salt and pepper, then cook until golden brown and crispy, about 2-3 minutes per side.\n3. In a large bowl, toss mixed greens, sliced cucumbers, shredded carrots, and chopped green onions.\n4. Add cooked shrimp to the salad and drizzle with the prepared dressing.\n5. Toss everything together until evenly coated.\n6. Serve immediately and enjoy!', 'Lunch', 'Main Dish', 'Salad and Salad Dressing'),
+(40, 'Penne with Turkey', 'Delicious penne pasta served with seasoned turkey in a savory sauce.', 'o61vl6ja.png', 15, 20, '1. Cook penne pasta according to package instructions until al dente. Drain and set aside.\n2. In a skillet, heat olive oil over medium heat. Add minced garlic and cook until fragrant.\n3. Add ground turkey to the skillet and cook until browned.\n4. Season turkey with salt, pepper, and Italian seasoning.\n5. Pour marinara sauce over the turkey and let simmer for 5 minutes.\n6. Add cooked penne to the skillet and toss until pasta is evenly coated with the sauce.\n7. Serve hot and enjoy!', 'Dinner', 'Main Dish', NULL),
+(41, 'Beef and Beans Stir Fry', 'A flavorful stir-fry dish made with tender beef and crisp beans, perfect for a quick and satisfying dinner.', '24ks0fis.png', 15, 20, '1. In a bowl, marinate beef slices with soy sauce, sesame oil, and cornstarch for 15 minutes.\n2. Heat oil in a wok or skillet over high heat.\n3. Add marinated beef and stir-fry until browned. Remove beef from the wok and set aside.\n4. In the same wok, add sliced onions and cook until softened.\n5. Add green beans and stir-fry until tender-crisp.\n6. Return beef to the wok and stir to combine with the vegetables.\n7. Season with salt, pepper, and any additional soy sauce if needed.\n8. Serve hot and enjoy!', 'Dinner', 'Main Dish', NULL),
+(42, 'Air Fryer Fajitas', 'Quick and easy fajitas made in the air fryer, packed with flavor and perfect for a weeknight dinner.', 'ngsd8sgb.png', 15, 20, '1. Preheat the air fryer to 400°F (200°C).\n2. Slice bell peppers and onions into strips.\n3. In a bowl, toss sliced bell peppers and onions with olive oil, chili powder, cumin, garlic powder, salt, and black pepper.\n4. Place the seasoned vegetables in the air fryer basket.\n5. Cook in the air fryer for 10-12 minutes, shaking the basket halfway through, until vegetables are tender and slightly charred.\n6. While vegetables are cooking, slice chicken breasts into strips.\n7. In another bowl, toss chicken strips with olive oil, chili powder, cumin, garlic powder, salt, and black pepper.\n8. Once the vegetables are done, remove them from the air fryer and set aside.\n9. Place the seasoned chicken strips in the air fryer basket.\n10. Cook in the air fryer for 8-10 minutes, shaking the basket halfway through, until chicken is cooked through.\n11. Serve the cooked chicken and vegetables in warm tortillas.\n12. Garnish with toppings such as salsa, sour cream, guacamole, and cilantro.\n13. Enjoy your air fryer fajitas!', 'Dinner', 'Main Dish', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `users`
+--
 
 
+CREATE TABLE `users` (
+  `id` int NOT NULL PRIMARY KEY,
+  `username` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `first_Name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `last_Name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `date_of_birth` date DEFAULT NULL,
+  `email` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `gender` enum('Male','Female','Other') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `level` enum('1','2','3','4') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+COMMIT;
+--
+-- Chỉ mục cho các bảng đã đổ
+--
 
+--
+-- Chỉ mục cho bảng `ingredients`
+--
+ALTER TABLE `ingredients`
+  ADD PRIMARY KEY (`id`);
 
+--
+-- Chỉ mục cho bảng `ingredient_recipe`
+--
+ALTER TABLE `ingredient_recipe`
+  ADD KEY `ingredient_id` (`ingredient_id`),
+  ADD KEY `recipe_id` (`recipe_id`);
+
+--
+-- Chỉ mục cho bảng `recipes`
+--
+ALTER TABLE `recipes`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT cho các bảng đã đổ
+--
+
+--
+-- AUTO_INCREMENT cho bảng `ingredients`
+--
+ALTER TABLE `ingredients`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=325;
+
+--
+-- AUTO_INCREMENT cho bảng `recipes`
+--
+ALTER TABLE `recipes`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+
+--
+-- Các ràng buộc cho các bảng đã đổ
+--
+
+--
+-- Các ràng buộc cho bảng `ingredient_recipe`
+--
+ALTER TABLE `ingredient_recipe`
+  ADD CONSTRAINT `ingredient_recipe_ibfk_1` FOREIGN KEY (`ingredient_id`) REFERENCES `ingredients` (`id`),
+  ADD CONSTRAINT `ingredient_recipe_ibfk_2` FOREIGN KEY (`recipe_id`) REFERENCES `recipes` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

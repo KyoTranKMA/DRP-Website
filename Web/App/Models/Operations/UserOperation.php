@@ -143,5 +143,27 @@ class UserOperation extends DatabaseRelatedOperation {
       handleError($throwable->getCode(), $throwable->getMessage(), $throwable->getFile(), $throwable->getLine());
     }
   }
+
+  public static function getUserByUsername($username){
+    $models = new static;
+    $conn = $models->DB_CONNECTION;
+    $sql = "SELECT * FROM users WHERE username=:username";
+    $stmt = $conn->prepare($sql);
+    $stmt->bindValue(':username', $username, \PDO::PARAM_STR);
+    $stmt->setFetchMode(\PDO::FETCH_CLASS, self::CLASSMODEL);
+    $stmt->execute();
+    return $stmt->fetch();  
+  }
+
+  public static function getUserByEmail($email){
+    $models = new static;
+    $conn = $models->DB_CONNECTION;
+    $sql = "SELECT * FROM users WHERE email=:email";
+    $stmt = $conn->prepare($sql);
+    $stmt->bindValue(':email', $email, \PDO::PARAM_STR);
+    $stmt->setFetchMode(\PDO::FETCH_CLASS, self::CLASSMODEL);
+    $stmt->execute();
+    return $stmt->fetch();  
+  }
 }
 

@@ -68,106 +68,13 @@ class UserModel extends BaseModel {
     public function setDateOfBirth($date_of_birth) {
         $this->date_of_birth = $date_of_birth;
     }
-
     public function setGender($gender) {
         $this->gender = $gender;
     } 
-    
-    // Main function
-    public static function authenticate($data) {
-        $models = new static;
-        $sql = "SELECT * FROM users where username=:username";
-        $stmt = $models->getConnect()->prepare($sql);
-        $stmt->bindValue(':username', $data['username'], \PDO::PARAM_STR);
-        $stmt->setFetchMode(\PDO::FETCH_CLASS, 'App\Models\UserModel');
-        $stmt->execute();
-        $result = $stmt->fetch();
-        if ($result) {
-            $passwordInDB = $result->password;
-            // Check password input with password Hash
-            if (password_verify($data['password'], $passwordInDB)) {
-                // Return user to get id
-                $data['id'] = $result->id;
-                $_SESSION['level'] = $result->level;
-                return $result;
-            }
-        }
-        // Return false if the user is not found 
-        return false;
-    }
-
-    public static function addUser($data) {
-        $models = new static;
-        $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
-
-        try{
-            $sql = "INSERT INTO users (username, password, first_name, last_name, date_of_birth, gender, email, level) values (:username, :password, :first_name, :last_name, :date_of_birth, :gender, :email, :level)";
-            // Prepare the statement
-            $stmt = $models->getConnect()->prepare($sql);
-            // Bind parameters
-            $stmt->bindValue(':username', $data['username'] ?? $models['username'], \PDO::PARAM_STR);
-            $stmt->bindValue(':password', $data['password'] ?? $data['password'], \PDO::PARAM_STR);
-            $stmt->bindValue(':first_name', $data['first_name'] ?? $data['first_name'], \PDO::PARAM_STR);
-            $stmt->bindValue(':last_name', $data['last_name'] ?? $data['last_name'], \PDO::PARAM_STR);
-            $stmt->bindValue(':date_of_birth', $data['date_of_birth'] ?? $data['date_of_birth'], \PDO::PARAM_STR);
-            $stmt->bindValue(':email', $data['email'] ?? $data['email'], \PDO::PARAM_STR);
-            $stmt->bindValue(':gender', $data['gender'] ?? $data['gender'], \PDO::PARAM_STR);
-            $stmt->bindValue(':level', 3, \PDO::PARAM_INT);
-            return $stmt->execute();
-        } catch(PDOException $e){
-            echo $e->getMessage();
-            return false;
-        }
-    }
-
-    public static function update($data){
-        $models = UserModel::getUserById($data['id']);
-        if ($data['password'] != ''){
-            $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
-        }
-        try{
-            $sql = "UPDATE users 
-            SET username=:username, password=:password, first_name=:first_name, last_name=:last_name, date_of_birth=:date_of_birth, gender=:gender, email=:email 
-            WHERE id=:id";
-            $stmt = $models->getConnect()->prepare($sql);
-            // Bind parameters
-            $stmt->bindValue(':id', $data['id'], \PDO::PARAM_INT);
-            $stmt->bindValue(':username', $data['username'] != '' ? $data['username'] : $models->getUsername(), \PDO::PARAM_STR);
-            $stmt->bindValue(':password', $data['password'] != '' ? $data['password'] : $models->getPassword(), \PDO::PARAM_STR);
-            $stmt->bindValue(':first_name', $data['first_name'], \PDO::PARAM_STR);
-            $stmt->bindValue(':last_name', $data['last_name'], \PDO::PARAM_STR);
-            $stmt->bindValue(':date_of_birth', $data['date_of_birth'], \PDO::PARAM_STR);
-            $stmt->bindValue(':email', $data['email'] != '' ? $data['email'] : $models->getEmail(), \PDO::PARAM_STR);
-            $stmt->bindValue(':gender', $data['gender'], \PDO::PARAM_STR);
-            return $stmt->execute();
-        } catch(PDOException $e){
-            echo $e->getMessage();
-            return false;
-        }
-    }
-
-    public static function getAllUser(){
-        $models = new static;
-        $sql = "SELECT * FROM users";
-        $stmt = $models->getConnect()->prepare($sql);
-        $stmt->setFetchMode(\PDO::FETCH_CLASS, 'App\Models\UserModel');
-        $stmt->execute();
-        return $stmt->fetchAll();
-    }
-
-    public static function getUserById($id){
-        $models = new static;
-        $sql = "SELECT * FROM users WHERE id=:id";
-        $stmt = $models->getConnect()->prepare($sql);
-        $stmt->bindValue(':id', $id, \PDO::PARAM_INT);
-        $stmt->setFetchMode(\PDO::FETCH_CLASS, 'App\Models\UserModel');
-        $stmt->execute();
-        return $stmt->fetch();
-    }
-
     static public function createObjectByRawArray($data){
         $object = new self();
         $object->setId($data['id']);
+        $object->setActive($data['isActive']) ?? 1;
         $object->setUsername($data['username']);
         $object->setPassword($data['password']);
         $object->setFirstName($data['first_name']);
