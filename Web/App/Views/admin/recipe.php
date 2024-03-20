@@ -11,10 +11,10 @@
     <div class="container py-3" style="width: 100vw; margin: 0 auto; padding: 20px; border: 1px solid #e1ebfa; border-radius: 10px; box-shadow: 0 0 10px 0 #e1ebfa; margin-top: 50px; margin-bottom: 50px;">
         <div class="container py-2">
             <div class="py-3 text-center">
-                <h1 class="display-1">Manager recipe</h1>
+                <h4 class="display-1">Manager recipe</h4>
             </div>
         </div>
-        <div class="row g-3">    
+        <div class="row g-3 m-4" style="border-radius: 4px">    
             <h4 class="d-flex justify-content-between align-items-center mb-3">
               <span>List recipe</span>
             </h4>

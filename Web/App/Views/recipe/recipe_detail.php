@@ -2,7 +2,7 @@
 
 <div class="recipe_detail">
     <div class="container mt-3" style="width:50%">
-        <div class="row">
+        <div class="row p-3 mb-3" style="background-color: white; border-radius: 4px;>
             <div class="d-flex flex-wrap flex-column justify-content-center" style="width: 100%;">
                 <h2 class="">You Need To Make My Mom’s 15-Minutes Creamed Tacos for Dinner</h2>
                 <p class="">It’s a family favorite, passed down from Mrs. Hays in the 1960s.</p>
@@ -14,7 +14,7 @@
                     </div>
                 </div>
 
-                <img src="/Public/uploads/recipes/<?echo $data->getImgUrl() ?? "image_not_found.png" ?>" alt="<?php echo $data->getName() ?>" style="width: 100%; aspect-ratio: 3/4;">
+                <img src="/Public/uploads/recipes/<?echo $data->getImgUrl() ?? "image_not_found.png" ?>" alt="<?php echo $data->getName() ?>" style="width: 100%; aspect-ratio: 4/3; object-fit: cover">
                 <div class="table-info">
                     <div class="title-table">RECIPE</div>
                     <div class="recipe-name"> <?php echo $data->getName() ?> </div>
@@ -31,6 +31,11 @@
                             <div class="time-title">Total time</div>
                             <div class="time-detail">  <?php echo $data->getPreparationTime() + $data->getCookingTime() ?>   mins</div>
                         </div>
+                        <div class="ingredients">
+                            <div class="title">Ingredients</div>
+                            
+                        </div>
+                        
                     </div>
                 </div>
 

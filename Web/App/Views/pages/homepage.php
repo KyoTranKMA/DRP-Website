@@ -13,7 +13,7 @@
                         </a>
                         <div class="card-body">
                             <h4 class="card-title"><? echo $mainRecipe->getName() ?></h4>
-                            <p class="card-text" style="height:9rem; overflow: hidden"><? echo $mainRecipe->getDescription() ?></p>
+                            <p class="card-text" style="height:5rem; overflow: hidden"><? echo $mainRecipe->getDescription() ?></p>
                             <a href="/recipe" class="btn btn-primary">Get recipe</a>
                         </div>
                     </div>
@@ -21,7 +21,7 @@
                 <?php array_shift($data); ?>
                 <div class="nav-content flex-fill ms-3">
                     <? foreach ($data as $recipe) : ?>
-                        <a href="#" class="card mb-3">
+                        <a href="<?php echo '/recipe/detail?id=' . $recipe->getId() ?>"  class="card mb-3">
                             <div class="row g-0">
                                 <div class="col-md-4">
                                     <img src="<?php echo ($recipe->getImgUrl()) ? '/Public/uploads/recipes/' . $recipe->getImgUrl() : '/Public/images/image_not_found.png' ?>" class="card-img-bottom" alt="Picture of meal" style="object-fit: cover; height:12rem">

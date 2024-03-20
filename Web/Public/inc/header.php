@@ -142,9 +142,18 @@ use App\Controllers\UserController;
               <div class="btn-group dropstart">
                 <img src="/Public/images/account.png" id="user" class="rounded-circle me-3 account hide"  data-bs-toggle="dropdown" aria-expanded="false" height="30" alt="account" style="cursor: pointer;" />
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Add recipe <i class="fa-regular fa-plus"></i></a></li>
-                  <li><a class="dropdown-item" href="#">Add ingredient <i class="fa-regular fa-plus"></i></a></li>
-                  <li><a href="/logout" class="ms-3 mt-3 btn btn-primary btn-xs" tabindex="-1" role="button" aria-disabled="true">Logout</a></li>
+                <?php 
+                    if (UserController::isContributer()) :
+                  ?>
+                    <li><a class="dropdown-item" href="/recipe/add">Add recipe <i class="fa-regular fa-plus"></i></a></li>
+                    <li><a class="dropdown-item" href="/manager/recipe">Manage recipe<i class="fa-regular fa-plus"></i></a></li>
+                    <li><a class="dropdown-item" href="/ingredient/add">Add ingredient<i class="fa-regular fa-plus"></i></a></li>
+                    <li><a class="dropdown-item" href="/manager/ingredient">Manage ingredient<i class="fa-regular fa-plus"></i></a></li>
+                    <li><a href="/logout" class="ms-3 mt-3 btn btn-primary btn-xs" tabindex="-1" role="button" aria-disabled="true">Logout</a></li>
+                    <?php else : // Nếu chưa đăng nhập, hiển thị nút login
+                    ?>
+                      <li><a href="/logout" class="ms-3 mt-3 btn btn-primary btn-xs" tabindex="-1" role="button" aria-disabled="true">Logout</a></li>
+                    <?php endif; ?>
                 </ul>
               </div>
             </div>
