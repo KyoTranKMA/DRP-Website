@@ -24,17 +24,17 @@
                 <form action="/manager/recipe" method="GET" class="row g-3">
                     <div class="col-auto">
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="s_id" name="s_id" placeholder="ID...">
+                            <input type="text" class="form-control" id="id" name="id" placeholder="ID...">
                         </div>
                     </div>
                     <div class="col-auto">
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="s_name" name="s_name" placeholder="Name...">
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Name...">
                         </div>
                     </div>
                     <div class="col-auto">
                         <div class="col-sm-10">
-                            <select class="form-select" id="s_meal_type_1" name="s_meal_type_1">
+                            <select class="form-select" id="meal_type_1" name="meal_type_1">
                                 <option value="" selected disabled hidden>Select meal recipe for</option>
                                 <option value="Breakfast">Breakfast</option>
                                 <option value="Lunch">Lunch</option>
@@ -44,7 +44,7 @@
                     </div>
                     <div class="col-auto">
                         <div class="col-sm-10">
-                            <select class="form-select" id="s_meal_type_2" name="s_meal_type_2" aria-label="Select meal type">
+                            <select class="form-select" id="meal_type_2" name="meal_type_2" aria-label="Select meal type">
                                 <option value="" selected disabled hidden>Select meal type</option>
                                 <option value="Appetizer">Appetizer</option>
                                 <option value="Main Dish">Main Dish</option>
@@ -55,7 +55,7 @@
                     </div>
                     <div class="col-auto">
                         <div class="col-sm-10">
-                            <select class="form-select" id="s_meal_type_3" name="s_meal_type_3" aria-label="Select meal type">
+                            <select class="form-select" id="meal_type_3" name="meal_type_3" aria-label="Select meal type">
                                 <option value="" selected disabled hidden>Select meal category</option>
                                 <option value="Baked">Baked</option>
                                 <option value="Beverage">Beverage</option>

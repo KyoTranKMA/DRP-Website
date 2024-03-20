@@ -23,22 +23,22 @@
                 <form action="/manager/ingredient" method="GET" class="row g-3">
                     <div class="col-auto">
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="s_id" name="s_id" placeholder="ID...">
+                            <input type="text" class="form-control" id="id" name="id" placeholder="ID...">
                         </div>
                     </div>
                     <div class="col-auto">
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="s_category" name="s_category" placeholder="Category...">
+                            <input type="text" class="form-control" id="category" name="category" placeholder="Category...">
                         </div>
                     </div>
                     <div class="col-auto">
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="s_measurement_desciption" name="s_measurement_desciption" placeholder="Measurement Desciption...">
+                            <input type="text" class="form-control" id="measurement_desciption" name="measurement_desciption" placeholder="Measurement Desciption...">
                         </div>
                     </div>
                     <div class="col-auto">
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="s_name" name="s_name" placeholder="Name...">
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Name...">
                         </div>
                     </div>
                     <div class="col-auto">
