@@ -178,7 +178,7 @@ class AdminController extends BaseController{
         } else if ($_GET['s_category'] != ''){
             $ingredients = IngredientReadOperation::getAllObjectsByFieldAndValue('s_category', $_GET['s_category']);
         } else if ($_GET['s_measurement_desciption'] != ''){
-            $ingredients = IngredientReadOperation::getAllObjectsByFieldAndValue('s_measurement_desciption', $_GET['s_measurement_desciption']);
+            $ingredients = IngredientReadOperation::getAllObjectsByFieldAndValue('measurement_description', $_GET['s_measurement_desciption']);
         } else if ($_GET['s_name'] != ''){
             $ingredients = IngredientReadOperation::getAllObjectsByFieldAndValue('s_name', $_GET['s_name']);
         }
